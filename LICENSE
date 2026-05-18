@@ -1,11 +1,18 @@
-Copyright (c) 2026 Lukasz Lysakowski. All rights reserved.
+Copyright (c) 2026 Lukasz Lysakowski.
 
-This project and all associated source code, artwork, data, and content are
-the exclusive property of the copyright holder. No part of this project may
-be reproduced, distributed, transmitted, modified, adapted, or used in any
-form or by any means — including but not limited to copying, forking,
-sublicensing, or creating derivative works — without the prior written
-permission of the copyright holder.
+NOTICE ON ARTWORK AND CONTENT
+The artworks and content displayed in this project are generated in response
+to third-party material (including tweets and images by @Noahbolanowski and
+other referenced artists and authors). The copyright holder makes no claim
+of ownership over that underlying third-party artwork, content, or imagery.
+All such rights remain with their respective owners.
+
+NOTICE ON THIS PROJECT
+The source code, system design, genome architecture, selection logic, and
+overall structure of this project are proprietary. This project may not be
+copied, forked, reproduced, modified, adapted, sublicensed, or used as the
+basis for a derivative work — in whole or in part — without the prior
+written permission of the copyright holder.
 
 Viewing this project via its public URL is permitted. All other rights
 are reserved.
