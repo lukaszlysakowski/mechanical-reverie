@@ -2229,7 +2229,8 @@
     },
     "descendants": 0,
     "lastInfluenced": 0,
-    "parentIndex": null
+    "parentIndex": null,
+    "extinct": true
   },
   {
     "date": "2026-05-14",
@@ -2691,7 +2692,7 @@
     "score": 8,
     "title": "Spaghetti & Supernovas",
     "day": 50,
-    "fitness": 6.6420,
+    "fitness": 6.642,
     "genome": {
       "gridCols": 8,
       "gridRows": 6,
@@ -2700,9 +2701,9 @@
       "globalRotation": 0,
       "paletteIndex": 2,
       "bgDarkness": 0.06,
-      "gearDensity": 0.50,
+      "gearDensity": 0.5,
       "gearComplexity": 12,
-      "chainFrequency": 0.20,
+      "chainFrequency": 0.2,
       "pixelDensity": 0.85,
       "pixelSize": 3,
       "flowScale": 0.007,
@@ -2742,10 +2743,11 @@
       "pale blue ground from wireframe-video sky strips (ornate frame)"
     ],
     "colorPalette": "Institutional grey-blue ground (palette 2), cool teal/cyan mosaic populations from McDonald's portrait, grey mechanical gear stars from hardware PCB geometry, white wireframe accent from ornate frame video",
-    "tweetContext": "Holy Fire 2008 continuation — three artworks: exposed PC hardware in acrylic case as sculpture (red pixel screen crown), ornate baroque/rococo embossed frame embedding 5-strip wireframe 3D video (pale blue sky, geometric), McDonald's M-logo mosaic portrait on shopping-cart monitor (net.art corporate appropriation). NB phrase 'Spaghetti & Supernovas' as ambient caption for the day. Palette 2 (institutional grey-blue) for gallery context and wireframe-video pale blue dominant.",
+    "tweetContext": "Holy Fire 2008 continuation \u2014 three artworks: exposed PC hardware in acrylic case as sculpture (red pixel screen crown), ornate baroque/rococo embossed frame embedding 5-strip wireframe 3D video (pale blue sky, geometric), McDonald's M-logo mosaic portrait on shopping-cart monitor (net.art corporate appropriation). NB phrase 'Spaghetti & Supernovas' as ambient caption for the day. Palette 2 (institutional grey-blue) for gallery context and wireframe-video pale blue dominant.",
     "descendants": 0,
     "lastInfluenced": 0,
-    "parentIndex": null
+    "parentIndex": null,
+    "condensedReason": "Three images from Holy Fire 2008, Brussels: exposed PC hardware in a clear acrylic display case (motherboard, power supply, dense cable tangle, flat monitor on top showing a hot-pink Windows desktop); an ornate white baroque relief frame mounted on a grey gallery wall, its carved interior replaced by an LCD showing five horizontal strips of wireframe 3D geometry against pale blue sky; a flat-panel monitor leaned against a supermarket shopping cart, its screen displaying a McDonald's M-logo mosaic portrait on teal/cyan ground. NB captions it: 'Spaghetti & Supernovas.' The McDonald's portrait is the day's compositional key \u2014 a corporate logo rendered as pixel mosaic, each golden-arch unit a discrete color tile. High wPixel (0.88) with pixelCharacter 'mosaic' encodes this: dense rectangular tiles as a portraiture medium. The institutional grey-blue palette (palette 2) translates the day's physical surfaces \u2014 grey gallery concrete, pale blue wireframe sky, teal/cyan McDonald's ground \u2014 into a unified cool ground. The hardware sculpture feeds wMechanical (0.62): a machine's internal organs on institutional display, cable tangle as sculptural material. The wireframe geometry in the baroque frame feeds wGeometric (0.73): five planes of early digital structure inside decorative tradition. Transit flow arcs (wFlow 0.31, minimum) carry the cable tangle's ambient movement \u2014 the spaghetti in the hardware case, rendered as calligraphic sweep rather than literal tangle. Curatorial override: best auto-candidate used palette 3 (copper/bronze) with halftone character \u2014 wrong register for a mosaic-dominant, gallery-institutional day."
   },
   {
     "date": "2026-05-23",
@@ -2765,19 +2767,19 @@
       "gearDensity": 0.35,
       "gearComplexity": 10,
       "chainFrequency": 0.15,
-      "pixelDensity": 0.60,
+      "pixelDensity": 0.6,
       "pixelSize": 3,
       "flowScale": 0.006,
       "flowStrength": 1.6,
       "particleCount": 460,
       "clockSpeed": 0.008,
       "oscillation": 1.2,
-      "wMechanical": 0.40,
-      "wPixel": 0.50,
+      "wMechanical": 0.4,
+      "wPixel": 0.5,
       "wGeometric": 0.75,
-      "wFlow": 0.80,
+      "wFlow": 0.8,
       "wOrganic": 0.85,
-      "wHatch": 0.90,
+      "wHatch": 0.9,
       "hatchAngle": 0.523,
       "hatchSpacing": 12,
       "pixelCharacter": "halftone",
@@ -2789,12 +2791,12 @@
       "noiseSeed": 6847.19
     },
     "themeAlignment": {
-      "hatch": 0.90,
+      "hatch": 0.9,
       "organic": 0.85,
-      "flow": 0.80,
+      "flow": 0.8,
       "geometric": 0.75,
-      "pixel": 0.50,
-      "mechanical": 0.40
+      "pixel": 0.5,
+      "mechanical": 0.4
     },
     "dominantMotifs": [
       "biological flow arcs as Verostko ribbon forms (vine-threading through plotter strokes)",
@@ -2803,11 +2805,12 @@
       "organic layer as biomorphic ribbon mass (the interleaved loop forms)",
       "geometric shapes as Adamciak score symbols (triangles, circles, squares on staff lines)"
     ],
-    "colorPalette": "Cream/off-white ground (palette 4, bgDarkness 0.03), deep forest green botanical populations from Verostko's ink, warm yellow-green halftone texture, biological flow arcs in botanical greens — cream paper with plotter pen marks",
-    "tweetContext": "Roman Verostko day. Verostko (1929-2024): plotter art pioneer, 'The Machine Says Hand Me a Brush!' (1989 news article). Cyber Flower 2011 plotter drawing — dense parallel green pen lines on cream paper, biomorphic ribbon forms. Plus: Milan Adamciak 'Music for Manfred Mohr' 1977 (geometric score notation on cream paper — triangles/circles/squares on staff lines); A. Michael Noll 'Computer-Generated Ballet' 1965 (IBM mainframe magnetic tape to CRT to film animation); Cory Arcangel F1 Racer Mod source game (3 color variant screenshots: pink/red, cream/gold, cyan/green). Auto-detected mechanicalCharacter 'plotter' correctly. flowCharacter 'biological' chosen for Verostko's vine-threading ribbon forms (not 'transit').",
+    "colorPalette": "Cream/off-white ground (palette 4, bgDarkness 0.03), deep forest green botanical populations from Verostko's ink, warm yellow-green halftone texture, biological flow arcs in botanical greens \u2014 cream paper with plotter pen marks",
+    "tweetContext": "Roman Verostko day. Verostko (1929-2024): plotter art pioneer, 'The Machine Says Hand Me a Brush!' (1989 news article). Cyber Flower 2011 plotter drawing \u2014 dense parallel green pen lines on cream paper, biomorphic ribbon forms. Plus: Milan Adamciak 'Music for Manfred Mohr' 1977 (geometric score notation on cream paper \u2014 triangles/circles/squares on staff lines); A. Michael Noll 'Computer-Generated Ballet' 1965 (IBM mainframe magnetic tape to CRT to film animation); Cory Arcangel F1 Racer Mod source game (3 color variant screenshots: pink/red, cream/gold, cyan/green). Auto-detected mechanicalCharacter 'plotter' correctly. flowCharacter 'biological' chosen for Verostko's vine-threading ribbon forms (not 'transit').",
     "descendants": 0,
     "lastInfluenced": 0,
-    "parentIndex": null
+    "parentIndex": null,
+    "condensedReason": "Roman Verostko (1929\u20132024) \u2014 plotter art pioneer. A 1989 local newspaper headline captures his entire practice: 'The Machine Says Hand Me a Brush!' The program specifies when to change pens; the artist hands it over. The commanding visual is Verostko's Cyber Flower plotter drawing (Ragnar Digital Art collection, 2011): interlocking biomorphic ribbon forms built from extremely dense parallel pen lines, deep forest green on cream paper, where accumulated strokes create darker tonal zones and single-pass strokes remain semi-translucent. The halftone texture here is the parallel pen lines \u2014 not a reproduction technique but the generating medium itself. wHatch (0.90) is the highest in the archive at this moment, encoding this: the mark-making method IS the form. Palette 4 (botanical/cream) translates the cream paper ground, its deep green populations becoming Verostko's forest-green ink populations. bgDarkness 0.03 makes the ground approach actual paper white \u2014 the lightest in the archive. The biological flow character (wFlow 0.80) produces vine-threading root arcs that weave through the hatching the way Verostko's ribbon forms thread and overlap each other \u2014 not transit sweeps over a surface but biological growth through a substrate. Also in the day: Milan Adam\u010diak's 'Music for Manfred Mohr' 1977 (geometric score notation on cream paper), three F1 Road Game color palettes (the source material Cory Arcangel modified for F1 Racer Mod 2004). The system auto-detected mechanicalCharacter 'plotter' for the first time \u2014 its first production win."
   },
   {
     "date": "2026-05-24",
@@ -2815,7 +2818,7 @@
     "score": 8,
     "day": 52,
     "title": "Art of Simulation",
-    "fitness": 6.6880,
+    "fitness": 6.688,
     "genome": {
       "gridCols": 12,
       "gridRows": 8,
@@ -2827,15 +2830,15 @@
       "gearDensity": 0.55,
       "gearComplexity": 12,
       "chainFrequency": 0.12,
-      "pixelDensity": 0.90,
+      "pixelDensity": 0.9,
       "pixelSize": 4,
       "flowScale": 0.007,
       "flowStrength": 0.9,
       "particleCount": 360,
       "clockSpeed": 0.008,
       "oscillation": 0.5,
-      "wMechanical": 0.40,
-      "wPixel": 0.90,
+      "wMechanical": 0.4,
+      "wPixel": 0.9,
       "wGeometric": 0.78,
       "wFlow": 0.31,
       "wOrganic": 0.31,
@@ -2851,24 +2854,25 @@
       "noiseSeed": 5224.52
     },
     "themeAlignment": {
-      "pixel": 0.90,
+      "pixel": 0.9,
       "geometric": 0.78,
       "hatch": 0.45,
-      "mechanical": 0.40,
+      "mechanical": 0.4,
       "organic": 0.31,
       "flow": 0.31
     },
     "dominantMotifs": [
-      "pixel mosaic tiles as Kawano's Simulated Color Mosaic — discrete primary-color algorithmic decisions",
+      "pixel mosaic tiles as Kawano's Simulated Color Mosaic \u2014 discrete primary-color algorithmic decisions",
       "geometric grid structure as the dense rectangular tile composition (De Stijl through a pixel generator)",
-      "hatch/bitmap texture as the b&w noise abstracts — organic pixel masses, terrain-like high-contrast forms",
-      "gear mechanical layer as FORTRAN process workflow — systematic correction diagram, uncorrected to corrected output",
-      "biological flow as organic noise shapes — pixel masses that read as geological or cellular structure"
+      "hatch/bitmap texture as the b&w noise abstracts \u2014 organic pixel masses, terrain-like high-contrast forms",
+      "gear mechanical layer as FORTRAN process workflow \u2014 systematic correction diagram, uncorrected to corrected output",
+      "biological flow as organic noise shapes \u2014 pixel masses that read as geological or cellular structure"
     ],
-    "colorPalette": "Primary color palette (palette 9, dynamically built from Kawano's Simulated Color Mosaic colors): red #CC2233, blue #2244BB, yellow #F5D050, black #1A1A1A, white #F5F5F5, plus Ochiai cosmic accents #1A0A2E, #FF2266, #00AAFF — De Stijl primary grid with cosmic complement",
-    "tweetContext": "Hiroshi Kawano day. Kawano (1925-2012): philosopher-artist, Computer Technique Group (CTG) Japan. 1975 IBM Informatique quotes: 'For the moment, it is an art of simulation' and 'I finish by hand the diagrams or compositions designed by the machine.' Simulated Color Mosaic — dense primary-color pixel tile grid, Mondrian-derived but algorithmically generated. B&W bitmap noise abstracts with iterative refinement process (uncorrected → corrected → final). Vintage 1960s photo of Kawano holding continuous-feed FORTRAN printout ('SURF(') at chalkboard. Yoichi Ochiai AI installation as counterpoint: cosmic/organic sketchbook panels, praised as 'gift not gimmick.' Palette 9 auto-built from aggregatedColors in visual themes.",
+    "colorPalette": "Primary color palette (palette 9, dynamically built from Kawano's Simulated Color Mosaic colors): red #CC2233, blue #2244BB, yellow #F5D050, black #1A1A1A, white #F5F5F5, plus Ochiai cosmic accents #1A0A2E, #FF2266, #00AAFF \u2014 De Stijl primary grid with cosmic complement",
+    "tweetContext": "Hiroshi Kawano day. Kawano (1925-2012): philosopher-artist, Computer Technique Group (CTG) Japan. 1975 IBM Informatique quotes: 'For the moment, it is an art of simulation' and 'I finish by hand the diagrams or compositions designed by the machine.' Simulated Color Mosaic \u2014 dense primary-color pixel tile grid, Mondrian-derived but algorithmically generated. B&W bitmap noise abstracts with iterative refinement process (uncorrected \u2192 corrected \u2192 final). Vintage 1960s photo of Kawano holding continuous-feed FORTRAN printout ('SURF(') at chalkboard. Yoichi Ochiai AI installation as counterpoint: cosmic/organic sketchbook panels, praised as 'gift not gimmick.' Palette 9 auto-built from aggregatedColors in visual themes.",
     "descendants": 0,
     "lastInfluenced": 0,
-    "parentIndex": null
+    "parentIndex": null,
+    "condensedReason": "Hiroshi Kawano (1925\u20132012) \u2014 philosopher, Computer Technique Group (CTG), Japan. Two quotes from IBM Informatique No. 13 (1975) define the register: 'For the moment, it is an art of simulation' and 'I finish by hand the diagrams or compositions designed by the machine.' The commanding visual is his Simulated Color Mosaic: a dense rectangular tile grid filling the entire frame \u2014 red, cobalt blue, warm yellow, black, white \u2014 Mondrian's De Stijl logic applied as a statistical algorithm, hundreds of tiles each a discrete color assignment. There is no hierarchy, no focal point, no ground showing through. The day's other images reinforce the pixel thesis: a b&w bitmap noise sequence (uncorrected output \u2192 corrected output \u2192 final figure after noise) with a process diagram mapping the correction workflow, and a vintage 1960s lecture photo of Kawano holding a long continuous-feed FORTRAN printout at a chalkboard ('SURF(' written behind him). Palette 9 is the dynamic palette built from the day's own aggregatedColors \u2014 the image's primary-color vocabulary becomes the rendering palette directly: #CC2233 red, #2244BB blue, #F5D050 yellow, #1A1A1A black, #F5F5F5 white, with Ochiai's cosmic accents as complement. pixelCharacter 'mosaic' and wPixel (0.90) encode the tile composition; gridCols 12 and pixelSize 4 produce the dense, non-hierarchical grid. wHatch (0.45) carries the bitmap noise texture \u2014 the b&w pixel masses read as high-contrast hatch fields. Yoichi Ochiai's AI installation (six cosmic sketchbook panels: deep space, neon galaxies, iridescent peacock) appears as the organic counterweight \u2014 biological flow character at minimum weight, the cosmic complement to Kawano's systematic grid. Fitness 6.6880 \u2014 archive high at time of selection."
   }
 ]
