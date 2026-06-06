@@ -3378,5 +3378,51 @@
     "lastInfluenced": 0,
     "parentIndex": null,
     "condensedReason": "Stan VanDerBeek (1927-1984) and Ken Knowlton (1931-2022) at Bell Telephone Laboratories, 1966. The 1966 publication quote frames the day: \"The eye is a mosaic of nerve ends (rods and cones)... Human intelligence functions on the order of 100,000 decisions p/second... the computer-generated movie Poem Field No. 1, programmed by S. Vanderbeek and K. Knowlton, was drawn at speeds of 10,000 points p/second.\" The biological eye IS a pixel mosaic — rods and cones are discrete photoreceptors arranged in a mosaic across the retina. BEFLIX-generated pixel tiles are the computational equivalent. The 1968 documentation adds: a kind of page in motion VanDerBeek termed \"a form of poetry in space and time.\" Ken Knowlton developed BEFLIX (Bell Flicks) at Bell Labs — a domain-specific language for creating frame-by-frame pixel animations using rectangular tile grids. The Poem Field series (1966-1970, 8 films) features vivid saturated color tile blocks on pure black CRT ground, abstract text in mosaic form, flowing labyrinthine B&W pixel patterns, and poems dissolved into colored fields. The QT video frame is the commanding visual: pure black CRT phosphor ground, large rectangular pixel tiles in vivid saturated colors (red #E01050, magenta #E82870, teal #00C8A0, orange #E88020, yellow #F0E820) scattered asymmetrically from dense upper-left toward empty right — exactly the BEFLIX output aesthetic. The genome encodes the CRT mosaic register. wPixel (0.88) is dominant — equal to wHatch on Verostko Day 51 and Csuri Day 58 — encoding the BEFLIX pixel tiles as the form. pixelCharacter mosaic (not halftone) produces discrete rectangular tile blocks matching BEFLIX output. pixelSize 5 gives larger tile blocks closer to the Poem Field visual scale. paletteIndex 9 (dynamic from aggregatedColors) uses the specific CRT colors extracted from the film stills. bgDarkness 0.88 (near-black CRT phosphor screen) is the darkest background paired with palette 9 in the archive — the CRT screen as substrate, the colors as light against it. flowCharacter biological encodes the nerve-ends metaphor: the eye receives visual information as a mosaic of biological photoreceptors, and the biological rendering layer produces the organic distribution of tiles that echoes this. mechanicalCharacter led names the CRT/LED display hardware. symmetry 0.2 (near-asymmetric) matches the QT frame distribution — tiles concentrate left, scatter right, no bilateral symmetry. Tenth consecutive early computer art pioneer day (Days 51-60: Verostko, Kawano, Molnar, Four Pioneers, Nake/Mohr, Mohr IBM, CDC 6400, Csuri artwork, Csuri process, Poem Field). June 3 = rest day. Fitness 6.6955."
+  },
+  {
+    "day": 61,
+    "date": "2026-06-05",
+    "title": "Une Image Venue d'Ailleurs",
+    "filename": "mechanical-reverie-day-061-une-image-venue-dailleurs-2026-06-05.png",
+    "fitness": 6.71,
+    "genome": {
+      "palette": 4,
+      "wFlow": 0.8,
+      "wGeometric": 0.55,
+      "wMechanical": 0.75,
+      "wHatch": 0.4,
+      "wPixel": 0.32,
+      "wOrganic": 0.32,
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0.3,
+      "gearDensity": 0.5,
+      "gridCols": 9,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 12,
+      "bgDarkness": 0.15
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Transit/circuit dominant: wFlow 0.80 primary (1000km satellite signal), wMechanical 0.75 secondary (radio-controlled brush vehicles), wGeometric 0.55 (document structure). Palette 4 cream paper = French press release substrate. hatchAngle 0.0 horizontal = typewriter line register. Circuit mechanicalCharacter encodes signal circuit (Berlin→satellite→Paris→feedback). First telematic art entry. Fitness 6.71 — new archive high.",
+      "condensedReason": "Satellite transit flows + circuit traces on cream = 1000km signal path made visible. New archive high 6.71."
+    },
+    "tweetSummary": "Christian Mazet, Une Image Venue d'Ailleurs (1988). Painting via satellite: artist in Berlin, canvas in Paris, 1000km apart. Remote-controlled brush + satellite feedback + Apple Computer-sponsored program. Centre Pompidou live performance.",
+    "keyArtists": [
+      "Christian Mazet"
+    ],
+    "themes": [
+      "telematic-art",
+      "satellite-transit",
+      "remote-gesture",
+      "circuit",
+      "Pompidou",
+      "Berlin",
+      "1988",
+      "radio-controlled",
+      "Apple-Computer",
+      "typewriter-document"
+    ]
   }
 ]
