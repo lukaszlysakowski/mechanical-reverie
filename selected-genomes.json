@@ -3403,26 +3403,34 @@
       "hatchSpacing": 12,
       "bgDarkness": 0.15
     },
-    "curatorial": {
-      "score": "A",
-      "notes": "Transit/circuit dominant: wFlow 0.80 primary (1000km satellite signal), wMechanical 0.75 secondary (radio-controlled brush vehicles), wGeometric 0.55 (document structure). Palette 4 cream paper = French press release substrate. hatchAngle 0.0 horizontal = typewriter line register. Circuit mechanicalCharacter encodes signal circuit (Berlin→satellite→Paris→feedback). First telematic art entry. Fitness 6.71 — new archive high.",
-      "condensedReason": "Satellite transit flows + circuit traces on cream = 1000km signal path made visible. New archive high 6.71."
+    "score": 9,
+    "condensedReason": "Christian Mazet, Centre Pompidou 1988. Satellite transit: artist in Berlin, canvas in Paris, 1000km signal path. Radio-controlled brush vehicles + satellite feedback + Apple-sponsored computer program. Transit flows sweep cream ground like satellite arcs; circuit traces anchor the transmission terminus. hatchAngle 0.0 = typewriter line register of the French press release. Palette 4 = cream paper document substrate. New archive high 6.71 — transit/circuit first pairing.",
+    "themeAlignment": {
+      "transit": 0.95,
+      "circuit": 0.88,
+      "telematic": 0.85,
+      "satellite": 0.8
     },
-    "tweetSummary": "Christian Mazet, Une Image Venue d'Ailleurs (1988). Painting via satellite: artist in Berlin, canvas in Paris, 1000km apart. Remote-controlled brush + satellite feedback + Apple Computer-sponsored program. Centre Pompidou live performance.",
-    "keyArtists": [
-      "Christian Mazet"
-    ],
-    "themes": [
-      "telematic-art",
+    "dominantMotifs": [
       "satellite-transit",
-      "remote-gesture",
       "circuit",
-      "Pompidou",
+      "cream-paper",
+      "typewriter",
+      "Macintosh",
       "Berlin",
-      "1988",
-      "radio-controlled",
-      "Apple-Computer",
-      "typewriter-document"
-    ]
+      "Pompidou",
+      "1988"
+    ],
+    "colorPalette": [
+      "#F0EDE5",
+      "#202018",
+      "#C03020",
+      "#3060B0",
+      "#D8D0C0"
+    ],
+    "tweetContext": "Christian Mazet, Une Image Venue d'Ailleurs (1988). Painting via satellite: artist in Berlin, canvas in Paris. Remote-controlled brush + satellite video feedback + Apple Computer-sponsored program. Centre Pompidou live performance. 30 Nov 1988.",
+    "descendants": 0,
+    "lastInfluenced": null,
+    "parentIndex": null
   }
 ]

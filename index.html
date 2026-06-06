@@ -560,10 +560,18 @@ function updateStats() {
   document.getElementById('stats').textContent = statsText;
 }
 
-function titleFromFilename(filename) {
-  const match = filename.match(/\d{4}-\d{2}-\d{2}-(.+)\.png$/);
-  if (match) {
-    return match[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+function titleFromFilename(filename, genome) {
+  // Prefer explicit title field if available
+  if (genome && genome.title) return genome.title;
+  // Old format: mechanical-reverie-YYYY-MM-DD-title.png
+  const oldMatch = filename.match(/\d{4}-\d{2}-\d{2}-(.+)\.png$/);
+  if (oldMatch) {
+    return oldMatch[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+  // New format: mechanical-reverie-day-NNN-title-YYYY-MM-DD.png
+  const newMatch = filename.match(/mechanical-reverie-day-\d{3}-(.+)-\d{4}-\d{2}-\d{2}\.png$/);
+  if (newMatch) {
+    return newMatch[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   }
   return filename;
 }
@@ -610,7 +618,7 @@ function renderStrip() {
     if (genome.parentIndex !== null && genome.parentIndex !== undefined) {
       const parent = genomes[genome.parentIndex];
       if (parent) {
-        lineageText = `child of ${titleFromFilename(parent.filename)}`;
+        lineageText = `child of ${titleFromFilename(parent.filename, parent)}`;
       }
     }
     if (genome.descendants > 0) {
@@ -622,12 +630,12 @@ function renderStrip() {
     const reasonText = genome.condensedReason || '';
     card.innerHTML = `
       <div class="card-image-wrap" onclick="openLightbox('${ART_PATH}${genome.filename}')">
-        <img src="${ART_PATH}${genome.filename}" alt="${titleFromFilename(genome.filename)}" loading="lazy">
-        <div class="score ${genome.score >= 9 ? 'high' : ''}">${genome.score}</div>
+        <img src="${ART_PATH}${genome.filename}" alt="${titleFromFilename(genome.filename, genome)}" loading="lazy">
+        <div class="score ${genome.score >= 9 ? 'high' : ''}">${genome.score || ''}</div>
       </div>
       <div class="card-meta">
         <div class="card-date">${formatDate(genome.date)} · Gen ${i + 1}</div>
-        <div class="card-title">${titleFromFilename(genome.filename)}</div>
+        <div class="card-title">${titleFromFilename(genome.filename, genome)}</div>
         <div class="card-themes">${themeTags}</div>
         ${lineageText ? `<div class="card-lineage">${lineageText}</div>` : ''}
         ${reasonText ? `<div class="card-reason">${reasonText}</div>` : ''}
