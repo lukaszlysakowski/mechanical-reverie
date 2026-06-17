@@ -3792,5 +3792,60 @@
     "descendants": 0,
     "lastInfluenced": null,
     "parentIndex": null
+  },
+  {
+    "day": 67,
+    "date": "2026-06-17",
+    "title": "Jesus Swimming",
+    "filename": "mechanical-reverie-day-067-jesus-swimming-2026-06-17.png",
+    "fitness": 6.7425,
+    "genome": {
+      "palette": 9,
+      "wFlow": 0.78,
+      "wMechanical": 0.68,
+      "wGeometric": 0.45,
+      "wHatch": 0.35,
+      "wPixel": 0.33,
+      "wOrganic": 0.38,
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0.22,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 16,
+      "bgDarkness": 0.08,
+      "noiseSeed": 9095.622195251513
+    },
+    "score": 9,
+    "condensedReason": "Miltos Manetas (b. 1964) is the Greek-Italian founder of Neen — an art movement named at Gagosian Gallery, New York, 2000, as 'a poetic response to a world of emerging technologies.' NB surfaces him at Art Basel Zero 10 through a Kanye West encounter, but the curatorial focus is precise: 'Jesusswimming(dot)com by Miltos Manetas, 2001.' The URL IS the artwork.\n\njesusswimming.com is a website. Not a painting of a swimming figure — a page that runs in Netscape Navigator. The browser chrome (Back/Forward toolbar, Netscape N logo, Windows taskbar below) is the frame. The URL bar showing http://jesusswimming.com/ is the artwork's title card. The network circuit delivering the page to a browser anywhere in the world IS the medium.\n\nThe website's visual vocabulary is radically flat: solid sky blue occupying the upper half (the sky), solid teal-green occupying the lower half (the water), a cartoon Jesus figure swimming left-to-right across the horizontal divide. Wave marks in lighter teal. No gradients, no textures — web-safe flat fills at the maximum available in 2001 HTML. The minimalism is the constraint made visible.\n\nThis genome marks a pivot from the Hockney fine art figure class (Days 64–66). Where Hockney brought fine art into digital tools — iPad, Quantel Paintbox, DSLR — Manetas dissolved the institution entirely. The browser is the gallery. The URL is the title. The visitor is the audience without needing to leave their seat. The Neen movement named this before net art had a critical vocabulary.\n\nflowCharacter: transit — the swimming figure crossing the horizontal plane IS the artwork's movement logic. Left to right, water below, sky above. Transit encodes the directional sweep of the signal across the browser window AND the network circuit carrying it.\n\nmechanicalCharacter: circuit — the internet network IS the medium. jesusswimming.com transmits through HTTP/TCP/IP; the Netscape rendering engine completes the circuit. This parallels the telematic art class (Day 61 — Une Image Venue d'Ailleurs, satellite circuit as medium) but Manetas's register is lighter, more playful — net art is weightless.\n\nPalette 9 (dynamic aggregatedColors) from the website's flat color vocabulary: sky blue (#70B8E0), teal-green water (#4A8060), lighter wave teal (#7AB8A0), Netscape chrome beige (#C8C0B4), Jesus orange (#D89040), grey robe (#888880). The beige ground carries the browser frame register. The teal flow arcs traverse it like the swimming figure traverses the browser window.\n\nhatchAngle 0.0 (horizontal) — the horizontal bisection of sky and water is the formal structural decision of the entire artwork. bgDarkness 0.08 — lightest since Day 64 (0.05) — reflecting the open, accessible aesthetic of early web art. wOrganic 0.38 — the swimming figure is present but the flat digital register keeps it from becoming biological-dominant (distinct from Hockney's wOrganic 0.75+). wFlow 0.78 dominant (transit sweep), wMechanical 0.68 (circuit network), difference 0.10 — tight, high-fitness configuration.",
+    "themeAlignment": {
+      "horizontal_transit_movement": 0.95,
+      "circuit_network_as_medium": 0.9,
+      "flat_web_safe_palette": 0.92,
+      "neen_movement_register": 0.85,
+      "institutional_validation_art_basel": 0.7
+    },
+    "dominantMotifs": [
+      "horizontal sky/water divide",
+      "transit flow arcs",
+      "circuit grid network nodes",
+      "flat web-safe color fields",
+      "Netscape browser chrome register (beige ground)",
+      "Jesus orange circuit markers"
+    ],
+    "colorPalette": [
+      "#70B8E0",
+      "#4A8060",
+      "#7AB8A0",
+      "#C8C0B4",
+      "#D89040",
+      "#888880"
+    ],
+    "tweetContext": "NB original (21 likes, 2026-06-17T00:19Z): 'Kanye West hanging with the JesusSwims artist at Art Basel is gold. Jesusswimming(dot)com by Miltos Manetas, 2001.' Animated GIF: jesusswimming.com running in Netscape Navigator. Quote-tweet of artmetaofficial: 'It is easy to be fascinated by Miltos... he founded a new art movement, Neen, at Gagosian Gallery in New York as a poetic response to a world of emerging technologies.' Photo: Kanye speaking with Miltos Manetas at Art Basel. Rest days: June 15 (no content), June 16 (reposts only: Rafael Lozano-Hemmer at Art Basel Booth Z05, Dr. Bill Kolomyjec fireside chat June 18).",
+    "descendants": 0,
+    "lastInfluenced": null,
+    "parentIndex": null
   }
 ]
