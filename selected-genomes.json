@@ -3847,5 +3847,60 @@
     "descendants": 0,
     "lastInfluenced": null,
     "parentIndex": null
+  },
+  {
+    "day": 68,
+    "date": "2026-06-18",
+    "title": "An Artificial Intelligent",
+    "filename": "mechanical-reverie-day-068-an-artificial-intelligent-2026-06-18.png",
+    "fitness": 6.7485,
+    "genome": {
+      "palette": 6,
+      "wFlow": 0.75,
+      "wMechanical": 0.72,
+      "wGeometric": 0.42,
+      "wHatch": 0.48,
+      "wPixel": 0.32,
+      "wOrganic": 0.6,
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.28,
+      "gearDensity": 0.5,
+      "gridCols": 9,
+      "layerCount": 6,
+      "hatchAngle": 0.785,
+      "hatchSpacing": 11,
+      "bgDarkness": 0.82,
+      "noiseSeed": 3645.592906342896
+    },
+    "score": 10,
+    "condensedReason": "Harold Cohen (1928–2016) created AARON in 1973 — one of the earliest and most sustained autonomous AI drawing programs in history. By 1985, AARON had developed internal models of human anatomy and plant form sufficient to draw organic figures without any artist input per work. Cohen's 1985 quote, surfaced by NB at Art Basel Zero 10 Booth Z9, is the foundational statement of AI art: 'Most computer graphic programs, the artist has to draw something first before the computer will draw anything… This program is quite different — it's an artificial intelligent.'\n\nThe non-standard grammar is intentional. Cohen names AARON as an entity — 'an artificial intelligent' — not a program or a tool. AARON is a mind that draws. Cohen's task was not to draw but to give AARON enough knowledge of the world that it could draw on its own. The artist becomes the teacher; the machine becomes the author.\n\nThis genome sits in a distinct class from the fine art figure class (Hockney: biological/led, tool serves the art) and from the net art class (Manetas: transit/circuit, URL as medium). AARON is in the plotter pioneer class but with a crucial addition: biological output from algorithmic process. The 1985 period marks AARON's transition from geometric forms to organic figures — the machine learning to draw bodies.\n\nmechanicalCharacter: plotter — AARON drives a physical pen-drawing turtle/robot that marks actual paper with actual pens. This is not screen-based output; it is the physical plotter mark on large sheets laid on the floor or table. The plotter arm's mechanical arc over the drawing surface is the production method.\n\nflowCharacter: biological — AARON's 1985 output is human figures and plant forms. Organic curved marks, figure fragments, gesture arcs. The biological is what the algorithm produces, not what the algorithm is. This is the key tension: the system is mathematical (rule-based expert system) but its visual output is organic.\n\nPalette 6 (dark ground): The artmetaofficial GIF thumbnail is a pure dark-studio title card — 'Harold Cohen' in AARON's own script handwriting, white on black, plotter machine silhouetted in background. bgDarkness 0.82 — deep workshop darkness. The rendering places AARON's scattered mark vocabulary (organic curves, cream geometric modules, colored thread gestures from Cohen's later color period) against a midnight navy ground, with dramatic 45° hatch bands crossing the composition — the plotter arm's mechanical diagonal recorded as a formal element.\n\nhatchAngle 0.785 (45°) encodes the diagonal crossing motif of AARON's plotter arm. hatchSpacing 11 — dense enough to be legible as ruled marks, not so dense as to read as solid tone. wHatch 0.48 elevated (the plotter mark is the work's physical signature). wOrganic 0.60 (organic figure fragments distributed throughout — higher than Manetas 0.38 but lower than Hockney 0.75+: the biological is mediated through algorithm, not direct). wFlow 0.75 / wMechanical 0.72 tight differential (0.03) for maximum fitness. New archive high: 6.7485.",
+    "themeAlignment": {
+      "aaron_autonomous_drawing": 0.95,
+      "organic_figure_from_algorithm": 0.9,
+      "plotter_physical_pen_mark": 0.92,
+      "dark_studio_workshop_ground": 0.88,
+      "art_basel_institutional_validation": 0.72
+    },
+    "dominantMotifs": [
+      "plotter arm diagonal sweep (45° hatch bands)",
+      "AARON organic figure fragments (scattered curves)",
+      "cream geometric modules (early AARON block vocabulary)",
+      "colored thread marks (Cohen's color period gesture lines)",
+      "midnight navy studio ground",
+      "machine authorship — biological output from algorithmic process"
+    ],
+    "colorPalette": [
+      "#0A0A08",
+      "#181814",
+      "#F0EEE8",
+      "#FFFFFF",
+      "#141210",
+      "#282420"
+    ],
+    "tweetContext": "NB repost of artmetaofficial (15 likes, 2026-06-18T08:24Z): Harold Cohen 1985 quote — 'Most computer graphic programs, the artist has to draw something first before the computer will draw anything… This program is quite different — it's an artificial intelligent.' GIF: Art Basel Zero 10 Booth Z9 title card, 'Harold Cohen' in AARON's own handwriting over dark studio with plotter machine silhouetted. NB repost of halecar2 (20 likes, 2026-06-18T13:05Z): John Gerrard documentary (Fellowship Trust) — 'clarity to his thinking around what it means to create art today, with the tools of today.' Secondary signal.",
+    "descendants": 0,
+    "lastInfluenced": null,
+    "parentIndex": null
   }
 ]
