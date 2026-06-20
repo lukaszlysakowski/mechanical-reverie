@@ -3957,5 +3957,48 @@
     "descendants": 0,
     "lastInfluenced": null,
     "parentIndex": null
+  },
+  {
+    "day": 70,
+    "date": "2026-06-19",
+    "title": "Studies in Encoding",
+    "filename": "mechanical-reverie-day-070-studies-in-encoding-2026-06-19.png",
+    "fitness": 6.6205,
+    "genome": {
+      "palette": 8,
+      "wFlow": 0.72,
+      "wMechanical": 0.68,
+      "wGeometric": 0.55,
+      "wHatch": 0.58,
+      "wPixel": 0.62,
+      "wOrganic": 0.32,
+      "flowCharacter": "data",
+      "mechanicalCharacter": "led",
+      "pixelCharacter": "halftone",
+      "symmetry": 0.15,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 6,
+      "hatchAngle": 1.571,
+      "hatchSpacing": 6,
+      "bgDarkness": 0.14,
+      "noiseSeed": 2847.3
+    },
+    "score": "A",
+    "condensedReason": "Art Basel Digital Masterpieces curation — NB's personal shortlist of four landmark works: Kac 'D/ei/ty' barcode poem (Minitel 1986), Mohr 'Band-Structure' plotter drawing (1970), Knowlton+Harmon 'Studies in Perception I' ASCII nude (Bell Labs 1966), Franke 'Quadrate' biennale portfolio (1970). Unifier: systematic encoding — each work transforms information into visual form through computational rules. Visual: halftone dot matrix on warm paper echoes Knowlton+Harmon's character-density nude directly. flowChar 'data', mechChar 'led', pixelChar 'halftone'. Palette 8 (archival warmth) for the paper/plotter substrate — 3 of 4 works are dark-marks-on-paper.",
+    "themeAlignment": "Four canonical computer art works from Art Basel — systematic encoding as the unifying principle. Halftone / character grid / dot matrix as data encoding visual language.",
+    "dominantMotifs": [
+      "halftone dot matrix",
+      "character grid encoding",
+      "barcode as text",
+      "warm paper substrate",
+      "archival plotter drawings",
+      "Bell Labs computing 1966"
+    ],
+    "colorPalette": "palette 8 — warm archival film, cream paper ground, dark dot elements",
+    "tweetContext": "NB 4-part original thread at 22:43 UTC: 'Four Works from Art Basel's Presentation of Digital Masterpieces Worth Exploring' — Eduardo Kac D/ei/ty 1986, Manfred Mohr P-021/F Band-Structure 1970, Knowlton & Harmon Studies in Perception I 1966, Herbert W. Franke Quadrate Biennale Portfolio 1970",
+    "descendants": 0,
+    "lastInfluenced": 70,
+    "parentIndex": null
   }
 ]
