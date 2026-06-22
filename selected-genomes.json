@@ -4000,5 +4000,50 @@
     "descendants": 0,
     "lastInfluenced": 70,
     "parentIndex": null
+  },
+  {
+    "day": 71,
+    "date": "2026-06-21",
+    "title": "Art for the Space Age",
+    "filename": "mechanical-reverie-day-071-art-for-the-space-age-2026-06-21.png",
+    "fitness": 6.6575,
+    "genome": {
+      "paletteIndex": 6,
+      "wFlow": 0.8,
+      "wMechanical": 0.7,
+      "wGeometric": 0.58,
+      "wHatch": 0.38,
+      "wPixel": 0.52,
+      "wOrganic": 0.35,
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "pixelCharacter": "mosaic",
+      "symmetry": 0.45,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 10,
+      "bgDarkness": 0.84
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Palette 6 dark CRT ground — amber mosaic tiles as hot pixel clusters (VanDerBeek film strip), transit arcs sweeping like oscilloscope waveforms (Laposky Oscillon). The circuit as drawing instrument: signal transit IS the mark.",
+      "condensedReason": "Laposky oscilloscope + VanDerBeek pixel animation — signal transit as aesthetic logic, circuit as drawing instrument, CRT phosphor as canvas. Art of the Space Age."
+    },
+    "tweetSummary": "Two threads: Ben F. Laposky 1958 oscilloscope art (Electronic Abstracts—Art for the Space Age, Oscillon #42) + Kenneth Knowlton 1972 quote on teaching Stan VanDerBeek to program autonomously. Both: the electronic system as drawing instrument.",
+    "keyArtists": [
+      "Ben F. Laposky",
+      "Stan VanDerBeek",
+      "Kenneth Knowlton"
+    ],
+    "themes": [
+      "oscilloscope art",
+      "Art of the Space Age",
+      "pedagogical handoff",
+      "signal transit as aesthetic logic",
+      "CRT dark ground",
+      "film strip mosaic"
+    ]
   }
 ]
