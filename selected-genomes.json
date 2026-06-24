@@ -4045,5 +4045,50 @@
       "CRT dark ground",
       "film strip mosaic"
     ]
+  },
+  {
+    "day": 72,
+    "date": "2026-06-23",
+    "title": "Machine-Made Abstraction",
+    "filename": "mechanical-reverie-day-072-machine-made-abstraction-2026-06-23.png",
+    "fitness": 6.6885,
+    "genome": {
+      "paletteIndex": 8,
+      "wFlow": 0.8,
+      "wMechanical": 0.72,
+      "wGeometric": 0.6,
+      "wHatch": 0.5,
+      "wPixel": 0.45,
+      "wOrganic": 0.32,
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "pixelCharacter": "halftone",
+      "symmetry": 0.2,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 10,
+      "bgDarkness": 0.15
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Warm cream ground, sepia transit arcs, horizontal hatch bands (letterpress register), scattered geometric marks (plotted coordinates), tan halftone clusters. The document of machine-made abstraction rendered in the visual language of newsprint itself.",
+      "condensedReason": "Laposky + Bute + Csuri collection (1950–1967) — machine-made abstraction arc from oscilloscope waveforms to programmed randomness. Newsprint archive substrate. Sepia transit arcs on warm paper = oscilloscope traces documented."
+    },
+    "tweetSummary": "NB repost of @artmetaofficial — Digital Masterpieces collection (@jamie247): Ben F. Laposky, Mary Ellen Bute & Ted Nemeth, Charles Csuri. Commanding image: vintage B&W newsprint article about Laposky's world acclaim. 1950–1967 arc from oscilloscope waveforms to programmed randomness.",
+    "keyArtists": [
+      "Ben F. Laposky",
+      "Mary Ellen Bute",
+      "Ted Nemeth",
+      "Charles Csuri"
+    ],
+    "themes": [
+      "machine-made abstraction",
+      "oscilloscope to algorithm",
+      "newsprint as archive",
+      "world acclaim legitimation",
+      "1950–1967 arc"
+    ]
   }
 ]
