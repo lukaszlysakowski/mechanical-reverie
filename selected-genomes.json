@@ -4090,5 +4090,48 @@
       "world acclaim legitimation",
       "1950–1967 arc"
     ]
+  },
+  {
+    "day": 73,
+    "date": "2026-06-24",
+    "title": "Net Art Generator",
+    "filename": "mechanical-reverie-day-073-net-art-generator-2026-06-24.png",
+    "fitness": 6.7083,
+    "genome": {
+      "paletteIndex": 9,
+      "wFlow": 0.78,
+      "wMechanical": 0.6995493515516302,
+      "wGeometric": 0.52,
+      "wHatch": 0.42,
+      "wPixel": 0.55,
+      "wOrganic": 0.38,
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "pixelCharacter": "mosaic",
+      "symmetry": 0.0,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 8,
+      "bgDarkness": 0.1
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Cornelia Sollfrank Net Art Generator (1997). Palette 9 web-safe internet register — completes three-day transit/circuit arc: Day 71 dark CRT (pal 6), Day 72 warm newsprint (pal 8), Day 73 web-white (pal 9). NB played with the tool and shared 4 outputs including Lillian_Schwartz-Leon_D_Harmon archival collage. Very low symmetry (0.00) = NAG chaos. Secondary: DagieDee generative photography 1968 Hannover genealogy.",
+      "condensedReason": "tool-as-art; web-safe RGB chaos; transit/circuit arc Day 3; feminist algorithm; accidental Bell Labs historiography"
+    },
+    "tweetSummary": "NB shared 4 outputs from Sollfrank Net Art Generator — web-safe saturated RGB collages on white ground. Named one output Lillian_Schwartz-Leon_D_Harmon (algorithm mined 1972 library records for Leon Harmon). DagieDee repost: generative photography 1968 Hannover as missing-link genealogy.",
+    "keyArtists": [
+      "Cornelia Sollfrank",
+      "Lillian Schwartz",
+      "Leon D. Harmon"
+    ],
+    "themes": [
+      "net art generator as feminist argument",
+      "web as raw material",
+      "archival mining by algorithm",
+      "generative photography genealogy 1968"
+    ]
   }
 ]
