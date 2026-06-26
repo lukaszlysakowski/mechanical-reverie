@@ -4133,5 +4133,49 @@
       "archival mining by algorithm",
       "generative photography genealogy 1968"
     ]
+  },
+  {
+    "day": 74,
+    "date": "2026-06-26",
+    "title": "Information Aesthetics",
+    "filename": "mechanical-reverie-day-074-information-aesthetics-2026-06-26.png",
+    "fitness": 6.6991,
+    "genome": {
+      "paletteIndex": 8,
+      "wFlow": 0.55,
+      "wMechanical": 0.72,
+      "wGeometric": 0.7,
+      "wHatch": 0.42,
+      "wPixel": 0.8104610647011993,
+      "wOrganic": 0.31,
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "gear",
+      "pixelCharacter": "mosaic",
+      "symmetry": 0.0,
+      "gearDensity": 0.5,
+      "gridCols": 10,
+      "layerCount": 6,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 14,
+      "bgDarkness": 0.12
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Palette 8 (warm newsprint), mathematical flowChar, gear mechChar, mosaic pixelChar. wPixel climbed to 0.810 through neighborhood polish — the Harmon Lincoln pixel grid asserting itself. The mathematical/gear combination names Bense’s Information Aesthetics: systematic algorithm in both computer (Bell Labs) and darkroom (Hannover 1968) contexts. Day 62 covered the same Harmon pixel work as artwork; Day 74 covers it as theory — Bense’s unifying framework across parallel generative lineages.",
+      "condensedReason": "Bense’s Information Aesthetics + 1971 Lincoln pixel newspaper; mathematical/gear on warm newsprint; wPixel 0.810 (pixel grid as theory); palette 8; fitness 6.6991"
+    },
+    "tweetSummary": "NB shares 1971 Journal Herald “Computer cubism?” clipping (Lincoln pixelated face, Harmon/Knowlton Bell Labs minimum-information experiment). Repost argues Max Bense’s Information Aesthetics underlies BOTH computer generative art AND darkroom generative photography (NDR 3 Hannover 1968) — the missing parallel canon.",
+    "keyArtists": [
+      "Leon Harmon",
+      "Ken Knowlton",
+      "Max Bense"
+    ],
+    "themes": [
+      "Bense’s Information Aesthetics as unified theory",
+      "minimum visual information / pixel reduction",
+      "parallel canon — darkroom algorithmics",
+      "1971 Computer Cubism newspaper coverage",
+      "Generative Kunst und Fotografie 1968"
+    ]
   }
 ]
