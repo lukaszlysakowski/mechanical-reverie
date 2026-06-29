@@ -4177,5 +4177,93 @@
       "1971 Computer Cubism newspaper coverage",
       "Generative Kunst und Fotografie 1968"
     ]
+  },
+  {
+    "day": 75,
+    "date": "2026-06-28",
+    "title": "200 Squares",
+    "filename": "mechanical-reverie-day-075-200-squares-2026-06-28.png",
+    "fitness": 6.86,
+    "genome": {
+      "paletteIndex": 6,
+      "wFlow": 0.42,
+      "wMechanical": 0.72,
+      "wGeometric": 0.68,
+      "wHatch": 0.38,
+      "wPixel": 0.82,
+      "wOrganic": 0.32,
+      "flowCharacter": "data",
+      "mechanicalCharacter": "led",
+      "pixelCharacter": "mosaic",
+      "symmetry": 0.0,
+      "gearDensity": 0.5,
+      "gridCols": 12,
+      "layerCount": 7,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 14,
+      "bgDarkness": 0.82,
+      "noiseOctaves": 5
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Palette 6 (dark CRT/LED ground), data flowChar, led mechChar, mosaic pixelChar. Neighborhood polish found layerCount 7 + noiseOctaves 5. Dark ground makes the 200-square Harmon pixel mosaic read as a display, bridging the 1971 experiment prediction to today's LED panels. NEW ARCHIVE HIGH.",
+      "condensedReason": "Harmon pixel-as-prediction; dark LED ground; data/led/mosaic on palette 6; layerCount 7 pushed to archive high 6.8600"
+    },
+    "tweetSummary": "NB original: Columbia Missourian Feb 21 1971 — Lincoln pixel face, 200 squares, 16 intensities of gray, designed for future picturephones. NB repost (50 likes): outdoor night LED panel installation, red ambient, white luminous panels.",
+    "keyArtists": [
+      "Leon Harmon",
+      "Ken Knowlton"
+    ],
+    "themes": [
+      "pixel-as-prediction",
+      "200 squares / 16 intensities",
+      "LED outdoor installation as fulfilled prediction",
+      "Bell Labs future display technology"
+    ]
+  },
+  {
+    "day": 76,
+    "date": "2026-06-29",
+    "title": "Homage to the Square",
+    "filename": "mechanical-reverie-day-076-homage-to-the-square-2026-06-29.png",
+    "fitness": 6.8603,
+    "genome": {
+      "paletteIndex": 9,
+      "wFlow": 0.4769,
+      "wMechanical": 0.62,
+      "wGeometric": 0.85,
+      "wHatch": 0.31,
+      "wPixel": 0.62,
+      "wOrganic": 0.31,
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "led",
+      "pixelCharacter": "mosaic",
+      "symmetry": 1.0,
+      "gearDensity": 0.5,
+      "gridCols": 8,
+      "layerCount": 7,
+      "hatchAngle": 0.0,
+      "hatchSpacing": 16,
+      "bgDarkness": 0.15,
+      "noiseOctaves": 5
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Palette 9 (dynamic CLICKBAIT colors: grey, sage green, mustard yellow, dark brown, grey-blue from CryptoPunks). mathematical flowChar (Albers color theory = mathematical perception study). led mechChar (on-chain blockchain). symmetry 1.0 (perfect centrosymmetry — Albers nested squares are perfectly centered). layerCount 7 + noiseOctaves 5 (second consecutive day with this depth-plane configuration). wGeometric 0.85 dominant (nested squares as pure geometry). New archive high 6.8603 — third consecutive day above 6.65.",
+      "condensedReason": "CLICKBAIT/Albers homage; palette 9 muted CLICKBAIT colors; mathematical/led/mosaic; symmetry 1.0; layerCount 7; archive high 6.8603"
+    },
+    "tweetSummary": "NB reposts about CLICKBAIT (Capsule21, 2022): on-chain Josef Albers 'Homage to the Square' homage using CryptoPunks colors. Each nested ring = a color extracted from a CryptoPunk. Clicking a ring reveals its source Punk. NB: 'This was a brilliant...'",
+    "keyArtists": [
+      "Josef Albers",
+      "Capsule21 (dumbnamenumbers + piv_piv)",
+      "Larva Labs / CryptoPunks"
+    ],
+    "themes": [
+      "Josef Albers Homage to the Square",
+      "on-chain NFT conceptual art",
+      "CryptoPunks as color vocabulary",
+      "Albers nested squares from blockchain data",
+      "canonical art history meets NFT culture"
+    ]
   }
 ]
