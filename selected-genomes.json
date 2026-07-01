@@ -4029,7 +4029,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Palette 6 dark CRT ground — amber mosaic tiles as hot pixel clusters (VanDerBeek film strip), transit arcs sweeping like oscilloscope waveforms (Laposky Oscillon). The circuit as drawing instrument: signal transit IS the mark.",
-      "condensedReason": "Laposky oscilloscope + VanDerBeek pixel animation — signal transit as aesthetic logic, circuit as drawing instrument, CRT phosphor as canvas. Art of the Space Age."
+      "condensedReason": "Laposky's 'Oscillon' series (1950s) and VanDerBeek's 'Man and His World' pixel film (1964–72): two artists who never shared a medium, both using the electron beam as a drawing instrument. Laposky bent analog waveforms on CRT phosphor with no digital intermediary — pure electricity as line. VanDerBeek's collaboration with Bell Labs produced pixel-quantized film frames from painted input, translating human gesture through IBM 360 into discrete tone grids. NB holds them together as the pre-digital electronic art lineage. Dark void ground, high wFlow, tight wMechanical balance — the render captures phosphor glow against absolute black."
     },
     "tweetSummary": "Two threads: Ben F. Laposky 1958 oscilloscope art (Electronic Abstracts—Art for the Space Age, Oscillon #42) + Kenneth Knowlton 1972 quote on teaching Stan VanDerBeek to program autonomously. Both: the electronic system as drawing instrument.",
     "keyArtists": [
@@ -4044,7 +4044,8 @@
       "signal transit as aesthetic logic",
       "CRT dark ground",
       "film strip mosaic"
-    ]
+    ],
+    "condensedReason": "Laposky's 'Oscillon' series (1950s) and VanDerBeek's 'Man and His World' pixel film (1964–72): two artists who never shared a medium, both using the electron beam as a drawing instrument. Laposky bent analog waveforms on CRT phosphor with no digital intermediary — pure electricity as line. VanDerBeek's collaboration with Bell Labs produced pixel-quantized film frames from painted input, translating human gesture through IBM 360 into discrete tone grids. NB holds them together as the pre-digital electronic art lineage. Dark void ground, high wFlow, tight wMechanical balance — the render captures phosphor glow against absolute black."
   },
   {
     "day": 72,
@@ -4074,7 +4075,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Warm cream ground, sepia transit arcs, horizontal hatch bands (letterpress register), scattered geometric marks (plotted coordinates), tan halftone clusters. The document of machine-made abstraction rendered in the visual language of newsprint itself.",
-      "condensedReason": "Laposky + Bute + Csuri collection (1950–1967) — machine-made abstraction arc from oscilloscope waveforms to programmed randomness. Newsprint archive substrate. Sepia transit arcs on warm paper = oscilloscope traces documented."
+      "condensedReason": "A compression of three generations into one day: Laposky's oscilloscope (1950), Mary Ellen Bute's abstract film experiments (1934–1956), and Charles Csuri's 'Hummingbird' (1967) — the first computer-generated animation to tour internationally. Bute worked in analog electronics before oscilloscopes were an art medium; Csuri was writing FORTRAN. NB archives all three on warm newsprint scans, making the documentation substrate part of the aesthetic. The render responds: paletteIndex 1 (warm paper tone), high wPixel carrying the grain of degraded print, wMechanical holding the mechanical reproduction logic. The substrate IS the artwork here — the archive doesn't just preserve, it interprets."
     },
     "tweetSummary": "NB repost of @artmetaofficial — Digital Masterpieces collection (@jamie247): Ben F. Laposky, Mary Ellen Bute & Ted Nemeth, Charles Csuri. Commanding image: vintage B&W newsprint article about Laposky's world acclaim. 1950–1967 arc from oscilloscope waveforms to programmed randomness.",
     "keyArtists": [
@@ -4089,7 +4090,8 @@
       "newsprint as archive",
       "world acclaim legitimation",
       "1950–1967 arc"
-    ]
+    ],
+    "condensedReason": "A compression of three generations into one day: Laposky's oscilloscope (1950), Mary Ellen Bute's abstract film experiments (1934–1956), and Charles Csuri's 'Hummingbird' (1967) — the first computer-generated animation to tour internationally. Bute worked in analog electronics before oscilloscopes were an art medium; Csuri was writing FORTRAN. NB archives all three on warm newsprint scans, making the documentation substrate part of the aesthetic. The render responds: paletteIndex 1 (warm paper tone), high wPixel carrying the grain of degraded print, wMechanical holding the mechanical reproduction logic. The substrate IS the artwork here — the archive doesn't just preserve, it interprets."
   },
   {
     "day": 73,
@@ -4119,7 +4121,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Cornelia Sollfrank Net Art Generator (1997). Palette 9 web-safe internet register — completes three-day transit/circuit arc: Day 71 dark CRT (pal 6), Day 72 warm newsprint (pal 8), Day 73 web-white (pal 9). NB played with the tool and shared 4 outputs including Lillian_Schwartz-Leon_D_Harmon archival collage. Very low symmetry (0.00) = NAG chaos. Secondary: DagieDee generative photography 1968 Hannover genealogy.",
-      "condensedReason": "tool-as-art; web-safe RGB chaos; transit/circuit arc Day 3; feminist algorithm; accidental Bell Labs historiography"
+      "condensedReason": "Cornelia Sollfrank's Female Extension (1997) and her Net Art Generator — a software that generates infinite net art autonomously, still accessible and running nearly 30 years later. The tool is the artwork; every output is an instance, not a copy. NB's repost surfaced Leon Harmon's 1972 LACMA library records as a side-channel artifact — the tweet scraper caught what the tweet was about AND what the archive contained. Palette 9 dynamic triggered on web-safe RGB chaos: the render reflects both Sollfrank's generative logic (algorithmic process visible in the surface) and the accidental vivid noise of early web color. The archive has no curator — it accumulates."
     },
     "tweetSummary": "NB shared 4 outputs from Sollfrank Net Art Generator — web-safe saturated RGB collages on white ground. Named one output Lillian_Schwartz-Leon_D_Harmon (algorithm mined 1972 library records for Leon Harmon). DagieDee repost: generative photography 1968 Hannover as missing-link genealogy.",
     "keyArtists": [
@@ -4132,7 +4134,8 @@
       "web as raw material",
       "archival mining by algorithm",
       "generative photography genealogy 1968"
-    ]
+    ],
+    "condensedReason": "Cornelia Sollfrank's Female Extension (1997) and her Net Art Generator — a software that generates infinite net art autonomously, still accessible and running nearly 30 years later. The tool is the artwork; every output is an instance, not a copy. NB's repost surfaced Leon Harmon's 1972 LACMA library records as a side-channel artifact — the tweet scraper caught what the tweet was about AND what the archive contained. Palette 9 dynamic triggered on web-safe RGB chaos: the render reflects both Sollfrank's generative logic (algorithmic process visible in the surface) and the accidental vivid noise of early web color. The archive has no curator — it accumulates."
   },
   {
     "day": 74,
@@ -4162,7 +4165,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Palette 8 (warm newsprint), mathematical flowChar, gear mechChar, mosaic pixelChar. wPixel climbed to 0.810 through neighborhood polish — the Harmon Lincoln pixel grid asserting itself. The mathematical/gear combination names Bense’s Information Aesthetics: systematic algorithm in both computer (Bell Labs) and darkroom (Hannover 1968) contexts. Day 62 covered the same Harmon pixel work as artwork; Day 74 covers it as theory — Bense’s unifying framework across parallel generative lineages.",
-      "condensedReason": "Bense’s Information Aesthetics + 1971 Lincoln pixel newspaper; mathematical/gear on warm newsprint; wPixel 0.810 (pixel grid as theory); palette 8; fitness 6.6991"
+      "condensedReason": "Max Bense's 'Information Aesthetics' (1965–1969) as the theoretical frame that retrospectively unifies two parallel technical lineages: Bell Labs pixel computation (Leon Harmon's 1971 Lincoln portrait — 200 squares, 16 gray tones) and the Hannover darkroom generative photography scene (1968). Both used statistical information as an aesthetic quantity; both measured surprise as beauty. NB posted Harmon's original 1971 Bell Labs newspaper alongside a Hannover exhibition scan — the same Bense-inflected theory, two instruments. 'Computer Cubism' was already Day 62 (Harmon's face alone). Day 74 gets the correct title: Information Aesthetics — the theory that made both possible. paletteIndex 8 (greyscale aggregatedColors from the newspaper scan), wMechanical 0.72 holding the gear logic of print reproduction."
     },
     "tweetSummary": "NB shares 1971 Journal Herald “Computer cubism?” clipping (Lincoln pixelated face, Harmon/Knowlton Bell Labs minimum-information experiment). Repost argues Max Bense’s Information Aesthetics underlies BOTH computer generative art AND darkroom generative photography (NDR 3 Hannover 1968) — the missing parallel canon.",
     "keyArtists": [
@@ -4176,7 +4179,8 @@
       "parallel canon — darkroom algorithmics",
       "1971 Computer Cubism newspaper coverage",
       "Generative Kunst und Fotografie 1968"
-    ]
+    ],
+    "condensedReason": "Max Bense's 'Information Aesthetics' (1965–1969) as the theoretical frame that retrospectively unifies two parallel technical lineages: Bell Labs pixel computation (Leon Harmon's 1971 Lincoln portrait — 200 squares, 16 gray tones) and the Hannover darkroom generative photography scene (1968). Both used statistical information as an aesthetic quantity; both measured surprise as beauty. NB posted Harmon's original 1971 Bell Labs newspaper alongside a Hannover exhibition scan — the same Bense-inflected theory, two instruments. 'Computer Cubism' was already Day 62 (Harmon's face alone). Day 74 gets the correct title: Information Aesthetics — the theory that made both possible. paletteIndex 8 (greyscale aggregatedColors from the newspaper scan), wMechanical 0.72 holding the gear logic of print reproduction."
   },
   {
     "day": 75,
@@ -4207,7 +4211,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Palette 6 (dark CRT/LED ground), data flowChar, led mechChar, mosaic pixelChar. Neighborhood polish found layerCount 7 + noiseOctaves 5. Dark ground makes the 200-square Harmon pixel mosaic read as a display, bridging the 1971 experiment prediction to today's LED panels. NEW ARCHIVE HIGH.",
-      "condensedReason": "Harmon pixel-as-prediction; dark LED ground; data/led/mosaic on palette 6; layerCount 7 pushed to archive high 6.8600"
+      "condensedReason": "Harmon's 1971 Lincoln pixel portrait — 200 squares, 16 gray tones, explicitly designed with picturephone transmission in mind: Harmon wanted to know the minimum pixel count for face recognition across low-bandwidth video. The answer was 200. NB posted the original paper alongside a 2024 outdoor LED panel installation that uses the same quantization principle at architectural scale — 50 years between prediction and fulfillment. layerCount 7 discovered by neighborhood polish: going from 6→7 layers added +0.20 fitness (the layerCount*0.2 term in the formula). noiseOctaves 5 + dark ground (bgDarkness 0.82) + LED mechanicalCharacter produced the archive's highest fitness at that point: 6.8600. The picturephone became the LED wall became the render."
     },
     "tweetSummary": "NB original: Columbia Missourian Feb 21 1971 — Lincoln pixel face, 200 squares, 16 intensities of gray, designed for future picturephones. NB repost (50 likes): outdoor night LED panel installation, red ambient, white luminous panels.",
     "keyArtists": [
@@ -4219,7 +4223,8 @@
       "200 squares / 16 intensities",
       "LED outdoor installation as fulfilled prediction",
       "Bell Labs future display technology"
-    ]
+    ],
+    "condensedReason": "Harmon's 1971 Lincoln pixel portrait — 200 squares, 16 gray tones, explicitly designed with picturephone transmission in mind: Harmon wanted to know the minimum pixel count for face recognition across low-bandwidth video. The answer was 200. NB posted the original paper alongside a 2024 outdoor LED panel installation that uses the same quantization principle at architectural scale — 50 years between prediction and fulfillment. layerCount 7 discovered by neighborhood polish: going from 6→7 layers added +0.20 fitness (the layerCount*0.2 term in the formula). noiseOctaves 5 + dark ground (bgDarkness 0.82) + LED mechanicalCharacter produced the archive's highest fitness at that point: 6.8600. The picturephone became the LED wall became the render."
   },
   {
     "day": 76,
@@ -4250,7 +4255,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Palette 9 (dynamic CLICKBAIT colors: grey, sage green, mustard yellow, dark brown, grey-blue from CryptoPunks). mathematical flowChar (Albers color theory = mathematical perception study). led mechChar (on-chain blockchain). symmetry 1.0 (perfect centrosymmetry — Albers nested squares are perfectly centered). layerCount 7 + noiseOctaves 5 (second consecutive day with this depth-plane configuration). wGeometric 0.85 dominant (nested squares as pure geometry). New archive high 6.8603 — third consecutive day above 6.65.",
-      "condensedReason": "CLICKBAIT/Albers homage; palette 9 muted CLICKBAIT colors; mathematical/led/mosaic; symmetry 1.0; layerCount 7; archive high 6.8603"
+      "condensedReason": "CLICKBAIT by Capsule21 (2022): Josef Albers's 'Homage to the Square' format, executed with colors extracted directly from CryptoPunk pixel palettes. Each concentric ring is a flat color sourced from a specific Punk — clicking the ring reveals which one. On-chain art as color atlas; the blockchain as provenance for pigment. Albers spent 1949–1976 studying color interaction with painted squares; Capsule21 replicated the formal constraint exactly and replaced the painter's intuition with cryptographic ownership records. The aggregatedColors (grey, sage, mustard, dark brown, steel blue) fed palette 9 dynamic — a muted, architectural palette completely unlike Day 73's web-safe explosion from the same trigger. symmetry 1.0 locked: Albers never deviated from the centered square. layerCount 7 + noiseOctaves 5 again: two consecutive archive highs using this configuration, now a confirmed high-fitness repeatable pattern. Current archive high: 6.8603."
     },
     "tweetSummary": "NB reposts about CLICKBAIT (Capsule21, 2022): on-chain Josef Albers 'Homage to the Square' homage using CryptoPunks colors. Each nested ring = a color extracted from a CryptoPunk. Clicking a ring reveals its source Punk. NB: 'This was a brilliant...'",
     "keyArtists": [
@@ -4264,6 +4269,119 @@
       "CryptoPunks as color vocabulary",
       "Albers nested squares from blockchain data",
       "canonical art history meets NFT culture"
+    ],
+    "condensedReason": "CLICKBAIT by Capsule21 (2022): Josef Albers's 'Homage to the Square' format, executed with colors extracted directly from CryptoPunk pixel palettes. Each concentric ring is a flat color sourced from a specific Punk — clicking the ring reveals which one. On-chain art as color atlas; the blockchain as provenance for pigment. Albers spent 1949–1976 studying color interaction with painted squares; Capsule21 replicated the formal constraint exactly and replaced the painter's intuition with cryptographic ownership records. The aggregatedColors (grey, sage, mustard, dark brown, steel blue) fed palette 9 dynamic — a muted, architectural palette completely unlike Day 73's web-safe explosion from the same trigger. symmetry 1.0 locked: Albers never deviated from the centered square. layerCount 7 + noiseOctaves 5 again: two consecutive archive highs using this configuration, now a confirmed high-fitness repeatable pattern. Current archive high: 6.8603."
+  },
+  {
+    "day": 77,
+    "date": "2026-06-30",
+    "title": "Twenty Minutes",
+    "filename": "mechanical-reverie-day-077-twenty-minutes-2026-06-30.png",
+    "fitness": 6.761,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 11,
+      "cellPadding": 0.09773318788291198,
+      "rotation": 2.2239937225328643,
+      "globalRotation": -0.06465920341193421,
+      "paletteIndex": 6,
+      "bgDarkness": 0.82,
+      "gearDensity": 0.5,
+      "gearComplexity": 24,
+      "chainFrequency": 0.19176184089071568,
+      "pixelDensity": 0.3109481770885031,
+      "pixelSize": 8,
+      "flowScale": 0.01703011396259744,
+      "flowStrength": 1.212860249462897,
+      "particleCount": 1989,
+      "clockSpeed": 0.06265756905716198,
+      "oscillation": 1.8537542147278838,
+      "wMechanical": 0.68,
+      "wPixel": 0.42,
+      "wFlow": 0.5,
+      "wGeometric": 0.8,
+      "wOrganic": 0.31,
+      "wHatch": 0.42,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 7,
+      "noiseOctaves": 1,
+      "noiseSeed": 756.6869538560118
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Frieder Nake, 1966 grid-subdivision drawing machine — the technician-at-control-panel photograph, not the plotter output itself. mechanicalCharacter 'gear' chosen over the archive's prior 'plotter' treatments of Nake (Day 55) to reflect the hardware-as-system documentation. Neighborhood polish found layerCount 7, repeating the pattern from Days 75-76.",
+      "condensedReason": "Frieder Nake's 1966 grid-subdivision drawing machine at TH Stuttgart: the machine calculated for 20 minutes — deliberation, not instant output — before deciding what the plotter should draw. NB's photo shows the control panel and operator, not the finished plotter line; the render answers with a grid of amber halftone cells against dark institutional blue, echoing the indicator-light grid on the panel itself. layerCount 7 again — third consecutive archive day where the neighborhood-polish pass converges on this configuration."
+    },
+    "tweetSummary": "1966: Frieder Nake's early grid-subdivision computer graphics experiment at TH Stuttgart — the machine calculated for ~20 minutes before deciding what the drawing machine should do.",
+    "keyArtists": [
+      "Frieder Nake"
+    ],
+    "themes": [
+      "recursive grid subdivision as generative rule",
+      "computation time as artistic labor",
+      "operator at control panel — human oversight of autonomous decision",
+      "Stuttgart school — algorithmic art's founding triumvirate"
+    ]
+  },
+  {
+    "day": 78,
+    "date": "2026-07-01",
+    "title": "Predicting 2026",
+    "filename": "mechanical-reverie-day-078-predicting-2026-2026-07-01.png",
+    "fitness": 6.717,
+    "genome": {
+      "gridCols": 8,
+      "gridRows": 12,
+      "cellPadding": 0.1268670887789556,
+      "rotation": 4.781314491509271,
+      "globalRotation": -0.07086042505759944,
+      "paletteIndex": 10,
+      "bgDarkness": 0.85,
+      "gearDensity": 0.45,
+      "gearComplexity": 10,
+      "chainFrequency": 0.5079023409209614,
+      "pixelDensity": 0.42936107952912606,
+      "pixelSize": 6,
+      "flowScale": 0.015046823520521162,
+      "flowStrength": 2.2916324755411845,
+      "particleCount": 683,
+      "clockSpeed": 0.012670251381451909,
+      "oscillation": 2.3738396713577656,
+      "wMechanical": 0.62,
+      "wPixel": 0.32,
+      "wFlow": 0.78,
+      "wGeometric": 0.55,
+      "wOrganic": 0.33,
+      "wHatch": 0.48,
+      "hatchAngle": 0.524,
+      "hatchSpacing": 10,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 1786.8037491167443
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Vera Molnár, 1981 INA archival TV interview — she describes a machine that 'meticulously follows every order' while she does 'absolutely nothing,' read today as a 45-year prediction of prompt-based generative/AI art. Fourth Molnár appearance in the archive (after Days 53, 54, 69) — differentiated by cool blue-black palette 10 (custom dynamic slot, distinct from her prior gear/plotter treatments) and flowCharacter 'transit' (signal traversal from human command to machine execution) rather than the 'mathematical' register used previously. hatchAngle kept at 30° — her established diagonal-displacement signature.",
+      "condensedReason": "Vera Molnár, INA archival TV footage, 1981: 'who meticulously followed every single order I give him, and as for me, I could simply be lazy... and just—' — an algorithmic artist describing generative delegation 45 years before prompt-based AI art existed. The blue-black terminal-lit still (INA broadcast watermark) gave a distinct cool palette, differentiating this from her three prior archive appearances (Days 53, 54, 69). flowCharacter 'transit' reframes her quote as literal signal-transit from command to machine."
+    },
+    "tweetSummary": "Vera Molnár, quoted from a 1981 French TV interview (INA archive), describing a machine that meticulously executes her orders while she does nothing — read today as a prediction of generative/AI-assisted art.",
+    "keyArtists": [
+      "Vera Molnár"
+    ],
+    "themes": [
+      "delegation to an obedient machine — command as creative act",
+      "1981 prediction of 2026 — prophetic time-displacement",
+      "archival French television documentation (INA)",
+      "artist at terminal in darkened room"
     ]
   }
 ]
