@@ -4315,7 +4315,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Frieder Nake, 1966 grid-subdivision drawing machine — the technician-at-control-panel photograph, not the plotter output itself. mechanicalCharacter 'gear' chosen over the archive's prior 'plotter' treatments of Nake (Day 55) to reflect the hardware-as-system documentation. Neighborhood polish found layerCount 7, repeating the pattern from Days 75-76.",
-      "condensedReason": "Frieder Nake's 1966 grid-subdivision drawing machine at TH Stuttgart: the machine calculated for 20 minutes — deliberation, not instant output — before deciding what the plotter should draw. NB's photo shows the control panel and operator, not the finished plotter line; the render answers with a grid of amber halftone cells against dark institutional blue, echoing the indicator-light grid on the panel itself. layerCount 7 again — third consecutive archive day where the neighborhood-polish pass converges on this configuration."
+      "condensedReason": "Frieder Nake's 1966 grid-subdivision drawing machine at TH Stuttgart, one of the founding acts of algorithmic computer art alongside Georg Nees and A. Michael Noll. The machine divided a fixed image size into a theoretical grid, then calculated for roughly 20 minutes — deliberation, not instant output — before deciding what the plotter should draw. NB's photo documents the control panel and its operator, not the finished plotter line: a grid of indicator lights standing in for the theoretical grid, a clock making the computation's duration literal. The render answers in kind — amber halftone cells against dark institutional blue, echoing the panel's own light-grid. mechanicalCharacter 'gear' marks this as hardware-and-process, distinct from Day 55's 'plotter' treatment of Nake's finished drawings. layerCount 7 again — third consecutive archive day where polish converges on this configuration."
     },
     "tweetSummary": "1966: Frieder Nake's early grid-subdivision computer graphics experiment at TH Stuttgart — the machine calculated for ~20 minutes before deciding what the drawing machine should do.",
     "keyArtists": [
@@ -4326,7 +4326,10 @@
       "computation time as artistic labor",
       "operator at control panel — human oversight of autonomous decision",
       "Stuttgart school — algorithmic art's founding triumvirate"
-    ]
+    ],
+    "keyDetails": "Frieder Nake, 1966 — grid-subdivision drawing machine, TH Stuttgart. NB original tweet, 26 likes.",
+    "description": "Frieder Nake's 1966 grid-subdivision drawing machine at TH Stuttgart, one of the founding acts of algorithmic computer art alongside Georg Nees and A. Michael Noll. The machine divided a fixed image size into a theoretical grid, then calculated for roughly 20 minutes — deliberation, not instant output — before deciding what the plotter should draw. NB's photo documents the control panel and its operator, not the finished plotter line: a grid of indicator lights standing in for the theoretical grid, a clock making the computation's duration literal. The render answers in kind — amber halftone cells against dark institutional blue, echoing the panel's own light-grid. mechanicalCharacter 'gear' marks this as hardware-and-process, distinct from Day 55's 'plotter' treatment of Nake's finished drawings. layerCount 7 again — third consecutive archive day where polish converges on this configuration.",
+    "condensedReason": "Frieder Nake's 1966 grid-subdivision drawing machine at TH Stuttgart, one of the founding acts of algorithmic computer art alongside Georg Nees and A. Michael Noll. The machine divided a fixed image size into a theoretical grid, then calculated for roughly 20 minutes — deliberation, not instant output — before deciding what the plotter should draw. NB's photo documents the control panel and its operator, not the finished plotter line: a grid of indicator lights standing in for the theoretical grid, a clock making the computation's duration literal. The render answers in kind — amber halftone cells against dark institutional blue, echoing the panel's own light-grid. mechanicalCharacter 'gear' marks this as hardware-and-process, distinct from Day 55's 'plotter' treatment of Nake's finished drawings. layerCount 7 again — third consecutive archive day where polish converges on this configuration."
   },
   {
     "day": 78,
@@ -4371,7 +4374,7 @@
     "curatorial": {
       "score": "A",
       "notes": "Vera Molnár, 1981 INA archival TV interview — she describes a machine that 'meticulously follows every order' while she does 'absolutely nothing,' read today as a 45-year prediction of prompt-based generative/AI art. Fourth Molnár appearance in the archive (after Days 53, 54, 69) — differentiated by cool blue-black palette 10 (custom dynamic slot, distinct from her prior gear/plotter treatments) and flowCharacter 'transit' (signal traversal from human command to machine execution) rather than the 'mathematical' register used previously. hatchAngle kept at 30° — her established diagonal-displacement signature.",
-      "condensedReason": "Vera Molnár, INA archival TV footage, 1981: 'who meticulously followed every single order I give him, and as for me, I could simply be lazy... and just—' — an algorithmic artist describing generative delegation 45 years before prompt-based AI art existed. The blue-black terminal-lit still (INA broadcast watermark) gave a distinct cool palette, differentiating this from her three prior archive appearances (Days 53, 54, 69). flowCharacter 'transit' reframes her quote as literal signal-transit from command to machine."
+      "condensedReason": "Vera Molnár, quoted from a 1981 French television interview preserved in the INA archive: 'who meticulously followed every single order that I give him, and as for me, I could simply be lazy, so absolutely nothing, and just—' NB's framing — 'predicting 2026 in 1981' — turns a 45-year gap into the point: an algorithmic-art pioneer describing prompt-based generative delegation two generations before the term existed. The still is cool and moody, an INA broadcast watermark anchoring its archival authenticity, Molnár's dark-framed glasses catching terminal light in an otherwise blue-black room. A custom dynamic palette was built from these exact tones — distinct from her three prior archive appearances (Days 53, 54, 69), which used warmer institutional greys. flowCharacter 'transit' reframes her quote literally: a command transiting from human intention to machine execution. Her signature 30° hatchAngle carries through unchanged."
     },
     "tweetSummary": "Vera Molnár, quoted from a 1981 French TV interview (INA archive), describing a machine that meticulously executes her orders while she does nothing — read today as a prediction of generative/AI-assisted art.",
     "keyArtists": [
@@ -4382,6 +4385,70 @@
       "1981 prediction of 2026 — prophetic time-displacement",
       "archival French television documentation (INA)",
       "artist at terminal in darkened room"
-    ]
+    ],
+    "keyDetails": "Vera Molnár, 1981 INA archival TV interview — generative delegation predicted 45 years early. NB repost, 9 likes.",
+    "description": "Vera Molnár, quoted from a 1981 French television interview preserved in the INA archive: 'who meticulously followed every single order that I give him, and as for me, I could simply be lazy, so absolutely nothing, and just—' NB's framing — 'predicting 2026 in 1981' — turns a 45-year gap into the point: an algorithmic-art pioneer describing prompt-based generative delegation two generations before the term existed. The still is cool and moody, an INA broadcast watermark anchoring its archival authenticity, Molnár's dark-framed glasses catching terminal light in an otherwise blue-black room. A custom dynamic palette was built from these exact tones — distinct from her three prior archive appearances (Days 53, 54, 69), which used warmer institutional greys. flowCharacter 'transit' reframes her quote literally: a command transiting from human intention to machine execution. Her signature 30° hatchAngle carries through unchanged.",
+    "condensedReason": "Vera Molnár, quoted from a 1981 French television interview preserved in the INA archive: 'who meticulously followed every single order that I give him, and as for me, I could simply be lazy, so absolutely nothing, and just—' NB's framing — 'predicting 2026 in 1981' — turns a 45-year gap into the point: an algorithmic-art pioneer describing prompt-based generative delegation two generations before the term existed. The still is cool and moody, an INA broadcast watermark anchoring its archival authenticity, Molnár's dark-framed glasses catching terminal light in an otherwise blue-black room. A custom dynamic palette was built from these exact tones — distinct from her three prior archive appearances (Days 53, 54, 69), which used warmer institutional greys. flowCharacter 'transit' reframes her quote literally: a command transiting from human intention to machine execution. Her signature 30° hatchAngle carries through unchanged."
+  },
+  {
+    "day": 79,
+    "date": "2026-07-02",
+    "title": "Sinescape",
+    "filename": "mechanical-reverie-day-079-sinescape-2026-07-02.png",
+    "fitness": 6.42,
+    "genome": {
+      "gridCols": 4,
+      "gridRows": 9,
+      "cellPadding": 0.1509569337356955,
+      "rotation": 5.490188530985233,
+      "globalRotation": -0.08675075516454167,
+      "paletteIndex": 3,
+      "bgDarkness": 0.82,
+      "gearDensity": 0.5,
+      "gearComplexity": 10,
+      "chainFrequency": 0.7505915113809591,
+      "pixelDensity": 0.7487785765487638,
+      "pixelSize": 3,
+      "flowScale": 0.009309485700983096,
+      "flowStrength": 2.2937728857923037,
+      "particleCount": 1016,
+      "clockSpeed": 0.005572307336116692,
+      "oscillation": 2.385332425684461,
+      "wMechanical": 0.6,
+      "wPixel": 0.46,
+      "wFlow": 0.65,
+      "wGeometric": 0.52,
+      "wOrganic": 0.48,
+      "wHatch": 0.58,
+      "hatchAngle": 0,
+      "hatchSpacing": 9,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "oscilloscope",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0.4,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 5331.535160251792
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Charles Csuri's own prophetic voice (1967 AP wire quote) paired with a contemporary sculpture that fulfills his milling-machine prediction. Distinct from Csuri's prior archive appearances (Days 58-59 figurative dissolution, Day 72 programmed-randomness lineage) — this is his prophecy in his own words, plus two named works (Sinescape, Transformations) not previously in the archive. First use of the new 'oscilloscope' flowCharacter, chosen because Sinescape's overlapping wave-contour lines are the closest archive source yet to that character's Lissajous-curve logic. Bitforms Gallery 25th anniversary (same day, NB original, 25 likes) and an unattributed lennyjpg repost were both logged as secondary/minor — Csuri's thread was clearly the day's dominant content (4 tweets, 2 named artworks, direct quotes, a fulfilled prediction).",
+      "condensedReason": "Charles Csuri, quoted from the AP wire article 'Artist May Think, Computer Work' (Feb 1967, Austin American Statesman): a prophecy that the artist would one day 'have conversations' with the computer, his brain impulses translated directly into a creation — and that computers would eventually produce sculpture, engraving, ceramics, even motion pictures, cut by a 'computer-controlling milling machine.' NB pairs this 59-year-old prediction with 'Ridges Over,' a contemporary CNC-milled wood sculpture that fulfills it exactly — warm amber ridges carved by the very kind of machine Csuri foresaw. Two of Csuri's own works round out the thread: Sinescape (1967), a landscape built entirely from overlapping sine-wave contour lines, and Transformations (1965), an 8-panel grid of the same bearded face progressively distorted. Sinescape gave the render its title and its flowCharacter: the first archive use of 'oscilloscope' — dense overlapping Lissajous curves standing in for Csuri's hand-plotted wave lines. Palette 3 (Mechanical Bronze) matched Ridges Over's wood tones directly, no custom palette needed. mechanicalCharacter 'gear' marks the milling-machine prophecy; gridCols 4 echoes Transformations' 4-panel width."
+    },
+    "tweetSummary": "1967 AP wire article quotes Charles Csuri predicting computer-generated sculpture; NB pairs it with a contemporary CNC-milled wood sculpture that fulfills the prediction, plus Csuri's own Sinescape (1967) and Transformations (1965).",
+    "keyArtists": [
+      "Charles Csuri",
+      "James Shaffer"
+    ],
+    "themes": [
+      "prophecy of human-computer co-creation",
+      "prediction fulfilled — computer-controlled milling machine sculpture",
+      "Sinescape — sine-wave plotter landscape",
+      "Transformations — 8-panel grid of algorithmic face variations",
+      "AP wire syndication"
+    ],
+    "keyDetails": "Charles Csuri, 1967 prophecy — AP wire article predicts computer-milled sculpture, fulfilled today. NB original thread, 17-4 likes.",
+    "description": "Charles Csuri, quoted from the AP wire article 'Artist May Think, Computer Work' (Feb 1967, Austin American Statesman): a prophecy that the artist would one day 'have conversations' with the computer, his brain impulses translated directly into a creation — and that computers would eventually produce sculpture, engraving, ceramics, even motion pictures, cut by a 'computer-controlling milling machine.' NB pairs this 59-year-old prediction with 'Ridges Over,' a contemporary CNC-milled wood sculpture that fulfills it exactly — warm amber ridges carved by the very kind of machine Csuri foresaw. Two of Csuri's own works round out the thread: Sinescape (1967), a landscape built entirely from overlapping sine-wave contour lines, and Transformations (1965), an 8-panel grid of the same bearded face progressively distorted. Sinescape gave the render its title and its flowCharacter: the first archive use of 'oscilloscope' — dense overlapping Lissajous curves standing in for Csuri's hand-plotted wave lines. Palette 3 (Mechanical Bronze) matched Ridges Over's wood tones directly, no custom palette needed. mechanicalCharacter 'gear' marks the milling-machine prophecy; gridCols 4 echoes Transformations' 4-panel width.",
+    "condensedReason": "Charles Csuri, quoted from the AP wire article 'Artist May Think, Computer Work' (Feb 1967, Austin American Statesman): a prophecy that the artist would one day 'have conversations' with the computer, his brain impulses translated directly into a creation — and that computers would eventually produce sculpture, engraving, ceramics, even motion pictures, cut by a 'computer-controlling milling machine.' NB pairs this 59-year-old prediction with 'Ridges Over,' a contemporary CNC-milled wood sculpture that fulfills it exactly — warm amber ridges carved by the very kind of machine Csuri foresaw. Two of Csuri's own works round out the thread: Sinescape (1967), a landscape built entirely from overlapping sine-wave contour lines, and Transformations (1965), an 8-panel grid of the same bearded face progressively distorted. Sinescape gave the render its title and its flowCharacter: the first archive use of 'oscilloscope' — dense overlapping Lissajous curves standing in for Csuri's hand-plotted wave lines. Palette 3 (Mechanical Bronze) matched Ridges Over's wood tones directly, no custom palette needed. mechanicalCharacter 'gear' marks the milling-machine prophecy; gridCols 4 echoes Transformations' 4-panel width."
   }
 ]
