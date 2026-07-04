@@ -4450,5 +4450,64 @@
     "keyDetails": "Charles Csuri, 1967 prophecy — AP wire article predicts computer-milled sculpture, fulfilled today. NB original thread, 17-4 likes.",
     "description": "Charles Csuri, quoted from the AP wire article 'Artist May Think, Computer Work' (Feb 1967, Austin American Statesman): a prophecy that the artist would one day 'have conversations' with the computer, his brain impulses translated directly into a creation — and that computers would eventually produce sculpture, engraving, ceramics, even motion pictures, cut by a 'computer-controlling milling machine.' NB pairs this 59-year-old prediction with 'Ridges Over,' a contemporary CNC-milled wood sculpture that fulfills it exactly — warm amber ridges carved by the very kind of machine Csuri foresaw. Two of Csuri's own works round out the thread: Sinescape (1967), a landscape built entirely from overlapping sine-wave contour lines, and Transformations (1965), an 8-panel grid of the same bearded face progressively distorted. Sinescape gave the render its title and its flowCharacter: the first archive use of 'oscilloscope' — dense overlapping Lissajous curves standing in for Csuri's hand-plotted wave lines. Palette 3 (Mechanical Bronze) matched Ridges Over's wood tones directly, no custom palette needed. mechanicalCharacter 'gear' marks the milling-machine prophecy; gridCols 4 echoes Transformations' 4-panel width.",
     "condensedReason": "Charles Csuri, quoted from the AP wire article 'Artist May Think, Computer Work' (Feb 1967, Austin American Statesman): a prophecy that the artist would one day 'have conversations' with the computer, his brain impulses translated directly into a creation — and that computers would eventually produce sculpture, engraving, ceramics, even motion pictures, cut by a 'computer-controlling milling machine.' NB pairs this 59-year-old prediction with 'Ridges Over,' a contemporary CNC-milled wood sculpture that fulfills it exactly — warm amber ridges carved by the very kind of machine Csuri foresaw. Two of Csuri's own works round out the thread: Sinescape (1967), a landscape built entirely from overlapping sine-wave contour lines, and Transformations (1965), an 8-panel grid of the same bearded face progressively distorted. Sinescape gave the render its title and its flowCharacter: the first archive use of 'oscilloscope' — dense overlapping Lissajous curves standing in for Csuri's hand-plotted wave lines. Palette 3 (Mechanical Bronze) matched Ridges Over's wood tones directly, no custom palette needed. mechanicalCharacter 'gear' marks the milling-machine prophecy; gridCols 4 echoes Transformations' 4-panel width."
+  },
+  {
+    "day": 80,
+    "date": "2026-07-02",
+    "title": "Floating Eyes",
+    "filename": "mechanical-reverie-day-080-floating-eyes-2026-07-02.png",
+    "fitness": 6.76,
+    "genome": {
+      "gridCols": 7,
+      "gridRows": 3,
+      "cellPadding": 0.03359552306082503,
+      "rotation": 4.6843000190373765,
+      "globalRotation": -0.08928585767633368,
+      "paletteIndex": 9,
+      "bgDarkness": 0.88,
+      "gearDensity": 0.5,
+      "gearComplexity": 21,
+      "chainFrequency": 0.8064751295631657,
+      "pixelDensity": 0.2943201410685955,
+      "pixelSize": 6,
+      "flowScale": 0.01497555171521691,
+      "flowStrength": 2.9281284122781,
+      "particleCount": 1242,
+      "clockSpeed": 0.005775187313862877,
+      "oscillation": 1.6798024718328195,
+      "wMechanical": 0.58,
+      "wPixel": 0.45,
+      "wFlow": 0.68,
+      "wGeometric": 0.48,
+      "wOrganic": 0.6,
+      "wHatch": 0.38,
+      "hatchAngle": 0,
+      "hatchSpacing": 13,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "led",
+      "symmetry": 0.15,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 8545.577927486092
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First archive appearance of Tony Oursler — introduces the projection-mapping/video-sculpture class, distinct from CRT, LED-panel, and plotter-drawing registers already established. Second entry for calendar date 2026-07-02 (following Day 79's Csuri thread), matching the Day 70 precedent for multiple substantive posts in one day. Custom dynamic palette 9 built manually in-pipeline with dark tone explicitly at index 5 to preempt the known pal[5] background-fill bug. NB's separate reflective repost on the same day ('Csuri was right, just took fifty years') was folded into Day 79's notes as an addendum — no new imagery, no separate render.",
+      "condensedReason": "Tony Oursler's first large-scale solo exhibition in Japan, 'Between Technology and Spiritual Knowledge ~Magic, Media, Art~,' opened at TOKYO NODE — a collaboration with David Bowie also noted. Oursler's signature technique projects video of eyes and faces onto physical spherical and ovoid forms: inert objects made suddenly conscious, blinking, watching. Four gallery photos capture the range — luminous eye-spheres floating in darkness, irregular cloud- and branch-shaped screens catching color (a chroma-key green panel visible mid-installation, the seams of production left showing), faceted crystal prisms refracting portrait and floral imagery into scattered color planes, and a single isolated 'head' — an ovoid form bisected into cool cyan and warm magenta, resting alone on the gallery floor. This is the archive's first Oursler entry, introducing the projection-mapping/video-sculpture register distinct from CRT, LED-panel, and plotter-drawing classes seen so far. mechanicalCharacter 'led' marks the projected-light-as-medium logic; flowCharacter 'biological' carries the eyes-and-faces content, continuing the archive's rule that organic/figurative source material requires the biological register regardless of how abstract the final composition becomes. A custom dynamic palette was built directly from the four images' saturated projection colors — electric blue, magenta, chroma green, purple, cyan, warm orange — with the dark gallery-black tone deliberately placed at array index 5 to avoid the known background-fill bug."
+    },
+    "tweetSummary": "Tony Oursler's first large-scale Japan solo exhibition opens at TOKYO NODE — video-projected eyes and faces on sculptural spheres, plus a collaboration with David Bowie.",
+    "keyArtists": [
+      "Tony Oursler"
+    ],
+    "themes": [
+      "projection as embodiment — video eyes/faces on sculptural spheres",
+      "light as sculptural medium",
+      "crystal/prism installations refracting portrait and floral imagery",
+      "technology as spiritual/magical register"
+    ],
+    "keyDetails": "Tony Oursler, 2026 Tokyo exhibition — video-projected eyes on sculptural spheres, first Japan solo show. NB repost, 196 likes.",
+    "description": "Tony Oursler's first large-scale solo exhibition in Japan, 'Between Technology and Spiritual Knowledge ~Magic, Media, Art~,' opened at TOKYO NODE — a collaboration with David Bowie also noted. Oursler's signature technique projects video of eyes and faces onto physical spherical and ovoid forms: inert objects made suddenly conscious, blinking, watching. Four gallery photos capture the range — luminous eye-spheres floating in darkness, irregular cloud- and branch-shaped screens catching color (a chroma-key green panel visible mid-installation, the seams of production left showing), faceted crystal prisms refracting portrait and floral imagery into scattered color planes, and a single isolated 'head' — an ovoid form bisected into cool cyan and warm magenta, resting alone on the gallery floor. This is the archive's first Oursler entry, introducing the projection-mapping/video-sculpture register distinct from CRT, LED-panel, and plotter-drawing classes seen so far. mechanicalCharacter 'led' marks the projected-light-as-medium logic; flowCharacter 'biological' carries the eyes-and-faces content, continuing the archive's rule that organic/figurative source material requires the biological register regardless of how abstract the final composition becomes. A custom dynamic palette was built directly from the four images' saturated projection colors — electric blue, magenta, chroma green, purple, cyan, warm orange — with the dark gallery-black tone deliberately placed at array index 5 to avoid the known background-fill bug.",
+    "condensedReason": "Tony Oursler's first large-scale solo exhibition in Japan, 'Between Technology and Spiritual Knowledge ~Magic, Media, Art~,' opened at TOKYO NODE — a collaboration with David Bowie also noted. Oursler's signature technique projects video of eyes and faces onto physical spherical and ovoid forms: inert objects made suddenly conscious, blinking, watching. Four gallery photos capture the range — luminous eye-spheres floating in darkness, irregular cloud- and branch-shaped screens catching color (a chroma-key green panel visible mid-installation, the seams of production left showing), faceted crystal prisms refracting portrait and floral imagery into scattered color planes, and a single isolated 'head' — an ovoid form bisected into cool cyan and warm magenta, resting alone on the gallery floor. This is the archive's first Oursler entry, introducing the projection-mapping/video-sculpture register distinct from CRT, LED-panel, and plotter-drawing classes seen so far. mechanicalCharacter 'led' marks the projected-light-as-medium logic; flowCharacter 'biological' carries the eyes-and-faces content, continuing the archive's rule that organic/figurative source material requires the biological register regardless of how abstract the final composition becomes. A custom dynamic palette was built directly from the four images' saturated projection colors — electric blue, magenta, chroma green, purple, cyan, warm orange — with the dark gallery-black tone deliberately placed at array index 5 to avoid the known background-fill bug."
   }
 ]
