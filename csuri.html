@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical Reverie — Charles Csuri Lineage</title>
+<meta name="description" content="Four renders across four months, all shaped by Charles Csuri's early computer art and his own words — a visual lineage from Mechanical Reverie.">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #c9b896;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+  }
+
+  .header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid #2a2218;
+  }
+  .header h1 {
+    font-size: 28px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #b0a078;
+    font-style: italic;
+    letter-spacing: 2px;
+  }
+  .header .back-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px;
+    color: #9c8a68;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2218;
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .header .back-link:hover {
+    color: #c4a265;
+    border-color: #c4a265;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 28px auto 0;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c9b896;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1280px;
+    margin: 40px auto 60px;
+    padding: 0 24px;
+  }
+
+  .card {
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid #2a2218;
+  }
+  .card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .card-image-wrap:hover img {
+    transform: scale(1.04);
+  }
+  .card-seq {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid #3a2e1e;
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 9px;
+    letter-spacing: 1px;
+  }
+
+  .card-body {
+    padding: 16px 18px 20px;
+  }
+  .card-date {
+    font-size: 11px;
+    color: #a89670;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .card-title {
+    font-size: 17px;
+    color: #c4a265;
+    margin-bottom: 8px;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .card-tag {
+    font-size: 10px;
+    font-family: monospace;
+    color: #9c8a68;
+    border: 1px solid #2a2218;
+    padding: 1px 7px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+  .card-fitness {
+    font-size: 11px;
+    color: #a89670;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .card-fitness span { color: #c4b39e; font-weight: bold; }
+  .card-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #c9b896;
+    border-top: 1px solid #2a2218;
+    padding-top: 12px;
+  }
+
+  .through-line {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 24px 24px 0;
+    border-top: 1px solid #2a2218;
+  }
+  .through-line h2 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4a265;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .through-line p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #a89670;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 20px 20px 40px;
+    font-size: 11px;
+    color: #9c8a68;
+    letter-spacing: 1px;
+  }
+  .footer-bottom a { color: #a89670; }
+  .footer-bottom a:hover { color: #c4a265; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid #3a2e1e;
+  }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Mechanical Reverie</h1>
+  <div class="subtitle">Charles Csuri — A Lineage</div>
+  <a class="back-link" href="timeline.html">← Back to timeline</a>
+</div>
+
+<div class="intro">
+  Charles Csuri has surfaced in the archive four times across four months — each time from a different angle:
+  a figurative source dissolved into algorithmic accumulation, the underdocumented process behind it, his place
+  in a wider lineage of machine-made abstraction, and finally his own 1967 prophecy of computer-generated
+  sculpture, fulfilled decades later. Same artist, four distinct readings.
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="through-line">
+  <h2>The Throughline</h2>
+  <p>
+    Csuri began each era as a human figure or process, hand-traced or hand-described, then let the machine's
+    own logic take over — a drum plotter's dense contour lines, a coordinate digitizer's discrete samples,
+    a wave-interference pattern standing in for pen-drawn sine curves. Days 58–59 read him through his
+    process; Day 72 places him in company; Day 79 lets him speak for himself. Four renders, four palettes,
+    four mechanical characters — one throughline: the human origin never fully disappears, it just changes
+    how visibly it survives the machine.
+  </p>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<div class="footer-bottom">
+  Mechanical Reverie · <a href="timeline.html">Full Timeline</a> · <a href="https://github.com/lukaszlysakowski/mechanical-reverie" target="_blank">GitHub</a>
+</div>
+
+<script>
+const ART_PATH = 'generative-art-output/art/';
+const CSURI_DAYS = [58, 59, 72, 79];
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+fetch('./selected-genomes.json?' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    const entries = CSURI_DAYS
+      .map(day => data.find(e => e.day === day))
+      .filter(Boolean);
+
+    const grid = document.getElementById('grid');
+    grid.innerHTML = entries.map((e, i) => {
+      const g = e.genome || {};
+      const desc = e.description || e.condensedReason || (e.curatorial && e.curatorial.condensedReason) || '';
+      const tags = [
+        g.flowCharacter ? `flow:${g.flowCharacter}` : null,
+        g.mechanicalCharacter ? `mech:${g.mechanicalCharacter}` : null,
+        g.pixelCharacter ? `pixel:${g.pixelCharacter}` : null,
+        g.paletteIndex !== undefined ? `palette:${g.paletteIndex}` : null,
+      ].filter(Boolean);
+
+      return `
+        <div class="card">
+          <div class="card-image-wrap" onclick="openLightbox('${ART_PATH}${e.filename}')">
+            <img src="${ART_PATH}${e.filename}" alt="${e.title}" loading="lazy">
+            <div class="card-seq">${i + 1}/${entries.length}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-date">${formatDate(e.date)} · Day ${e.day}</div>
+            <div class="card-title">${e.title}</div>
+            <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+            <div class="card-fitness">Fitness: <span>${e.fitness?.toFixed(4) ?? '—'}</span></div>
+            <div class="card-desc">${desc}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  })
+  .catch(err => {
+    document.getElementById('grid').innerHTML =
+      '<p style="color:#a89670;text-align:center;grid-column:1/-1;">Could not load selected-genomes.json — ' + err.message + '</p>';
+  });
+</script>
+
+</body>
+</html>
