@@ -1847,7 +1847,14 @@ async function loadArchiveDay(genNum) {
   if (!entry || !entry.genome) return false;
 
   const idx = entry.genome.paletteIndex;
-  if ((idx === 9 || idx === 10) && entry.date) {
+  if (idx === 9 || idx === 10) {
+    // Prefer the exact colors resolved at save time — re-deriving from `tweet-visual-themes-${date}.json`
+    // is ambiguous whenever two archive entries share a calendar date (the dated filename doesn't
+    // distinguish them, e.g. Day 79 and Day 80 both dated 2026-07-02). paletteColors sidesteps that
+    // entirely by recording exactly what was used, independent of date collisions.
+    if (Array.isArray(entry.genome.paletteColors) && entry.genome.paletteColors.length >= 6) {
+      setPalette(idx, entry.genome.paletteColors);
+    } else if (entry.date) {
     try {
       const vt = await fetch(`./tweet-visual-themes-${entry.date}.json?` + Date.now()).then(r => r.ok ? r.json() : null);
       if (vt && vt.aggregatedColors && vt.aggregatedColors.length >= 3) {
@@ -1880,6 +1887,7 @@ async function loadArchiveDay(genNum) {
         setPalette(idx, unique);
       }
     } catch (e) { /* fall back to whatever palette is currently loaded */ }
+    }
   }
 
   genome = Object.assign(generateGenome(), entry.genome);

@@ -4489,7 +4489,17 @@
       "symmetry": 0.15,
       "layerCount": 6,
       "noiseOctaves": 1,
-      "noiseSeed": 8545.577927486092
+      "noiseSeed": 8545.577927486092,
+      "paletteColors": [
+        "#e8d4c8",
+        "#2060a0",
+        "#d4308a",
+        "#40c020",
+        "#9040d0",
+        "#0a0a10",
+        "#40c0d0",
+        "#e08030"
+      ]
     },
     "curatorial": {
       "score": "A",
