@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Learning Generative Art Generator</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #c8c0b8;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1 {
+    margin-top: 24px;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #d4af37;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.8rem;
+    color: #a89c88;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .nav-link {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #9c8a68;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    margin-bottom: 16px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-link:hover {
+    color: #c4a265;
+    border-color: #c4a265;
+  }
+  .frame {
+    border: 12px solid #1a1510;
+    outline: 4px solid #2a2218;
+    box-shadow:
+      inset 0 0 20px rgba(0,0,0,0.8),
+      0 0 40px rgba(212,175,55,0.05),
+      0 8px 32px rgba(0,0,0,0.6);
+    background: #0d0d12;
+    position: relative;
+  }
+  .frame::before {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border: 2px solid #3a3228;
+    pointer-events: none;
+  }
+  canvas { display: block; cursor: crosshair; }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    max-width: 800px;
+  }
+  button {
+    background: #1a1510;
+    color: #d4af37;
+    border: 1px solid #3a3228;
+    padding: 8px 18px;
+    font-family: 'Georgia', serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+  }
+  button:hover {
+    background: #2a2218;
+    box-shadow: 0 0 12px rgba(212,175,55,0.15);
+  }
+  button.active {
+    background: #d4af37;
+    color: #0a0a0f;
+  }
+  .stats {
+    font-size: 0.75rem;
+    color: #9a8f80;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+  .stats span { color: #c4b39e; }
+  .genome {
+    font-size: 0.7rem;
+    color: #8a7d6c;
+    max-width: 780px;
+    text-align: center;
+    word-break: break-all;
+    margin-bottom: 24px;
+    font-family: monospace;
+  }
+  .tweet-status {
+    font-size: 0.7rem;
+    color: #7aa06e;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    min-height: 1.2em;
+  }
+  .tweet-status.error { color: #c08066; }
+  .theme-bar {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin: 8px 0;
+    flex-wrap: wrap;
+    max-width: 800px;
+  }
+  .theme-tag {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .momentum-up { color: #52b788; }
+  .momentum-down { color: #ff4d63; }
+  .momentum-flat { color: #96a2a6; }
+</style>
+</head>
+<body>
+
+<h1>Mechanical Reverie</h1>
+<p class="subtitle">A Self-Learning Generative Art Engine &mdash; Inspired by 300 Years of Art &amp; Technology</p>
+<script>
+  (function() {
+    const s = parseInt(new URLSearchParams(location.search).get('scale') || '1');
+    if (s > 1) {
+      const el = document.currentScript.previousElementSibling;
+      el.textContent += ` — ${s}× (${780*s}×${580*s}px)`;
+      el.style.color = '#d4af37';
+    }
+  })();
+</script>
+<a class="nav-link" href="timeline.html">← View Evolution Timeline</a>
+<div class="tweet-status" id="tweetStatus"></div>
+
+<div class="frame">
+  <canvas id="canvas" width="780" height="580" data-base-width="780" data-base-height="580"></canvas>
+</div>
+
+<div class="controls">
+  <button onclick="generate()">Generate</button>
+  <button onclick="evolve()">Evolve</button>
+  <button onclick="mutate()">Mutate</button>
+  <button onclick="toggleAnimate(this)">Animate</button>
+  <button onclick="exportArt(1)">Save 1×</button>
+  <button onclick="exportArt(2)">Save 2×</button>
+  <button onclick="exportArt(4)">Save 4×</button>
+  <button onclick="resetLineage()">New Lineage</button>
+  <button onclick="loadTweetThemes()" id="syncBtn">Sync Tweets</button>
+</div>
+
+<div class="theme-bar" id="themeBar"></div>
+
+<div class="stats">
+  Generation: <span id="gen">1</span> &nbsp;|&nbsp;
+  Fitness: <span id="fitness">0</span> &nbsp;|&nbsp;
+  Mutations: <span id="mutations">0</span> &nbsp;|&nbsp;
+  Style: <span id="styleName">—</span>
+</div>
+
+<div class="genome" id="genome"></div>
+
+<script>
+const canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+const _urlScale = parseInt(new URLSearchParams(location.search).get('scale') || '1', 10);
+const BASE_W = parseInt(canvas.dataset.baseWidth);
+const BASE_H = parseInt(canvas.dataset.baseHeight);
+if (_urlScale > 1) {
+  canvas.width  = BASE_W * _urlScale;
+  canvas.height = BASE_H * _urlScale;
+  canvas.style.width  = BASE_W + 'px';
+  canvas.style.height = BASE_H + 'px';
+  ctx = canvas.getContext('2d');
+}
+let W = canvas.width, H = canvas.height;
+
+// ── DNA: The genome that defines each artwork ──
+let generation = 1;
+let mutationCount = 0;
+let animating = false;
+let animFrame = null;
+let time = 0;
+let fitnessScore = 0;
+
+// Liked genomes for learning (interactive session)
+let likedGenomes = [];
+
+// Tweet-learned theme biases (loaded from tweet-themes.json)
+let tweetBias = null;
+let tweetThemes = null;
+
+// Visual theme biases (loaded from tweet-visual-themes.json)
+let visualBias = null;
+let visualThemes = null;
+
+// Ancestry: past winning genomes (loaded from selected-genomes.json)
+let selectedGenomes = [];
+
+function randomGenome() {
+  const base = {
+    // Structure
+    gridCols: randInt(3, 16),
+    gridRows: randInt(3, 12),
+    cellPadding: rand(0.02, 0.2),
+    rotation: rand(0, Math.PI * 2),
+    globalRotation: rand(-0.15, 0.15),
+
+    // Palette (inspired by historical art palettes)
+    paletteIndex: randInt(0, palettes.length - 1),
+    bgDarkness: rand(0.02, 0.12),
+
+    // Mechanical elements
+    gearDensity: rand(0, 1),
+    gearComplexity: randInt(6, 24),
+    chainFrequency: rand(0, 1),
+
+    // Pixel art layer
+    pixelDensity: rand(0, 1),
+    pixelSize: randInt(2, 8),
+
+    // Flow fields
+    flowScale: rand(0.002, 0.02),
+    flowStrength: rand(0.5, 4),
+    particleCount: randInt(100, 2000),
+
+    // Animation genes
+    clockSpeed: rand(0.001, 0.02),
+    oscillation: rand(0.5, 3),
+
+    // Style weights (0-1, determines blend)
+    wMechanical: rand(0, 1),
+    wPixel: rand(0, 1),
+    wFlow: rand(0, 1),
+    wGeometric: rand(0, 1),
+    wOrganic: rand(0, 1),
+    wHatch: rand(0, 1),         // Plotter hatching (new primitive — Apr 2026)
+
+    // Hatching parameters (plotter / engraving inspired)
+    hatchAngle: rand(0, Math.PI),   // Line angle in radians (0–π, symmetric)
+    hatchSpacing: rand(3, 20),      // Pixels between hatch lines
+
+    // Conceptual rendering mode — HOW each primitive renders, not just how much
+    pixelCharacter:     randomChoice(PIXEL_CHARS), // 'halftone'|'mosaic'|'grain'|'data'|'shard'|'nested' (nested — Jun 2026)
+    flowCharacter:      randomChoice(FLOW_CHARS),  // 'transit'|'biological'|'vortex'|'mathematical'|'dispersal'|'oscilloscope' (oscilloscope — Jun 2026)
+    mechanicalCharacter:randomChoice(MECH_CHARS),  // 'gear'|'circuit'|'plotter'|'led'
+
+    // Composition
+    symmetry: randInt(0, 4), // 0=none, 1=vertical, 2=horizontal, 3=radial, 4=quad
+    layerCount: randInt(2, 7),      // Up to 7 to allow all 6 layer types
+    noiseOctaves: randInt(1, 5),
+    noiseSeed: rand(0, 10000),
+  };
+
+  // Apply tweet-learned biases if available
+  if (tweetBias || visualBias) {
+    return applyTweetBias(base);
+  }
+  return base;
+}
+
+// Generate a genome with possible ancestry influence.
+// 40% chance of breeding with a past winner when ancestry exists.
+function generateGenome() {
+  if (selectedGenomes.length > 0 && Math.random() < 0.4) {
+    return ancestryGenome(0.3);
+  }
+  return randomGenome();
+}
+
+// ── Tweet Theme Integration ──
+function applyTweetBias(genome) {
+  const g = { ...genome };
+
+  // Apply text-based tweet bias (60% random + 40% tweet influence)
+  if (tweetBias) {
+    const influence = 0.4;
+    for (const [param, bias] of Object.entries(tweetBias)) {
+      if (param in g && typeof g[param] === 'number' && typeof bias === 'number') {
+        g[param] = g[param] * (1 - influence) + (g[param] + bias) * influence;
+      }
+    }
+  }
+
+  // Apply visual theme bias (70% current + 30% visual influence)
+  // Visual analysis from tweet images provides a secondary, subtler layer
+  if (visualBias) {
+    const vInfluence = 0.3;
+    for (const [param, bias] of Object.entries(visualBias)) {
+      if (param.startsWith('_')) continue; // Skip meta-fields like _suggestedPalettes
+      if (param in g && typeof g[param] === 'number' && typeof bias === 'number') {
+        g[param] = g[param] * (1 - vInfluence) + (g[param] + bias) * vInfluence;
+      }
+    }
+  }
+
+  // If tweet themes suggest specific palettes, bias toward them
+  // Combine text-based and visual-based palette suggestions
+  const allSuggestedPalettes = [];
+  if (tweetThemes && tweetThemes.suggestedPalettes) {
+    allSuggestedPalettes.push(...tweetThemes.suggestedPalettes);
+  }
+  if (visualBias && visualBias._suggestedPalettes) {
+    allSuggestedPalettes.push(...visualBias._suggestedPalettes);
+  }
+  if (allSuggestedPalettes.length > 0 && Math.random() < 0.6) {
+    g.paletteIndex = allSuggestedPalettes[Math.floor(Math.random() * allSuggestedPalettes.length)];
+  }
+
+  // If extracted colors exist (from text OR visual analysis), sometimes inject as dynamic palette
+  const allExtractedColors = [];
+  if (tweetThemes && tweetThemes.extractedColors) {
+    allExtractedColors.push(...tweetThemes.extractedColors.map(c => c.hex));
+  }
+  if (visualThemes && visualThemes.aggregatedColors) {
+    allExtractedColors.push(...visualThemes.aggregatedColors);
+  }
+  if (allExtractedColors.length >= 3 && Math.random() < 0.35) {
+    // Deduplicate and pick up to 8
+    const unique = [...new Set(allExtractedColors)];
+    const custom = unique.slice(0, 8);
+    while (custom.length < 8) custom.push(custom[custom.length - 1]);
+    if (palettes.length <= 10) {
+      palettes.push(custom);
+    } else {
+      palettes[10] = custom;
+    }
+    g.paletteIndex = palettes.length - 1;
+  }
+
+  // Clamp everything back to valid ranges
+  g.wMechanical = clamp(g.wMechanical, 0, 1);
+  g.wPixel = clamp(g.wPixel, 0, 1);
+  g.wFlow = clamp(g.wFlow, 0, 1);
+  g.wGeometric = clamp(g.wGeometric, 0, 1);
+  g.wOrganic = clamp(g.wOrganic, 0, 1);
+  g.gridCols = clamp(Math.round(g.gridCols), 2, 20);
+  g.gridRows = clamp(Math.round(g.gridRows), 2, 16);
+  g.paletteIndex = clamp(Math.round(g.paletteIndex), 0, palettes.length - 1);
+  g.layerCount = clamp(Math.round(g.layerCount), 1, 7);
+  g.particleCount = clamp(Math.round(g.particleCount), 50, 3000);
+  g.pixelSize = clamp(Math.round(g.pixelSize), 2, 12);
+  g.gearComplexity = clamp(Math.round(g.gearComplexity), 4, 32);
+  g.bgDarkness = clamp(g.bgDarkness, 0.01, 0.95);
+  g.wHatch = clamp(g.wHatch ?? 0, 0, 1);
+  if (g.hatchAngle == null) g.hatchAngle = rand(0, Math.PI);
+  g.hatchAngle = ((g.hatchAngle % Math.PI) + Math.PI) % Math.PI; // Wrap to [0, π)
+  g.hatchSpacing = clamp(g.hatchSpacing ?? 8, 2, 25);
+
+  // Apply conceptual character overrides from visual bias (70% adherence)
+  // Check both _prefixed (motif-cluster-derived) and plain (JSON-explicit) fields
+  const _pc = visualBias && (visualBias._pixelCharacter      || visualBias.pixelCharacter);
+  const _fc = visualBias && (visualBias._flowCharacter       || visualBias.flowCharacter);
+  const _mc = visualBias && (visualBias._mechanicalCharacter || visualBias.mechanicalCharacter);
+  if (_pc && Math.random() < 0.7) g.pixelCharacter      = _pc;
+  if (_fc && Math.random() < 0.7) g.flowCharacter       = _fc;
+  if (_mc && Math.random() < 0.7) g.mechanicalCharacter = _mc;
+  if (!g.pixelCharacter)      g.pixelCharacter      = randomChoice(PIXEL_CHARS);
+  if (!g.flowCharacter)       g.flowCharacter       = randomChoice(FLOW_CHARS);
+  if (!g.mechanicalCharacter) g.mechanicalCharacter = randomChoice(MECH_CHARS);
+
+  return g;
+}
+
+// ── Visual Theme Integration (tweet images) ──
+async function loadVisualThemes() {
+  try {
+    const res = await fetch('./tweet-visual-themes.json?' + Date.now());
+    if (!res.ok) return;
+    visualThemes = await res.json();
+
+    if (!visualThemes.images || visualThemes.images.length === 0) {
+      console.log('Visual themes file exists but no images analyzed yet');
+      return;
+    }
+
+    // Calculate visual genome bias from the analysis
+    visualBias = visualThemes.visualGenomeBias || visualThemes.visualBias || {};
+
+    // Derive wHatch bias from motifs: plotter / halftone / grid imagery → boost wHatch
+    // This auto-activates hatching when Noah's feed contains historical computer art
+    const hatchMotifs = new Set(['halftone', 'plotter', 'grid', 'monochrome', 'mathematical', 'historical', 'engraving', 'algorithmic']);
+    const allMotifs = visualThemes.images?.flatMap(img => img.motifs || []) || [];
+    const hatchMotifCount = allMotifs.filter(m => hatchMotifs.has(m)).length;
+    const totalMotifs = allMotifs.length || 1;
+    const hatchBias = Math.min((hatchMotifCount / totalMotifs) * 1.5, 0.4); // Max +0.4 boost
+    if (hatchBias > 0.05) {
+      visualBias.wHatch = (visualBias.wHatch ?? 0) + hatchBias;
+      console.log(`wHatch boost: +${hatchBias.toFixed(2)} from ${hatchMotifCount}/${totalMotifs} plotter motifs`);
+    }
+
+    // Detect dominant conceptual character from motif clusters
+    const pixelClusterMotifs = {
+      halftone: ['halftone', 'grid', 'mathematical', 'portrait', 'monochrome', 'plotter', 'binary', 'coarse', 'noise'],
+      grain:    ['analogue', 'film', 'documentary', 'travel', 'warm', 'vintage', 'photograph', 'nostalgic', 'hauntological', 'street'],
+      data:     ['stereogram', 'data', 'scientific', 'interface', 'screenshot', 'binary', 'text', 'random-dot'],
+      mosaic:   ['pixel', 'vivid', 'blocky', 'amiga', 'color-field', 'pop-art', 'generative', 'iridescent', 'cellular', 'biological'],
+    };
+    const flowClusterMotifs = {
+      transit:     ['documentary', 'travel', 'analogue', 'film', 'photograph', 'window', 'infrastructure', 'station', 'warm'],
+      biological:  ['biological', 'organic', 'cellular', 'fermentation', 'flowing', 'installation', 'iridescent'],
+      vortex:      ['vortex', 'swirling', 'crystalline', 'chaos', 'cracked', 'prismatic'],
+      mathematical:['mathematical', 'algorithmic', 'generative', 'geometric', 'radial', 'historical', 'interference'],
+    };
+    // Mechanical character — what KIND of mechanical elements appear in tweets
+    const mechClusterMotifs = {
+      gear:    ['mechanical', 'clockwork', 'automaton', 'robot', 'kinetic', 'machine', 'motor', 'gear', 'sculpture'],
+      circuit: ['hardware', 'pcb', 'circuit', 'tech', 'computer', 'electronic', 'chip', 'lo-fi', 'consumer', 'retro'],
+      plotter: ['plotter', 'drawing-machine', 'pen', 'engraving', 'algorithmic', 'historical', 'desmond', 'vera'],
+      led:     ['led', 'display', 'grid', 'pixel', 'screen', 'neon', 'light', 'data', 'video-game', 'visual-vocabulary'],
+    };
+    const pixelScores = {};
+    for (const [ch, mots] of Object.entries(pixelClusterMotifs)) {
+      pixelScores[ch] = allMotifs.filter(m => mots.includes(m)).length;
+    }
+    const flowScores = {};
+    for (const [ch, mots] of Object.entries(flowClusterMotifs)) {
+      flowScores[ch] = allMotifs.filter(m => mots.includes(m)).length;
+    }
+    const mechScores = {};
+    for (const [ch, mots] of Object.entries(mechClusterMotifs)) {
+      mechScores[ch] = allMotifs.filter(m => mots.includes(m)).length;
+    }
+    const bestPx   = Object.entries(pixelScores).sort((a, b) => b[1] - a[1])[0];
+    const bestFl   = Object.entries(flowScores).sort((a, b) => b[1] - a[1])[0];
+    const bestMech = Object.entries(mechScores).sort((a, b) => b[1] - a[1])[0];
+    if (bestPx && bestPx[1] > 0) {
+      visualBias._pixelCharacter = bestPx[0];
+      console.log(`pixelCharacter → "${bestPx[0]}" (score ${bestPx[1]})`);
+    }
+    if (bestFl && bestFl[1] > 0) {
+      visualBias._flowCharacter = bestFl[0];
+      console.log(`flowCharacter → "${bestFl[0]}" (score ${bestFl[1]})`);
+    }
+    if (bestMech && bestMech[1] > 0) {
+      visualBias._mechanicalCharacter = bestMech[0];
+      console.log(`mechanicalCharacter → "${bestMech[0]}" (score ${bestMech[1]})`);
+    }
+
+    const imgCount = visualThemes.images.filter(i => i.dominantColors && i.dominantColors.length > 0).length;
+    console.log(`Visual themes loaded: ${imgCount} images analyzed, ${visualThemes.dominantMotifs?.length || 0} motifs detected`);
+
+    // Update status bar with visual info
+    const statusEl = document.getElementById('tweetStatus');
+    if (statusEl && imgCount > 0) {
+      const motifs = visualThemes.dominantMotifs?.slice(0, 3).join(', ') || 'none';
+      statusEl.textContent += ` | 🖼️ ${imgCount} images (${motifs})`;
+    }
+  } catch (e) {
+    console.log('No visual themes data yet — text-only mode');
+  }
+}
+
+// ── Ancestry: Learn from past winners ──
+// Full ancestry entries (with metadata for extinction/hall of fame)
+let ancestryEntries = [];
+
+async function loadSelectedGenomes() {
+  try {
+    const res = await fetch('./selected-genomes.json?' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    ancestryEntries = data;
+    selectedGenomes = data.map(entry => entry.genome).filter(Boolean);
+
+    // Classify ancestry: active, hall of fame, extinct
+    const now = data.length; // Current generation number
+    const active = [], hallOfFame = [], extinct = [];
+    for (let i = 0; i < data.length; i++) {
+      const entry = data[i];
+      const gen = i + 1;
+      const descendants = entry.descendants || 0;
+      const lastInfluenced = entry.lastInfluenced || gen;
+      const generationsSinceInfluence = now - lastInfluenced;
+
+      if (entry.hallOfFame) {
+        hallOfFame.push({ index: i, entry, gen });
+      } else if (entry.extinct) {
+        extinct.push({ index: i, entry, gen });
+      } else if (generationsSinceInfluence >= 10 && descendants === 0) {
+        // Auto-extinction: hasn't influenced a winner in 10+ generations
+        extinct.push({ index: i, entry, gen });
+      } else if (descendants >= 3) {
+        // Auto-hall of fame: spawned 3+ descendants
+        hallOfFame.push({ index: i, entry, gen });
+      } else {
+        active.push({ index: i, entry, gen });
+      }
+    }
+
+    // Store classified pools for breeding
+    window._ancestryPools = { active, hallOfFame, extinct };
+
+    // Log ancestry status
+    const statusParts = [`${selectedGenomes.length} total`];
+    if (active.length > 0) statusParts.push(`${active.length} active`);
+    if (hallOfFame.length > 0) statusParts.push(`${hallOfFame.length} hall of fame ★`);
+    if (extinct.length > 0) statusParts.push(`${extinct.length} extinct`);
+    console.log(`Ancestry loaded: ${statusParts.join(', ')}`);
+
+    // Derive arc context from recent entries for class-aware ancestry weighting
+    if (data.length >= 2) {
+      const recentN = Math.min(5, data.length);
+      const recent = data.slice(-recentN);
+      window._arcContext = {
+        recentFlowChars:  recent.map(e => e.genome?.flowCharacter).filter(Boolean),
+        recentMechChars:  recent.map(e => e.genome?.mechanicalCharacter).filter(Boolean),
+        recentPalettes:   recent.map(e => e.genome?.palette ?? e.genome?.paletteIndex).filter(v => v != null),
+        condensedReasons: recent.map(e => e.condensedReason || e.curatorial?.condensedReason).filter(Boolean),
+      };
+      console.log(`Arc: last ${recentN} → flow:[${window._arcContext.recentFlowChars.join(',')}] mech:[${window._arcContext.recentMechChars.join(',')}]`);
+    }
+
+    // Update the status bar with ancestry info
+    const statusEl = document.getElementById('tweetStatus');
+    if (statusEl && (hallOfFame.length > 0 || extinct.length > 0)) {
+      let ancestryInfo = ` | 🧬 ${active.length} active`;
+      if (hallOfFame.length > 0) ancestryInfo += `, ${hallOfFame.length}★`;
+      if (extinct.length > 0) ancestryInfo += `, ${extinct.length}✝`;
+      statusEl.textContent += ancestryInfo;
+    }
+  } catch (e) {
+    console.log('No ancestry data yet — starting fresh');
+  }
+}
+
+// Breed a new genome with ancestry from past winners.
+// Uses a tiered selection system:
+//   - Hall of Fame genomes: always in the breeding pool with 2x weight
+//   - Active genomes: recency-weighted selection
+//   - Extinct genomes: excluded from breeding entirely
+// ancestryWeight controls how much the ancestor contributes (0-1).
+function ancestryGenome(ancestryWeight = 0.3) {
+  if (selectedGenomes.length === 0) return randomGenome();
+
+  const pools = window._ancestryPools || { active: [], hallOfFame: [], extinct: [] };
+
+  // Build the breeding pool: active + hall of fame (exclude extinct)
+  const breedingPool = [];
+
+  // Hall of fame entries get 2x base weight (they're proven winners)
+  for (const { index, entry } of pools.hallOfFame) {
+    breedingPool.push({
+      genome: entry.genome,
+      weight: 3.0, // Strong preference for hall of famers
+      label: 'hallOfFame',
+      index
+    });
+  }
+
+  // Active entries get recency-weighted selection
+  const activeCount = pools.active.length;
+  for (let j = 0; j < pools.active.length; j++) {
+    const { index, entry } = pools.active[j];
+    // Recency: newer active genomes are more likely
+    const recencyWeight = 1 + (j / Math.max(activeCount, 1)) * 2;
+    breedingPool.push({
+      genome: entry.genome,
+      weight: recencyWeight,
+      label: 'active',
+      index
+    });
+  }
+
+  // If breeding pool is empty (all extinct), fall back to most recent genome
+  if (breedingPool.length === 0) {
+    console.log('All ancestors extinct — using most recent genome as fallback');
+    breedingPool.push({
+      genome: selectedGenomes[selectedGenomes.length - 1],
+      weight: 1,
+      label: 'fallback',
+      index: selectedGenomes.length - 1
+    });
+  }
+
+  // Class-aware arc boost: ancestors matching current day's class get 1.5x weight
+  // Prefer the most recent arc value, then fall back to current visual bias
+  const arc = window._arcContext;
+  const targetFlow = (arc?.recentFlowChars?.length ? arc.recentFlowChars[arc.recentFlowChars.length - 1] : null)
+    || (visualBias && (visualBias._flowCharacter  || visualBias.flowCharacter));
+  const targetMech = (arc?.recentMechChars?.length ? arc.recentMechChars[arc.recentMechChars.length - 1] : null)
+    || (visualBias && (visualBias._mechanicalCharacter || visualBias.mechanicalCharacter));
+  if (targetFlow || targetMech) {
+    for (const entry of breedingPool) {
+      const g = entry.genome;
+      const flowMatch = targetFlow && g.flowCharacter === targetFlow;
+      const mechMatch = targetMech && g.mechanicalCharacter === targetMech;
+      if (flowMatch || mechMatch) entry.weight *= 1.5;
+      if (flowMatch && mechMatch) entry.weight *= 1.3; // bonus for double match
+    }
+  }
+
+  // Weighted random selection from breeding pool
+  const totalWeight = breedingPool.reduce((s, e) => s + e.weight, 0);
+  let pick = Math.random() * totalWeight;
+  let chosen = breedingPool[breedingPool.length - 1];
+  for (const entry of breedingPool) {
+    pick -= entry.weight;
+    if (pick <= 0) { chosen = entry; break; }
+  }
+
+  console.log(`Breeding with ${chosen.label} ancestor #${chosen.index + 1} (weight ${chosen.weight.toFixed(1)})`);
+
+  // Track which ancestor was selected (for lineage tracking in daily script)
+  window._lastAncestorIndex = chosen.index;
+  window._lastAncestorLabel = chosen.label;
+
+  // Create a fresh random genome (with tweet bias)
+  const fresh = randomGenome();
+
+  // Hall of fame ancestors contribute slightly more DNA (35% vs 30%)
+  const effectiveWeight = chosen.label === 'hallOfFame'
+    ? Math.min(ancestryWeight + 0.05, 0.45)
+    : ancestryWeight;
+
+  // Blend: for each numeric parameter, interpolate between fresh and ancestor
+  const child = {};
+  for (const key of Object.keys(fresh)) {
+    if (typeof fresh[key] === 'number' && typeof chosen.genome[key] === 'number') {
+      const blended = fresh[key] * (1 - effectiveWeight) + chosen.genome[key] * effectiveWeight;
+      const jitter = (Math.random() - 0.5) * Math.abs(blended) * 0.1;
+      child[key] = blended + jitter;
+    } else {
+      child[key] = fresh[key];
+    }
+  }
+
+  // Clamp integer/bounded fields
+  child.gridCols = clamp(Math.round(child.gridCols), 2, 20);
+  child.gridRows = clamp(Math.round(child.gridRows), 2, 16);
+  child.paletteIndex = clamp(Math.round(child.paletteIndex), 0, palettes.length - 1);
+  child.symmetry = clamp(Math.round(child.symmetry), 0, 4);
+  child.layerCount = clamp(Math.round(child.layerCount), 1, 7);
+  child.particleCount = clamp(Math.round(child.particleCount), 50, 3000);
+  child.pixelSize = clamp(Math.round(child.pixelSize), 2, 12);
+  child.gearComplexity = clamp(Math.round(child.gearComplexity), 4, 32);
+  child.noiseOctaves = clamp(Math.round(child.noiseOctaves), 1, 5);
+  child.wMechanical = clamp(child.wMechanical, 0, 1);
+  child.wPixel = clamp(child.wPixel, 0, 1);
+  child.wFlow = clamp(child.wFlow, 0, 1);
+  child.wGeometric = clamp(child.wGeometric, 0, 1);
+  child.wOrganic = clamp(child.wOrganic, 0, 1);
+  child.bgDarkness = clamp(child.bgDarkness, 0.01, 0.95);
+  child.wHatch = clamp(child.wHatch ?? 0, 0, 1);
+  if (child.hatchAngle != null) child.hatchAngle = ((child.hatchAngle % Math.PI) + Math.PI) % Math.PI;
+  child.hatchSpacing = clamp(child.hatchSpacing ?? 8, 2, 25);
+  if (!child.mechanicalCharacter) child.mechanicalCharacter = randomChoice(MECH_CHARS);
+
+  return child;
+}
+
+async function loadTweetThemes() {
+  const statusEl = document.getElementById('tweetStatus');
+  const syncBtn = document.getElementById('syncBtn');
+  syncBtn.classList.add('active');
+  statusEl.textContent = 'Loading tweet themes...';
+  statusEl.className = 'tweet-status';
+
+  try {
+    const res = await fetch('./tweet-themes.json?' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    tweetThemes = await res.json();
+    tweetBias = tweetThemes.genomeBias || null;
+
+    // Update UI
+    const date = tweetThemes.date || 'unknown';
+    const count = tweetThemes.tweetCount || 0;
+    statusEl.textContent = `Synced: ${count} tweets from ${tweetThemes.source} (${date})`;
+
+    // Render theme bar
+    renderThemeBar(tweetThemes);
+
+    // Store in localStorage for offline use
+    localStorage.setItem('mechanicalReverie_themes', JSON.stringify(tweetThemes));
+
+    console.log('Tweet themes loaded:', tweetThemes);
+  } catch (e) {
+    // Try localStorage fallback
+    const cached = localStorage.getItem('mechanicalReverie_themes');
+    if (cached) {
+      tweetThemes = JSON.parse(cached);
+      tweetBias = tweetThemes.genomeBias || null;
+      statusEl.textContent = `Using cached themes (${tweetThemes.date || 'unknown'})`;
+      statusEl.className = 'tweet-status';
+      renderThemeBar(tweetThemes);
+    } else {
+      statusEl.textContent = 'No tweet data yet — run: node scrape-tweets.mjs';
+      statusEl.className = 'tweet-status error';
+    }
+  }
+  syncBtn.classList.remove('active');
+}
+
+function renderThemeBar(themes) {
+  const bar = document.getElementById('themeBar');
+  if (!themes || !themes.themeScores) { bar.innerHTML = ''; return; }
+
+  bar.innerHTML = '';
+  const scores = Object.entries(themes.themeScores)
+    .sort((a, b) => b[1] - a[1]);
+
+  for (const [theme, score] of scores) {
+    if (score < 0.05) continue;
+    const tag = document.createElement('span');
+    tag.className = 'theme-tag';
+    const intensity = Math.round(score * 255);
+    tag.style.background = `rgba(212,175,55,${score * 0.3})`;
+    tag.style.color = `rgb(${160 + intensity * 0.37}, ${140 + intensity * 0.45}, ${80 + intensity * 0.3})`;
+
+    // Show momentum arrow if available
+    let arrow = '';
+    if (themes.momentum && themes.momentum[theme]) {
+      const m = themes.momentum[theme];
+      if (m > 0.05) arrow = ' ↑';
+      else if (m < -0.05) arrow = ' ↓';
+    }
+    tag.textContent = `${theme}: ${(score * 100).toFixed(0)}%${arrow}`;
+    bar.appendChild(tag);
+  }
+
+  // Show top keywords
+  if (themes.topKeywords && themes.topKeywords.length > 0) {
+    const kwTag = document.createElement('span');
+    kwTag.className = 'theme-tag';
+    kwTag.style.background = 'rgba(99,102,241,0.15)';
+    kwTag.style.color = '#818cf8';
+    const topKw = themes.topKeywords.slice(0, 4).map(k => k.keyword).join(', ');
+    kwTag.textContent = `top: ${topKw}`;
+    bar.appendChild(kwTag);
+  }
+}
+
+// ── Palettes inspired by art history ──
+const palettes = [
+  // Pompadour Rococo
+  ['#d4af37', '#8b6914', '#c9a959', '#f0e68c', '#4a3728', '#1a1510', '#e8d5b0', '#6b4226'],
+  // Ducrocq Machine (1950s computer)
+  ['#00ff41', '#0a0a0a', '#1a3a1a', '#33ff33', '#006600', '#003300', '#88ff88', '#444444'],
+  // Calliope Pixel (early digital)
+  ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dfe6e9', '#2d3436', '#636e72'],
+  // Mechanical Bronze
+  ['#cd7f32', '#b87333', '#8b4513', '#daa520', '#f4a460', '#2f1810', '#c0c0c0', '#404040'],
+  // Classical Oil
+  ['#1a0a00', '#3d1c02', '#6b3a2a', '#c4956a', '#e8d5b0', '#f5f0e8', '#4a6741', '#2a4a6b'],
+  // Digital Void
+  ['#0f0f23', '#1a1a3e', '#2e2e5e', '#6366f1', '#818cf8', '#c7d2fe', '#f9fafb', '#4f46e5'],
+  // Sunset Automaton
+  ['#ff6b35', '#f7c59f', '#efefd0', '#004e89', '#1a659e', '#001524', '#ff9f1c', '#e71d36'],
+  // Verdigris & Rust
+  ['#2d6a4f', '#40916c', '#52b788', '#74c69d', '#8b4513', '#a0522d', '#cd853f', '#1b4332'],
+  // Gallery White (Institutional ground — off-white plasterboard, warm amber accent, charcoal mark)
+  ['#c4a07a', '#8b6040', '#6b4028', '#4a2818', '#e8e0d4', '#f4f0ea', '#d4c4a8', '#1c1410'],
+  // Phosphor Oscilloscope (Laposky CRT — deep void + phosphor green + amber sweep; Jun 2026)
+  ['#050a06', '#001a0a', '#00ff41', '#ffb347', '#ff6600', '#00cc33', '#ccffdd', '#003310'],
+];
+
+const styleNames = [
+  'Clockwork Reverie', 'Pixel Archaeology', 'Mechanical Flow',
+  'Rococo Algorithm', 'Digital Automaton', 'Calliope Dream',
+  'Bronze Computation', 'Chain Meditation', 'Gear Cathedral',
+  'Animated Canvas', 'Void Mechanism', 'Electric Fillette',
+];
+
+// Character constants — must be declared BEFORE randomGenome() is first called
+const PIXEL_CHARS = ['halftone', 'mosaic', 'grain', 'data', 'shard', 'nested'];
+const FLOW_CHARS  = ['transit', 'biological', 'vortex', 'mathematical', 'dispersal', 'oscilloscope'];
+const MECH_CHARS  = ['gear', 'circuit', 'plotter', 'led'];
+
+let genome = randomGenome();
+
+// ── Noise (simple Perlin-like) ──
+class SimplexNoise {
+  constructor(seed) {
+    this.seed = seed;
+  }
+  noise2D(x, y) {
+    const s = this.seed;
+    const X = Math.floor(x) & 255;
+    const Y = Math.floor(y) & 255;
+    const xf = x - Math.floor(x);
+    const yf = y - Math.floor(y);
+    const v1 = this._hash(X, Y, s);
+    const v2 = this._hash(X + 1, Y, s);
+    const v3 = this._hash(X, Y + 1, s);
+    const v4 = this._hash(X + 1, Y + 1, s);
+    const i1 = this._lerp(v1, v2, this._smooth(xf));
+    const i2 = this._lerp(v3, v4, this._smooth(xf));
+    return this._lerp(i1, i2, this._smooth(yf));
+  }
+  _hash(x, y, s) {
+    let h = x * 374761393 + y * 668265263 + s * 1274126177;
+    h = (h ^ (h >> 13)) * 1274126177;
+    h = h ^ (h >> 16);
+    return (h & 0x7fffffff) / 0x7fffffff;
+  }
+  _smooth(t) { return t * t * (3 - 2 * t); }
+  _lerp(a, b, t) { return a + (b - a) * t; }
+}
+
+// Fractional Brownian Motion — sums noise at increasing frequencies/decreasing amplitudes.
+// Used when g.noiseOctaves > 1 to produce layered, cloud-like depth.
+function fbm(x, y, octaves) {
+  let v = 0, amp = 0.5, freq = 1, max = 0;
+  for (let i = 0; i < octaves; i++) {
+    v   += noise.noise2D(x * freq, y * freq) * amp;
+    max += amp;
+    amp  *= 0.5;
+    freq *= 2.1;
+  }
+  return v / max; // normalise to [-1, 1]
+}
+
+let noise = new SimplexNoise(genome.noiseSeed);
+
+// ── Rendering Engine ──
+function render(g, t = 0) {
+  noise = new SimplexNoise(g.noiseSeed);
+  const pal = palettes[g.paletteIndex % palettes.length];
+
+  // Background
+  ctx.fillStyle = pal[5] || '#0a0a0f';
+  ctx.fillRect(0, 0, W, H);
+
+  // Dark texture overlay
+  for (let i = 0; i < 3000; i++) {
+    const x = rand(0, W), y = rand(0, H);
+    ctx.fillStyle = `rgba(0,0,0,${rand(0, g.bgDarkness)})`;
+    ctx.fillRect(x, y, 1, 1);
+  }
+
+  ctx.save();
+  ctx.translate(W / 2, H / 2);
+  ctx.rotate(g.globalRotation + Math.sin(t * g.clockSpeed) * 0.02);
+  ctx.translate(-W / 2, -H / 2);
+
+  // Layer rendering based on genome weights
+  const layers = [
+    { w: g.wGeometric,        fn: () => drawGeometric(g, pal, t) },
+    { w: g.wMechanical,       fn: () => drawMechanical(g, pal, t) },
+    { w: g.wPixel,            fn: () => drawPixelLayer(g, pal, t) },
+    { w: g.wFlow,             fn: () => drawFlowField(g, pal, t) },
+    { w: g.wOrganic,          fn: () => drawOrganic(g, pal, t) },
+    { w: g.wHatch ?? 0,       fn: () => drawHatch(g, pal, t) },
+  ].sort((a, b) => a.w - b.w);
+
+  for (let i = 0; i < Math.min(g.layerCount, layers.length); i++) {
+    if (layers[i].w > 0.15) {
+      ctx.globalAlpha = clamp(layers[i].w, 0.2, 0.95);
+      layers[i].fn();
+    }
+  }
+
+  ctx.globalAlpha = 1;
+  ctx.restore();
+
+  // Frame vignette
+  drawVignette();
+
+  // Update stats
+  fitnessScore = calculateFitness(g);
+  document.getElementById('gen').textContent = generation;
+  document.getElementById('fitness').textContent = fitnessScore.toFixed(2);
+  document.getElementById('mutations').textContent = mutationCount;
+  document.getElementById('styleName').textContent = styleNames[
+    Math.floor((g.wMechanical * 3 + g.wPixel * 5 + g.wFlow * 7 + g.paletteIndex) % styleNames.length)
+  ];
+  document.getElementById('genome').textContent = 'DNA: ' + genomeToString(g);
+}
+
+// ── Drawing Functions ──
+function drawGeometric(g, pal, t) {
+  const cols = g.gridCols;
+  const rows = g.gridRows;
+  const cellW = W / cols;
+  const cellH = H / rows;
+  const pad = g.cellPadding;
+
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++) {
+      const x = c * cellW + cellW * pad;
+      const y = r * cellH + cellH * pad;
+      const w = cellW * (1 - pad * 2);
+      const h = cellH * (1 - pad * 2);
+      const n = noise.noise2D(c * 0.3, r * 0.3 + t * g.clockSpeed);
+
+      ctx.save();
+      ctx.translate(x + w / 2, y + h / 2);
+      ctx.rotate(n * g.rotation + t * g.clockSpeed * 0.5);
+
+      const shape = Math.floor(n * 5) % 5;
+      const color = pal[Math.floor(Math.abs(n) * pal.length) % pal.length];
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 0.5 + n;
+
+      if (g.symmetry === 3) {
+        // Radial symmetry
+        for (let s = 0; s < 6; s++) {
+          ctx.save();
+          ctx.rotate((Math.PI * 2 / 6) * s);
+          drawShape(shape, w * 0.4, h * 0.4, n);
+          ctx.restore();
+        }
+      } else {
+        drawShape(shape, w * 0.4, h * 0.4, n);
+      }
+
+      ctx.restore();
+    }
+  }
+}
+
+function drawShape(shape, w, h, n) {
+  switch (shape) {
+    case 0: // Circle
+      ctx.beginPath();
+      ctx.arc(0, 0, Math.min(w, h) * 0.5, 0, Math.PI * 2);
+      n > 0.5 ? ctx.fill() : ctx.stroke();
+      break;
+    case 1: // Rectangle
+      n > 0.5 ? ctx.fillRect(-w / 2, -h / 2, w, h) : ctx.strokeRect(-w / 2, -h / 2, w, h);
+      break;
+    case 2: // Triangle
+      ctx.beginPath();
+      ctx.moveTo(0, -h / 2);
+      ctx.lineTo(w / 2, h / 2);
+      ctx.lineTo(-w / 2, h / 2);
+      ctx.closePath();
+      n > 0.5 ? ctx.fill() : ctx.stroke();
+      break;
+    case 3: // Diamond
+      ctx.beginPath();
+      ctx.moveTo(0, -h / 2);
+      ctx.lineTo(w / 2, 0);
+      ctx.lineTo(0, h / 2);
+      ctx.lineTo(-w / 2, 0);
+      ctx.closePath();
+      ctx.stroke();
+      break;
+    case 4: // Cross
+      ctx.beginPath();
+      ctx.moveTo(-w / 2, 0); ctx.lineTo(w / 2, 0);
+      ctx.moveTo(0, -h / 2); ctx.lineTo(0, h / 2);
+      ctx.stroke();
+      break;
+  }
+}
+
+function drawMechanical(g, pal, t) {
+  const ch = g.mechanicalCharacter || 'gear';
+  if (ch === 'circuit') { drawCircuitTraces(g, pal, t); return; }
+  if (ch === 'plotter') { drawPlotterArm(g, pal, t);    return; }
+  if (ch === 'led')     { drawLedMatrix(g, pal, t);     return; }
+  // default: 'gear'
+  const count = Math.floor(g.gearDensity * 12) + 2;
+  for (let i = 0; i < count; i++) {
+    const n = noise.noise2D(i * 1.5, g.noiseSeed * 0.01);
+    const x = W * (0.1 + n * 0.8);
+    const y = H * (0.1 + noise.noise2D(i * 2.3, g.noiseSeed * 0.02) * 0.8);
+    const r = 20 + n * 60;
+    const teeth = g.gearComplexity;
+    const color = pal[Math.floor(i * 1.7) % pal.length];
+
+    drawGear(x, y, r, teeth, t * (i % 2 === 0 ? 1 : -1), color, g);
+
+    // Connecting chains
+    if (i > 0 && g.chainFrequency > 0.3) {
+      const prevN = noise.noise2D((i - 1) * 1.5, g.noiseSeed * 0.01);
+      const px = W * (0.1 + prevN * 0.8);
+      const py = H * (0.1 + noise.noise2D((i - 1) * 2.3, g.noiseSeed * 0.02) * 0.8);
+      drawChain(px, py, x, y, pal[2], t, g);
+    }
+  }
+}
+
+// ── Mechanical sub-renderers ──
+
+// CIRCUIT: PCB trace network — horizontal/vertical traces, solder pads, vias
+function drawCircuitTraces(g, pal, t) {
+  const color  = pal[Math.floor(g.noiseSeed * 0.37) % pal.length];
+  const color2 = pal[Math.floor(g.noiseSeed * 0.71) % pal.length];
+  const traceCount = Math.floor(g.gearDensity * 18) + 6;
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([]);
+
+  // Generate node positions on a loose grid
+  const nodes = [];
+  for (let i = 0; i < traceCount; i++) {
+    const nx = noise.noise2D(i * 2.1, g.noiseSeed * 0.03);
+    const ny = noise.noise2D(i * 3.7, g.noiseSeed * 0.05);
+    nodes.push({
+      x: W * (0.05 + (nx * 0.5 + 0.5) * 0.9),
+      y: H * (0.05 + (ny * 0.5 + 0.5) * 0.9),
+    });
+  }
+
+  // Draw Manhattan (right-angle) traces between nearby nodes
+  for (let i = 0; i < nodes.length - 1; i++) {
+    const a = nodes[i], b = nodes[i + 1];
+    const c = i % 2 === 0 ? color : color2;
+    ctx.strokeStyle = c;
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    // Route: horizontal then vertical (PCB manhattan routing)
+    const midX = (i % 3 === 0) ? b.x : a.x;
+    const midY = (i % 3 === 0) ? a.y : b.y;
+    ctx.lineTo(midX, midY);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+  }
+
+  // Solder pads at each node
+  for (let i = 0; i < nodes.length; i++) {
+    const { x, y } = nodes[i];
+    const c = pal[(i + 2) % pal.length];
+    ctx.strokeStyle = c;
+    ctx.fillStyle   = c;
+    // Pad (filled rect)
+    const padSize = 4 + noise.noise2D(i * 0.9, g.noiseSeed * 0.1) * 3;
+    ctx.fillRect(x - padSize / 2, y - padSize / 2, padSize, padSize);
+    // Via (circle inside pad)
+    if (i % 3 === 0) {
+      ctx.beginPath();
+      ctx.arc(x, y, padSize * 0.35, 0, Math.PI * 2);
+      ctx.strokeStyle = pal[0];
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    }
+  }
+
+  // SMD component outlines (small rectangles scattered on traces)
+  const compCount = Math.floor(traceCount * 0.4);
+  for (let i = 0; i < compCount; i++) {
+    const nx = noise.noise2D(i * 5.3 + 100, g.noiseSeed * 0.07);
+    const ny = noise.noise2D(i * 7.1 + 200, g.noiseSeed * 0.09);
+    const cx = W * (0.1 + (nx * 0.5 + 0.5) * 0.8);
+    const cy = H * (0.1 + (ny * 0.5 + 0.5) * 0.8);
+    const w  = 10 + Math.abs(nx) * 20;
+    const h  = 5  + Math.abs(ny) * 8;
+    ctx.strokeStyle = pal[(i + 1) % pal.length];
+    ctx.lineWidth   = 0.8;
+    ctx.strokeRect(cx - w / 2, cy - h / 2, w, h);
+    // Lead lines on each end
+    ctx.beginPath();
+    ctx.moveTo(cx - w / 2 - 4, cy);
+    ctx.lineTo(cx - w / 2,     cy);
+    ctx.moveTo(cx + w / 2,     cy);
+    ctx.lineTo(cx + w / 2 + 4, cy);
+    ctx.stroke();
+  }
+}
+
+// PLOTTER: Desmond Paul Henry–style — arcs swept from off-canvas pivot points
+function drawPlotterArm(g, pal, t) {
+  const armCount = Math.floor(g.gearDensity * 6) + 3;
+  const linesPerArm = Math.floor(12 + g.chainFrequency * 20);
+
+  for (let arm = 0; arm < armCount; arm++) {
+    const color = pal[arm % pal.length];
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 0.6 + arm * 0.1;
+    ctx.setLineDash([]);
+
+    // Pivot point — outside or at edge of canvas
+    const pivotAngle = noise.noise2D(arm * 1.3, g.noiseSeed * 0.04) * Math.PI * 2;
+    const pivotDist  = Math.max(W, H) * (0.8 + Math.abs(noise.noise2D(arm * 2.7, g.noiseSeed * 0.06)) * 1.2);
+    const pivX = W / 2 + Math.cos(pivotAngle) * pivotDist;
+    const pivY = H / 2 + Math.sin(pivotAngle) * pivotDist;
+
+    // Radius range for this arm's arcs
+    const rBase  = Math.sqrt((pivX - W/2)**2 + (pivY - H/2)**2);
+    const rStep  = (W * 0.04) / linesPerArm;
+    const rStart = rBase - linesPerArm * rStep * 0.5;
+
+    for (let line = 0; line < linesPerArm; line++) {
+      const r = rStart + line * rStep + t * g.clockSpeed * 2 * (arm % 2 === 0 ? 1 : -1);
+
+      // Angle sweep that clips to canvas bounds
+      const sweepStart = pivotAngle + Math.PI * 0.3 + noise.noise2D(arm * 0.5, line * 0.3) * 0.4;
+      const sweepEnd   = sweepStart + Math.PI * (0.6 + g.oscillation * 0.2);
+
+      ctx.globalAlpha = 0.55 - line * (0.3 / linesPerArm);
+      ctx.beginPath();
+      ctx.arc(pivX, pivY, r, sweepStart, sweepEnd);
+      ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  ctx.setLineDash([]);
+}
+
+// LED: Regular grid of lit/unlit circles — early display / HUMAN ONE aesthetic
+function drawLedMatrix(g, pal, t) {
+  const cols = Math.floor(g.gearDensity * 24) + 12;
+  const rows = Math.floor(cols * (H / W));
+  const cellW = W / cols;
+  const cellH = H / rows;
+  const radius = Math.min(cellW, cellH) * 0.36;
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const cx = (col + 0.5) * cellW;
+      const cy = (row + 0.5) * cellH;
+
+      // Noise-driven brightness value [0, 1]
+      const n = (noise.noise2D(
+        col * 0.15 + t * g.clockSpeed * 0.3,
+        row * 0.15 + g.noiseSeed * 0.001
+      ) + 1) / 2;
+
+      // Pick color from palette by brightness band
+      const band = Math.floor(n * pal.length);
+      const color = pal[clamp(band, 0, pal.length - 1)];
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+
+      if (n > 0.52) {
+        // Lit — filled circle
+        ctx.fillStyle = color;
+        ctx.globalAlpha = 0.55 + n * 0.45;
+        ctx.fill();
+      } else if (n > 0.35) {
+        // Dim — outline only
+        ctx.strokeStyle = color;
+        ctx.lineWidth   = 0.5;
+        ctx.globalAlpha = 0.25 + n * 0.4;
+        ctx.stroke();
+      }
+      // Dark cells: nothing drawn (black = unlit)
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+function drawGear(x, y, radius, teeth, t, color, g) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(t * g.clockSpeed * 2);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+
+  const innerR = radius * 0.7;
+  for (let i = 0; i < teeth; i++) {
+    const a1 = (Math.PI * 2 / teeth) * i;
+    const a2 = a1 + (Math.PI / teeth) * 0.6;
+    const a3 = a1 + (Math.PI / teeth);
+    const a4 = a3 + (Math.PI / teeth) * 0.4;
+
+    if (i === 0) ctx.moveTo(Math.cos(a1) * radius, Math.sin(a1) * radius);
+    ctx.lineTo(Math.cos(a2) * radius, Math.sin(a2) * radius);
+    ctx.lineTo(Math.cos(a3) * innerR, Math.sin(a3) * innerR);
+    ctx.lineTo(Math.cos(a4) * innerR, Math.sin(a4) * innerR);
+  }
+  ctx.closePath();
+  ctx.stroke();
+
+  // Center axle
+  ctx.beginPath();
+  ctx.arc(0, 0, radius * 0.15, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Spokes
+  for (let i = 0; i < 4; i++) {
+    const a = (Math.PI / 2) * i;
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(a) * radius * 0.15, Math.sin(a) * radius * 0.15);
+    ctx.lineTo(Math.cos(a) * innerR * 0.9, Math.sin(a) * innerR * 0.9);
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+function drawChain(x1, y1, x2, y2, color, t, g) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 0.5;
+  ctx.setLineDash([3, 3]);
+
+  const midX = (x1 + x2) / 2;
+  const midY = (y1 + y2) / 2 + Math.sin(t * g.clockSpeed * 3) * 15;
+
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.quadraticCurveTo(midX, midY, x2, y2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function drawPixelLayer(g, pal, t) {
+  const char = g.pixelCharacter || 'mosaic';
+
+  if (char === 'mosaic') {
+    // MOSAIC — chunky noise-thresholded blocks, color variety (original behavior)
+    const size = g.pixelSize;
+    const cols = Math.floor(W / size);
+    const rows = Math.floor(H / size);
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        const n = noise.noise2D(c * g.flowScale * 20 + t * g.clockSpeed, r * g.flowScale * 20);
+        if (n > (1 - g.pixelDensity) * 0.8) {
+          ctx.fillStyle = pal[Math.floor(Math.abs(n) * pal.length) % pal.length];
+          ctx.globalAlpha = clamp(n * 1.5, 0.1, 0.8);
+          ctx.fillRect(c * size, r * size, size - 1, size - 1);
+        }
+      }
+    }
+
+  } else if (char === 'halftone') {
+    // HALFTONE — regular grid, tonal density gradient, uniform cell fill
+    // Evokes: Harmon/Julesz Lincoln portrait, Peterson Wiener, coarse offset lithography
+    const size = Math.max(g.pixelSize, 4);
+    const cols = Math.floor(W / size);
+    const rows = Math.floor(H / size);
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        const n = (noise.noise2D(c * g.flowScale * 12 + t * g.clockSpeed * 0.3, r * g.flowScale * 12) + 1) / 2;
+        if (n < (1 - g.pixelDensity) * 0.9) continue;
+        // Cell fill proportional to tone — darker/fuller at high n
+        const fill = size * clamp(0.25 + n * 0.75, 0.25, 1.0);
+        const off  = (size - fill) / 2;
+        const colIdx = Math.floor(n * (pal.length - 1));
+        ctx.fillStyle = pal[colIdx];
+        ctx.globalAlpha = clamp(0.45 + n * 0.55, 0.45, 1.0);
+        ctx.fillRect(c * size + off, r * size + off, fill, fill);
+      }
+    }
+
+  } else if (char === 'grain') {
+    // GRAIN — fine random scatter, irregular spacing, analogue warmth
+    // Evokes: Kodachrome film grain, Landsat satellite texture, contact-sheet noise
+    const grainSize = Math.max(1, Math.floor(g.pixelSize * 0.35));
+    const count = Math.floor(W * H * g.pixelDensity * 0.12);
+    for (let i = 0; i < count; i++) {
+      const nx = (noise.noise2D(i * 0.0031, g.noiseSeed * 0.001) * 0.5 + 0.5);
+      const ny = (noise.noise2D(g.noiseSeed * 0.001, i * 0.0031) * 0.5 + 0.5);
+      const x  = nx * W;
+      const y  = ny * H;
+      const n  = noise.noise2D(x * g.flowScale * 4, y * g.flowScale * 4);
+      // Warm bias: weight toward first (usually warmest) palette colors
+      ctx.fillStyle = pal[Math.floor(Math.abs(n + 0.15) * pal.length) % pal.length];
+      ctx.globalAlpha = clamp(0.08 + Math.abs(n) * 0.42, 0.05, 0.52);
+      ctx.fillRect(x, y, grainSize + (Math.random() < 0.2 ? 1 : 0), grainSize);
+    }
+
+  } else if (char === 'data') {
+    // DATA — binary on/off, structured rows, high contrast, no gradients
+    // Evokes: Julesz random-dot stereograms, terminal output, punch-card data
+    const size = g.pixelSize;
+    const cols = Math.floor(W / size);
+    const rows = Math.floor(H / size);
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const n = noise.noise2D(c * g.flowScale * 28 + r * 0.08, r * g.flowScale * 28 + t * g.clockSpeed);
+        if (n <= (1 - g.pixelDensity)) continue;
+        // Monochrome tendency: only first 2 palette entries (darkest/lightest pair)
+        ctx.fillStyle = pal[Math.floor(Math.abs(n) * 2) % Math.min(2, pal.length)];
+        ctx.globalAlpha = 0.88;
+        ctx.fillRect(c * size, r * size, size, size); // No gap — full binary cells
+      }
+    }
+
+  } else if (char === 'shard') {
+    // SHARD — large irregular polygon fragments scattered across the field
+    // Evokes: broken glass, crystal cleavage planes, archival paper torn edges, geological strata;
+    //         distinct from mosaic (square grid), halftone (uniform cells), grain (fine scatter)
+    const shardSize = g.pixelSize * 8;
+    const count = Math.floor(W * H * g.pixelDensity * 0.0006) + 12;
+    for (let i = 0; i < count; i++) {
+      const nx = noise.noise2D(i * 1.3, g.noiseSeed * 0.002);
+      const ny = noise.noise2D(g.noiseSeed * 0.002, i * 1.3);
+      const cx = (nx * 0.5 + 0.5) * W;
+      const cy = (ny * 0.5 + 0.5) * H;
+      const sz = shardSize * (0.4 + Math.abs(noise.noise2D(i * 2.1, 0)) * 0.9);
+      const angle = noise.noise2D(i * 0.8, g.noiseSeed * 0.006) * Math.PI * 2;
+      const sides = Math.abs(noise.noise2D(i * 0.9, g.noiseSeed * 0.007)) < 0.55 ? 3 : 4;
+      const color = pal[Math.floor(Math.abs(noise.noise2D(i * 3.7, 0)) * pal.length) % pal.length];
+      ctx.fillStyle = color;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 0.5;
+      ctx.globalAlpha = clamp(0.15 + Math.abs(noise.noise2D(i * 1.1, g.noiseSeed * 0.001)) * 0.55, 0.10, 0.75);
+      ctx.beginPath();
+      for (let v = 0; v < sides; v++) {
+        const vAngle = angle + (Math.PI * 2 / sides) * v;
+        const vR = sz * (0.6 + Math.abs(noise.noise2D(i * 0.5 + v, g.noiseSeed * 0.003)) * 0.7);
+        const vx = cx + Math.cos(vAngle) * vR;
+        const vy = cy + Math.sin(vAngle) * vR;
+        v === 0 ? ctx.moveTo(vx, vy) : ctx.lineTo(vx, vy);
+      }
+      ctx.closePath();
+      Math.abs(noise.noise2D(i * 4.1, 0)) > 0.5 ? ctx.fill() : ctx.stroke();
+    }
+
+  } else if (char === 'nested') {
+    // NESTED — concentric rectangles with flat fills, Albers bottom-weighted proportioning
+    // Evokes: Josef Albers 'Homage to the Square' (1949–1976), CLICKBAIT/Capsule21 (2022)
+    const count = Math.floor(g.pixelDensity * 10) + 4;
+    for (let i = 0; i < count; i++) {
+      const nx      = noise.noise2D(i * 1.3, g.noiseSeed * 0.002);
+      const ny      = noise.noise2D(g.noiseSeed * 0.002, i * 1.3);
+      const cx      = (nx * 0.5 + 0.5) * W;
+      const cy      = (ny * 0.5 + 0.5) * H;
+      const base    = Math.min(W, H) * (0.06 + Math.abs(noise.noise2D(i * 2.1, 0)) * 0.18);
+      const rings   = 3 + Math.floor(Math.abs(noise.noise2D(i * 0.9, g.noiseSeed * 0.003)) * 3);
+      // Paint outermost ring first so inner rings sit on top
+      for (let r = rings - 1; r >= 0; r--) {
+        const size = base * (1 + r * 0.65);
+        // Albers proportioning: thicker margin at top, thinner at sides, flush at bottom
+        const mSide = size * 0.10;
+        const mTop  = size * 0.15;
+        ctx.fillStyle   = pal[(i * 3 + r) % pal.length];
+        ctx.globalAlpha = clamp(0.45 + (rings - r) * 0.08, 0.4, 0.92);
+        ctx.fillRect(cx - size + mSide, cy - size + mTop, (size - mSide) * 2, (size - mTop * 0.4) * 2);
+      }
+    }
+  }
+
+  ctx.globalAlpha = 1;
+}
+
+function drawFlowField(g, pal, t) {
+  const char = g.flowCharacter || 'transit';
+
+  if (char === 'transit') {
+    // TRANSIT — directional, sweeping, longer paths
+    // Evokes: travel movement, geography traversed, passage through space and time
+    const dirBias = Math.PI * 0.2; // Slight diagonal directional pull
+    for (let i = 0; i < g.particleCount; i++) {
+      let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
+      let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth = 0.2 + noise.noise2D(i, i) * 0.5;
+      ctx.beginPath(); ctx.moveTo(x, y);
+      for (let s = 0; s < 48; s++) { // Longer paths — sustained movement
+        const angle = noise.noise2D(x * g.flowScale + t * g.clockSpeed, y * g.flowScale)
+          * Math.PI * 2 * g.flowStrength + dirBias;
+        x += Math.cos(angle) * 2.5;
+        y += Math.sin(angle) * 1.6; // Slight horizontal bias
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+  } else if (char === 'biological') {
+    // BIOLOGICAL — short curved bursts, blob clustering, variable line weight
+    // Evokes: Ochiai fermentation cells, bacterial growth, cellular membrane traces
+    for (let i = 0; i < g.particleCount; i++) {
+      let x = (noise.noise2D(i * 0.07, g.noiseSeed * 0.0003) * W + W) % W;
+      let y = (noise.noise2D(g.noiseSeed * 0.0003, i * 0.07) * H + H) % H;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth = 0.4 + Math.abs(noise.noise2D(i * 2, i)) * 1.8; // Thicker, variable
+      ctx.beginPath(); ctx.moveTo(x, y);
+      for (let s = 0; s < 16; s++) { // Short paths → blob clusters, not sweeps
+        const angle = noise.noise2D(x * g.flowScale * 3.5 + t * g.clockSpeed, y * g.flowScale * 3.5)
+          * Math.PI * 2 * g.flowStrength;
+        x += Math.cos(angle) * 1.4;
+        y += Math.sin(angle) * 1.4;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+  } else if (char === 'vortex') {
+    // VORTEX — spiraling toward center, swirling with noise perturbation
+    // Evokes: Ochiai's shattered-crystal ceiling, iridescent interference, prism vortex
+    const cx = W / 2 + noise.noise2D(t * 0.08, 0) * W * 0.15;
+    const cy = H / 2 + noise.noise2D(0, t * 0.08) * H * 0.15;
+    for (let i = 0; i < g.particleCount; i++) {
+      let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
+      let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth = 0.25 + noise.noise2D(i, i) * 0.6;
+      ctx.beginPath(); ctx.moveTo(x, y);
+      for (let s = 0; s < 32; s++) {
+        const dx = cx - x, dy = cy - y;
+        const toCenter = Math.atan2(dy, dx);
+        const swirl = toCenter + Math.PI / 2; // Perpendicular → rotation not collapse
+        const n_angle = noise.noise2D(x * g.flowScale + t * g.clockSpeed, y * g.flowScale) * Math.PI * g.flowStrength;
+        const angle = swirl * 0.65 + n_angle * 0.35;
+        x += Math.cos(angle) * 2.2;
+        y += Math.sin(angle) * 2.2;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+  } else if (char === 'mathematical') {
+    // MATHEMATICAL — wave interference patterns, standing waves superposed
+    // Evokes: Jäger's 1968 pinhole generative photography, Chladni figures, diffraction
+    // Uses fbm when noiseOctaves > 1 for deeper layered interference
+    const octaves = g.noiseOctaves || 1;
+    const sample = (x, y) => octaves > 1 ? fbm(x, y, octaves) : noise.noise2D(x, y);
+    for (let i = 0; i < g.particleCount; i++) {
+      let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
+      let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth = 0.18 + Math.abs(noise.noise2D(i, 0)) * 0.38;
+      ctx.beginPath(); ctx.moveTo(x, y);
+      for (let s = 0; s < 28; s++) {
+        const wave1 = Math.sin(x * g.flowScale * 180 + t * g.clockSpeed * 4) * Math.PI;
+        const wave2 = Math.cos(y * g.flowScale * 180 + t * g.clockSpeed * 3) * Math.PI;
+        const warp  = octaves > 1 ? sample(x * g.flowScale * 4, y * g.flowScale * 4) * Math.PI * 0.6 : 0;
+        const angle = (wave1 + wave2 + warp) * g.flowStrength * 0.45;
+        x += Math.cos(angle) * 2.0;
+        y += Math.sin(angle) * 2.0;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+  } else if (char === 'dispersal') {
+    // DISPERSAL — particles radiate outward from a focal center, thinning as they spread
+    // Evokes: Ryan Gander aperture-portal (May 9), marks fanning from a circular hole in a wall;
+    //         debris field from an impact point; inverse of vortex — centrifugal, not centripetal
+    const cx = W / 2 + noise.noise2D(g.noiseSeed * 0.003, t * 0.05) * W * 0.12;
+    const cy = H / 2 + noise.noise2D(t * 0.05, g.noiseSeed * 0.003) * H * 0.12;
+    for (let i = 0; i < g.particleCount; i++) {
+      // Start near focal center — small noise-scattered radius
+      const startR = Math.abs(noise.noise2D(i * 1.7, g.noiseSeed * 0.004)) * Math.min(W, H) * 0.07;
+      const startAngle = noise.noise2D(i * 0.3, g.noiseSeed * 0.005) * Math.PI * 2;
+      let x = cx + Math.cos(startAngle) * startR;
+      let y = cy + Math.sin(startAngle) * startR;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth = 0.3 + Math.abs(noise.noise2D(i * 2.1, g.noiseSeed * 0.002)) * 1.1;
+      ctx.beginPath(); ctx.moveTo(x, y);
+      for (let s = 0; s < 30; s++) {
+        const dx = x - cx, dy = y - cy;
+        const radial = Math.atan2(dy, dx); // Direction away from center
+        const nAngle = noise.noise2D(x * g.flowScale * 4 + t * g.clockSpeed, y * g.flowScale * 4)
+          * Math.PI * g.flowStrength * 0.35;
+        const angle = radial + nAngle;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const speed = 1.5 + dist / Math.max(W, H) * 3.0; // Accelerate as it spreads outward
+        x += Math.cos(angle) * speed;
+        y += Math.sin(angle) * speed;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+  } else if (char === 'oscilloscope') {
+    // OSCILLOSCOPE — Lissajous/Bowditch parametric curves traced as electron beam on CRT phosphor
+    // Evokes: Ben Laposky's Oscillons (1950s), Stan VanDerBeek's signal-to-image work
+    // x = cx + Ax·sin(fa·t + φ),  y = cy + Ay·sin(fb·t) — integer ratios give closed figures
+    const FREQ_PAIRS = [[1,2],[1,3],[2,3],[3,4],[3,5],[4,5],[1,1],[2,5]];
+    const curveCount = Math.floor(g.particleCount * 0.06) + 4;
+    for (let i = 0; i < curveCount; i++) {
+      const pair  = FREQ_PAIRS[Math.floor(Math.abs(noise.noise2D(i * 1.1, g.noiseSeed * 0.01)) * FREQ_PAIRS.length)];
+      const fa    = pair[0], fb = pair[1];
+      const phase = noise.noise2D(i * 0.7,  g.noiseSeed * 0.03) * Math.PI * 2;
+      const ampX  = W * 0.28 * (0.5 + Math.abs(noise.noise2D(i * 1.7, 0)) * 0.5);
+      const ampY  = H * 0.28 * (0.5 + Math.abs(noise.noise2D(i * 2.9, 0)) * 0.5);
+      const cx    = W * (0.15 + Math.abs(noise.noise2D(i * 3.1, g.noiseSeed * 0.04)) * 0.70);
+      const cy    = H * (0.15 + Math.abs(noise.noise2D(i * 4.7, g.noiseSeed * 0.05)) * 0.70);
+      const steps = 320;
+      ctx.strokeStyle = pal[i % pal.length];
+      ctx.lineWidth   = 0.4 + Math.abs(noise.noise2D(i, 0)) * 0.9;
+      ctx.globalAlpha = 0.35 + Math.abs(noise.noise2D(i * 0.3, 0)) * 0.55;
+      ctx.beginPath();
+      for (let s = 0; s <= steps; s++) {
+        const tp = (s / steps) * Math.PI * 2 + t * g.clockSpeed * 0.4;
+        const x  = cx + ampX * Math.sin(fa * tp + phase);
+        const y  = cy + ampY * Math.sin(fb * tp);
+        s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawOrganic(g, pal, t) {
+  const count = Math.floor(g.wOrganic * 8) + 2;
+  for (let i = 0; i < count; i++) {
+    const cx = W * noise.noise2D(i * 3.1, g.noiseSeed * 0.005);
+    const cy = H * noise.noise2D(g.noiseSeed * 0.005, i * 3.1);
+    const maxR = 50 + noise.noise2D(i, i) * 100;
+    const color = pal[i % pal.length];
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+
+    for (let a = 0; a < Math.PI * 2; a += 0.02) {
+      const n = noise.noise2D(
+        Math.cos(a) * 2 + i + t * g.clockSpeed,
+        Math.sin(a) * 2 + i
+      );
+      const r = maxR * (0.5 + n * g.oscillation * 0.3);
+      const x = cx + Math.cos(a) * r;
+      const y = cy + Math.sin(a) * r;
+      a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+}
+
+function drawHatch(g, pal, t) {
+  // Plotter-style parallel line hatching
+  // Inspired by: Peterson's Digital Mona Lisa (1965), Franke's Elektronischer Einstein (1972)
+  // Lines are noise-modulated — density gradients mimic tonal halftone from plotter output
+  const angle = (g.hatchAngle ?? (Math.PI / 4)) + t * g.clockSpeed * 0.05;
+  const spacing = g.hatchSpacing ?? 8;
+
+  // Diagonal of canvas = max extent of rotated lines
+  const diag = Math.sqrt(W * W + H * H);
+  const lineCount = Math.ceil(diag / spacing) + 2;
+
+  ctx.save();
+  ctx.translate(W / 2, H / 2);
+  ctx.rotate(angle);
+
+  for (let i = -lineCount; i <= lineCount; i++) {
+    const y0 = i * spacing;
+
+    // Noise-driven visibility: creates tonal density gradients (dark = dense, light = sparse)
+    const n = noise.noise2D(i * 0.07 + g.noiseSeed * 0.001, t * g.clockSpeed * 0.02);
+    if (n < 0.15) continue; // Skip ~15% of lines for organic sparseness
+
+    const colorIdx = Math.floor(Math.abs(n) * pal.length) % pal.length;
+    ctx.strokeStyle = pal[colorIdx];
+    ctx.lineWidth = 0.4 + n * 1.2;
+    ctx.globalAlpha = 0.25 + n * 0.55;
+
+    // Draw line with subtle noise wiggle — plotter imprecision / mechanical drift
+    ctx.beginPath();
+    const halfD = diag;
+    const stepX = 12;
+    const steps = Math.ceil(halfD * 2 / stepX);
+    const startX = -halfD;
+    ctx.moveTo(startX, y0 + noise.noise2D(startX * 0.015, i * 0.2 + g.noiseSeed * 0.001) * 2.5);
+    for (let s = 1; s <= steps; s++) {
+      const x = startX + s * stepX;
+      const yWiggle = y0 + noise.noise2D(x * 0.015 + i * 0.3, g.noiseSeed * 0.001) * 2.5;
+      ctx.lineTo(x, yWiggle);
+    }
+    ctx.stroke();
+  }
+
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
+function drawVignette() {
+  const gradient = ctx.createRadialGradient(W / 2, H / 2, W * 0.25, W / 2, H / 2, W * 0.7);
+  gradient.addColorStop(0, 'rgba(0,0,0,0)');
+  gradient.addColorStop(1, 'rgba(0,0,0,0.6)');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, W, H);
+}
+
+// ── Genetic Algorithm ──
+function calculateFitness(g) {
+  // Fitness based on visual complexity & balance
+  let score = 0;
+  const weights = [g.wMechanical, g.wPixel, g.wFlow, g.wGeometric, g.wOrganic, g.wHatch ?? 0];
+  const active = weights.filter(w => w > 0.3).length;
+  score += active * 0.5; // Reward variety
+  score += (1 - Math.abs(g.wMechanical - g.wFlow)) * 0.3; // Reward balance
+  score += g.layerCount * 0.2;
+  score += (g.gearDensity > 0.3 && g.gearDensity < 0.8) ? 0.5 : 0;
+  score += g.gridCols > 4 && g.gridCols < 14 ? 0.3 : 0;
+
+  // Learn from liked genomes
+  if (likedGenomes.length > 0) {
+    const avgLiked = averageGenome(likedGenomes);
+    const similarity = genomeSimilarity(g, avgLiked);
+    score += similarity * 2;
+  }
+
+  // Reward alignment with tweet themes
+  if (tweetThemes && tweetThemes.themeScores) {
+    const ts = tweetThemes.themeScores;
+    const themeWeightMap = {
+      mechanical: g.wMechanical,
+      pixel: g.wPixel,
+      flow: g.wFlow,
+      geometric: g.wGeometric,
+      organic: g.wOrganic,
+      hatch: g.wHatch ?? 0,
+    };
+    let alignment = 0;
+    let count = 0;
+    for (const [theme, genomeWeight] of Object.entries(themeWeightMap)) {
+      if (ts[theme] !== undefined) {
+        alignment += 1 - Math.abs(ts[theme] - genomeWeight);
+        count++;
+      }
+    }
+    if (count > 0) score += (alignment / count) * 1.5;
+  }
+
+  return score;
+}
+
+function genomeSimilarity(a, b) {
+  const keys = ['wMechanical', 'wPixel', 'wFlow', 'wGeometric', 'wOrganic', 'wHatch',
+    'gearDensity', 'pixelDensity', 'flowScale', 'gridCols', 'gridRows'];
+  let sim = 0;
+  for (const k of keys) {
+    sim += 1 - Math.abs((a[k] - b[k]) / Math.max(Math.abs(a[k]), Math.abs(b[k]), 1));
+  }
+  return sim / keys.length;
+}
+
+function averageGenome(genomes) {
+  const avg = {};
+  const numKeys = Object.keys(genomes[0]).filter(k => typeof genomes[0][k] === 'number');
+  for (const k of numKeys) {
+    avg[k] = genomes.reduce((sum, g) => sum + g[k], 0) / genomes.length;
+  }
+  return avg;
+}
+
+function crossover(a, b) {
+  const child = {};
+  for (const key of Object.keys(a)) {
+    if (typeof a[key] === 'number') {
+      child[key] = Math.random() > 0.5 ? a[key] : b[key];
+    } else {
+      child[key] = a[key];
+    }
+  }
+  return child;
+}
+
+function mutateGenome(g, rate = 0.2) {
+  const child = { ...g };
+  child.noiseSeed = g.noiseSeed + rand(-500, 500);
+  for (const key of Object.keys(child)) {
+    if (typeof child[key] === 'number' && Math.random() < rate) {
+      const range = Math.abs(child[key]) * 0.3 + 0.1;
+      child[key] += rand(-range, range);
+    }
+  }
+  // Clamp weights
+  child.wMechanical = clamp(child.wMechanical, 0, 1);
+  child.wPixel = clamp(child.wPixel, 0, 1);
+  child.wFlow = clamp(child.wFlow, 0, 1);
+  child.wGeometric = clamp(child.wGeometric, 0, 1);
+  child.wOrganic = clamp(child.wOrganic, 0, 1);
+  child.gridCols = clamp(Math.round(child.gridCols), 2, 20);
+  child.gridRows = clamp(Math.round(child.gridRows), 2, 16);
+  child.paletteIndex = clamp(Math.round(child.paletteIndex), 0, palettes.length - 1);
+  child.symmetry = clamp(Math.round(child.symmetry), 0, 4);
+  child.layerCount = clamp(Math.round(child.layerCount), 1, 7);
+  child.particleCount = clamp(Math.round(child.particleCount), 50, 3000);
+  child.pixelSize = clamp(Math.round(child.pixelSize), 2, 12);
+  child.gearComplexity = clamp(Math.round(child.gearComplexity), 4, 32);
+  child.wHatch = clamp(child.wHatch ?? 0, 0, 1);
+  if (child.hatchAngle != null) child.hatchAngle = ((child.hatchAngle % Math.PI) + Math.PI) % Math.PI;
+  child.hatchSpacing = clamp(child.hatchSpacing ?? 8, 2, 25);
+  // 10% chance to randomly swap character params on mutation
+  if (Math.random() < 0.10) child.pixelCharacter      = randomChoice(PIXEL_CHARS);
+  if (Math.random() < 0.10) child.flowCharacter       = randomChoice(FLOW_CHARS);
+  if (Math.random() < 0.10) child.mechanicalCharacter = randomChoice(MECH_CHARS);
+  // Ensure character params always exist
+  if (!child.pixelCharacter)      child.pixelCharacter      = randomChoice(PIXEL_CHARS);
+  if (!child.flowCharacter)       child.flowCharacter       = randomChoice(FLOW_CHARS);
+  if (!child.mechanicalCharacter) child.mechanicalCharacter = randomChoice(MECH_CHARS);
+  return child;
+}
+
+// ── Controls ──
+function generate() {
+  stopAnimation();
+  // If we have liked genomes, bias toward them
+  if (likedGenomes.length >= 2) {
+    const a = likedGenomes[randInt(0, likedGenomes.length - 1)];
+    const b = likedGenomes[randInt(0, likedGenomes.length - 1)];
+    genome = mutateGenome(crossover(a, b), 0.3);
+  } else {
+    genome = generateGenome();
+  }
+  generation++;
+  time = 0;
+  render(genome, 0);
+}
+
+function evolve() {
+  stopAnimation();
+  // Like current genome (it survives to next generation)
+  likedGenomes.push({ ...genome });
+  if (likedGenomes.length > 10) likedGenomes.shift();
+
+  // Breed with a random liked or random genome
+  const partner = likedGenomes.length > 1
+    ? likedGenomes[randInt(0, likedGenomes.length - 1)]
+    : randomGenome();
+  genome = mutateGenome(crossover(genome, partner), 0.15);
+  generation++;
+  time = 0;
+  render(genome, 0);
+}
+
+function mutate() {
+  stopAnimation();
+  genome = mutateGenome(genome, 0.35);
+  mutationCount++;
+  time = 0;
+  render(genome, 0);
+}
+
+function toggleAnimate(btn) {
+  if (animating) {
+    stopAnimation();
+    btn.classList.remove('active');
+  } else {
+    animating = true;
+    btn.classList.add('active');
+    animate();
+  }
+}
+
+function animate() {
+  if (!animating) return;
+  time += 1;
+  render(genome, time);
+  animFrame = requestAnimationFrame(animate);
+}
+
+function stopAnimation() {
+  animating = false;
+  if (animFrame) cancelAnimationFrame(animFrame);
+}
+
+function saveArt() { exportArt(1); }
+
+function exportArt(scale) {
+  const prevCtx = ctx, prevW = W, prevH = H;
+  let targetCanvas = canvas;
+
+  if (scale > 1) {
+    targetCanvas = document.createElement('canvas');
+    targetCanvas.width  = 780 * scale;
+    targetCanvas.height = 580 * scale;
+    ctx = targetCanvas.getContext('2d');
+    W = targetCanvas.width;
+    H = targetCanvas.height;
+    render(genome, 0);
+    ctx = prevCtx; W = prevW; H = prevH;
+  }
+
+  const suffix = scale > 1 ? `-${scale}x` : '';
+  const link = document.createElement('a');
+  link.download = `mechanical-reverie-gen${generation}${suffix}.png`;
+  link.href = targetCanvas.toDataURL('image/png');
+  link.click();
+}
+
+// Expose palette mutation for external callers (eval context can't reach let-scoped palettes)
+function setPalette(idx, colors) { palettes[idx] = colors; }
+function getPaletteCount() { return palettes.length; }
+
+// Render an explicit genome at scale and POST to save server. Returns a Promise<string>.
+function renderToServer(g, scale, filename) {
+  const off = document.createElement('canvas');
+  off.width  = 780 * scale;
+  off.height = 580 * scale;
+  const prevCtx = ctx, prevW = W, prevH = H;
+  ctx = off.getContext('2d'); W = off.width; H = off.height;
+  render(g, 0);
+  ctx = prevCtx; W = prevW; H = prevH;
+  return fetch('http://localhost:8767/save', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ filename, data: off.toDataURL('image/png') })
+  }).then(r => r.text());
+}
+
+function resetLineage() {
+  stopAnimation();
+  likedGenomes = [];
+  generation = 1;
+  mutationCount = 0;
+  genome = randomGenome();
+  time = 0;
+  render(genome, 0);
+}
+
+// Click to "like" areas — influences future evolution
+canvas.addEventListener('click', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  // Flash feedback
+  ctx.fillStyle = 'rgba(212,175,55,0.3)';
+  ctx.beginPath();
+  ctx.arc(x, y, 30, 0, Math.PI * 2);
+  ctx.fill();
+  // Reinforce current genome
+  likedGenomes.push({ ...genome });
+  if (likedGenomes.length > 12) likedGenomes.shift();
+  fitnessScore += 0.5;
+  document.getElementById('fitness').textContent = fitnessScore.toFixed(2);
+});
+
+function genomeToString(g) {
+  const keys = ['wMech', 'wPix', 'wFlow', 'wGeo', 'wOrg', 'wHatch', 'gear', 'grid', 'sym'];
+  const vals = [g.wMechanical, g.wPixel, g.wFlow, g.wGeometric, g.wOrganic, g.wHatch ?? 0,
+    g.gearDensity, g.gridCols / 20, g.symmetry / 4];
+  const base = vals.map((v, i) => keys[i] + ':' + v.toFixed(2)).join(' | ');
+  const pxChar   = g.pixelCharacter      ? ` | pxChar:${g.pixelCharacter}`      : '';
+  const flChar   = g.flowCharacter       ? ` | flChar:${g.flowCharacter}`       : '';
+  const mechChar = g.mechanicalCharacter ? ` | mechChar:${g.mechanicalCharacter}` : '';
+  return base + pxChar + flChar + mechChar;
+}
+
+// ── Utils ──
+function rand(min, max) { return Math.random() * (max - min) + min; }
+function randInt(min, max) { return Math.floor(rand(min, max + 1)); }
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+function randomChoice(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+// ── Load a specific archive generation (linked from timeline.html via ?gen=N, 1-indexed array position) ──
+// Populates dynamic palette slots (9/10) from that day's own tweet-visual-themes file
+// so the reproduction is faithful, not whatever the "latest" undated file happens to hold.
+// Uses array position rather than the 'day' field — the 'day' field skips rest days mid-archive
+// and drifts out of sync with position, while "Gen N" (position) is always consistent with the timeline.
+async function loadArchiveDay(genNum) {
+  if (!ancestryEntries.length) return false;
+  const entry = ancestryEntries[genNum - 1];
+  if (!entry || !entry.genome) return false;
+
+  const idx = entry.genome.paletteIndex;
+  if ((idx === 9 || idx === 10) && entry.date) {
+    try {
+      const vt = await fetch(`./tweet-visual-themes-${entry.date}.json?` + Date.now()).then(r => r.ok ? r.json() : null);
+      if (vt && vt.aggregatedColors && vt.aggregatedColors.length >= 3) {
+        let unique = [...new Set(vt.aggregatedColors)];
+        while (unique.length < 8) unique.push(unique[unique.length - 1]);
+        unique = unique.slice(0, 8);
+
+        // render() reads pal[5] directly as the background fill, independent of bgDarkness.
+        // For dark-ground pieces (bgDarkness > 0.5), the raw color list's natural order can put
+        // a light tone at index 5, producing a pale background that contradicts the intended mood.
+        // Auto-correct by swapping the darkest available color into index 5 for dark-ground pieces.
+        // Light-ground pieces (bgDarkness <= 0.5) are left as-is — any color at index 5 is valid there,
+        // including intentionally vivid ones (e.g. Day 73's bright yellow field).
+        const bgDark = entry.genome.bgDarkness ?? 0;
+        if (bgDark > 0.5) {
+          const luminance = hex => {
+            const h = hex.replace('#', '');
+            const r = parseInt(h.substr(0,2), 16), g = parseInt(h.substr(2,2), 16), b = parseInt(h.substr(4,2), 16);
+            return 0.299 * r + 0.587 * g + 0.114 * b;
+          };
+          let darkestIdx = 0;
+          for (let k = 1; k < unique.length; k++) {
+            if (luminance(unique[k]) < luminance(unique[darkestIdx])) darkestIdx = k;
+          }
+          if (darkestIdx !== 5) {
+            [unique[5], unique[darkestIdx]] = [unique[darkestIdx], unique[5]];
+          }
+        }
+
+        setPalette(idx, unique);
+      }
+    } catch (e) { /* fall back to whatever palette is currently loaded */ }
+  }
+
+  genome = Object.assign(generateGenome(), entry.genome);
+  render(genome, 0);
+
+  const sub = document.querySelector('.subtitle');
+  if (sub) {
+    const label = entry.day ? `Day ${entry.day}` : `Gen ${genNum}`;
+    sub.textContent = `Viewing ${label} — "${entry.title}" (${entry.date})`;
+    sub.style.color = '#d4af37';
+  }
+
+  return true;
+}
+
+// ── Initial render ──
+// Load ancestry + tweet themes on startup, then render
+Promise.all([loadTweetThemes(), loadSelectedGenomes(), loadVisualThemes()]).then(async () => {
+  const params = new URLSearchParams(location.search);
+  const genParam = parseInt(params.get('gen'), 10);
+
+  if (!isNaN(genParam)) {
+    const loaded = await loadArchiveDay(genParam);
+    if (!loaded) {
+      genome = generateGenome();
+      render(genome, 0);
+    } else {
+      const autoScale = parseInt(params.get('scale'), 10);
+      if (params.get('autoexport') === '1' && autoScale > 1) {
+        exportArt(autoScale);
+      }
+    }
+    return;
+  }
+
+  genome = generateGenome();
+  render(genome, 0);
+  if (selectedGenomes.length > 0) {
+    const pools = window._ancestryPools || {};
+    const parts = [`${selectedGenomes.length} past winners`];
+    if (pools.active?.length) parts.push(`${pools.active.length} breeding`);
+    if (pools.hallOfFame?.length) parts.push(`${pools.hallOfFame.length} hall of fame`);
+    if (pools.extinct?.length) parts.push(`${pools.extinct.length} extinct`);
+    console.log(`Ancestry active: ${parts.join(', ')}`);
+  }
+}).catch(() => {
+  render(genome, 0);
+});
+</script>
+</body>
+</html>
