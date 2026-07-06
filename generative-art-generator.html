@@ -1962,11 +1962,45 @@ async function loadArchiveDay(genNum) {
   return true;
 }
 
+// ── Load an Atlas elite by cell key (linked from atlas.html via ?cell=flow|mech|ground) ──
+// Performs the cell's stored score. Unlike ?gen=, the elite may have no archived PNG —
+// this is how candidate-sourced elites become viewable at all.
+async function loadAtlasCell(cellKey) {
+  try {
+    const m = await fetch('./elites-map.json?' + Date.now()).then(r => r.ok ? r.json() : null);
+    const elite = m && m.cells && m.cells[cellKey];
+    if (!elite || !elite.genome) return false;
+
+    const eg = elite.genome;
+    if (Array.isArray(eg.paletteColors) && eg.paletteColors.length >= 6 && eg.paletteIndex != null) {
+      setPalette(eg.paletteIndex, eg.paletteColors);
+    }
+    genome = Object.assign(generateGenome(), eg);
+    render(genome, 0);
+
+    const sub = document.querySelector('.subtitle');
+    if (sub) {
+      const prov = elite.provenance || {};
+      const from = prov.day ? ` (from Day ${prov.day})` : prov.source ? ` (${prov.source})` : '';
+      sub.textContent = `Atlas elite — ${cellKey.replace(/\|/g, ' / ')} — fitness ${elite.fitness.toFixed(4)}${from}`;
+      sub.style.color = '#d4af37';
+    }
+    return true;
+  } catch (e) { return false; }
+}
+
 // ── Initial render ──
 // Load ancestry + tweet themes on startup, then render
 Promise.all([loadTweetThemes(), loadSelectedGenomes(), loadVisualThemes()]).then(async () => {
   const params = new URLSearchParams(location.search);
   const genParam = parseInt(params.get('gen'), 10);
+
+  const cellParam = params.get('cell');
+  if (cellParam) {
+    const ok = await loadAtlasCell(cellParam);
+    if (ok) return;
+    // fall through to normal init if the cell is missing/empty
+  }
 
   if (!isNaN(genParam)) {
     const loaded = await loadArchiveDay(genParam);
