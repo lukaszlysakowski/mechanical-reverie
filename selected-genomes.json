@@ -4519,5 +4519,64 @@
     "keyDetails": "Tony Oursler, 2026 Tokyo exhibition — video-projected eyes on sculptural spheres, first Japan solo show. NB repost, 196 likes.",
     "description": "Tony Oursler's first large-scale solo exhibition in Japan, 'Between Technology and Spiritual Knowledge ~Magic, Media, Art~,' opened at TOKYO NODE — a collaboration with David Bowie also noted. Oursler's signature technique projects video of eyes and faces onto physical spherical and ovoid forms: inert objects made suddenly conscious, blinking, watching. Four gallery photos capture the range — luminous eye-spheres floating in darkness, irregular cloud- and branch-shaped screens catching color (a chroma-key green panel visible mid-installation, the seams of production left showing), faceted crystal prisms refracting portrait and floral imagery into scattered color planes, and a single isolated 'head' — an ovoid form bisected into cool cyan and warm magenta, resting alone on the gallery floor. This is the archive's first Oursler entry, introducing the projection-mapping/video-sculpture register distinct from CRT, LED-panel, and plotter-drawing classes seen so far. mechanicalCharacter 'led' marks the projected-light-as-medium logic; flowCharacter 'biological' carries the eyes-and-faces content, continuing the archive's rule that organic/figurative source material requires the biological register regardless of how abstract the final composition becomes. A custom dynamic palette was built directly from the four images' saturated projection colors — electric blue, magenta, chroma green, purple, cyan, warm orange — with the dark gallery-black tone deliberately placed at array index 5 to avoid the known background-fill bug.",
     "condensedReason": "Tony Oursler's first large-scale solo exhibition in Japan, 'Between Technology and Spiritual Knowledge ~Magic, Media, Art~,' opened at TOKYO NODE — a collaboration with David Bowie also noted. Oursler's signature technique projects video of eyes and faces onto physical spherical and ovoid forms: inert objects made suddenly conscious, blinking, watching. Four gallery photos capture the range — luminous eye-spheres floating in darkness, irregular cloud- and branch-shaped screens catching color (a chroma-key green panel visible mid-installation, the seams of production left showing), faceted crystal prisms refracting portrait and floral imagery into scattered color planes, and a single isolated 'head' — an ovoid form bisected into cool cyan and warm magenta, resting alone on the gallery floor. This is the archive's first Oursler entry, introducing the projection-mapping/video-sculpture register distinct from CRT, LED-panel, and plotter-drawing classes seen so far. mechanicalCharacter 'led' marks the projected-light-as-medium logic; flowCharacter 'biological' carries the eyes-and-faces content, continuing the archive's rule that organic/figurative source material requires the biological register regardless of how abstract the final composition becomes. A custom dynamic palette was built directly from the four images' saturated projection colors — electric blue, magenta, chroma green, purple, cyan, warm orange — with the dark gallery-black tone deliberately placed at array index 5 to avoid the known background-fill bug."
+  },
+  {
+    "day": 81,
+    "date": "2026-07-05",
+    "title": "Exotic Paint Brush",
+    "filename": "mechanical-reverie-day-081-exotic-paint-brush-2026-07-05.png",
+    "fitness": 6.7585,
+    "genome": {
+      "gridCols": 7,
+      "gridRows": 6,
+      "cellPadding": 0.16165678570441636,
+      "rotation": 2.529774028490078,
+      "globalRotation": -0.1303638860541492,
+      "paletteIndex": 8,
+      "bgDarkness": 0.15,
+      "gearDensity": 0.5,
+      "gearComplexity": 13,
+      "chainFrequency": 0.15795379581146396,
+      "pixelDensity": 0.20794719052167188,
+      "pixelSize": 2,
+      "flowScale": 0.010556867336617998,
+      "flowStrength": 1.2478918445821834,
+      "particleCount": 1893,
+      "clockSpeed": 0.01692667125955287,
+      "oscillation": 1.4243466223328136,
+      "wMechanical": 0.6,
+      "wPixel": 0.45,
+      "wFlow": 0.68,
+      "wGeometric": 0.5,
+      "wOrganic": 0.52,
+      "wHatch": 0.45,
+      "hatchAngle": 0,
+      "hatchSpacing": 11,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.4,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 7360.394915254168
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First archive appearance of Kurt Lauckner and the Computer Art Society. Newspaper-source day (palette 8, per Days 56/72/74 precedent) but the held artwork is a flowing painterly op-art print rather than a schematic diagram, so flowCharacter 'vortex' (radial sweeping arcs) captures it rather than the 'mathematical'/'transit' used for prior newsprint days. mechanicalCharacter 'plotter' for the 1970s computer-art output. Vortex-on-cream precedent set by Day 58 (Csuri Bearded Man). Same-day repost 'Copy & Paste Bananas' (@GrantYun2, 122 likes) noted as a thematic echo (copy-paste as fine-art method mirrors 'computer as brush') but logged as secondary — it is contemporary analog work, not the day's NB-original art-history anchor.",
+      "condensedReason": "Dr. Kurt Lauckner — mathematician, Eastern Michigan University professor, and chairman of the U.S. branch of the Computer Art Society — photographed for The Ann Arbor News on August 20, 1978, holding up a flowing black-and-white computer-generated print. His framing is the day's throughline: 'the computer is used as a tool, as an exotic paint brush.' In an era when computation still meant punch cards and payroll, Lauckner and the Society argued it could be an expressive, painterly instrument. The print he holds proves it — stark op-art bands of solid black petal- and wave-forms radiating outward, painterly rather than schematic. NB's same-day feed pairs it (implicitly) with a contemporary repost, Grant Yun's 'Copy & Paste Bananas' (122 likes), a physical cardboard collage whose punny title elevates the most banal computational gesture to a fine-art method — the same idea, forty-eight years later. The render answers the painterly claim directly: flowCharacter 'vortex' produces the sweeping radial arcs of the held print's flowing forms; mechanicalCharacter 'plotter' marks the 1970s computer-art output device; palette 8 (institutional off-white) and pixelCharacter 'halftone' reproduce the aged newsprint's cream ground and coarse dot grain. The computer, rendered as a brush."
+    },
+    "tweetSummary": "Dr. Kurt Lauckner, chairman of the U.S. Computer Art Society, in a 1978 Ann Arbor News clipping holding a flowing computer-generated print, calling the computer 'an exotic paint brush.'",
+    "keyArtists": [
+      "Kurt Lauckner"
+    ],
+    "themes": [
+      "the computer as 'exotic paint brush' — computation as painterly tool",
+      "the Computer Art Society — organized advocacy for technology in the arts",
+      "flowing high-contrast op-art print — radial petal/wave forms",
+      "aged newsprint as archival witness"
+    ],
+    "keyDetails": "Dr. Kurt Lauckner, 1978 — U.S. Computer Art Society chairman, 'computer as exotic paint brush.' NB original, 12 likes.",
+    "description": "Dr. Kurt Lauckner — mathematician, Eastern Michigan University professor, and chairman of the U.S. branch of the Computer Art Society — photographed for The Ann Arbor News on August 20, 1978, holding up a flowing black-and-white computer-generated print. His framing is the day's throughline: 'the computer is used as a tool, as an exotic paint brush.' In an era when computation still meant punch cards and payroll, Lauckner and the Society argued it could be an expressive, painterly instrument. The print he holds proves it — stark op-art bands of solid black petal- and wave-forms radiating outward, painterly rather than schematic. NB's same-day feed pairs it (implicitly) with a contemporary repost, Grant Yun's 'Copy & Paste Bananas' (122 likes), a physical cardboard collage whose punny title elevates the most banal computational gesture to a fine-art method — the same idea, forty-eight years later. The render answers the painterly claim directly: flowCharacter 'vortex' produces the sweeping radial arcs of the held print's flowing forms; mechanicalCharacter 'plotter' marks the 1970s computer-art output device; palette 8 (institutional off-white) and pixelCharacter 'halftone' reproduce the aged newsprint's cream ground and coarse dot grain. The computer, rendered as a brush.",
+    "condensedReason": "Dr. Kurt Lauckner — mathematician, Eastern Michigan University professor, and chairman of the U.S. branch of the Computer Art Society — photographed for The Ann Arbor News on August 20, 1978, holding up a flowing black-and-white computer-generated print. His framing is the day's throughline: 'the computer is used as a tool, as an exotic paint brush.' In an era when computation still meant punch cards and payroll, Lauckner and the Society argued it could be an expressive, painterly instrument. The print he holds proves it — stark op-art bands of solid black petal- and wave-forms radiating outward, painterly rather than schematic. NB's same-day feed pairs it (implicitly) with a contemporary repost, Grant Yun's 'Copy & Paste Bananas' (122 likes), a physical cardboard collage whose punny title elevates the most banal computational gesture to a fine-art method — the same idea, forty-eight years later. The render answers the painterly claim directly: flowCharacter 'vortex' produces the sweeping radial arcs of the held print's flowing forms; mechanicalCharacter 'plotter' marks the 1970s computer-art output device; palette 8 (institutional off-white) and pixelCharacter 'halftone' reproduce the aged newsprint's cream ground and coarse dot grain. The computer, rendered as a brush."
   }
 ]
