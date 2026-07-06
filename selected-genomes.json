@@ -4250,7 +4250,17 @@
       "hatchAngle": 0.0,
       "hatchSpacing": 16,
       "bgDarkness": 0.15,
-      "noiseOctaves": 5
+      "noiseOctaves": 5,
+      "paletteColors": [
+        "#808080",
+        "#8FBE7A",
+        "#EDD24A",
+        "#3A3020",
+        "#6E8BA4",
+        "#5B7A94",
+        "#8090A4",
+        "#8090A4"
+      ]
     },
     "curatorial": {
       "score": "A",
