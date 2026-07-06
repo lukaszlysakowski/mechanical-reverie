@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical Reverie — The Atlas</title>
+<meta name="description" content="A MAP-Elites survey of the engine's possibility space: the best-known score for every behavioral niche, and the frontier it has never rendered.">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #c9b896;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+  }
+
+  .header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid #2a2218;
+  }
+  .header h1 {
+    font-size: 28px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #b0a078;
+    font-style: italic;
+    letter-spacing: 2px;
+  }
+  .header .stats {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #a89670;
+    letter-spacing: 1px;
+  }
+  .header .back-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    color: #9c8a68;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2218;
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .header .back-link:hover { color: #c4a265; border-color: #c4a265; }
+
+  .intro {
+    max-width: 780px;
+    margin: 26px auto 0;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .ground-section {
+    max-width: 1240px;
+    margin: 44px auto 0;
+    padding: 0 24px;
+  }
+  .ground-section h2 {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #2a2218;
+    padding-bottom: 8px;
+  }
+
+  .atlas-grid {
+    display: grid;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .axis-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #a89670;
+  }
+  .axis-label.row-label { justify-content: flex-end; padding-right: 10px; text-align: right; }
+
+  .cell {
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .cell.filled:hover { border-color: #c4a265; }
+  .cell .thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #2a2218;
+  }
+  .cell .meta {
+    padding: 7px 9px 9px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .cell .meta .fit { color: #c4b39e; font-weight: bold; }
+  .cell .meta .prov { color: #a89670; }
+
+  .cell.empty {
+    justify-content: center;
+    align-items: center;
+    background: #070707;
+    border-style: dashed;
+    border-color: #1e1812;
+  }
+  .cell.empty .frontier-label {
+    font-family: monospace;
+    font-size: 10px;
+    color: #6a5a42;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .cell.unperformed {
+    justify-content: center;
+  }
+  .cell.unperformed .score-only {
+    text-align: center;
+    padding: 14px 10px;
+    font-size: 11px;
+    color: #a89670;
+    line-height: 1.6;
+  }
+  .cell.unperformed .score-only .perform { color: #c4a265; }
+
+  .log-section {
+    max-width: 900px;
+    margin: 50px auto 0;
+    padding: 24px 24px 0;
+    border-top: 1px solid #2a2218;
+  }
+  .log-section h2 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4a265;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .log-section table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .log-section td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #1a1510;
+    color: #a89670;
+  }
+  .log-section td.cellname { font-family: monospace; font-size: 11px; }
+  .log-section td.result-dethroned, .log-section td.result-placed-empty { color: #c4a265; }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 11px;
+    color: #9c8a68;
+    letter-spacing: 1px;
+  }
+  .footer-bottom a { color: #a89670; }
+  .footer-bottom a:hover { color: #c4a265; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Mechanical Reverie</h1>
+  <div class="subtitle">The Atlas — a survey of the possibility space</div>
+  <div class="stats" id="stats">loading…</div>
+  <a class="back-link" href="timeline.html">← Back to timeline</a>
+</div>
+
+<div class="intro">
+  The timeline shows what the world asked for; the Atlas shows what the machine can do.
+  Every cell is a behavioral niche — a flow character crossed with a mechanical character on a light or dark ground —
+  holding the best-known <em>score</em> for that kind of composition. Dashed cells are the frontier:
+  compositions this engine has never once made.
+</div>
+
+<div id="grids"></div>
+
+<div class="log-section" id="log-section" style="display:none;">
+  <h2>Recent Challenges</h2>
+  <table id="log-table"></table>
+</div>
+
+<div class="footer-bottom">
+  Mechanical Reverie · <a href="timeline.html">Timeline</a> · <a href="csuri.html">Csuri Lineage</a> · <a href="https://github.com/lukaszlysakowski/mechanical-reverie" target="_blank">GitHub</a>
+</div>
+
+<script>
+const ART_PATH = 'generative-art-output/art/';
+
+fetch('./elites-map.json?' + Date.now())
+  .then(r => r.json())
+  .then(m => {
+    const flows = m.axes.flow, mechs = m.axes.mech, grounds = m.axes.ground;
+    const total = flows.length * mechs.length * grounds.length;
+    const filled = Object.keys(m.cells).length;
+    document.getElementById('stats').textContent =
+      `${filled} of ${total} cells mapped · ${total - filled} on the frontier · updated ${m.updated ? m.updated.substring(0, 10) : '—'}`;
+
+    const grids = document.getElementById('grids');
+    grounds.forEach(gr => {
+      const section = document.createElement('div');
+      section.className = 'ground-section';
+      section.innerHTML = `<h2>${gr} ground</h2>`;
+      const grid = document.createElement('div');
+      grid.className = 'atlas-grid';
+      grid.style.gridTemplateColumns = `110px repeat(${mechs.length}, 1fr)`;
+
+      grid.appendChild(document.createElement('div')); // corner
+      mechs.forEach(mc => {
+        const h = document.createElement('div');
+        h.className = 'axis-label';
+        h.textContent = mc;
+        grid.appendChild(h);
+      });
+
+      flows.forEach(fc => {
+        const rl = document.createElement('div');
+        rl.className = 'axis-label row-label';
+        rl.textContent = fc;
+        grid.appendChild(rl);
+
+        mechs.forEach(mc => {
+          const key = `${fc}|${mc}|${gr}`;
+          const e = m.cells[key];
+          if (!e) {
+            const d = document.createElement('div');
+            d.className = 'cell empty';
+            d.innerHTML = `<div class="frontier-label">frontier<br>${fc} / ${mc}</div>`;
+            grid.appendChild(d);
+          } else if (e.provenance && e.provenance.filename) {
+            const a = document.createElement('a');
+            a.className = 'cell filled';
+            a.href = e.provenance.gen ? `generative-art-generator.html?gen=${e.provenance.gen}` : `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
+            const dayLabel = e.provenance.day ? `Day ${e.provenance.day}` : (e.provenance.date || 'archive');
+            a.innerHTML = `
+              <img class="thumb" src="${ART_PATH}${e.provenance.filename}" alt="${e.provenance.title || key}" loading="lazy">
+              <div class="meta">
+                <span class="fit">${e.fitness.toFixed(4)}</span>
+                <span class="prov"> · ${dayLabel}${e.provenance.title ? ' · ' + e.provenance.title : ''}</span>
+              </div>`;
+            grid.appendChild(a);
+          } else {
+            const a = document.createElement('a');
+            a.className = 'cell filled unperformed';
+            a.href = `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
+            a.innerHTML = `
+              <div class="score-only">
+                score only — not yet performed<br>
+                <span class="fit">${e.fitness.toFixed(4)}</span> · ${(e.provenance && e.provenance.source) || 'candidate'}<br>
+                <span class="perform">perform →</span>
+              </div>`;
+            grid.appendChild(a);
+          }
+        });
+      });
+
+      section.appendChild(grid);
+      grids.appendChild(section);
+    });
+
+    const log = (m.challengeLog || []).slice(-10).reverse();
+    if (log.length) {
+      document.getElementById('log-section').style.display = 'block';
+      document.getElementById('log-table').innerHTML = log.map(c => `
+        <tr>
+          <td>${c.ts.substring(0, 10)}</td>
+          <td class="cellname">${c.cell}</td>
+          <td class="result-${c.result}">${c.result}</td>
+          <td>${c.challengerFitness ?? '—'}${c.incumbentFitness != null ? ' vs ' + c.incumbentFitness : ''}</td>
+          <td>${c.source}</td>
+        </tr>`).join('');
+    }
+  })
+  .catch(err => {
+    document.getElementById('stats').textContent = 'Could not load elites-map.json — ' + err.message;
+  });
+</script>
+
+</body>
+</html>
