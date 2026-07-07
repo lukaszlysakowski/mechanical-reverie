@@ -4588,5 +4588,79 @@
     "keyDetails": "Dr. Kurt Lauckner, 1978 — U.S. Computer Art Society chairman, 'computer as exotic paint brush.' NB original, 12 likes.",
     "description": "Dr. Kurt Lauckner — mathematician, Eastern Michigan University professor, and chairman of the U.S. branch of the Computer Art Society — photographed for The Ann Arbor News on August 20, 1978, holding up a flowing black-and-white computer-generated print. His framing is the day's throughline: 'the computer is used as a tool, as an exotic paint brush.' In an era when computation still meant punch cards and payroll, Lauckner and the Society argued it could be an expressive, painterly instrument. The print he holds proves it — stark op-art bands of solid black petal- and wave-forms radiating outward, painterly rather than schematic. NB's same-day feed pairs it (implicitly) with a contemporary repost, Grant Yun's 'Copy & Paste Bananas' (122 likes), a physical cardboard collage whose punny title elevates the most banal computational gesture to a fine-art method — the same idea, forty-eight years later. The render answers the painterly claim directly: flowCharacter 'vortex' produces the sweeping radial arcs of the held print's flowing forms; mechanicalCharacter 'plotter' marks the 1970s computer-art output device; palette 8 (institutional off-white) and pixelCharacter 'halftone' reproduce the aged newsprint's cream ground and coarse dot grain. The computer, rendered as a brush.",
     "condensedReason": "Dr. Kurt Lauckner — mathematician, Eastern Michigan University professor, and chairman of the U.S. branch of the Computer Art Society — photographed for The Ann Arbor News on August 20, 1978, holding up a flowing black-and-white computer-generated print. His framing is the day's throughline: 'the computer is used as a tool, as an exotic paint brush.' In an era when computation still meant punch cards and payroll, Lauckner and the Society argued it could be an expressive, painterly instrument. The print he holds proves it — stark op-art bands of solid black petal- and wave-forms radiating outward, painterly rather than schematic. NB's same-day feed pairs it (implicitly) with a contemporary repost, Grant Yun's 'Copy & Paste Bananas' (122 likes), a physical cardboard collage whose punny title elevates the most banal computational gesture to a fine-art method — the same idea, forty-eight years later. The render answers the painterly claim directly: flowCharacter 'vortex' produces the sweeping radial arcs of the held print's flowing forms; mechanicalCharacter 'plotter' marks the 1970s computer-art output device; palette 8 (institutional off-white) and pixelCharacter 'halftone' reproduce the aged newsprint's cream ground and coarse dot grain. The computer, rendered as a brush."
+  },
+  {
+    "day": 82,
+    "date": "2026-07-07",
+    "title": "Computer Picture of a Thunderstorm",
+    "filename": "mechanical-reverie-day-082-computer-picture-of-a-thunderstorm-2026-07-07.png",
+    "fitness": 6.919,
+    "genome": {
+      "gridCols": 10,
+      "gridRows": 11,
+      "cellPadding": 0.10477376200872202,
+      "rotation": 5.15438245814006,
+      "globalRotation": -0.017479999068470097,
+      "paletteIndex": 6,
+      "bgDarkness": 0.85,
+      "gearDensity": 0.3559516856925331,
+      "gearComplexity": 13,
+      "chainFrequency": 0.5112908666907523,
+      "pixelDensity": 0.5903663442590346,
+      "pixelSize": 7,
+      "flowScale": 0.01457087717518558,
+      "flowStrength": 2.248585768344352,
+      "particleCount": 771,
+      "clockSpeed": 0.01082445671790026,
+      "oscillation": 1.6015991482331484,
+      "wMechanical": 0.6,
+      "wPixel": 0.8,
+      "wFlow": 0.58,
+      "wGeometric": 0.62,
+      "wOrganic": 0.4,
+      "wHatch": 0.34,
+      "hatchAngle": 0,
+      "hatchSpacing": 10.989860392610181,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "data",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 7,
+      "noiseOctaves": 2,
+      "noiseSeed": 5809.365527577598,
+      "renderSeed": 862240418,
+      "disorder": 0.45,
+      "disorderMode": "linear",
+      "disorderAngle": 0.785,
+      "baseShape": 1,
+      "baseColorIndex": 2
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First certified score (canonical-seeds doctrine) and first curatorial disorder decision (v3.1.0): 0.45/linear/0.785 rad per the entropy-as-subject calibration band — the storm front crossing the instrument grid. baseShape 1 + baseColorIndex 2 pin the ordered vocabulary to film-white squares. Polish found layerCount 7 (+0.20, fourth confirmation) while preserving disorder exactly. NEW ARCHIVE HIGH 6.9190 (prev 6.8603, Day 76). July 6 = rest day (single text-only repost praising Giorgini, quote-tweeting Day 81's Lauckner post — logged as Day 81 addendum).",
+      "condensedReason": "'Computer Picture of a Thunderstorm' by Anne Freeny & John Gabbe, Bell Laboratories, 1968. A network of rain gauges across 50 square miles of central New Jersey recorded rain rate every ten seconds through 1966-67; each gauge's measurement became a shaded square in an irregular 11x10 grid, and the sequence became a computer-generated film — a thunderstorm as animated data, narrated by Freeny herself: 'My name is Anne Freeny...' She joins the archive's women-pioneer roster (Bute, Molnar, Sollfrank, Schwartz) and the Bell Labs wing (Harmon, Knowlton, VanDerBeek). The render answers with the archive's first deliberate disorder decision (engine v3.1.0): disorder 0.45, linear at 45 degrees — the storm front sweeping diagonally across an ordered gauge grid, the instrument legible where the storm is weak, tumbling where it is strong. Palette 6 dark-film ground (bgDarkness 0.85), flowCharacter 'data' (the encoding IS the art), mechanicalCharacter 'led' (the tone-square matrix), pixelCharacter 'halftone' (the film frame's visible dot texture), gridCols 10 matching the gauge network. Day 82 is also the first CERTIFIED SCORE of the canonical-seeds era — and, at 6.9190, a new archive fitness high."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "62a5e45107adb3f1b80aa45ff8c85fad80e35dca32b4d3062a6985fba5e95d3c",
+      "engineVersion": "v3.1.0",
+      "renderSeed": 862240418,
+      "noiseSeed": 5809.365527577598
+    },
+    "tweetSummary": "Anne Freeny & John Gabbe's 1968 Bell Labs film renders a thunderstorm as an irregular 11x10 grid of shaded squares driven by a rain-gauge network in central New Jersey.",
+    "keyArtists": [
+      "Anne Freeny",
+      "John Gabbe"
+    ],
+    "themes": [
+      "weather as data — the storm rendered as a measured grid",
+      "the irregular grid — order with holes",
+      "Bell Labs film output — tone-squares on black",
+      "instrument documentation",
+      "Anne Freeny — a woman statistician as computer filmmaker"
+    ],
+    "keyDetails": "Anne Freeny & John Gabbe, 1968 — Bell Labs thunderstorm-as-data film, 11x10 rain-gauge grid. NB original thread, 21 likes.",
+    "description": "'Computer Picture of a Thunderstorm' by Anne Freeny & John Gabbe, Bell Laboratories, 1968. A network of rain gauges across 50 square miles of central New Jersey recorded rain rate every ten seconds through 1966-67; each gauge's measurement became a shaded square in an irregular 11x10 grid, and the sequence became a computer-generated film — a thunderstorm as animated data, narrated by Freeny herself: 'My name is Anne Freeny...' She joins the archive's women-pioneer roster (Bute, Molnar, Sollfrank, Schwartz) and the Bell Labs wing (Harmon, Knowlton, VanDerBeek). The render answers with the archive's first deliberate disorder decision (engine v3.1.0): disorder 0.45, linear at 45 degrees — the storm front sweeping diagonally across an ordered gauge grid, the instrument legible where the storm is weak, tumbling where it is strong. Palette 6 dark-film ground (bgDarkness 0.85), flowCharacter 'data' (the encoding IS the art), mechanicalCharacter 'led' (the tone-square matrix), pixelCharacter 'halftone' (the film frame's visible dot texture), gridCols 10 matching the gauge network. Day 82 is also the first CERTIFIED SCORE of the canonical-seeds era — and, at 6.9190, a new archive fitness high.",
+    "condensedReason": "'Computer Picture of a Thunderstorm' by Anne Freeny & John Gabbe, Bell Laboratories, 1968. A network of rain gauges across 50 square miles of central New Jersey recorded rain rate every ten seconds through 1966-67; each gauge's measurement became a shaded square in an irregular 11x10 grid, and the sequence became a computer-generated film — a thunderstorm as animated data, narrated by Freeny herself: 'My name is Anne Freeny...' She joins the archive's women-pioneer roster (Bute, Molnar, Sollfrank, Schwartz) and the Bell Labs wing (Harmon, Knowlton, VanDerBeek). The render answers with the archive's first deliberate disorder decision (engine v3.1.0): disorder 0.45, linear at 45 degrees — the storm front sweeping diagonally across an ordered gauge grid, the instrument legible where the storm is weak, tumbling where it is strong. Palette 6 dark-film ground (bgDarkness 0.85), flowCharacter 'data' (the encoding IS the art), mechanicalCharacter 'led' (the tone-square matrix), pixelCharacter 'halftone' (the film frame's visible dot texture), gridCols 10 matching the gauge network. Day 82 is also the first CERTIFIED SCORE of the canonical-seeds era — and, at 6.9190, a new archive fitness high."
   }
 ]
