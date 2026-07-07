@@ -265,6 +265,33 @@
       ]
     },
     {
+      "id": "haring",
+      "title": "Haring at the Screen",
+      "thesis": "Keith Haring called his 1989 computer work 'primitive high-tech' — and the phrase names the whole room. The subway-chalk sensibility, the bold uninterrupted outline, the compulsion to fill a ground with marks until it is completely full: none of it softened when Haring moved to the Amiga screen. He is the archive's proof that Pop Art and the computer were never opposites — that a graphic vocabulary built for public walls translated to the pixel grid without losing a watt of conviction. Where Mohr reasoned his way to the machine and Molnár theorized it, Haring simply grabbed it and kept drawing.",
+      "members": [
+        {
+          "gen": 33,
+          "why": "Amiga Graffiti — subway walls to the Amiga screen, same conviction"
+        },
+        {
+          "gen": 46,
+          "why": "Primitive High-Tech — Haring's own phrase for the 1989 work"
+        },
+        {
+          "gen": 48,
+          "why": "Untitled (Robot), 1988 — bold black outline on mustard flat ground"
+        },
+        {
+          "gen": 36,
+          "why": "Pop Mosaic — Haring beside Warhol at the same screen"
+        },
+        {
+          "gen": 39,
+          "why": "Screen Anthem — flat-color marks on a navy sea"
+        }
+      ]
+    },
+    {
       "id": "light-as-medium",
       "title": "Light as Medium",
       "thesis": "From phosphor to projector: days where emitted light is not how the work is displayed but what the work is made of. The CDC 6400's circular CRT shaped Mohr's compositions; BEFLIX tiles burned on film; Harmon's squares found their destined LED wall; Oursler's eyes breathe on projected spheres. The hardware-shapes-form thesis, luminous edition.",
