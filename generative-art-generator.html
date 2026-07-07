@@ -1989,6 +1989,63 @@ async function loadAtlasCell(cellKey) {
   } catch (e) { return false; }
 }
 
+// ── Frontier-day search (MAP-Elites Phase 3) ──
+// Generates candidates for a specific Atlas cell: flowCharacter, mechanicalCharacter and
+// ground register are LOCKED to the cell coordinates; everything else is searched
+// (12 fresh + 3 polish mutations of each top-3 parent, mirroring the daily Step 8 shape).
+// Stale tweet-bias files are acceptable ambient influence — the lock overrides what matters.
+// Results: window.__frontierCandidates (full list, for map_tools.py challenge) and
+// window.__frontierBest (rendered). Returns a top-6 summary string.
+function frontierSearch(cellKey, fresh = 12, polishPerParent = 3) {
+  const parts = cellKey.split('|');
+  if (parts.length !== 3) return 'invalid cell key: ' + cellKey;
+  const [fc, mc, ground] = parts;
+
+  const lock = g => {
+    g.flowCharacter = fc;
+    g.mechanicalCharacter = mc;
+    g.bgDarkness = clamp(g.bgDarkness ?? 0.15, 0.01, 0.95); // mutation can push past 1.0 — clamp before register check
+    if (ground === 'dark'  && g.bgDarkness <= 0.5) g.bgDarkness = rand(0.55, 0.90);
+    if (ground === 'light' && g.bgDarkness >  0.5) g.bgDarkness = rand(0.03, 0.20);
+    return g;
+  };
+
+  const phase1 = [];
+  for (let i = 0; i < fresh; i++) {
+    const g = lock(generateGenome());
+    phase1.push({ genome: g, fitness: calculateFitness(g), phase: 1 });
+  }
+  phase1.sort((a, b) => b.fitness - a.fitness);
+
+  const phase2 = [];
+  for (const parent of phase1.slice(0, 3)) {
+    for (let j = 0; j < polishPerParent; j++) {
+      const child = lock(mutateGenome(parent.genome, 0.10)); // lock re-applies: mutation may flip characters/ground
+      phase2.push({ genome: child, fitness: calculateFitness(child), phase: 2 });
+    }
+  }
+
+  const all = [...phase1, ...phase2].sort((a, b) => b.fitness - a.fitness);
+  window.__frontierCandidates = all.map(c => ({ genome: c.genome, fitness: c.fitness }));
+  window.__frontierBest = all[0].genome;
+  render(all[0].genome, 0);
+
+  const sub = document.querySelector('.subtitle');
+  if (sub) {
+    sub.textContent = `Frontier search — ${fc} / ${mc} / ${ground} — best ${all[0].fitness.toFixed(4)} of ${all.length} candidates`;
+    sub.style.color = '#d4af37';
+  }
+
+  return JSON.stringify(all.slice(0, 6).map(c => ({
+    fitness: c.fitness.toFixed(4),
+    phase: c.phase,
+    palette: c.genome.paletteIndex,
+    bgDarkness: c.genome.bgDarkness?.toFixed(2),
+    pixelChar: c.genome.pixelCharacter,
+    layerCount: c.genome.layerCount
+  })), null, 2);
+}
+
 // ── Initial render ──
 // Load ancestry + tweet themes on startup, then render
 Promise.all([loadTweetThemes(), loadSelectedGenomes(), loadVisualThemes()]).then(async () => {
