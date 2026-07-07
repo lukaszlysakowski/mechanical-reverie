@@ -23,7 +23,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-06T15:03:09Z",
+  "updated": "2026-07-07T00:49:07Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.6991,
@@ -1344,5 +1344,9 @@
       "result": "dethroned",
       "source": "seed gen 80"
     }
-  ]
+  ],
+  "frontierState": {
+    "lastMode": null,
+    "history": []
+  }
 }

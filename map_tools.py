@@ -10,6 +10,8 @@ Commands:
   python3 map_tools.py challenge FILE [--source LABEL]
                                                  # challenge cells with candidate genomes
   python3 map_tools.py status                    # coverage grid + gaps + recent challenges
+  python3 map_tools.py frontier [--mode cartographer|challenger] [--cell KEY] [--commit]
+                                                 # pick next frontier-day target (dry-run unless --commit)
 
 Doctrine:
   - Cells hold scores (genome + seeds + paletteColors), per canonical-seeds v3.0.0.
@@ -97,8 +99,12 @@ def cmd_seed():
             skipped += 1
             continue
         extend_axes(m, cell)
-        prov = {'type': 'archive-winner', 'gen': i + 1, 'day': e.get('day'),
+        prov = {'type': 'frontier' if e.get('frontier') else 'archive-winner',
+                'gen': i + 1, 'day': e.get('day'),
                 'date': e.get('date'), 'title': e.get('title'), 'filename': e.get('filename')}
+        if e.get('frontier'):
+            prov['cell'] = e.get('cell')
+            prov['frontierIndex'] = e.get('frontierIndex')
         incumbent = m['cells'].get(cell)
         # Idempotency: an archive entry that IS the incumbent refreshes itself in place.
         if incumbent and incumbent.get('provenance', {}).get('gen') == i + 1:
@@ -149,6 +155,67 @@ def cmd_challenge(path, source):
     print(f'Challenge complete ({source}): {won} cells taken, {lost} held by incumbents, {invalid} invalid.')
 
 
+def cmd_frontier(mode=None, cell=None, commit=False):
+    """Pick the next frontier-day target. Dry-run unless --commit.
+
+    cartographer: attack the emptiest region — the empty cell whose flow-row and
+                  mech-column contain the fewest filled cells (deterministic tie-break).
+    challenger:   attack the staleness — the filled cell whose elite has held its
+                  seat the longest (oldest `since`).
+    Modes alternate automatically across committed picks; --mode or --cell override.
+    """
+    m = load_map()
+    flows, mechs, grounds = m['axes']['flow'], m['axes']['mech'], m['axes']['ground']
+    all_keys = [f'{f}|{mc}|{gr}' for f in flows for mc in mechs for gr in grounds]
+    empty = [k for k in all_keys if k not in m['cells']]
+    state = m.setdefault('frontierState', {'lastMode': None, 'history': []})
+
+    if cell:
+        if cell not in all_keys:
+            sys.exit(f'unknown cell: {cell}')
+        target, chosen_mode = cell, ('challenger' if cell in m['cells'] else 'cartographer')
+        picked_by = 'manual'
+    else:
+        if mode is None:
+            mode = 'challenger' if state.get('lastMode') == 'cartographer' else 'cartographer'
+        if mode == 'cartographer' and not empty:
+            mode = 'challenger'  # map fully covered — nothing to chart
+        if mode == 'cartographer':
+            def emptiness(k):
+                f_, mc_, _ = k.split('|')
+                row = sum(1 for kk in m['cells'] if kk.split('|')[0] == f_)
+                col = sum(1 for kk in m['cells'] if kk.split('|')[1] == mc_)
+                return (row + col, all_keys.index(k))
+            target = min(empty, key=emptiness)
+        else:
+            target = min(m['cells'].items(), key=lambda kv: kv[1].get('since') or '')[0]
+        chosen_mode, picked_by = mode, 'auto'
+
+    incumbent = m['cells'].get(target)
+    out = {
+        'mode': chosen_mode, 'pickedBy': picked_by, 'cell': target,
+        'ground': target.split('|')[2],
+        'incumbent': None if incumbent is None else {
+            'fitness': incumbent['fitness'],
+            'since': incumbent.get('since'),
+            'provenance': incumbent.get('provenance'),
+            'beatBy': round(incumbent['fitness'] + m.get('challengeMargin', CHALLENGE_MARGIN), 4),
+        },
+        'committed': bool(commit),
+    }
+    print(json.dumps(out, indent=2, ensure_ascii=False))
+    if incumbent is None:
+        print(f'\n→ empty cell: any certified candidate takes it.')
+    else:
+        print(f'\n→ challenger must reach fitness ≥ {out["incumbent"]["beatBy"]} to dethrone.')
+    if commit:
+        state['lastMode'] = chosen_mode
+        state['history'] = (state.get('history') or [])[-49:] + [
+            {'ts': now_iso(), 'mode': chosen_mode, 'cell': target, 'pickedBy': picked_by}]
+        save_map(m)
+        print('→ pick committed to frontierState.')
+
+
 def cmd_status():
     m = load_map()
     cells = m['cells']
@@ -183,5 +250,11 @@ if __name__ == '__main__':
             sys.exit('usage: map_tools.py challenge FILE [--source LABEL]')
         src = args[args.index('--source') + 1] if '--source' in args else os.path.basename(args[1])
         cmd_challenge(args[1], src)
+    elif args[0] == 'frontier':
+        mode = args[args.index('--mode') + 1] if '--mode' in args else None
+        cell = args[args.index('--cell') + 1] if '--cell' in args else None
+        if mode not in (None, 'cartographer', 'challenger'):
+            sys.exit('--mode must be cartographer or challenger')
+        cmd_frontier(mode=mode, cell=cell, commit='--commit' in args)
     else:
         sys.exit(__doc__)
