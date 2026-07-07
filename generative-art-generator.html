@@ -1808,6 +1808,13 @@ function mutateGenome(g, rate = 0.2) {
   if (Math.random() < 0.10) child.pixelCharacter      = randomChoice(PIXEL_CHARS);
   if (Math.random() < 0.10) child.flowCharacter       = randomChoice(FLOW_CHARS);
   if (Math.random() < 0.10) child.mechanicalCharacter = randomChoice(MECH_CHARS);
+  // Disorder dial (v3.1.0): mode flips like a character, disorder clamps after numeric drift.
+  // ONLY for dial-era children — a legacy parent (disorder == null) must produce a legacy child.
+  if (child.disorder != null) {
+    child.disorder = clamp(child.disorder, 0, 1);
+    if (Math.random() < 0.10) child.disorderMode = randomChoice(['uniform', 'linear', 'radial']);
+    if (!child.disorderMode) child.disorderMode = 'uniform';
+  }
   // Ensure character params always exist
   if (!child.pixelCharacter)      child.pixelCharacter      = randomChoice(PIXEL_CHARS);
   if (!child.flowCharacter)       child.flowCharacter       = randomChoice(FLOW_CHARS);
@@ -1989,7 +1996,8 @@ function genomeToString(g) {
   const pxChar   = g.pixelCharacter      ? ` | pxChar:${g.pixelCharacter}`      : '';
   const flChar   = g.flowCharacter       ? ` | flChar:${g.flowCharacter}`       : '';
   const mechChar = g.mechanicalCharacter ? ` | mechChar:${g.mechanicalCharacter}` : '';
-  return base + pxChar + flChar + mechChar;
+  const dis      = g.disorder != null    ? ` | dis:${g.disorder.toFixed(2)}/${g.disorderMode || 'uniform'}` : '';
+  return base + pxChar + flChar + mechChar + dis;
 }
 
 // ── Utils ──
