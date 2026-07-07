@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "updated": "2026-07-07",
+  "concepts": [
+    {
+      "id": "bell-labs",
+      "title": "The Bell Labs Wing",
+      "thesis": "One New Jersey institution produced more of this archive's source material than any other. Bell Laboratories treated images as signals and signals as images — Julesz's random-dot experiments, Harmon and Knowlton's minimum-information faces, VanDerBeek's poem films, and Freeny and Gabbe's thunderstorm all came from the same buildings, often the same corridors. The wing's throughline: perception itself as an engineering problem, with art arriving as the experiment's most durable output.",
+      "members": [
+        { "gen": 21, "why": "Julesz's random-dot Lincoln — perception as signal processing" },
+        { "gen": 59, "why": "Poem Field — VanDerBeek + Knowlton's BEFLIX films" },
+        { "gen": 61, "why": "Computer Cubism — Harmon/Knowlton's Lincoln, first pass" },
+        { "gen": 62, "why": "Block Portrait — the minimum-information face continued" },
+        { "gen": 70, "why": "Knowlton teaching VanDerBeek to program" },
+        { "gen": 73, "why": "Information Aesthetics — Bense reads Bell Labs" },
+        { "gen": 74, "why": "200 Squares — the picturephone prediction" },
+        { "gen": 81, "why": "Freeny & Gabbe's thunderstorm — weather as data film" }
+      ]
+    },
+    {
+      "id": "prediction-fulfilled",
+      "title": "Prediction Fulfilled",
+      "thesis": "The archive's signature discovery: NB repeatedly pairs a historical prediction with a contemporary artwork that fulfills it. Harmon designed his 200 squares for picturephones that became LED walls; Csuri foresaw computer-milled sculpture in 1967; Molnár described prompt-based delegation in 1981; Lauckner's 'exotic paint brush' became copy-paste as fine art. The curatorial rule these days established: render from the fulfilling work's substrate, not the historical artifact's.",
+      "members": [
+        { "gen": 74, "why": "1971 picturephone pixels → 2024 outdoor LED wall" },
+        { "gen": 77, "why": "Molnár, 1981: 'predicting 2026' — generative delegation" },
+        { "gen": 78, "why": "Csuri's milling-machine prophecy → CNC-carved 'Ridges Over'" },
+        { "gen": 80, "why": "Lauckner's 'exotic paint brush' → copy-paste as method" }
+      ]
+    },
+    {
+      "id": "women-pioneers",
+      "title": "Women Pioneers",
+      "thesis": "Bute was bending oscilloscope light into film in the 1930s; Molnár built her machine imaginaire before she had a machine; Sollfrank's generator is still running; Schwartz's records surfaced by accident inside another day's scrape; Freeny narrated her own thunderstorm in 1968 — 'My name is Anne Freeny.' The archive keeps finding that the field's institutional memory forgot its women faster than its machines, and keeps correcting for it.",
+      "members": [
+        { "gen": 52, "why": "Molnár's magic square — the machine imaginaire" },
+        { "gen": 53, "why": "Zero 10 — Molnár among the four pioneers" },
+        { "gen": 68, "why": "The Diabolical Instrument — Molnár's INA footage" },
+        { "gen": 71, "why": "Mary Ellen Bute — abstract film before the computer" },
+        { "gen": 72, "why": "Sollfrank's Net Art Generator; Schwartz in the margins" },
+        { "gen": 77, "why": "Molnár predicting 2026 in 1981" },
+        { "gen": 81, "why": "Anne Freeny — statistician as computer filmmaker" }
+      ]
+    },
+    {
+      "id": "newsprint-archive",
+      "title": "The Newsprint Archive",
+      "thesis": "Much of early computer art survives not as artworks but as newspaper coverage of artworks — halftone-grained, deckle-edged, warm with age. These days established the documentation-as-substrate thesis: when the source is a clipping, the render lives on the clipping's paper (palette 8), because the archive doesn't just preserve the work, it interprets the act of preservation.",
+      "members": [
+        { "gen": 40, "why": "Vellum Plotter — the substrate thesis begins" },
+        { "gen": 55, "why": "'I was a painter' — Mohr in IBM's pages" },
+        { "gen": 71, "why": "Machine-made abstraction on warm newsprint" },
+        { "gen": 73, "why": "Bense's theory read through a 1971 clipping" },
+        { "gen": 80, "why": "The Ann Arbor News holds up Lauckner's print" }
+      ]
+    },
+    {
+      "id": "order-and-disorder",
+      "title": "Order & Disorder",
+      "thesis": "The central drama of the 60s plotter canon — Molnár's 1% of disorder, Nees's tumbling Schotter squares, Mohr's exhaustive rigor — and, since engine v3.1.0, a literal parameter of this archive's own instrument. These are the days where systematic order and its collapse are the subject: magic squares, perfect centrosymmetry, grid subdivision, and a thunderstorm crossing a rain-gauge network as the disorder dial's first assignment.",
+      "members": [
+        { "gen": 52, "why": "Dürer's magic square — order as generative rule" },
+        { "gen": 68, "why": "Molnár's systematic displacement" },
+        { "gen": 75, "why": "Albers/CLICKBAIT — symmetry 1.0, the archive's maximum order" },
+        { "gen": 76, "why": "Nake's grid subdivision — twenty minutes of deliberation" },
+        { "gen": 81, "why": "The storm crosses the instrument — first disorder decision, 0.45/linear" }
+      ]
+    },
+    {
+      "id": "institutions",
+      "title": "The Institutions",
+      "thesis": "Movements and societies, not individuals: Cybernetic Serendipity legitimized the field in 1968 London; New Tendencies organized it from Zagreb; the Computer Art Society advocated the 'exotic paint brush'; Art Basel's Zero 10 booth canonized it half a century later. When NB cites an institution rather than an artist, the argument is always legitimation — technology admitted into the arts as serious practice.",
+      "members": [
+        { "gen": 8, "why": "Nove Tendencije — Zagreb organizes the field" },
+        { "gen": 16, "why": "Cybernetic Serendipity — ICA London, 1968" },
+        { "gen": 53, "why": "Zero 10 — Art Basel canonizes the pioneers" },
+        { "gen": 80, "why": "The Computer Art Society's U.S. chairman" }
+      ]
+    },
+    {
+      "id": "csuri",
+      "title": "The Csuri Room",
+      "thesis": "Four visits, four lenses: the figurative source dissolved into plotter accumulation, the underdocumented digitizing process, his place in the machine-abstraction lineage, and finally his own 1967 prophecy of conversational co-authorship — fulfilled by the tools that made these very renders. The archive's deepest single-artist study; the full lineage page holds the detailed argument.",
+      "link": { "href": "csuri.html", "label": "Full lineage study →" },
+      "members": [
+        { "gen": 57, "why": "Bearded Man — the face dissolved into the ring" },
+        { "gen": 58, "why": "Point by Point — the process day" },
+        { "gen": 71, "why": "Programmed randomness in the 1950–67 lineage" },
+        { "gen": 78, "why": "Sinescape — the prophecy in his own words" }
+      ]
+    },
+    {
+      "id": "light-as-medium",
+      "title": "Light as Medium",
+      "thesis": "From phosphor to projector: days where emitted light is not how the work is displayed but what the work is made of. The CDC 6400's circular CRT shaped Mohr's compositions; BEFLIX tiles burned on film; Harmon's squares found their destined LED wall; Oursler's eyes breathe on projected spheres. The hardware-shapes-form thesis, luminous edition.",
+      "members": [
+        { "gen": 47, "why": "Amiga Debbie — ProPaint colors on a dark CRT" },
+        { "gen": 56, "why": "CDC 6400 — the circular screen shapes the work" },
+        { "gen": 59, "why": "Poem Field — CRT tiles as light emission" },
+        { "gen": 70, "why": "The electron beam as drawing instrument" },
+        { "gen": 74, "why": "The LED wall Harmon predicted" },
+        { "gen": 79, "why": "Oursler — video eyes projected onto spheres" }
+      ]
+    },
+    {
+      "id": "the-network",
+      "title": "The Network",
+      "thesis": "Art whose medium is transmission itself: a satellite carrying an image 1000km between Berlin and Paris; a URL that is the artwork; a generator that has been running unattended since 1997; color provenance recorded on a blockchain. Each is the same claim in a different decade — that the signal path, not the endpoint, is where the work lives.",
+      "members": [
+        { "gen": 60, "why": "Une Image Venue d'Ailleurs — telematic transit" },
+        { "gen": 66, "why": "jesusswimming.com — the URL as artwork" },
+        { "gen": 72, "why": "Sollfrank's generator, still running" },
+        { "gen": 75, "why": "CLICKBAIT — the blockchain as color atlas" }
+      ]
+    }
+  ]
+}
