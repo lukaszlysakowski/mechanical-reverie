@@ -952,6 +952,20 @@ function drawGeometric(g, pal, t) {
   const cellH = H / rows;
   const pad = g.cellPadding;
 
+  // v3.1.0 disorder dial: genomes WITHOUT `disorder` take the legacy branch below, bit-identical
+  // to v3.0.0. Genomes WITH it get the ordered-baseline branch: a genuinely rigid grid whose
+  // rotation, position, size, and VOCABULARY (shape/color/fill variety) degrade with local d.
+  const hasDial = g.disorder != null;
+
+  // Ordered-baseline uniform vocabulary (order = uniformity; variety enters as a disorder casualty).
+  // baseShape / baseColorIndex are optional curatorial genome params, noise-derived by default.
+  const baseShape = hasDial
+    ? (g.baseShape != null ? g.baseShape : Math.floor(noise.noise2D(0.77, g.noiseSeed * 0.017) * 5)) % 5
+    : 0;
+  const baseColorIdx = hasDial
+    ? (g.baseColorIndex != null ? g.baseColorIndex : Math.floor(noise.noise2D(0.31, g.noiseSeed * 0.023) * pal.length)) % pal.length
+    : 0;
+
   for (let c = 0; c < cols; c++) {
     for (let r = 0; r < rows; r++) {
       const x = c * cellW + cellW * pad;
@@ -960,26 +974,85 @@ function drawGeometric(g, pal, t) {
       const h = cellH * (1 - pad * 2);
       const n = noise.noise2D(c * 0.3, r * 0.3 + t * g.clockSpeed);
 
-      ctx.save();
-      ctx.translate(x + w / 2, y + h / 2);
-      ctx.rotate(n * g.rotation + t * g.clockSpeed * 0.5);
+      if (!hasDial) {
+        // ── LEGACY branch (v3.0.0, do not modify) ──
+        ctx.save();
+        ctx.translate(x + w / 2, y + h / 2);
+        ctx.rotate(n * g.rotation + t * g.clockSpeed * 0.5);
 
-      const shape = Math.floor(n * 5) % 5;
-      const color = pal[Math.floor(Math.abs(n) * pal.length) % pal.length];
+        const shape = Math.floor(n * 5) % 5;
+        const color = pal[Math.floor(Math.abs(n) * pal.length) % pal.length];
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        ctx.lineWidth = 0.5 + n;
+
+        if (g.symmetry === 3) {
+          // Radial symmetry
+          for (let s = 0; s < 6; s++) {
+            ctx.save();
+            ctx.rotate((Math.PI * 2 / 6) * s);
+            drawShape(shape, w * 0.4, h * 0.4, n);
+            ctx.restore();
+          }
+        } else {
+          drawShape(shape, w * 0.4, h * 0.4, n);
+        }
+
+        ctx.restore();
+        continue;
+      }
+
+      // ── ORDERED branch (v3.1.0) ──
+      // d is sampled at the cell's SEAT (grid position, not displaced position):
+      // in Schotter it is the row that decides how much the square has forgotten.
+      const seatX = x + w / 2, seatY = y + h / 2;
+      const d = disorderAt(seatX, seatY, g);
+
+      // Per-cell signed noise channels, keyed to cell indices — spatially stable, animation-safe.
+      const sn = (fx, fy, ox, oy) => (noise.noise2D(c * fx + ox, r * fy + oy) - 0.5) * 2;
+      const nRot  = sn(7.3, 9.1, 31, 17);
+      const nOffX = sn(5.7, 6.3, 101, 53);
+      const nOffY = sn(6.1, 5.3, 211, 97);
+      const nSize = sn(4.9, 7.7, 307, 139);
+      const gShape = noise.noise2D(c * 8.3 + 401, r * 8.9 + 199);  // gates, 0..1
+      const gColor = noise.noise2D(c * 2.9 + 601, r * 3.1 + 331);
+      const gFill  = noise.noise2D(c * 9.7 + 701, r * 2.3 + 409);
+
+      // Collapse curves: rotation ∝ d² (late, accelerating — the Schotter feel);
+      // displacement ∝ d^1.5; size wobble ∝ d. At d=0 everything is exactly seated.
+      const rot  = nRot * g.rotation * d * d + t * g.clockSpeed * 0.5 * d;
+      const offX = nOffX * cellW * 0.8 * Math.pow(d, 1.5);
+      const offY = nOffY * cellH * 0.8 * Math.pow(d, 1.5);
+      const size = Math.max(1, w * 0.4 * (1 + nSize * 0.5 * d));
+      const sizeH = Math.max(1, h * 0.4 * (1 + nSize * 0.5 * d));
+
+      // Vocabulary gates: below-d noise admits variety; above it, the uniform baseline holds.
+      const shape = gShape < d ? Math.floor(noise.noise2D(c * 3.7 + 503, r * 4.3 + 257) * 5) % 5 : baseShape;
+      const colorIdx = gColor < d
+        ? Math.floor(noise.noise2D(c * 1.9 + 809, r * 1.7 + 431) * pal.length) % pal.length
+        : baseColorIdx;
+      const filled = gFill < d; // ordered baseline is stroke-only (ruled, plotter-like)
+
+      ctx.save();
+      ctx.translate(seatX + offX, seatY + offY);
+      ctx.rotate(rot);
+
+      const color = pal[colorIdx];
       ctx.strokeStyle = color;
       ctx.fillStyle = color;
-      ctx.lineWidth = 0.5 + n;
+      ctx.lineWidth = 0.9 + Math.abs(nRot) * 1.2 * d;
 
+      // drawShape fills when its n-argument > 0.5 — encode the fill gate through it.
+      const nDraw = filled ? 0.9 : 0.1;
       if (g.symmetry === 3) {
-        // Radial symmetry
         for (let s = 0; s < 6; s++) {
           ctx.save();
           ctx.rotate((Math.PI * 2 / 6) * s);
-          drawShape(shape, w * 0.4, h * 0.4, n);
+          drawShape(shape, size, sizeH, nDraw);
           ctx.restore();
         }
       } else {
-        drawShape(shape, w * 0.4, h * 0.4, n);
+        drawShape(shape, size, sizeH, nDraw);
       }
 
       ctx.restore();
