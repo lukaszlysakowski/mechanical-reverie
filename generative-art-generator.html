@@ -203,7 +203,10 @@ let W = canvas.width, H = canvas.height;
 // all stochastic draws inside the render path go through renderRng (seeded from genome.renderSeed),
 // never Math.random(). Bump ENGINE_VERSION whenever rendering behavior changes.
 // Entries before Day 82 predate this doctrine and are monoprints (unique originals).
-const ENGINE_VERSION = 'v3.0.0';
+// v3.1.0 — disorder dial (Molnár 1% / Nees Schotter): genomes WITH a `disorder` param get an
+// ordered baseline that degrades along a spatial gradient; genomes WITHOUT it take the exact
+// v3.0.0 legacy path, bit-identical (frozen snapshot: engine/v3.0.0.html).
+const ENGINE_VERSION = 'v3.1.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -216,6 +219,26 @@ function mulberry32(seed) {
   };
 }
 let renderRng = mulberry32(1); // re-seeded at the top of every render()
+
+// ── Disorder field (v3.1.0) ──
+// Returns local disorder d ∈ [0,1] at canvas point (x,y), or null for legacy genomes
+// (null → callers MUST take the exact v3.0.0 code path; legacy is NOT a point on this scale).
+// uniform: d = disorder everywhere (Molnár's constant 1% — or a constant 90%).
+// linear:  d ramps 0 → disorder along disorderAngle (vertical = literal Schotter).
+// radial:  d = 0 at center, → disorder at the corners (composition fraying at its edges).
+function disorderAt(x, y, g) {
+  if (g.disorder == null) return null;
+  const D = clamp(g.disorder, 0, 1);
+  if (g.disorderMode === 'linear') {
+    const ang = g.disorderAngle || 0;
+    const t = clamp(((x / W - 0.5) * Math.cos(ang) + (y / H - 0.5) * Math.sin(ang)) + 0.5, 0, 1);
+    return D * t;
+  }
+  if (g.disorderMode === 'radial') {
+    return D * clamp(Math.hypot(x / W - 0.5, y / H - 0.5) / 0.7071, 0, 1);
+  }
+  return D; // uniform
+}
 
 // ── DNA: The genome that defines each artwork ──
 let generation = 1;
@@ -293,6 +316,12 @@ function randomGenome() {
     noiseOctaves: randInt(1, 5),
     noiseSeed: rand(0, 10000),
     renderSeed: randInt(1, 4294967295), // seeds renderRng — canonical-seeds doctrine (v3.0.0)
+
+    // Disorder dial (v3.1.0) — order collapsing along a spatial gradient.
+    // 0 = ruled rigor (Mohr), ~0.05-0.12 = Molnár's 1%, 0.4-0.7 = Schotter collapse, 0.9+ = rubble.
+    disorder: rand(0, 0.9),
+    disorderMode: randomChoice(['uniform', 'linear', 'radial']),
+    disorderAngle: rand(0, Math.PI * 2), // direction of increase (linear mode only)
   };
 
   // Apply tweet-learned biases if available
@@ -386,6 +415,7 @@ function applyTweetBias(genome) {
   g.gearComplexity = clamp(Math.round(g.gearComplexity), 4, 32);
   g.bgDarkness = clamp(g.bgDarkness, 0.01, 0.95);
   g.wHatch = clamp(g.wHatch ?? 0, 0, 1);
+  if (g.disorder != null) g.disorder = clamp(g.disorder, 0, 1);
   if (g.hatchAngle == null) g.hatchAngle = rand(0, Math.PI);
   g.hatchAngle = ((g.hatchAngle % Math.PI) + Math.PI) % Math.PI; // Wrap to [0, π)
   g.hatchSpacing = clamp(g.hatchSpacing ?? 8, 2, 25);
@@ -1950,6 +1980,11 @@ async function loadArchiveDay(genNum) {
   }
 
   genome = Object.assign(generateGenome(), entry.genome);
+  // v3.1.0: the fresh base genome carries disorder params; a stored entry that predates the
+  // dial must NOT inherit them or its reproduction changes. Strip unless the entry has them.
+  if (entry.genome.disorder == null) {
+    delete genome.disorder; delete genome.disorderMode; delete genome.disorderAngle;
+  }
   render(genome, 0);
 
   const sub = document.querySelector('.subtitle');
@@ -1976,6 +2011,9 @@ async function loadAtlasCell(cellKey) {
       setPalette(eg.paletteIndex, eg.paletteColors);
     }
     genome = Object.assign(generateGenome(), eg);
+    if (eg.disorder == null) { // same stripping rule as loadArchiveDay — see v3.1.0 note there
+      delete genome.disorder; delete genome.disorderMode; delete genome.disorderAngle;
+    }
     render(genome, 0);
 
     const sub = document.querySelector('.subtitle');
