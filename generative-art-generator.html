@@ -164,6 +164,7 @@
   <button onclick="evolve()">Evolve</button>
   <button onclick="mutate()">Mutate</button>
   <button onclick="toggleAnimate(this)">Animate</button>
+  <button onclick="playTone(genome)" title="Hear the score — the tone this genome already encodes">◐ Sound</button>
   <button onclick="exportArt(1)">Save 1×</button>
   <button onclick="exportArt(2)">Save 2×</button>
   <button onclick="exportArt(4)">Save 4×</button>
@@ -238,6 +239,86 @@ function disorderAt(x, y, g) {
     return D * clamp(Math.hypot(x / W - 0.5, y / H - 0.5) / 0.7071, 0, 1);
   }
   return D; // uniform
+}
+
+// ── The Tone (sonic dimension, S1) ──
+// The sound is already in the score: the oscilloscope character's frequency ratios ARE musical
+// intervals (2:1 octave, 3:2 fifth, 4:3 fourth, 5:4 third...). genomeToTone() is a pure function of
+// the genome — deterministic, seeded from renderSeed — returning a ToneSpec (a description of the
+// sound, never audio). disorder governs consonance: pure just intonation at 0, oscillators beating
+// as it rises (Laposky's unstable-oscillator physics). See SONIC-DESIGN.md.
+const FLOW_INTERVAL = {
+  transit: 3/2,       // perfect fifth — travel, openness
+  biological: 6/5,    // minor third — organic, rounded
+  vortex: 5/3,        // major sixth — circular lift
+  mathematical: 4/3,  // perfect fourth — ruled precision
+  dispersal: 5/4,     // major third — radiant scatter
+  oscilloscope: 3/2,  // (overridden by the genome's real ratios below)
+  data: 2/1,          // octave — encoding, doubling
+};
+const TONE_TIMBRE = {
+  circuit: 'sine',      // the pure oscillator itself
+  gear:    'square',    // harder, mechanical
+  plotter: 'triangle',  // softer, plucked
+  led:     'sawtooth',  // bright, additive-feeling
+};
+const OSC_FREQ_PAIRS = [[1,2],[1,3],[2,3],[3,4],[3,5],[4,5],[1,1],[2,5]];
+
+function genomeToTone(g) {
+  const seed = Math.floor((g.renderSeed ?? (g.noiseSeed ?? 1) * 7919) * 1000) >>> 0;
+  const rng = mulberry32(seed ^ 0x5f3759df);
+  // Root: bgDarkness inverted — a dark-ground piece speaks low. ~110 Hz (dark) → ~330 Hz (light).
+  const bg = clamp(g.bgDarkness ?? 0.15, 0, 1);
+  const root = 110 * Math.pow(2, (1 - bg) * 1.585);
+  // Intervals: oscilloscope days sound their real Lissajous ratios (a chord); others a single interval.
+  let ratios;
+  if (g.flowCharacter === 'oscilloscope') {
+    const nVoices = clamp(Math.round((g.layerCount ?? 6) - 3), 2, 5);
+    const chosen = [];
+    for (let i = 0; i < nVoices; i++) {
+      const p = OSC_FREQ_PAIRS[Math.floor(rng() * OSC_FREQ_PAIRS.length)];
+      chosen.push(p[1] / p[0]);
+    }
+    ratios = [1, ...chosen];
+  } else {
+    ratios = [1, FLOW_INTERVAL[g.flowCharacter] ?? 3/2];
+  }
+  // Consonance: disorder detunes each voice up to ±3%, producing beats. Pure at disorder 0.
+  const d = clamp(g.disorder ?? 0, 0, 1);
+  const voices = ratios.map(r => ({ freq: root * r * (1 + (rng() - 0.5) * 2 * d * 0.03) }));
+  return {
+    voices,
+    timbre: TONE_TIMBRE[g.mechanicalCharacter] ?? 'sine',
+    duration: 4.0,
+    root, disorder: d,
+    flowCharacter: g.flowCharacter, mechanicalCharacter: g.mechanicalCharacter,
+  };
+}
+
+// Live playback (S1) — realizes a ToneSpec through Web Audio as a short, soft bell. Opt-in only.
+let __audioCtx = null;
+function playTone(g) {
+  const spec = genomeToTone(g);
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return spec;
+  const ctx = __audioCtx || (__audioCtx = new AC());
+  if (ctx.state === 'suspended') ctx.resume();
+  const now = ctx.currentTime;
+  const master = ctx.createGain();
+  master.connect(ctx.destination);
+  const peak = 0.28 / Math.sqrt(spec.voices.length);
+  master.gain.setValueAtTime(0.0001, now);
+  master.gain.exponentialRampToValueAtTime(peak, now + 0.04);   // soft strike
+  master.gain.exponentialRampToValueAtTime(0.0001, now + spec.duration); // long decay
+  spec.voices.forEach(v => {
+    const osc = ctx.createOscillator();
+    osc.type = spec.timbre;
+    osc.frequency.value = v.freq;
+    const vg = ctx.createGain(); vg.gain.value = 1 / spec.voices.length;
+    osc.connect(vg); vg.connect(master);
+    osc.start(now); osc.stop(now + spec.duration + 0.05);
+  });
+  return spec;
 }
 
 // ── DNA: The genome that defines each artwork ──
