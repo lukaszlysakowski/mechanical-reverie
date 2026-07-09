@@ -4662,5 +4662,80 @@
     "keyDetails": "Anne Freeny & John Gabbe, 1968 — Bell Labs thunderstorm-as-data film, 11x10 rain-gauge grid. NB original thread, 21 likes.",
     "description": "'Computer Picture of a Thunderstorm' by Anne Freeny & John Gabbe, Bell Laboratories, 1968. A network of rain gauges across 50 square miles of central New Jersey recorded rain rate every ten seconds through 1966-67; each gauge's measurement became a shaded square in an irregular 11x10 grid, and the sequence became a computer-generated film — a thunderstorm as animated data, narrated by Freeny herself: 'My name is Anne Freeny...' She joins the archive's women-pioneer roster (Bute, Molnar, Sollfrank, Schwartz) and the Bell Labs wing (Harmon, Knowlton, VanDerBeek). The render answers with the archive's first deliberate disorder decision (engine v3.1.0): disorder 0.45, linear at 45 degrees — the storm front sweeping diagonally across an ordered gauge grid, the instrument legible where the storm is weak, tumbling where it is strong. Palette 6 dark-film ground (bgDarkness 0.85), flowCharacter 'data' (the encoding IS the art), mechanicalCharacter 'led' (the tone-square matrix), pixelCharacter 'halftone' (the film frame's visible dot texture), gridCols 10 matching the gauge network. Day 82 is also the first CERTIFIED SCORE of the canonical-seeds era — and, at 6.9190, a new archive fitness high.",
     "condensedReason": "'Computer Picture of a Thunderstorm' by Anne Freeny & John Gabbe, Bell Laboratories, 1968. A network of rain gauges across 50 square miles of central New Jersey recorded rain rate every ten seconds through 1966-67; each gauge's measurement became a shaded square in an irregular 11x10 grid, and the sequence became a computer-generated film — a thunderstorm as animated data, narrated by Freeny herself: 'My name is Anne Freeny...' She joins the archive's women-pioneer roster (Bute, Molnar, Sollfrank, Schwartz) and the Bell Labs wing (Harmon, Knowlton, VanDerBeek). The render answers with the archive's first deliberate disorder decision (engine v3.1.0): disorder 0.45, linear at 45 degrees — the storm front sweeping diagonally across an ordered gauge grid, the instrument legible where the storm is weak, tumbling where it is strong. Palette 6 dark-film ground (bgDarkness 0.85), flowCharacter 'data' (the encoding IS the art), mechanicalCharacter 'led' (the tone-square matrix), pixelCharacter 'halftone' (the film frame's visible dot texture), gridCols 10 matching the gauge network. Day 82 is also the first CERTIFIED SCORE of the canonical-seeds era — and, at 6.9190, a new archive fitness high."
+  },
+  {
+    "day": 83,
+    "date": "2026-07-08",
+    "title": "Computer Speech",
+    "filename": "mechanical-reverie-day-083-computer-speech-2026-07-08.png",
+    "fitness": 6.7355,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 6,
+      "cellPadding": 0.17386796166490825,
+      "rotation": 0.489781466989832,
+      "globalRotation": 0.06061655309310951,
+      "paletteIndex": 2,
+      "bgDarkness": 0.15,
+      "gearDensity": 0.5,
+      "gearComplexity": 15,
+      "chainFrequency": 0.41680283341477664,
+      "pixelDensity": 0.07579131986050702,
+      "pixelSize": 4,
+      "flowScale": 0.011992490964353945,
+      "flowStrength": 3.540626437990908,
+      "particleCount": 1709,
+      "clockSpeed": 0.019573541163510635,
+      "oscillation": 0.8446194364140185,
+      "wMechanical": 0.64,
+      "wPixel": 0.62,
+      "wFlow": 0.6,
+      "wGeometric": 0.58,
+      "wOrganic": 0.35,
+      "wHatch": 0.34,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "data",
+      "flowCharacter": "data",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 9607.86068942668,
+      "renderSeed": 4013793795,
+      "disorder": 0.15,
+      "disorderMode": "uniform",
+      "disorderAngle": 2.96877702112982,
+      "baseShape": 0,
+      "baseColorIndex": 6
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "The archive's FIRST SOUND SUBJECT — computer speech/voice synthesis, a genuinely new theme class after 82 days of image-making. Palette 2 grey-blue institutional (Denes DDP-224 lab film). data/circuit pairing: encoding (binary buttons) + signal synthesis (Votrax oscillator). disorder 0.15 uniform holds the circle-key grid regular (echoing the button panel) — the dial's restraint reading as institutional order, not collapse. Second certified score. Polish found the override already at local optimum (no improvement). Extends Day 82's oscillator/sound insight: measurement-as-pitch → code-as-speech. WATCH: a third sound/voice day would justify a new 'Sonic Dimension' concept room.",
+      "condensedReason": "A new dimension for the archive: computer sound. Eighty-two days of computer image-making, and here the subject is the machine learning to speak. NB traces the arc — Dr. Peter B. Denes running interactive speech research on a Honeywell DDP-224 at Bell Labs in 1966/67 (from the film 'The Communications Explosion,' quoted via A. Michael Noll), the CDC 6500 'Alexander' ordering a pizza through a Votrax synthesizer at Michigan State in 1974, and by 1997 a computer emulating voices behind a crude animated face. The anchor image is a rack of binary-code buttons — 128, 64, 32, 16, 8 — the encoding beneath the voice. Palette 2 (grey-blue institutional) matches the DDP-224's cool laboratory film; flowCharacter and pixelCharacter both 'data' (the binary encoding IS the substrate of speech); mechanicalCharacter 'circuit' (the Votrax signal path, oscillator-based voice synthesis); disorder 0.15 uniform keeps the circle-key grid genuinely regular — a direct echo of the button panel — while admitting the imperfection of early synthesis. This extends Day 82's discovery that the rain gauges 'sang' the storm through oscillator frequency: from measurement-as-pitch to code-as-speech, the archive has found its sonic lineage. A certified score, engine v3.1.0."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "e4b5706c196ddfdddc3c1942e8f63bc6ad37a865c27d1d11ef7e5f15dca2f8cc",
+      "engineVersion": "v3.1.0",
+      "renderSeed": 4013793795,
+      "noiseSeed": 9607.86068942668
+    },
+    "tweetSummary": "NB traces computer speech synthesis: Denes at Bell Labs (1966, Honeywell DDP-224), the 'Alexander' CDC 6500 ordering pizza via Votrax (1974), and voice emulation with a crude face (1997).",
+    "keyArtists": [
+      "Peter B. Denes",
+      "A. Michael Noll",
+      "Donald Sherman"
+    ],
+    "themes": [
+      "computer speech — binary code becoming voice",
+      "the emergence arc 1966 to 1997",
+      "binary code as the anchor motif",
+      "the crude face — synthesis reaching for the human",
+      "archival lab film — cool grey-blue institutional register"
+    ],
+    "keyDetails": "Peter B. Denes, Bell Labs 1966 — computer speech on the Honeywell DDP-224; voice synthesis to 1997. NB original thread, 38 likes.",
+    "description": "A new dimension for the archive: computer sound. Eighty-two days of computer image-making, and here the subject is the machine learning to speak. NB traces the arc — Dr. Peter B. Denes running interactive speech research on a Honeywell DDP-224 at Bell Labs in 1966/67 (from the film 'The Communications Explosion,' quoted via A. Michael Noll), the CDC 6500 'Alexander' ordering a pizza through a Votrax synthesizer at Michigan State in 1974, and by 1997 a computer emulating voices behind a crude animated face. The anchor image is a rack of binary-code buttons — 128, 64, 32, 16, 8 — the encoding beneath the voice. Palette 2 (grey-blue institutional) matches the DDP-224's cool laboratory film; flowCharacter and pixelCharacter both 'data' (the binary encoding IS the substrate of speech); mechanicalCharacter 'circuit' (the Votrax signal path, oscillator-based voice synthesis); disorder 0.15 uniform keeps the circle-key grid genuinely regular — a direct echo of the button panel — while admitting the imperfection of early synthesis. This extends Day 82's discovery that the rain gauges 'sang' the storm through oscillator frequency: from measurement-as-pitch to code-as-speech, the archive has found its sonic lineage. A certified score, engine v3.1.0.",
+    "condensedReason": "A new dimension for the archive: computer sound. Eighty-two days of computer image-making, and here the subject is the machine learning to speak. NB traces the arc — Dr. Peter B. Denes running interactive speech research on a Honeywell DDP-224 at Bell Labs in 1966/67 (from the film 'The Communications Explosion,' quoted via A. Michael Noll), the CDC 6500 'Alexander' ordering a pizza through a Votrax synthesizer at Michigan State in 1974, and by 1997 a computer emulating voices behind a crude animated face. The anchor image is a rack of binary-code buttons — 128, 64, 32, 16, 8 — the encoding beneath the voice. Palette 2 (grey-blue institutional) matches the DDP-224's cool laboratory film; flowCharacter and pixelCharacter both 'data' (the binary encoding IS the substrate of speech); mechanicalCharacter 'circuit' (the Votrax signal path, oscillator-based voice synthesis); disorder 0.15 uniform keeps the circle-key grid genuinely regular — a direct echo of the button panel — while admitting the imperfection of early synthesis. This extends Day 82's discovery that the rain gauges 'sang' the storm through oscillator frequency: from measurement-as-pitch to code-as-speech, the archive has found its sonic lineage. A certified score, engine v3.1.0."
   }
 ]
