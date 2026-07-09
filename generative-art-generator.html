@@ -283,19 +283,32 @@ function genomeToTone(g) {
   } else {
     ratios = [1, FLOW_INTERVAL[g.flowCharacter] ?? 3/2];
   }
-  // Consonance: disorder detunes each voice up to ±3%, producing beats. Pure at disorder 0.
+  // Consonance (S2): disorder detune is DETERMINISTIC & MONOTONIC — order sounds pure, entropy beats.
+  // The root stays anchored & pure; upper voices are pushed alternately sharp/flat by up to ±22 cents
+  // at full disorder, so the beating grows reliably and audibly with disorder (not noisily per-seed).
   const d = clamp(g.disorder ?? 0, 0, 1);
-  const voices = ratios.map(r => ({ freq: root * r * (1 + (rng() - 0.5) * 2 * d * 0.03) }));
+  const voices = ratios.map((r, i) => {
+    const ideal = root * r;
+    if (i === 0) return { freq: ideal, ratio: r };              // root: always in tune
+    const sign = (i % 2 === 0) ? 1 : -1;                        // alternate sharp/flat → shimmer/beat
+    return { freq: ideal * Math.pow(2, (d * 22 * sign) / 1200), ratio: r };
+  });
+  const isOsc = g.flowCharacter === 'oscilloscope';
+  const mech = g.mechanicalCharacter;
   return {
     voices,
-    timbre: TONE_TIMBRE[g.mechanicalCharacter] ?? 'sine',
-    duration: 4.0,
+    timbre: TONE_TIMBRE[mech] ?? 'sine',
+    duration: isOsc ? 5.0 : 4.0,
+    gain: isOsc ? 0.85 : 0.5,                                   // oscilloscope (Laposky) days sing loudest
+    brightness: (mech === 'gear' || mech === 'led') ? 0.5 : 1.0, // tame harsh square/saw toward a bell
+    vibrato: clamp((g.oscillation ?? 1) * 0.6, 0, 4),           // gentle vibrato depth, in cents
     root, disorder: d,
-    flowCharacter: g.flowCharacter, mechanicalCharacter: g.mechanicalCharacter,
+    flowCharacter: g.flowCharacter, mechanicalCharacter: mech,
   };
 }
 
-// Live playback (S1) — realizes a ToneSpec through Web Audio as a short, soft bell. Opt-in only.
+// Live playback (S2) — realizes a ToneSpec as a short, soft bell through a lowpass (confirm, don't
+// compete) with a gentle shared vibrato. Opt-in only; never autoplay.
 let __audioCtx = null;
 function playTone(g) {
   const spec = genomeToTone(g);
@@ -304,19 +317,35 @@ function playTone(g) {
   const ctx = __audioCtx || (__audioCtx = new AC());
   if (ctx.state === 'suspended') ctx.resume();
   const now = ctx.currentTime;
+
   const master = ctx.createGain();
-  master.connect(ctx.destination);
-  const peak = 0.28 / Math.sqrt(spec.voices.length);
+  const lp = ctx.createBiquadFilter();      // soft lowpass keeps it a bell, not a buzz
+  lp.type = 'lowpass';
+  lp.frequency.value = 1400 + spec.brightness * 2600;  // 1400–4000 Hz
+  lp.Q.value = 0.5;
+  master.connect(lp); lp.connect(ctx.destination);
+
+  const peak = spec.gain * 0.32 / Math.sqrt(spec.voices.length);
   master.gain.setValueAtTime(0.0001, now);
-  master.gain.exponentialRampToValueAtTime(peak, now + 0.04);   // soft strike
+  master.gain.exponentialRampToValueAtTime(peak, now + 0.06);            // soft strike
   master.gain.exponentialRampToValueAtTime(0.0001, now + spec.duration); // long decay
+
+  const lfo = ctx.createOscillator();       // shared vibrato
+  lfo.frequency.value = 5.2;
+  lfo.start(now); lfo.stop(now + spec.duration + 0.1);
+
   spec.voices.forEach(v => {
     const osc = ctx.createOscillator();
     osc.type = spec.timbre;
     osc.frequency.value = v.freq;
+    if (spec.vibrato > 0) {
+      const lg = ctx.createGain();
+      lg.gain.value = v.freq * (Math.pow(2, spec.vibrato / 1200) - 1); // vibrato depth in Hz
+      lfo.connect(lg); lg.connect(osc.frequency);
+    }
     const vg = ctx.createGain(); vg.gain.value = 1 / spec.voices.length;
     osc.connect(vg); vg.connect(master);
-    osc.start(now); osc.stop(now + spec.duration + 0.05);
+    osc.start(now); osc.stop(now + spec.duration + 0.1);
   });
   return spec;
 }
