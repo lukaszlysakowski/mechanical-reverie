@@ -3,37 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mechanical Reverie — Evolution Timeline</title>
-<meta name="description" content="A generative art engine that creates a new artwork every day, shaped by @Noahbolanowski's tweets about art and technology history.">
-
-<!-- Canonical entry point is timeline.html — index redirects there so the root URL never drifts
-     from the maintained page (it used to be a manual copy and fell out of date). -->
-<link rel="canonical" href="timeline.html">
-<meta http-equiv="refresh" content="0; url=timeline.html">
+<title>Mechanical Reverie</title>
+<meta name="description" content="A generative art engine that creates a new artwork every day, shaped by @Noahbolanowski's tweets about art and technology history. Read it four ways: timeline, atlas, concepts, and a single-artist study.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Mechanical Reverie — Evolution Timeline">
-<meta property="og:description" content="A generative art engine shaped daily by tweets about art history. Each piece encodes the themes, images, and emotional register of a day's worth of curatorial thought.">
+<meta property="og:title" content="Mechanical Reverie">
+<meta property="og:description" content="A generative art engine shaped daily by tweets about art history. Each piece is a reproducible score — and every genome already encodes a chord.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukaszlysakowski.github.io/mechanical-reverie/">
 <meta property="og:image" content="https://lukaszlysakowski.github.io/mechanical-reverie/art/mechanical-reverie-2026-05-16-future-mural.png">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mechanical Reverie — Evolution Timeline">
+<meta name="twitter:title" content="Mechanical Reverie">
 <meta name="twitter:description" content="A generative art engine shaped daily by tweets about art history.">
 <meta name="twitter:image" content="https://lukaszlysakowski.github.io/mechanical-reverie/art/mechanical-reverie-2026-05-16-future-mural.png">
 
 <style>
-  html, body { margin: 0; height: 100%; background: #0a0a0a; color: #c4a265; font-family: 'Georgia', serif; }
-  .wrap { height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
-  a { color: #c4a265; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #c9b896;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 48px 20px 8px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 46px);
+    letter-spacing: clamp(4px, 1.5vw, 10px);
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 10px;
+  }
+  .hero .tagline {
+    font-size: 14px;
+    color: #b0a078;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .hero .stats {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #a89670;
+    letter-spacing: 1px;
+  }
+
+  /* Featured latest render */
+  .featured {
+    max-width: 1100px;
+    margin: 36px auto 0;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+  }
+  .frame {
+    border: 10px solid #1a1510;
+    outline: 3px solid #2a2218;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 8px 32px rgba(0,0,0,0.6);
+    background: #0d0d12;
+    position: relative;
+    display: block;
+    text-decoration: none;
+  }
+  .frame img { width: 100%; display: block; }
+  .frame .latest-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: rgba(10,10,10,0.85);
+    border: 1px solid #3a2e1e;
+    color: #d4af37;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    font-family: monospace;
+  }
+
+  .featured-meta .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a89670;
+    margin-bottom: 6px;
+  }
+  .featured-meta h2 {
+    font-size: 26px;
+    color: #c4a265;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .featured-meta .fitness {
+    font-size: 12px;
+    color: #a89670;
+    margin-bottom: 14px;
+  }
+  .featured-meta .fitness span { color: #c4b39e; font-weight: bold; }
+  .featured-meta .keydetails {
+    font-size: 13px;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+  .featured-meta .desc {
+    font-size: 13.5px;
+    color: #c9b896;
+    line-height: 1.65;
+    max-height: 8.5em;
+    overflow: hidden;
+    margin-bottom: 18px;
+    -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent);
+            mask-image: linear-gradient(180deg, #000 72%, transparent);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block;
+    border: 1px solid #3a2e1e;
+    color: #c4a265;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .btn:hover { border-color: #c4a265; background: rgba(196,162,101,0.08); }
+  .btn.primary { border-color: #4a3e2e; color: #d4af37; }
+  .btn .note { color: #a89670; font-size: 11px; }
+
+  /* Four ways to read */
+  .ways {
+    max-width: 1100px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+  }
+  .ways h3 {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 20px;
+  }
+  .ways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .way {
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .way:hover { border-color: #c4a265; transform: translateY(-2px); }
+  .way .w-title { font-size: 16px; color: #c4a265; margin-bottom: 4px; }
+  .way .w-kind { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #9c8a68; margin-bottom: 8px; }
+  .way .w-desc { font-size: 12.5px; color: #a89670; line-height: 1.55; }
+
+  /* About */
+  .about {
+    max-width: 760px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #c9b896;
+  }
+  .about p { margin-bottom: 14px; }
+  .about .chapters {
+    font-size: 12.5px;
+    color: #a89670;
+    border-top: 1px solid #2a2218;
+    padding-top: 16px;
+    margin-top: 20px;
+  }
+  .about a { color: #b0a078; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .about a:hover { color: #c4a265; }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 48px 20px 40px;
+    font-size: 11px;
+    color: #9c8a68;
+    letter-spacing: 1px;
+  }
+  .footer-bottom a { color: #a89670; }
+  .footer-bottom a:hover { color: #c4a265; }
+
+  @media (max-width: 720px) {
+    .featured { grid-template-columns: 1fr; gap: 22px; }
+  }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <p>Redirecting to the <a href="timeline.html">Mechanical Reverie timeline</a>…</p>
+
+<div class="hero">
+  <h1>Mechanical Reverie</h1>
+  <div class="tagline">A generative art engine shaped by art history, one day at a time — reading <a href="https://x.com/Noahbolanowski" target="_blank" style="color:#b0a078;text-decoration:none;border-bottom:1px dotted #4a3e2e;">@Noahbolanowski</a>'s tweets about where computation first met artistic practice, and translating what it hears.</div>
+  <div class="stats" id="stats">loading…</div>
+</div>
+
+<div class="featured" id="featured">
+  <!-- populated from selected-genomes.json -->
+</div>
+
+<div class="ways">
+  <h3>Four ways to read the archive</h3>
+  <div class="ways-grid">
+    <a class="way" href="timeline.html">
+      <div class="w-title">Timeline</div>
+      <div class="w-kind">Chronology</div>
+      <div class="w-desc">Every day's winner, in order — with lineage, scores, and the reasoning behind each choice.</div>
+    </a>
+    <a class="way" href="atlas.html">
+      <div class="w-title">The Atlas</div>
+      <div class="w-kind">Capability</div>
+      <div class="w-desc">A MAP-Elites survey of the engine's possibility space — and the frontier it has never rendered.</div>
+    </a>
+    <a class="way" href="concepts.html">
+      <div class="w-title">Concepts</div>
+      <div class="w-kind">Argument</div>
+      <div class="w-desc">Curated rooms tracing what the archive has been thinking about — Bell Labs, Women Pioneers, The Sonic Dimension, artist studies.</div>
+    </a>
+    <a class="way" href="csuri.html">
+      <div class="w-title">Csuri Lineage</div>
+      <div class="w-kind">Deep study</div>
+      <div class="w-desc">One artist across four months and four lenses — the archive's deepest single-figure reading.</div>
+    </a>
   </div>
-  <script>location.replace('timeline.html');</script>
+</div>
+
+<div class="about">
+  <p>Each piece is not an illustration of the tweets but a translation: the day's themes, the images' color temperature, the emotional register of the language — encoded into a genome that governs palette, pixel density, flow, geometry, and mechanical presence. Candidates render; the best is selected by an aesthetic fitness function, with curatorial overrides when theme and fitness disagree. Winners breed future generations.</p>
+  <div class="chapters">
+    Recent chapters in the engine's own evolution — a <strong>disorder dial</strong> (order collapsing along a spatial gradient, after Molnár and Nees), <strong>canonical seeds</strong> (each artwork a reproducible <em>score</em>, not just a print), and <strong>a sonic dimension</strong> (every genome already encodes a chord — press <span style="color:#c4a265;">◐ Sound</span> in the <a href="generative-art-generator.html">generator</a> to hear it).
+  </div>
+</div>
+
+<div class="footer-bottom">
+  Mechanical Reverie · Started March 2026 · Updated daily · <a href="https://github.com/lukaszlysakowski/mechanical-reverie" target="_blank">GitHub</a>
+</div>
+
+<script>
+const ART_PATH = 'generative-art-output/art/';
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+fetch('./selected-genomes.json?' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    const gen = data.length;
+    const latest = data[gen - 1];
+    const high = data.reduce((a, b) => (b.fitness || 0) > (a.fitness || 0) ? b : a, data[0]);
+
+    document.getElementById('stats').textContent =
+      `${gen} generations · ${latest.date ? 'latest ' + latest.date : ''} · archive high ${(high.fitness || 0).toFixed(3)}`;
+
+    const desc = latest.description || latest.condensedReason || (latest.curatorial && latest.curatorial.condensedReason) || '';
+    const dayLabel = latest.day ? `Day ${latest.day}` : `Gen ${gen}`;
+    const featured = document.getElementById('featured');
+    featured.innerHTML = `
+      <a class="frame" href="generative-art-generator.html?gen=${gen}" title="Open in the generator — hear it, re-render, export at scale">
+        <img src="${ART_PATH}${latest.filename}" alt="${latest.title || 'latest render'}">
+        <span class="latest-tag">Latest · ${dayLabel}</span>
+      </a>
+      <div class="featured-meta">
+        <div class="eyebrow">${formatDate(latest.date)} · ${dayLabel}</div>
+        <h2>${latest.title || ''}</h2>
+        <div class="fitness">Fitness <span>${(latest.fitness || 0).toFixed(4)}</span>${latest.certificate ? ' · certified score' : ''}</div>
+        ${latest.keyDetails ? `<div class="keydetails">${latest.keyDetails}</div>` : ''}
+        ${desc ? `<div class="desc">${desc}</div>` : ''}
+        <div class="actions">
+          <a class="btn primary" href="generative-art-generator.html?gen=${gen}">Open in generator <span class="note">— hear ◐, re-render, export</span></a>
+          <a class="btn" href="timeline.html">See the full timeline →</a>
+        </div>
+      </div>`;
+  })
+  .catch(err => {
+    document.getElementById('stats').textContent = 'Could not load the archive — ' + err.message;
+  });
+</script>
+
 </body>
 </html>
