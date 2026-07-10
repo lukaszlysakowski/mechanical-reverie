@@ -14,6 +14,19 @@ ART_DST="$DST/art"
 echo "→ Syncing selected-genomes.json..."
 cp "$SRC/selected-genomes.json" "$DST/selected-genomes.json"
 
+echo "→ Syncing site files (pages + data)..."
+# These live only in the working dir and used to require manual copying — the source of
+# stale-site drift. Sync them every publish so the deployed site never lags the working copy.
+# (index.html is a static redirect to timeline.html and lives only here — not overwritten.)
+for f in timeline.html atlas.html concepts.html csuri.html generative-art-generator.html concepts.json elites-map.json; do
+  if [ -f "$SRC/$f" ]; then
+    if ! cmp -s "$SRC/$f" "$DST/$f"; then
+      cp "$SRC/$f" "$DST/$f"
+      echo "  ~ $f (updated)"
+    fi
+  fi
+done
+
 echo "→ Syncing art files..."
 # Copy any referenced PNG that isn't already in the public art dir
 python3 - <<'PYEOF'
