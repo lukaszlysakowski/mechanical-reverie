@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-08",
+  "updated": "2026-07-09",
   "concepts": [
     {
       "id": "bell-labs",
@@ -154,6 +154,10 @@
         {
           "gen": 81,
           "why": "The storm crosses the instrument — first disorder decision, 0.45/linear"
+        },
+        {
+          "gen": 83,
+          "why": "CTG's negentropy/entropy — the disorder dial's founding theory, rendered at its balance (0.5)"
         }
       ]
     },
@@ -292,6 +296,25 @@
         {
           "gen": 39,
           "why": "Screen Anthem — flat-color marks on a navy sea"
+        }
+      ]
+    },
+    {
+      "id": "sonic-dimension",
+      "title": "The Sonic Dimension",
+      "thesis": "For eighty-one days the archive looked only at the picture the oscillator drew. Then it heard the tone. A thunderstorm transduced into oscillator pitch before it became image; binary code turned into synthesized speech; an analog machine taught to listen and guess the next phoneme. The thread beneath early computer art and early computer sound is one substrate — the oscillating signal — and once the archive noticed, its own engine grew a voice (the disorder dial governs consonance; every genome now sounds the chord it already encoded). These are the days where the medium is not the image but the signal that could be seen OR heard.",
+      "members": [
+        {
+          "gen": 81,
+          "why": "Day 82 — the rain gauges sang the storm through oscillator frequency (measurement as pitch)"
+        },
+        {
+          "gen": 82,
+          "why": "Day 83 — Denes's DDP-224 turned binary code into speech (synthesis)"
+        },
+        {
+          "gen": 84,
+          "why": "Day 85 — Fry-Denes taught a machine to listen and guess (recognition)"
         }
       ]
     },
