@@ -23,7 +23,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-10T04:07:23Z",
+  "updated": "2026-07-14T05:18:48Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.6991,
@@ -1801,6 +1801,66 @@
         "date": null
       },
       "since": "2026-07-10T04:05:36Z"
+    },
+    "oscilloscope|circuit|light": {
+      "fitness": 6.6215,
+      "genome": {
+        "gridCols": 10,
+        "gridRows": 8,
+        "cellPadding": 0.1975322473040931,
+        "rotation": 6.010656251336748,
+        "globalRotation": -0.06701226146185953,
+        "paletteIndex": 10,
+        "bgDarkness": 0.35,
+        "gearDensity": 0.44,
+        "gearComplexity": 17,
+        "chainFrequency": 0.31922319586721326,
+        "pixelDensity": 0.9506633629946302,
+        "pixelSize": 2,
+        "flowScale": 0.007568561550778748,
+        "flowStrength": 2.0786268427904653,
+        "particleCount": 1924,
+        "clockSpeed": 0.009026021331332509,
+        "oscillation": 2.570602068727055,
+        "wMechanical": 0.68,
+        "wPixel": 0.4,
+        "wFlow": 0.85,
+        "wGeometric": 0.5,
+        "wOrganic": 0.31,
+        "wHatch": 0.6,
+        "hatchAngle": 0,
+        "hatchSpacing": 10,
+        "pixelCharacter": "halftone",
+        "flowCharacter": "oscilloscope",
+        "mechanicalCharacter": "circuit",
+        "symmetry": 0.42,
+        "layerCount": 6,
+        "noiseOctaves": 3,
+        "noiseSeed": 4402.987023090284,
+        "renderSeed": 2909302861,
+        "disorder": 0.2,
+        "disorderMode": "uniform",
+        "disorderAngle": 0,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#5a5a5a",
+          "#5a5a5a",
+          "#5a5a5a"
+        ]
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 85,
+        "day": 86,
+        "date": "2026-07-13",
+        "title": "The Frequency of the Current",
+        "filename": "mechanical-reverie-day-086-frequency-of-the-current-2026-07-13.png"
+      },
+      "since": "2026-07-14T05:18:48Z"
     }
   },
   "challengeLog": [
@@ -2835,6 +2895,14 @@
       "incumbentFitness": 6.115,
       "result": "dethroned",
       "source": "seed gen 84"
+    },
+    {
+      "ts": "2026-07-14T05:18:48Z",
+      "cell": "oscilloscope|circuit|light",
+      "challengerFitness": 6.6215,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 85"
     }
   ],
   "frontierState": {
