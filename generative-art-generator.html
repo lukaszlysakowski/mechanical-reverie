@@ -381,8 +381,8 @@ function randomGenome() {
     rotation: rand(0, Math.PI * 2),
     globalRotation: rand(-0.15, 0.15),
 
-    // Palette (inspired by historical art palettes)
-    paletteIndex: randInt(0, palettes.length - 1),
+    // Palette (inspired by historical art palettes) — pick a named palette, never the reserved dynamic slot
+    paletteIndex: randInt(0, FIXED_PALETTE_COUNT - 1),
     bgDarkness: rand(0.02, 0.12),
 
     // Mechanical elements
@@ -502,12 +502,9 @@ function applyTweetBias(genome) {
     const unique = [...new Set(allExtractedColors)];
     const custom = unique.slice(0, 8);
     while (custom.length < 8) custom.push(custom[custom.length - 1]);
-    if (palettes.length <= 10) {
-      palettes.push(custom);
-    } else {
-      palettes[10] = custom;
-    }
-    g.paletteIndex = palettes.length - 1;
+    // Write the day's extracted palette into the reserved trailing slot (never a named palette).
+    palettes[DYNAMIC_PALETTE_SLOT] = custom;
+    g.paletteIndex = DYNAMIC_PALETTE_SLOT;
   }
 
   // Clamp everything back to valid ranges
@@ -935,7 +932,18 @@ const palettes = [
   ['#c4a07a', '#8b6040', '#6b4028', '#4a2818', '#e8e0d4', '#f4f0ea', '#d4c4a8', '#1c1410'],
   // Phosphor Oscilloscope (Laposky CRT — deep void + phosphor green + amber sweep; Jun 2026)
   ['#050a06', '#001a0a', '#00ff41', '#ffb347', '#ff6600', '#00cc33', '#ccffdd', '#003310'],
+  // Newsprint Monochrome (Day 86 — torn Popular Science page; white on black through warm halftone greys; Jul 2026)
+  // Index 1 is the ground flood: black here → white marks glow on a dark field.
+  ['#f4f2ec', '#0a0a0a', '#c9bfa8', '#3a352c', '#5a5a5a', '#e8e0d0', '#8a8578', '#1c1a16'],
+  // Signal Schematic (Day 90 — Bell Labs DDP-516 diagram; white/grey line + red signal accents on black; Jul 2026)
+  ['#f0f0ea', '#0a0a0a', '#ff2b2b', '#2a0808', '#c8c8c2', '#3a0a0a', '#ff6b6b', '#141414'],
 ];
+
+// Named fixed palettes occupy indices 0..FIXED_PALETTE_COUNT-1. The daily custom palette
+// (extracted from a day's images) is written into a single reserved trailing slot so it
+// never collides with a named palette, and random selection never lands on it.
+const FIXED_PALETTE_COUNT = palettes.length;
+const DYNAMIC_PALETTE_SLOT = FIXED_PALETTE_COUNT;
 
 const styleNames = [
   'Clockwork Reverie', 'Pixel Archaeology', 'Mechanical Flow',

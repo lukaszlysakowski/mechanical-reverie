@@ -42,6 +42,10 @@
         {
           "gen": 82,
           "why": "Denes's computer speech on the DDP-224 — Bell Labs finds its voice"
+        },
+        {
+          "gen": 89,
+          "why": "Day 90 — Coker & Umeda's DDP-516 talking computer, the Wing's deepest speech-synthesis system portrait"
         }
       ]
     },
@@ -131,6 +135,10 @@
         {
           "gen": 80,
           "why": "The Ann Arbor News holds up Lauckner's print"
+        },
+        {
+          "gen": 85,
+          "why": "Day 86 — Burnett's oscilloscope figures survive as a torn Popular Science page (Dec 1937), halftone and deckle-edged"
         }
       ]
     },
@@ -314,7 +322,7 @@
     {
       "id": "sonic-dimension",
       "title": "The Sonic Dimension",
-      "thesis": "For eighty-one days the archive looked only at the picture the oscillator drew. Then it heard the tone. A thunderstorm transduced into oscillator pitch before it became image; binary code turned into synthesized speech; an analog machine taught to listen and guess the next phoneme. The thread beneath early computer art and early computer sound is one substrate — the oscillating signal — and once the archive noticed, its own engine grew a voice (the disorder dial governs consonance; every genome now sounds the chord it already encoded). These are the days where the medium is not the image but the signal that could be seen OR heard.",
+      "thesis": "For eighty-one days the archive looked only at the picture the oscillator drew. Then it heard the tone. A thunderstorm transduced into oscillator pitch before it became image; binary code turned into synthesized speech; an analog machine taught to listen and guess the next phoneme; Michael Whitney's polyhedra pulsing to a guitar-tape score; the Bell Labs circuit that turns text into a voice — and beneath them all, C.E. Burnett in 1937, photographing the cathode-ray figure itself: the first time the signal was fixed as a picture, the origin the whole lineage descends from. The thread beneath early computer art and early computer sound is one substrate — the oscillating signal — and once the archive noticed, its own engine grew a voice (the disorder dial governs consonance; every genome now sounds the chord it already encoded). These are the days where the medium is not the image but the signal that could be seen OR heard.",
       "members": [
         {
           "gen": 81,
@@ -370,6 +378,14 @@
         {
           "gen": 79,
           "why": "Oursler — video eyes projected onto spheres"
+        },
+        {
+          "gen": 85,
+          "why": "Day 86 — the oscilloscope figure IS emitted light: a phosphor trace glowing on the cathode-ray screen"
+        },
+        {
+          "gen": 88,
+          "why": "Day 89 — Sutherland's head-mounted display drew in vector-CRT phosphor: a wireframe world made of emitted light"
         }
       ]
     },
