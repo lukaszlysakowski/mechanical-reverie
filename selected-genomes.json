@@ -5313,5 +5313,91 @@
       "the talking computer",
       "electronic apparatus"
     ]
+  },
+  {
+    "day": 91,
+    "date": "2026-07-14",
+    "title": "Come Alive",
+    "filename": "mechanical-reverie-day-091-come-alive-2026-07-14.png",
+    "fitness": 6.671,
+    "genome": {
+      "gridCols": 7,
+      "gridRows": 7,
+      "cellPadding": 0.09903274568520165,
+      "rotation": 4.433191357824826,
+      "globalRotation": -0.06595714381181433,
+      "paletteIndex": 6,
+      "bgDarkness": 0.45,
+      "gearDensity": 0.46,
+      "gearComplexity": 11,
+      "chainFrequency": 0.32408880668506185,
+      "pixelDensity": 0.6757809241061851,
+      "pixelSize": 5,
+      "flowScale": 0.008017342638126505,
+      "flowStrength": 3.2721932726317995,
+      "particleCount": 433,
+      "clockSpeed": 0.013507552412778933,
+      "oscillation": 1.5146598999097476,
+      "wMechanical": 0.62,
+      "wPixel": 0.36,
+      "wFlow": 0.8,
+      "wGeometric": 0.46,
+      "wOrganic": 0.72,
+      "wHatch": 0.33,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "grain",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "led",
+      "symmetry": 0.25,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 1819.3871652873609,
+      "renderSeed": 1580565812.4562156,
+      "disorder": 0.3,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#ff6b35",
+        "#f7c59f",
+        "#efefd0",
+        "#004e89",
+        "#1a659e",
+        "#001524",
+        "#ff9f1c",
+        "#e71d36"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.1.0",
+      "renderSeed": 1580565812.4562156,
+      "noiseSeed": 1819.3871652873609,
+      "checksum": "26d70f3a717f95978cee29129886c0da45082582fdde54fe7f8cd589f9fc123a",
+      "deterministic": true,
+      "checksumStability": "hard-canonical — 10/10 renders identical (single distinct checksum)."
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "A four-tweet thread on displaying digitally-native art at home across decades: the 1983 Tomorrow's World dream of a TV 'flat enough to hang like a picture' (still tethered to the CRT), Illya Szilak installing Jeremy Blake's colorfield 'Chemical Sundown' in 2001, plasma/DVD bringing digital art into collectors' homes, and the culmination — society's centuries-old lust to see wall art 'come alive.' A prediction-fulfilled arc about the display surface. Rendered as the honest translation of a digitally-native artwork ON a screen: a glowing field of red/amber sunset pixels and blue against deep navy — Blake's Chemical Sundown palette (palette 6, Sunset Automaton) alive in RGB light. flowCharacter 'biological' + mechanicalCharacter 'led' (the glowing screen IS the surface); disorder 0.30 radial (the colour dissolving outward, a picture coming alive). The engine renders led/grain as pixels, not liquid washes — so the piece leans into pixels-as-native-medium rather than forcing a gradient it can't make.",
+      "condensedReason": "The dream of wall-art 'coming alive,' 1983→2001→plasma: a digitally-native artwork glowing on a screen. Blake's Chemical Sundown sunset pixels (red/amber/blue) on deep navy; biological | led, disorder 0.30 radial."
+    },
+    "keyDetails": "Palette 6 Sunset Automaton · biological | led | grain · disorder 0.30 radial · certified score",
+    "description": "A four-part thread on the century-long dream of art 'coming alive' on the wall. In 1983 the BBC's Tomorrow's World imagined a television 'flat enough to hang like a picture' — cheating, because the set still had to house 'the good old cathode ray tube.' By 2001 the curator Illya Szilak was installing Jeremy Blake's Chemical Sundown, a liquid digital colorfield, in a living room as digital art reached its first large-scale US exhibition; plasma screens and DVDs soon carried such work into collectors' homes. The day renders the fulfilment of that prophecy as what a digitally-native artwork actually is on a wall: a glowing field of sunset pixels — Blake's reds, ambers and deep blues — dissolving outward across a dark screen. Not a painting behind glass but light itself, come alive.",
+    "tweetSummary": "NB thread on exhibiting digitally-native art at home: 1983 Tomorrow's World (flat-TV-as-picture, still CRT-bound); Illya Szilak installing Jeremy Blake's 'Chemical Sundown' (2001); plasma/DVD bringing digital art home; the culmination — art on the wall 'coming alive.'",
+    "keyArtists": [
+      "Jeremy Blake (Chemical Sundown, 2001)",
+      "Illya Szilak (curator/collector, 2001)"
+    ],
+    "themes": [
+      "the living picture",
+      "colorfield in motion",
+      "screen as frame",
+      "prediction fulfilled",
+      "domestic display"
+    ],
+    "concepts": [
+      "prediction-fulfilled",
+      "light-as-medium"
+    ]
   }
 ]
