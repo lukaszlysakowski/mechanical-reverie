@@ -5399,5 +5399,91 @@
       "prediction-fulfilled",
       "light-as-medium"
     ]
+  },
+  {
+    "day": 92,
+    "date": "2026-07-15",
+    "title": "The Gray Blocks",
+    "filename": "mechanical-reverie-day-092-the-gray-blocks-2026-07-15.png",
+    "fitness": 6.662,
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 13,
+      "cellPadding": 0.19592441639834293,
+      "rotation": 1.3897445663179102,
+      "globalRotation": 0.06799086864155007,
+      "paletteIndex": 10,
+      "bgDarkness": 0.33,
+      "gearDensity": 0.44,
+      "gearComplexity": 14,
+      "chainFrequency": 0.05893773547169989,
+      "pixelDensity": 0.9,
+      "pixelSize": 9,
+      "flowScale": 0.011502083657343226,
+      "flowStrength": 2.4880662019082234,
+      "particleCount": 1090,
+      "clockSpeed": 0.003423341130000937,
+      "oscillation": 2.7328493621034657,
+      "wMechanical": 0.44,
+      "wPixel": 0.74,
+      "wFlow": 0.5,
+      "wGeometric": 0.52,
+      "wOrganic": 0.32,
+      "wHatch": 0.33,
+      "hatchAngle": 0,
+      "hatchSpacing": 11,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "data",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.2,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 4.712186780094774,
+      "renderSeed": 3923850960,
+      "disorder": 0.12,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#f4f2ec",
+        "#0a0a0a",
+        "#c9bfa8",
+        "#3a352c",
+        "#5a5a5a",
+        "#e8e0d0",
+        "#8a8578",
+        "#1c1a16"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.2.0",
+      "renderSeed": 3923850960,
+      "noiseSeed": 4.712186780094774,
+      "checksum": "10a00ac4eee67fbc99c657be23676ee2f2326844c4f863133a608bd98db483db",
+      "deterministic": true,
+      "checksumStability": "hard-canonical — 12/12 renders identical. First archived score certified on engine v3.2.0 (a non-wash mosaic day — confirms v3.2.0 renders prior characters normally)."
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "NB original thread on Leon D. Harmon's Block Portraits — the 'gray blocks' that mystified passersby on a Detroit garage wall in April 1977 until they resolved into a computerized portrait of aviator Charles Lindbergh (Ed Manning's optical 'BlocPix' variant noted in-thread). Deep in the archive's Harmon/Knowlton pixel lineage (Days 62, 70, 74, 75). Rendered per the archive's emergent-forms principle (not drawn figuration): a dense full-frame mosaic of gray tonal square blocks whose density variation makes forms emerge, exactly Harmon's 'recognition from tonal averages.' pixelCharacter 'mosaic' (the square block, wPixel 0.74 dominant), flowCharacter 'data' (a face ENCODED as a tonal grid), mechanicalCharacter 'plotter'; palette 10 Newsprint Monochrome (the neutral grays); disorder 0.12 radial (a soft dissolve at center — the emergence out of mystery). NOT a colorfield/wash day — hard tonal blocks are the opposite register.",
+      "condensedReason": "Leon Harmon's block portraits — the 1977 'gray blocks' resolving into Lindbergh. A dense monochrome mosaic of tonal squares where a face emerges from the grid. mosaic | data | plotter, palette 10; the encoding IS the image."
+    },
+    "keyDetails": "Palette 10 Newsprint Monochrome · mosaic | data | plotter · wPixel 0.74 · disorder 0.12 radial · certified v3.2.0",
+    "description": "In 1980 a retrospective recalled how, 'for almost a week in mid-April 1977, passersby were mystified by the gray blocks being painted on the west wall of a garage' — until the puzzle resolved into a computerized portrait of the aviator Charles Lindbergh. The blocks were Leon D. Harmon's: a Bell Labs perception researcher whose 'Recognition of Faces' work reduced a portrait to a coarse grid of averaged gray tones, a face you can only read from a distance. Ed Manning built an optical version he called BlocPix. The day renders that idea the way the engine does it best — not by drawing a face but by letting one emerge: a dense monochrome mosaic of tonal square blocks, forms surfacing from the density of the grid, dissolving softly at the center. The encoding is the image.",
+    "tweetSummary": "NB original thread on Leon D. Harmon's Block Portraits: the April 1977 garage-wall install where gray blocks resolved into aviator Lindbergh; Ed Manning's optical 'BlocPix' variant. (Reposts same day: a Harmon-style block-portrait tool; Miguel Ángel Vidal's 1969 CAyC screenprint — noted, not rendered.)",
+    "keyArtists": [
+      "Leon D. Harmon (Bell Labs, block portraits, 1970s)",
+      "Ed Manning (optical 'BlocPix')"
+    ],
+    "themes": [
+      "block mosaic",
+      "emergent face",
+      "tonal encoding",
+      "perception research",
+      "public mystery"
+    ],
+    "concepts": [
+      "bell-labs",
+      "newsprint-archive"
+    ]
   }
 ]
