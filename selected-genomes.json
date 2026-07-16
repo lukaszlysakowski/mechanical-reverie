@@ -5485,5 +5485,93 @@
       "bell-labs",
       "newsprint-archive"
     ]
+  },
+  {
+    "day": 93,
+    "date": "2026-07-15",
+    "title": "Arte Generativo",
+    "backfill": false,
+    "userDirected": true,
+    "filename": "mechanical-reverie-day-093-arte-generativo-2026-07-15.png",
+    "fitness": 6.6925,
+    "genome": {
+      "gridCols": 6,
+      "gridRows": 6,
+      "cellPadding": 0.04931824230960037,
+      "rotation": 5.927962518459882,
+      "globalRotation": -0.11748841422560222,
+      "paletteIndex": 12,
+      "bgDarkness": 0.4,
+      "gearDensity": 0.44,
+      "gearComplexity": 14,
+      "chainFrequency": 0.7882633312053111,
+      "pixelDensity": 0.2895530597698879,
+      "pixelSize": 7,
+      "flowScale": 0.008677098915723956,
+      "flowStrength": 2.9331743954055836,
+      "particleCount": 565,
+      "clockSpeed": 0.011177280175947768,
+      "oscillation": 2.477283507191629,
+      "wMechanical": 0.55,
+      "wPixel": 0.31,
+      "wFlow": 0.7,
+      "wGeometric": 0.82,
+      "wOrganic": 0.31,
+      "wHatch": 0.92,
+      "hatchAngle": 0.785,
+      "hatchSpacing": 5,
+      "pixelCharacter": "grain",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.85,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 938.9469651662796,
+      "renderSeed": 1941370348,
+      "disorder": 0.05,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#4a7088",
+        "#e4ddcb",
+        "#6f93a8",
+        "#3a5568",
+        "#587a90",
+        "#f0ebe0",
+        "#2a3a48",
+        "#c9c0aa"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.2.0",
+      "renderSeed": 1941370348,
+      "noiseSeed": 938.9469651662796,
+      "checksum": "dbe7a05075efbef154caca3e95746dbe372dff51b2f48706bc7f335e51b68e32",
+      "deterministic": false,
+      "checksumStability": "soft-canonical — dominant 10/12 (3 distinct); dense hatching (wHatch 0.92) triggers the GPU compositing LSB noise. Dominant checksum recorded as canonical."
+    },
+    "curatorial": {
+      "score": "B+",
+      "notes": "USER-DIRECTED elevation of a repost (2026-07-15): NB reposted Miguel Angel Vidal's 'Untitled' (1969), a signed screenprint from CAyC's Arte y Cibernetica (Buenos Aires); the user asked to add Vidal to a new Latin American computer-art room, which requires an archived gen, so it is rendered here as Day 93 to anchor that room. Vidal co-founded Arte Generativo (with Eduardo Mac Entyre, Buenos Aires 1959-60). His screenprint is dense families of fine steel-blue ruled lines converging to nodes in an X/diamond op-art lattice on warm cream. Rendered as fine steel-blue ruled-line families on cream (custom two-note palette): mathematical | plotter, wHatch 0.92 dominant, hatchAngle 0.785 (45deg), symmetry 0.85, disorder 0.05 (screenprint rigor). LIMITATION: the engine does not natively produce Vidal's precise converging op-art grid (every fitness-viable setting drops a geometric/flow cluster) — this captures his medium (fine blue ruled line on cream) and op-art vibration, not the exact lattice. A dedicated op-art 'ruled-convergence' render mode (parallel to the 'wash' colorfield built for Blake) would let a future Vidal/op-art day render faithfully.",
+      "condensedReason": "Miguel Angel Vidal's Arte Generativo — fine steel-blue ruled-line families vibrating on warm cream, the op-art of Buenos Aires. Anchors the archive's new Latin American wing."
+    },
+    "keyDetails": "Custom steel-blue-on-cream · mathematical | plotter · hatchAngle 45deg · symmetry 0.85 · anchors Arte y Cibernetica room · soft-canonical",
+    "description": "Miguel Angel Vidal (1928-2009) co-founded Arte Generativo in Buenos Aires, a movement that built optical form from families of ruled lines — a Latin American generative art running parallel to, and partly ahead of, the computer art of Bell Labs and Stuttgart. This signed 1969 screenprint, from CAyC's landmark Arte y Cibernetica experiments (Jorge Glusberg) and later shown in Tate Modern's Electric Dreams, converges fine steel-blue lines into an X/diamond lattice that vibrates with moire light. The day renders that language — fine blue ruled-line families on warm cream, meeting at 45 degrees, an optical field held just short of its grid. It anchors a new wing: the generative and cybernetic art of the South.",
+    "tweetSummary": "NB reposted Miguel Angel Vidal's 'Untitled' (1969), a signed CAyC / Arte y Cibernetica screenprint (Buenos Aires) — Latin America's early computer/generative art, shown at Tate Modern's Electric Dreams, held by the V&A. Elevated to an archived day at the user's request to found a Latin American room.",
+    "keyArtists": [
+      "Miguel Angel Vidal (Arte Generativo, Buenos Aires, 1969)",
+      "CAyC / Jorge Glusberg (Arte y Cibernetica, 1969)"
+    ],
+    "themes": [
+      "ruled line families",
+      "optical lattice",
+      "geometric symmetry",
+      "generative art (Arte Generativo)",
+      "blue on cream"
+    ],
+    "concepts": [
+      "arte-y-cibernetica",
+      "order-and-disorder"
+    ]
   }
 ]

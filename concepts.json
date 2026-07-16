@@ -190,6 +190,10 @@
         {
           "gen": 87,
           "why": "Day 88 — VanDerBeek's Disappearing Man at symmetry 1.0: the far pole of pure system, the figure dissolved into raster order"
+        },
+        {
+          "gen": 92,
+          "why": "Day 93 — Vidal's ruled precision at disorder 0.05: systematic line families, order as generative rule"
         }
       ]
     },
@@ -425,6 +429,17 @@
         {
           "gen": 75,
           "why": "CLICKBAIT — the blockchain as color atlas"
+        }
+      ]
+    },
+    {
+      "id": "arte-y-cibernetica",
+      "title": "Arte y Cibernética",
+      "thesis": "Latin America built its own computer and generative art, and often got there first. In Buenos Aires, Miguel Ángel Vidal and Eduardo Mac Entyre launched Arte Generativo at the turn of the 1960s — optical form generated from families of ruled lines — and by 1969 Jorge Glusberg's CAyC (Centro de Arte y Comunicación) was staging Arte y Cibernética, a landmark of cybernetic art in the global South. This wing collects that southern lineage, a parallel to the northern canon of Bell Labs and Stuttgart. It opens with one work and waits for its neighbours — Mac Entyre, Cordeiro, Le Parc, the whole generative South.",
+      "members": [
+        {
+          "gen": 92,
+          "why": "Day 93 — Miguel Ángel Vidal's ruled-line op-art (CAyC / Arte y Cibernética, 1969); the founding work of the wing"
         }
       ]
     }
