@@ -5493,7 +5493,7 @@
     "backfill": false,
     "userDirected": true,
     "filename": "mechanical-reverie-day-093-arte-generativo-2026-07-15.png",
-    "fitness": 3.1185,
+    "fitness": 6.87,
     "genome": {
       "gridCols": 4,
       "gridRows": 4,
@@ -5552,10 +5552,10 @@
     },
     "curatorial": {
       "score": "A",
-      "notes": "RE-RENDER (2026-07-15) with the new v3.3.0 'convergence' op-art mode, built specifically to render Miguel Ángel Vidal's converging-line lattice faithfully — replacing the day's original dense-hatch abstraction. Curve-stitch fans (straight lines whose envelopes trace parabolas) tiled on a 4×4 node grid build the X/lens lattice with moiré, in steel-blue on warm cream (Vidal's palette). flowCharacter 'convergence' dominant (wFlow 0.95, other layers gated below the draw-threshold for a pure lattice), mechanicalCharacter 'plotter', disorder 0 (Vidal's screenprint rigor). This is the faithful Arte Generativo the room deserves. Fitness is low by construction (see fitnessNote) — the piece is selected on curatorial merit and certifies hard-canonical.",
+      "notes": "RE-RENDER (2026-07-15) with the new v3.3.0 'convergence' op-art mode, built specifically to render Miguel Ángel Vidal's converging-line lattice faithfully — replacing the day's original dense-hatch abstraction. Curve-stitch fans (straight lines whose envelopes trace parabolas) tiled on a 4×4 node grid build the X/lens lattice with moiré, in steel-blue on warm cream (Vidal's palette). flowCharacter 'convergence' dominant (wFlow 0.95, other layers gated below the draw-threshold for a pure lattice), mechanicalCharacter 'plotter', disorder 0 (Vidal's screenprint rigor). This is the faithful Arte Generativo the room deserves — clean, to the point, the core visual element of Vidal's work in MR's own language. Certifies hard-canonical; fitness 6.87 under the pure single-character credit (see fitnessNote).",
       "condensedReason": "Miguel Ángel Vidal's Arte Generativo, rendered faithfully at last: converging steel-blue line families on cream, a moiré lattice of lens shapes. The op-art of Buenos Aires — anchoring the archive's Latin American wing."
     },
-    "keyDetails": "v3.3.0 'convergence' op-art lattice · steel-blue on cream · gridCols 4, fan density 24 · disorder 0 (rigorous) · hard-canonical · curatorial A",
+    "keyDetails": "v3.3.0 'convergence' op-art lattice · steel-blue on cream · gridCols 4, fan density 24 · disorder 0 (rigorous) · hard-canonical · fitness 6.87",
     "description": "Miguel Ángel Vidal (1928–2009) co-founded Arte Generativo in Buenos Aires, building optical form from families of ruled lines — a Latin American generative art parallel to, and partly ahead of, the computer art of Bell Labs and Stuttgart. This signed 1969 screenprint, from CAyC's landmark Arte y Cibernética experiments (Jorge Glusberg) and later shown in Tate Modern's Electric Dreams, converges fine steel-blue lines into a lattice that vibrates with moiré light. The day renders that language with the engine's op-art 'convergence' mode — curve-stitch line fans whose envelopes trace parabolas, tiled into a grid of luminous lens shapes on warm cream. It anchors a new wing: the generative and cybernetic art of the South.",
     "tweetSummary": "NB reposted Miguel Angel Vidal's 'Untitled' (1969), a signed CAyC / Arte y Cibernetica screenprint (Buenos Aires) — Latin America's early computer/generative art, shown at Tate Modern's Electric Dreams, held by the V&A. Elevated to an archived day at the user's request to found a Latin American room.",
     "keyArtists": [
@@ -5579,6 +5579,6 @@
       "to": "v3.3.0 flowCharacter 'convergence' (op-art curve-stitch lattice, hard-canonical)",
       "reason": "the convergence mode, built to render Vidal's converging-line op-art faithfully, replaces the earlier approximation"
     },
-    "fitnessNote": "Fitness 3.12 is LOW only because the multi-layer fitness function rewards balanced active weights and structurally undervalues a deliberate single-character piece (a pure op-art lattice, like a pure 'wash' colorfield). This is a curatorial-merit selection: the artwork is a clean, faithful Vidal op-art lattice (curatorial A), and the certificate is hard-canonical. A fitness credit for pure convergence/wash compositions is flagged as an engine follow-up."
+    "fitnessNote": "Fitness 6.87 via the pure single-character credit (Jul 2026 scoring refinement): calculateFitness now scores a clean, committed wash/convergence composition on single-character terms instead of penalizing it for low multi-layer variety (this genome scored 3.12 under the old formula despite reading as a strong result). A MUDDIED wash/convergence still falls through to the normal formula and scores low — clarity is rewarded over density. Render/checksum unchanged (this was a metric change only; ENGINE_VERSION stays v3.3.0)."
   }
 ]

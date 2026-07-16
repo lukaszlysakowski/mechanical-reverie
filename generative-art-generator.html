@@ -1928,6 +1928,37 @@ function drawVignette() {
 function calculateFitness(g) {
   // Fitness based on visual complexity & balance
   let score = 0;
+
+  // ── Pure single-character credit (fitness refinement, Jul 2026 — render path UNCHANGED, ENGINE_VERSION stays) ──
+  // The opt-in modes 'wash' (Blake colorfield) and 'convergence' (op-art lattice) get their quality from
+  // ONE character executed cleanly, not from balanced multi-layer variety — so the default formula below
+  // structurally undervalues them (a clean pure piece scored ~3 despite reading as a strong result; the
+  // user's core value is "core visual element in MR's language, clean and to the point"). When such a piece
+  // is genuinely PURE — flow committed (wFlow ≥ 0.85) and every shape layer gated low (≤ 0.20) — score it on
+  // single-character terms so a well-formed one lands strong (~6.4–6.9). A MUDDIED wash/convergence (some
+  // prominent shape layer) fails the gate and falls through to the normal formula: clarity is rewarded over
+  // density, on purpose. Opt-in modes never arise from random generation, so normal days are untouched.
+  const PURE_MODES = { wash: true, convergence: true };
+  if (PURE_MODES[g.flowCharacter] && g.wFlow >= 0.85) {
+    const shapeMax = Math.max(g.wMechanical, g.wPixel, g.wGeometric, g.wOrganic, g.wHatch ?? 0);
+    if (shapeMax <= 0.20) {
+      let f = 5.0;
+      f += clamp(g.wFlow, 0, 1) * 1.0;                                // commitment to the character
+      if (g.flowCharacter === 'convergence') {
+        const gc = g.gridCols || 4, gr = g.gridRows || gc;
+        if (gc >= 3 && gc <= 8 && gr >= 3 && gr <= 8) f += 0.5;       // a legible node grid
+        const hs = g.hatchSpacing ?? 6;
+        if (hs >= 2 && hs <= 8) f += 0.3;                             // fan density → moiré
+      } else { // wash
+        const fs = g.flowStrength || 2;
+        if (fs >= 1.5 && fs <= 4.2) f += 0.5;                         // colour richness
+        if ((g.noiseOctaves || 1) >= 3) f += 0.3;                     // cloud depth
+      }
+      f += (0.20 - shapeMax) * 1.5;                                   // the purer, the stronger (≤ +0.30)
+      return clamp(f, 0, 6.9);                                        // strong, but never eclipses the earned archive high
+    }
+  }
+
   const weights = [g.wMechanical, g.wPixel, g.wFlow, g.wGeometric, g.wOrganic, g.wHatch ?? 0];
   const active = weights.filter(w => w > 0.3).length;
   score += active * 0.5; // Reward variety
