@@ -5580,5 +5580,90 @@
       "reason": "the convergence mode, built to render Vidal's converging-line op-art faithfully, replaces the earlier approximation"
     },
     "fitnessNote": "Fitness 6.87 via the pure single-character credit (Jul 2026 scoring refinement): calculateFitness now scores a clean, committed wash/convergence composition on single-character terms instead of penalizing it for low multi-layer variety (this genome scored 3.12 under the old formula despite reading as a strong result). A MUDDIED wash/convergence still falls through to the normal formula and scores low — clarity is rewarded over density. Render/checksum unchanged (this was a metric change only; ENGINE_VERSION stays v3.3.0)."
+  },
+  {
+    "day": 94,
+    "date": "2026-07-16",
+    "title": "A Summer Nebula",
+    "userDirected": true,
+    "filename": "mechanical-reverie-day-094-a-summer-nebula-2026-07-16.png",
+    "fitness": 6.56,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 9,
+      "cellPadding": 0.13432509567785633,
+      "rotation": 4.0842376453331815,
+      "globalRotation": -0.1322721315407451,
+      "paletteIndex": 12,
+      "bgDarkness": 0.9,
+      "gearDensity": 0.46,
+      "gearComplexity": 7,
+      "chainFrequency": 0.6159575376421307,
+      "pixelDensity": 0.24,
+      "pixelSize": 8,
+      "flowScale": 0.004813839398812543,
+      "flowStrength": 1.7161421836315138,
+      "particleCount": 273,
+      "clockSpeed": 0.007015541299090785,
+      "oscillation": 1.0844002894790932,
+      "wMechanical": 0.55,
+      "wPixel": 0.45,
+      "wFlow": 0.5,
+      "wGeometric": 0.31,
+      "wOrganic": 0.5,
+      "wHatch": 0.31,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "led",
+      "symmetry": 0.18,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 5704.820189112885,
+      "renderSeed": 3870996396,
+      "disorder": 0.4,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#c7d2fe",
+        "#141428",
+        "#818cf8",
+        "#6366f1",
+        "#e8ecf4",
+        "#080814",
+        "#9aa6f0",
+        "#4f46e5"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.3.0",
+      "renderSeed": 3870996396,
+      "noiseSeed": 5704.820189112885,
+      "checksum": "ac947d627fbd76263c5862a10d4797350ede2f9bcb216626b33179b956a737fe",
+      "deterministic": false,
+      "checksumStability": "soft-canonical — dominant 7/12 (6 distinct); dense multi-layer alpha compositing (glowing orbs on void) triggers the GPU LSB noise. Dominant checksum recorded as canonical."
+    },
+    "curatorial": {
+      "score": "B+",
+      "notes": "USER-DIRECTED elevation of a repost (2026-07-16): the day's only feed item was NB reposting @abstractengine's NEBULA / PixOrb anniversary — normally a contemporary commercial-installation repost is observed-not-rendered, but the user read it as Noah floating an INITIAL THEME he may develop, and asked to render it into the light/pixel-sphere direction. NEBULA = full-color omnidirectional pixel-sphere LED orbs ('PixOrb') suspended in a dark room at Shibuya Sky; the exhibition 'INNER NEBULAS' calls it 'a summer nebula played with light.' Rendered as the one core visual element: luminous blue-white orbs scattered on deep void — light as material, discrete glowing points (NOT a wash — the medium is orbs, not continuous colour, so the wash discipline correctly does not apply). pixelCharacter 'halftone' (the glowing orbs, wPixel 0.45), mechanicalCharacter 'led' (the LED light IS the medium), flowCharacter 'dispersal' (scattered across the field), custom deep-space palette (void at the ground index), bgDarkness 0.90, disorder 0.40 radial (nebula scatter). Joins Light as Medium.",
+      "condensedReason": "Abstract Engine's NEBULA at Shibuya Sky — full-color pixel-sphere LED orbs suspended in the dark, 'a summer nebula played with light.' Luminous blue-white orbs scattered on deep void; halftone | led | dispersal. Light as material."
+    },
+    "keyDetails": "Custom deep-space palette · halftone | led | dispersal · glowing orbs on void · disorder 0.40 radial · Light as Medium · soft-canonical",
+    "description": "Abstract Engine's NEBULA, installed at Shibuya Sky in July 2025 and marking a year this July 16, hangs full-color omnidirectional pixel-sphere LED orbs — their 'PixOrb' — across a dark room high above Tokyo. The exhibition calls it INNER NEBULAS: 'a summer nebula played with light,' glowing orbs suspended in darkness like a constellation, the city faint at the horizon. NB shared it as an opening theme, and the day renders its one essential element — light as material, as discrete luminous points: blue-white orbs scattered across a deep-space void, clustering and thinning like a nebula. Not a picture lit by light, but a picture made of it.",
+    "tweetSummary": "NB reposted @abstractengine's 1-year anniversary of NEBULA at Shibuya Sky — full-color omnidirectional pixel-sphere LED ('PixOrb'), the exhibition 'INNER NEBULAS: a summer nebula played with light.' Rendered (user-directed) as an initial light/pixel-sphere theme.",
+    "keyArtists": [
+      "Abstract Engine (NEBULA / PixOrb, Shibuya Sky, 2025)"
+    ],
+    "themes": [
+      "glowing orbs",
+      "nebula scatter",
+      "light as medium",
+      "nocturnal environment",
+      "omnidirectional pixel sphere"
+    ],
+    "concepts": [
+      "light-as-medium"
+    ]
   }
 ]
