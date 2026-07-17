@@ -1,8 +1,10 @@
 # Mechanical Reverie
 
-**A generative art engine shaped by art history, one day at a time.**
+**A self-learning generative art engine that reads art history and answers in its own language — one artwork a day.**
 
-→ **[View the timeline](https://lukaszlysakowski.github.io/mechanical-reverie/)**
+Each day the system reads [@Noahbolanowski](https://x.com/Noahbolanowski)'s posts on the history of computer art — the moments computation first met artistic practice — and renders a new piece in response. Nothing here is hand-drawn: the work is the *engine*. Following Harold Cohen and AARON, when the engine can't do something a source demands, the program is changed, never the individual picture — so its vocabulary grows over time (see **[Lineage](LINEAGE.md)**). Ninety-plus days in, the archive has begun to develop a signature of its own.
+
+→ **[Open the project](https://lukaszlysakowski.github.io/mechanical-reverie/)** · start with the **[Concepts screen](https://lukaszlysakowski.github.io/mechanical-reverie/concepts.html)** to read the archive as an argument.
 
 **Four ways to read the archive:**
 - **[Timeline](https://lukaszlysakowski.github.io/mechanical-reverie/timeline.html)** — chronology: every day's winner, in order, with lineage.
