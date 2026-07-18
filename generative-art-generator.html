@@ -2341,7 +2341,44 @@ async function loadArchiveDay(genNum) {
     sub.style.color = '#d4af37';
   }
 
+  // Refresh the header chrome to describe THIS archived piece — not stale tweet-sync state.
+  const chars = [genome.flowCharacter, genome.mechanicalCharacter, genome.pixelCharacter].filter(Boolean).join(' · ');
+  showPieceWeights(genome);
+  const statusEl = document.getElementById('tweetStatus');
+  if (statusEl) {
+    const dayLabel = entry.day ? `Day ${entry.day} · ` : '';
+    statusEl.textContent = `Archive · ${dayLabel}Gen ${genNum} · ${entry.date} · ${chars}`;
+    statusEl.className = 'tweet-status';
+  }
+  // These are computed live by render() from the current session (wrong for an archive view):
+  // the internal generation counter, and a fitness recomputed against whatever themes are loaded.
+  // Override both with the piece's recorded values.
+  const genEl = document.getElementById('gen'); if (genEl) genEl.textContent = genNum;
+  const fitEl = document.getElementById('fitness');
+  if (fitEl && typeof entry.fitness === 'number') fitEl.textContent = entry.fitness.toFixed(2);
+
   return true;
+}
+
+// Populate the weight-badge bar (#themeBar) from a genome's ACTUAL character weights, so an
+// archive/atlas view shows what the piece is made of rather than the last-synced day's theme scores.
+function showPieceWeights(g) {
+  const bar = document.getElementById('themeBar');
+  if (!bar) return;
+  bar.innerHTML = '';
+  const ws = [['flow', g.wFlow], ['mechanical', g.wMechanical], ['organic', g.wOrganic],
+              ['pixel', g.wPixel], ['geometric', g.wGeometric], ['hatch', g.wHatch ?? 0]]
+              .filter(([, w]) => w != null).sort((a, b) => b[1] - a[1]);
+  for (const [name, w] of ws) {
+    const s = Math.max(0, Math.min(1, w));
+    const tag = document.createElement('span');
+    tag.className = 'theme-tag';
+    tag.style.background = `rgba(212,175,55,${s * 0.3})`;
+    const intensity = Math.round(s * 255);
+    tag.style.color = `rgb(${160 + intensity * 0.37}, ${140 + intensity * 0.45}, ${80 + intensity * 0.3})`;
+    tag.textContent = `${name}: ${Math.round(s * 100)}%`;
+    bar.appendChild(tag);
+  }
 }
 
 // ── Load an Atlas elite by cell key (linked from atlas.html via ?cell=flow|mech|ground) ──
@@ -2370,6 +2407,12 @@ async function loadAtlasCell(cellKey) {
       sub.textContent = `Atlas elite — ${cellKey.replace(/\|/g, ' / ')} — fitness ${elite.fitness.toFixed(4)}${from}`;
       sub.style.color = '#d4af37';
     }
+    // Refresh chrome to describe the elite, not stale sync state.
+    showPieceWeights(genome);
+    const statusEl = document.getElementById('tweetStatus');
+    if (statusEl) { statusEl.textContent = `Atlas elite · ${cellKey.replace(/\|/g, ' / ')}`; statusEl.className = 'tweet-status'; }
+    const fitEl = document.getElementById('fitness');
+    if (fitEl && typeof elite.fitness === 'number') fitEl.textContent = elite.fitness.toFixed(2);
     return true;
   } catch (e) { return false; }
 }
