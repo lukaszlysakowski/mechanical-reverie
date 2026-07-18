@@ -72,6 +72,10 @@
     justify-content: center;
     max-width: 800px;
   }
+  /* View-only mode (an archive day or atlas elite loaded via ?gen= / ?cell=): hide the
+     generation/dev controls so a visitor sees a clean piece with only view features
+     (Animate, ◐ Sound, Save). The full playground remains at the bare generator URL. */
+  body.view-only .dev-only { display: none; }
   button {
     background: #1a1510;
     color: #d4af37;
@@ -160,16 +164,16 @@
 </div>
 
 <div class="controls">
-  <button onclick="generate()">Generate</button>
-  <button onclick="evolve()">Evolve</button>
-  <button onclick="mutate()">Mutate</button>
+  <button class="dev-only" onclick="generate()">Generate</button>
+  <button class="dev-only" onclick="evolve()">Evolve</button>
+  <button class="dev-only" onclick="mutate()">Mutate</button>
   <button onclick="toggleAnimate(this)">Animate</button>
   <button onclick="playTone(genome)" title="Hear the score — the tone this genome already encodes">◐ Sound</button>
   <button onclick="exportArt(1)">Save 1×</button>
   <button onclick="exportArt(2)">Save 2×</button>
   <button onclick="exportArt(4)">Save 4×</button>
-  <button onclick="resetLineage()">New Lineage</button>
-  <button onclick="loadTweetThemes()" id="syncBtn">Sync Tweets</button>
+  <button class="dev-only" onclick="resetLineage()">New Lineage</button>
+  <button class="dev-only" onclick="loadTweetThemes()" id="syncBtn">Sync Tweets</button>
 </div>
 
 <div class="theme-bar" id="themeBar"></div>
@@ -2357,6 +2361,7 @@ async function loadArchiveDay(genNum) {
   const fitEl = document.getElementById('fitness');
   if (fitEl && typeof entry.fitness === 'number') fitEl.textContent = entry.fitness.toFixed(2);
 
+  document.body.classList.add('view-only');   // hide generation/dev controls for a clean view
   return true;
 }
 
@@ -2413,6 +2418,7 @@ async function loadAtlasCell(cellKey) {
     if (statusEl) { statusEl.textContent = `Atlas elite · ${cellKey.replace(/\|/g, ' / ')}`; statusEl.className = 'tweet-status'; }
     const fitEl = document.getElementById('fitness');
     if (fitEl && typeof elite.fitness === 'number') fitEl.textContent = elite.fitness.toFixed(2);
+    document.body.classList.add('view-only');   // hide generation/dev controls for a clean view
     return true;
   } catch (e) { return false; }
 }
