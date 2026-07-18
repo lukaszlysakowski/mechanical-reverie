@@ -1041,7 +1041,15 @@ function render(g, t = 0) {
   // Fallback for pre-doctrine genomes without renderSeed: derive from noiseSeed
   // so even monoprint-era genomes now re-render consistently.
   renderRng = mulberry32(Math.floor((g.renderSeed ?? g.noiseSeed * 7919) * 1000));
-  const pal = palettes[g.paletteIndex % palettes.length];
+  // The score carries its own colours (canonical-seeds doctrine): prefer g.paletteColors so a piece
+  // reproduces correctly regardless of what the shared `palettes` slot holds at view time. Falls back
+  // to the indexed palette for pre-doctrine genomes that never stored paletteColors. Identical output
+  // to the old lookup for every genome (paletteColors == palettes[index] at its render time), so no
+  // checksum changes — but it fixes archive views of custom-palette days (paletteIndex 12 was resolving
+  // to palettes[12 % 12] = palette 0, the gold Pompadour ground).
+  const pal = (Array.isArray(g.paletteColors) && g.paletteColors.length >= 6)
+    ? g.paletteColors
+    : palettes[g.paletteIndex % palettes.length];
 
   // Background
   ctx.fillStyle = pal[5] || '#0a0a0f';
@@ -2276,14 +2284,13 @@ async function loadArchiveDay(genNum) {
   if (!entry || !entry.genome) return false;
 
   const idx = entry.genome.paletteIndex;
-  if (idx === 9 || idx === 10) {
-    // Prefer the exact colors resolved at save time — re-deriving from `tweet-visual-themes-${date}.json`
-    // is ambiguous whenever two archive entries share a calendar date (the dated filename doesn't
-    // distinguish them, e.g. Day 79 and Day 80 both dated 2026-07-02). paletteColors sidesteps that
-    // entirely by recording exactly what was used, independent of date collisions.
-    if (Array.isArray(entry.genome.paletteColors) && entry.genome.paletteColors.length >= 6) {
-      setPalette(idx, entry.genome.paletteColors);
-    } else if (entry.date) {
+  // Prefer the exact colors resolved at save time (recorded in paletteColors) for ANY custom-palette
+  // day — re-deriving from `tweet-visual-themes-${date}.json` is ambiguous whenever two archive entries
+  // share a calendar date. This also restores the reserved dynamic slot (idx 12) that older code missed.
+  if (Array.isArray(entry.genome.paletteColors) && entry.genome.paletteColors.length >= 6) {
+    setPalette(idx, entry.genome.paletteColors);
+  } else if (idx === 9 || idx === 10) {
+    if (entry.date) {
     try {
       const vt = await fetch(`./tweet-visual-themes-${entry.date}.json?` + Date.now()).then(r => r.ok ? r.json() : null);
       if (vt && vt.aggregatedColors && vt.aggregatedColors.length >= 3) {
