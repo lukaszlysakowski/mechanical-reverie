@@ -23,7 +23,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-17T04:16:23Z",
+  "updated": "2026-07-18T04:21:13Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.6991,
@@ -290,50 +290,64 @@
       "since": "2026-07-06T15:02:49Z"
     },
     "biological|plotter|light": {
-      "fitness": 6.6675,
+      "fitness": 6.71,
       "genome": {
-        "gridCols": 10,
-        "gridRows": 7,
-        "cellPadding": 0.04,
-        "rotation": 0.1,
-        "globalRotation": 0,
-        "paletteIndex": 4,
-        "bgDarkness": 0.03,
-        "gearDensity": 0.35,
-        "gearComplexity": 10,
-        "chainFrequency": 0.15,
-        "pixelDensity": 0.6,
-        "pixelSize": 3,
-        "flowScale": 0.006,
-        "flowStrength": 1.6,
-        "particleCount": 460,
-        "clockSpeed": 0.008,
-        "oscillation": 1.2,
-        "wMechanical": 0.4,
-        "wPixel": 0.5,
-        "wGeometric": 0.75,
-        "wFlow": 0.8,
-        "wOrganic": 0.85,
-        "wHatch": 0.9,
-        "hatchAngle": 0.523,
+        "gridCols": 9,
+        "gridRows": 9,
+        "cellPadding": 0.05608245290669846,
+        "rotation": 1.8637707093138673,
+        "globalRotation": 0.023638922466741655,
+        "paletteIndex": 12,
+        "bgDarkness": 0.1,
+        "gearDensity": 0.42,
+        "gearComplexity": 22,
+        "chainFrequency": 0.6814777355806835,
+        "pixelDensity": 0.6876697822334058,
+        "pixelSize": 2,
+        "flowScale": 0.013235398767678782,
+        "flowStrength": 1.5,
+        "particleCount": 2800,
+        "clockSpeed": 0.015077572324987493,
+        "oscillation": 1.5767825168920198,
+        "wMechanical": 0.14,
+        "wPixel": 0.14,
+        "wFlow": 0.92,
+        "wGeometric": 0.14,
+        "wOrganic": 0.14,
+        "wHatch": 0.14,
+        "hatchAngle": 0,
         "hatchSpacing": 12,
-        "pixelCharacter": "halftone",
+        "pixelCharacter": "grain",
         "flowCharacter": "biological",
         "mechanicalCharacter": "plotter",
-        "symmetry": 1.0,
+        "symmetry": 0.12,
         "layerCount": 6,
         "noiseOctaves": 3,
-        "noiseSeed": 6847.19
+        "noiseSeed": 9048.327148959312,
+        "renderSeed": 1362152246,
+        "disorder": 0,
+        "disorderMode": "radial",
+        "disorderAngle": 0,
+        "paletteColors": [
+          "#2a4a9a",
+          "#e8e2d4",
+          "#3a5ab0",
+          "#1a2a5a",
+          "#5a7ac0",
+          "#f2efe6",
+          "#4a6ab0",
+          "#c8c0aa"
+        ]
       },
       "provenance": {
         "type": "archive-winner",
-        "gen": 50,
-        "day": 51,
-        "date": "2026-05-23",
-        "title": "Hand Me a Brush",
-        "filename": "mechanical-reverie-2026-05-23-hand-me-a-brush.png"
+        "gen": 94,
+        "day": 95,
+        "date": "2026-07-17",
+        "title": "Swarm",
+        "filename": "mechanical-reverie-day-095-swarm-2026-07-17.png"
       },
-      "since": "2026-07-06T15:02:49Z"
+      "since": "2026-07-18T04:21:13Z"
     },
     "mathematical|plotter|light": {
       "fitness": 6.7235,
@@ -3051,6 +3065,14 @@
       "incumbentFitness": 5.1263,
       "result": "dethroned",
       "source": "seed gen 93"
+    },
+    {
+      "ts": "2026-07-18T04:21:13Z",
+      "cell": "biological|plotter|light",
+      "challengerFitness": 6.71,
+      "incumbentFitness": 6.6675,
+      "result": "dethroned",
+      "source": "seed gen 94"
     }
   ],
   "frontierState": {

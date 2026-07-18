@@ -1938,8 +1938,10 @@ function calculateFitness(g) {
   // single-character terms so a well-formed one lands strong (~6.4–6.9). A MUDDIED wash/convergence (some
   // prominent shape layer) fails the gate and falls through to the normal formula: clarity is rewarded over
   // density, on purpose. Opt-in modes never arise from random generation, so normal days are untouched.
-  const PURE_MODES = { wash: true, convergence: true };
-  if (PURE_MODES[g.flowCharacter] && g.wFlow >= 0.85) {
+  // Generalized Jul 2026: applies to ANY genuinely pure single-character composition (flow committed,
+  // every shape layer gated low) — not only the opt-in wash/convergence modes. A clean biological swarm
+  // or dispersal field earns the same fair reading as a clean colorfield or op-art lattice.
+  if (g.wFlow >= 0.85) {
     const shapeMax = Math.max(g.wMechanical, g.wPixel, g.wGeometric, g.wOrganic, g.wHatch ?? 0);
     if (shapeMax <= 0.20) {
       let f = 5.0;
@@ -1949,10 +1951,14 @@ function calculateFitness(g) {
         if (gc >= 3 && gc <= 8 && gr >= 3 && gr <= 8) f += 0.5;       // a legible node grid
         const hs = g.hatchSpacing ?? 6;
         if (hs >= 2 && hs <= 8) f += 0.3;                             // fan density → moiré
-      } else { // wash
+      } else if (g.flowCharacter === 'wash') {
         const fs = g.flowStrength || 2;
         if (fs >= 1.5 && fs <= 4.2) f += 0.5;                         // colour richness
         if ((g.noiseOctaves || 1) >= 3) f += 0.3;                     // cloud depth
+      } else {                                                       // any other single-character flow (biological swarm, dispersal, transit…)
+        const fs = g.flowStrength || 2;
+        if (fs >= 0.8 && fs <= 4.5) f += 0.4;                         // coherent flow energy
+        f += 0.3;                                                    // committed single-character composition
       }
       f += (0.20 - shapeMax) * 1.5;                                   // the purer, the stronger (≤ +0.30)
       return clamp(f, 0, 6.9);                                        // strong, but never eclipses the earned archive high

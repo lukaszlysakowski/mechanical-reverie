@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-16",
+  "updated": "2026-07-17",
   "concepts": [
     {
       "id": "bell-labs",
@@ -244,6 +244,10 @@
         {
           "gen": 78,
           "why": "Sinescape — the prophecy in his own words"
+        },
+        {
+          "gen": 94,
+          "why": "Day 95 - Csuri's 'Flies' (1967) / 'Feeding Time' (1966): the computer swarm, set against Ruscha's hand-printed ants"
         }
       ]
     },

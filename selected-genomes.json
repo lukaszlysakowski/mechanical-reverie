@@ -5665,5 +5665,91 @@
     "concepts": [
       "light-as-medium"
     ]
+  },
+  {
+    "day": 95,
+    "date": "2026-07-17",
+    "title": "Swarm",
+    "filename": "mechanical-reverie-day-095-swarm-2026-07-17.png",
+    "fitness": 6.71,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 9,
+      "cellPadding": 0.05608245290669846,
+      "rotation": 1.8637707093138673,
+      "globalRotation": 0.023638922466741655,
+      "paletteIndex": 12,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.42,
+      "gearComplexity": 22,
+      "chainFrequency": 0.6814777355806835,
+      "pixelDensity": 0.6876697822334058,
+      "pixelSize": 2,
+      "flowScale": 0.013235398767678782,
+      "flowStrength": 1.5,
+      "particleCount": 2800,
+      "clockSpeed": 0.015077572324987493,
+      "oscillation": 1.5767825168920198,
+      "wMechanical": 0.14,
+      "wPixel": 0.14,
+      "wFlow": 0.92,
+      "wGeometric": 0.14,
+      "wOrganic": 0.14,
+      "wHatch": 0.14,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "grain",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.12,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 9048.327148959312,
+      "renderSeed": 1362152246,
+      "disorder": 0,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#2a4a9a",
+        "#e8e2d4",
+        "#3a5ab0",
+        "#1a2a5a",
+        "#5a7ac0",
+        "#f2efe6",
+        "#4a6ab0",
+        "#c8c0aa"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.3.0",
+      "renderSeed": 1362152246,
+      "noiseSeed": 9048.327148959312,
+      "checksum": "ab59130005e453c7665a0798f15a60ab8d69af252ff51b4199f5bcec7969c3d8",
+      "deterministic": false,
+      "checksumStability": "soft-canonical - dominant 11/12 (2 distinct); dense line-mark compositing gives one LSB-noise variant. Dominant checksum recorded as canonical."
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "NB comparative post 'Ants v Flies, Trad v Computer, Ruscha v Csuri: Across Three Collections' - Ed Ruscha's 'Swarm of Red Ants' (1972, MoMA) beside Charles Csuri's computer plotter works 'Feeding Time' (1966, Spalter) and 'Flies' (1967, Ragnar). The same visual across all three: a dense central insect swarm dispersing outward. Rendered as the ONE core element (per the clean-clarity value) - a swarm of small blue plotter-marks flowing across warm white, densest at the centre and thinning to the edges, like a murmuration of Csuri's flies. A PURE single-character piece: flowCharacter 'biological' dominant (wFlow 0.92), every shape layer gated below the draw-threshold, so no bands or shards muddy it. Custom cobalt-on-cream palette. Honours Csuri, the archive's deep-study figure; joins the Csuri Room.",
+      "condensedReason": "NB's ants-v-flies, trad-v-computer comparison (Ruscha / Csuri). The one shared visual - a swarm dense at the centre, dispersing out - rendered as Csuri's Flies: blue plotter marks flowing across warm white. Clean, single-character."
+    },
+    "keyDetails": "Custom cobalt-on-cream / biological | plotter / pure single-character swarm / fitness 6.71 (pure-composition credit) / Csuri Room",
+    "fitnessNote": "Fitness 6.71 via the pure single-character credit, now GENERALIZED (Jul 2026) to any committed single-character composition (wFlow >=0.85 + every shape layer <=0.20) - not just the opt-in wash/convergence modes. A clean biological swarm now reads as strong as a clean colorfield or op-art lattice (it scored 3.67 under the old, too-narrow credit). A MUDDIED biological still falls through to the normal formula and scores low - clarity over density.",
+    "description": "On July 17 Noah set three collections side by side - Ed Ruscha's 'Swarm of Red Ants' (from Insects, 1972, MoMA), and Charles Csuri's computer plotter works 'Feeding Time' (1966) and 'Flies' (1967) - under one heading: ants versus flies, traditional versus computer, the same swarm made by hand and by machine. Each is a mass of small marks, densest at a centre and thinning to the edges. The day renders that single shared image the way the engine does it best - a murmuration of small blue plotter-strokes flowing across warm white paper, gathering and dispersing. It is Csuri's Flies read in the engine's own hand: not a picture of insects, but the swarm itself as a field of marks.",
+    "tweetSummary": "NB: 'Ants v Flies, Trad v Computer, Ruscha v Csuri: Across Three Collections' - Ruscha's Swarm of Red Ants (1972, MoMA) vs Csuri's computer 'Feeding Time' (1966) and 'Flies' (1967). The same swarm, hand and machine. (Also observed, repost: Ragnar Digital's acquisition of GUERNICA by entropy8zuper.)",
+    "keyArtists": [
+      "Charles Csuri ('Flies' 1967, 'Feeding Time' 1966)",
+      "Edward Ruscha ('Swarm of Red Ants', 1972, MoMA)"
+    ],
+    "themes": [
+      "insect swarm",
+      "dispersal density gradient",
+      "plotter line-glyphs",
+      "trad v computer",
+      "blue on paper"
+    ],
+    "concepts": [
+      "csuri"
+    ]
   }
 ]
