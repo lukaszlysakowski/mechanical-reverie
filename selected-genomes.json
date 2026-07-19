@@ -5751,5 +5751,92 @@
     "concepts": [
       "csuri"
     ]
+  },
+  {
+    "day": 96,
+    "date": "2026-07-18",
+    "title": "Butterfly Swarm",
+    "filename": "mechanical-reverie-day-096-butterfly-swarm-2026-07-18.png",
+    "fitness": 6.805,
+    "genome": {
+      "gridCols": 7,
+      "gridRows": 7,
+      "cellPadding": 0.14380324948446727,
+      "rotation": 4.128468522718234,
+      "globalRotation": -0.029945283090245488,
+      "paletteIndex": 10,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.44,
+      "gearComplexity": 11,
+      "chainFrequency": 0.5454553921373633,
+      "pixelDensity": 0.2404224101803357,
+      "pixelSize": 5,
+      "flowScale": 0.007510391770178564,
+      "flowStrength": 2.1923912028108634,
+      "particleCount": 945,
+      "clockSpeed": 0.011142245150378137,
+      "oscillation": 1.213294775020533,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.13,
+      "wGeometric": 0.9,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 0,
+      "hatchSpacing": 12,
+      "pixelCharacter": "shard",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0.1,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 3077.1781322063825,
+      "renderSeed": 1095530003.0257063,
+      "disorder": 0.65,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "baseShape": "triangle",
+      "paletteColors": [
+        "#f4f2ec",
+        "#0a0a0a",
+        "#c9bfa8",
+        "#3a352c",
+        "#5a5a5a",
+        "#e8e0d0",
+        "#8a8578",
+        "#1c1a16"
+      ]
+    },
+    "certificate": {
+      "engineVersion": "v3.3.0",
+      "renderSeed": 1095530003.0257063,
+      "noiseSeed": 3077.1781322063825,
+      "checksum": "775a965f08606de088e15b1ff97471cf02a002c65f846844b9aa5b403080cad9",
+      "deterministic": true,
+      "checksumStability": "hard-canonical - 12/12 renders identical. Sparse geometric composition avoids the dense-compositing LSB noise."
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "NB comparative post 'Frogs v Butterflies v Birds - Two Computer v One Trad Artwork' (2nd in the series after Day 95's Ants v Flies). Anchored on Georg NEES's 'Schmetterlingsschwarm' (Butterfly Swarm, 1970) rather than Kolomyjec's frog-swarm (which repeats Day 95's dense-centre creature-scatter) - because Nees is a founding father of computer art AND this engine's DISORDER DIAL is named after his 'Schotter'. Rendered his own aesthetic with his own tool: a sparse field of angular geometric forms (triangles / squares / diamonds) tumbling across warm white by the disorder dial - a PURE single-character piece (wGeometric 0.90 dominant, every other layer gated ≤0.13, so no plotter bands or flow swirls clutter it), disorder 0.65 uniform (Schotter scatter). palette 10 Newsprint Monochrome (black plotter line on white). Deliberately DISTINCT from yesterday's organic Swarm: geometric not organic, sparse not dense, restrained. Joins Order & Disorder (the room the disorder dial defines).",
+      "condensedReason": "Georg Nees's Butterfly Swarm - the Schotter master rendered with the disorder dial named after him. Sparse angular geometric forms tumbling across white, clean and restrained. Order collapsing into scatter."
+    },
+    "keyDetails": "Palette 10 Newsprint Monochrome / geometric-dominant Schotter scatter / disorder 0.65 / baseShape triangle / pure single-character / hard-canonical / Order & Disorder",
+    "fitnessNote": "Fitness 6.805 via the pure single-character credit, now character-AGNOSTIC (Jul 2026): the credit applies when any ONE weight is dominant (≥0.85) and all others are gated low (≤0.20) - flow, GEOMETRIC, pixel, etc. A clean Nees geometric Schotter reads as strong as a clean swarm or colorfield (it scored 3.95 under the flow-only credit). A muddied version (a 2nd prominent layer) still falls through to the normal formula and scores low - clarity over density.",
+    "description": "On July 18 Noah continued his comparison series - Frogs, Butterflies, Birds; two computer works against one traditional. The butterflies are Georg Nees's 'Schmetterlingsschwarm' (Butterfly Swarm, 1970): sparse angular geometric forms scattered across white by controlled randomness. Nees is a founding father of computer art, and his 1968 'Schotter' - an ordered grid of squares tumbling gradually into chaos - is the namesake of the disorder dial built into this very engine. So the day renders Nees's own aesthetic with Nees's own tool: a restrained field of triangles and diamonds, hard-edged and black on warm white, displaced and rotated by the dial until order becomes scatter. Where yesterday's swarm was organic and dense, this one is geometric and spare - system collapsing, one degree at a time, into a swarm.",
+    "tweetSummary": "NB: 'Frogs v Butterflies v Birds - Two Computer v One Trad Artwork' - Kolomyjec's Frog Pond (1976), Georg Nees's Schmetterlingsschwarm / Butterfly Swarm (1970), Antonio Frasconi's Migration III (1959). Rendered the Nees butterfly swarm - the Schotter master, via the disorder dial named after him.",
+    "keyArtists": [
+      "Georg Nees (Schmetterlingsschwarm / Butterfly Swarm, 1970; the Schotter that names the disorder dial)",
+      "William J. Kolomyjec (Frog Pond, 1976 - noted, not rendered)"
+    ],
+    "themes": [
+      "geometric wing-forms",
+      "controlled disorder (Schotter)",
+      "sparse scatter",
+      "plotter geometry",
+      "the founding computer swarm"
+    ],
+    "concepts": [
+      "order-and-disorder"
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-17",
+  "updated": "2026-07-18",
   "concepts": [
     {
       "id": "bell-labs",
@@ -194,6 +194,10 @@
         {
           "gen": 92,
           "why": "Day 93 — Vidal's ruled precision at disorder 0.05: systematic line families, order as generative rule"
+        },
+        {
+          "gen": 95,
+          "why": "Day 96 - Georg Nees's Butterfly Swarm rendered with the disorder dial named after his Schotter: order collapsing into geometric scatter (disorder 0.65)"
         }
       ]
     },
