@@ -748,7 +748,7 @@ function renderStrip() {
     const genNum = i + 1;
     const titleText = titleFromFilename(genome.filename, genome);
     card.innerHTML = `
-      <div class="card-image-wrap" onclick="openLightbox('${ART_PATH}${genome.filename}')">
+      <div class="card-image-wrap" onclick="window.open('generative-art-generator.html?gen=${genNum}', '_blank')" title="Open ${titleText.replace(/"/g, '&quot;')} — view this piece">
         <img src="${ART_PATH}${genome.filename}" alt="${titleText}" loading="lazy">
         <div class="card-download-wrap">
           <button class="card-download-btn" onclick="event.stopPropagation(); toggleDownloadMenu(this)" title="Download">⬇</button>
