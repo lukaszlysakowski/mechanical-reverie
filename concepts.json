@@ -454,6 +454,33 @@
           "why": "Day 93 — Miguel Ángel Vidal's ruled-line op-art (CAyC / Arte y Cibernética, 1969); the founding work of the wing"
         }
       ]
+    },
+    {
+      "id": "the-swarm",
+      "title": "The Swarm",
+      "thesis": "Where the image is not one thing but many. From Charles Csuri's flies to Georg Nees's tumbling geometric wings to a nebula of pixel-sphere light, the multitude is one of computer art's native forms: the single gesture repeated into a field, where density becomes composition and meaning lives in the distribution — dense at a centre, thinning to the edges, order loosening into scatter. The archive rendered three in a single week as @Noahbolanowski ran his own trad-vs-computer comparison of swarms; the roots run deeper, back to the dot-fields of information aesthetics.",
+      "members": [
+        {
+          "gen": 83,
+          "why": "Day 84 — CTG's field of white dots poised between negentropy and entropy: the multitude as the exact balance of order and chance"
+        },
+        {
+          "gen": 86,
+          "why": "Day 87 — Youngblood's 'squadrons of polyhedral modules… growing and multiplying' (Michael Whitney): the multitude as pulsating increase out of a void"
+        },
+        {
+          "gen": 93,
+          "why": "Day 94 — a swarm of light: pixel-sphere LED orbs (Abstract Engine's NEBULA) scattered across a dark room like a constellation"
+        },
+        {
+          "gen": 94,
+          "why": "Day 95 — Csuri's Flies as a murmuration of marks: the creature swarm, dense at the centre, dispersing to the edges"
+        },
+        {
+          "gen": 95,
+          "why": "Day 96 — Nees's Schmetterlingsschwarm: geometric wing-forms tumbling into scatter by the disorder dial named after his Schotter"
+        }
+      ]
     }
   ]
 }

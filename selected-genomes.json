@@ -4810,7 +4810,10 @@
     ],
     "keyDetails": "Computer Technique Group (CTG), 1969 — 'system means negentropy, randomness means entropy... the balance.' NB original, 26 likes.",
     "description": "The archive's founding theory, posted to the archive. NB quotes the Computer Technique Group (CTG, Tokyo, 1969), from Computer Movie No. 2: 'In the area of information aesthetics, system means negentropy, & randomness means entropy. We can find the secrets of wonderful works in the balance of system & randomness that computer art provides.' This is Max Bense's information aesthetics stated as a working method — and it is, word for word, the principle behind the disorder dial this engine gained on Day 82: order is negentropy (disorder 0), chaos is entropy (disorder 1), and the art lives in the balance between. The CTG frame is a dense field of white dots on black, an ordered lattice modulated toward and away from randomness with a central vertical spine of maximum order. The render is set at disorder 0.5 — the exact midpoint of the dial — so the piece becomes a demonstration of its own source quote: ordered dot-rows dissolving into scattered mosaic, system and entropy negotiating across one surface. Palette 6 dark-ground dot matrix, flowCharacter 'mathematical' (Bense's mathematical aesthetics), mechanicalCharacter 'led' (the CRT/film dot display), wPixel dominant. The disorder dial's most self-aware use yet: the theory that justifies the instrument, rendered by the instrument at its balance point.",
-    "condensedReason": "The archive's founding theory, posted to the archive. NB quotes the Computer Technique Group (CTG, Tokyo, 1969), from Computer Movie No. 2: 'In the area of information aesthetics, system means negentropy, & randomness means entropy. We can find the secrets of wonderful works in the balance of system & randomness that computer art provides.' This is Max Bense's information aesthetics stated as a working method — and it is, word for word, the principle behind the disorder dial this engine gained on Day 82: order is negentropy (disorder 0), chaos is entropy (disorder 1), and the art lives in the balance between. The CTG frame is a dense field of white dots on black, an ordered lattice modulated toward and away from randomness with a central vertical spine of maximum order. The render is set at disorder 0.5 — the exact midpoint of the dial — so the piece becomes a demonstration of its own source quote: ordered dot-rows dissolving into scattered mosaic, system and entropy negotiating across one surface. Palette 6 dark-ground dot matrix, flowCharacter 'mathematical' (Bense's mathematical aesthetics), mechanicalCharacter 'led' (the CRT/film dot display), wPixel dominant. The disorder dial's most self-aware use yet: the theory that justifies the instrument, rendered by the instrument at its balance point."
+    "condensedReason": "The archive's founding theory, posted to the archive. NB quotes the Computer Technique Group (CTG, Tokyo, 1969), from Computer Movie No. 2: 'In the area of information aesthetics, system means negentropy, & randomness means entropy. We can find the secrets of wonderful works in the balance of system & randomness that computer art provides.' This is Max Bense's information aesthetics stated as a working method — and it is, word for word, the principle behind the disorder dial this engine gained on Day 82: order is negentropy (disorder 0), chaos is entropy (disorder 1), and the art lives in the balance between. The CTG frame is a dense field of white dots on black, an ordered lattice modulated toward and away from randomness with a central vertical spine of maximum order. The render is set at disorder 0.5 — the exact midpoint of the dial — so the piece becomes a demonstration of its own source quote: ordered dot-rows dissolving into scattered mosaic, system and entropy negotiating across one surface. Palette 6 dark-ground dot matrix, flowCharacter 'mathematical' (Bense's mathematical aesthetics), mechanicalCharacter 'led' (the CRT/film dot display), wPixel dominant. The disorder dial's most self-aware use yet: the theory that justifies the instrument, rendered by the instrument at its balance point.",
+    "concepts": [
+      "the-swarm"
+    ]
   },
   {
     "day": 85,
@@ -5042,7 +5045,8 @@
     },
     "keyDetails": "Backfill Jul 10 · palette source magenta/void · vortex | circuit | nested · symmetry 0.92 · certified score",
     "concepts": [
-      "sonic-dimension"
+      "sonic-dimension",
+      "the-swarm"
     ],
     "description": "Michael Whitney — son of John Whitney, the father of motion graphics — programmed Binary Bit Patterns on a PDP-9 in 1969. Gene Youngblood, in Expanded Cinema (1970), described 'squadrons of polyhedral modules pulsating out of a black void, growing and multiplying until the screen is a tapestry of intricate, ever-changing image-color fields,' scored by 'an extraordinary guitar-tape composition by Whitney and Charles Villiers.' The day renders that metamorphosis as nested polyhedral modules multiplying inward through a kaleidoscopic magenta-and-violet field — a quiltlike tapestry pulsing by its own universal logic. Because the work bound image to sound, it joins the Sonic Dimension.",
     "tweetSummary": "Gene Youngblood's Expanded Cinema on Michael Whitney's Binary Bit Patterns (1969, PDP-9): polyhedral modules pulsating from a black void, with a guitar-tape score by Whitney and Charles Villiers.",
@@ -5663,7 +5667,8 @@
       "omnidirectional pixel sphere"
     ],
     "concepts": [
-      "light-as-medium"
+      "light-as-medium",
+      "the-swarm"
     ]
   },
   {
@@ -5749,7 +5754,8 @@
       "blue on paper"
     ],
     "concepts": [
-      "csuri"
+      "csuri",
+      "the-swarm"
     ]
   },
   {
@@ -5836,7 +5842,8 @@
       "the founding computer swarm"
     ],
     "concepts": [
-      "order-and-disorder"
+      "order-and-disorder",
+      "the-swarm"
     ]
   }
 ]
