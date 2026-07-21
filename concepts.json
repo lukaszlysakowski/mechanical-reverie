@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-18",
+  "updated": "2026-07-20",
   "concepts": [
     {
       "id": "bell-labs",
@@ -418,6 +418,10 @@
         {
           "gen": 93,
           "why": "Day 94 — Abstract Engine's NEBULA: full-color pixel-sphere LED orbs suspended in the dark, a work made OF emitted light"
+        },
+        {
+          "gen": 96,
+          "why": "A false-colour brightness map is light-as-medium in its purest form: the image is literally made of brightness values mapped to hue. Strom & Strom's galaxy, digitized on the Kitt Peak IPPS, sits beside the phosphor and projector works — light not as display but as material."
         }
       ]
     },

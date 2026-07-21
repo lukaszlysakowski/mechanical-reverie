@@ -5845,5 +5845,89 @@
       "order-and-disorder",
       "the-swarm"
     ]
+  },
+  {
+    "day": 97,
+    "date": "2026-07-20",
+    "title": "Typical Spiral Galaxy",
+    "filename": "mechanical-reverie-day-097-typical-spiral-galaxy-2026-07-20.png",
+    "fitness": 6.525,
+    "engineVersion": "v3.4.0",
+    "canonical": {
+      "mode": "hard",
+      "deterministic": true,
+      "checksum": "3826fa7d05b7e89dda01fb267659429db7eb7468c1bca8159d02b582ca0665f6",
+      "renderSeed": 1246017028,
+      "noiseSeed": 1234
+    },
+    "genome": {
+      "gridCols": 18,
+      "gridRows": 5,
+      "cellPadding": 0.15797863232549844,
+      "rotation": 0.26284471923164265,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.9,
+      "gearDensity": 0.33132704202763896,
+      "gearComplexity": 9,
+      "chainFrequency": 0.4876008835803831,
+      "pixelDensity": 0.9,
+      "pixelSize": 7,
+      "flowScale": 0.01,
+      "flowStrength": 2.529286427639903,
+      "particleCount": 931,
+      "clockSpeed": 0.009309782695275045,
+      "oscillation": 1.1959509019506256,
+      "wMechanical": 0.13,
+      "wPixel": 0.92,
+      "wFlow": 0.13,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 3.071489061594349,
+      "hatchSpacing": 14.327569874073484,
+      "pixelCharacter": "brightmap",
+      "flowCharacter": "drift",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 1234,
+      "renderSeed": 1246017028,
+      "disorder": 0.2,
+      "disorderMode": "radial",
+      "disorderAngle": 0.6736407870210499,
+      "paletteColors": [
+        "#f0f4ff",
+        "#a8d0f0",
+        "#e8c020",
+        "#d05010",
+        "#c0300f",
+        "#0e0a24",
+        "#7ab0e0",
+        "#141033"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First 'brightmap' render (engine v3.4.0). NB's exact phrase — a 'pixel representation of brightness' — became an engine capability: a coarse pixel grid coloured by brightness-as-radius through a false-colour ramp. A bright pale-blue/white nucleus fades through yellow and orange to a dark-red halo on deep space. Faithful to all three things the source names — false colour, pixels, radial galaxy — and clean/non-busy rather than a uniform mosaic.",
+      "condensedReason": "A digitized false-colour brightness map: bright pale-blue/white nucleus fading through yellow and orange to a dark-red halo on deep space. Strom & Strom's 1979 IPPS galaxy plate, in the engine's own language."
+    },
+    "tweetSummary": "Stephen & Karen Strom, 'Typical Spiral Galaxy' (NGC 5364), 1979 — photographed, digitized, and false-coloured on the Interactive Picture Processing System at Kitt Peak: brightest regions render white/pale-blue, faintest as dark red (Scientific American, Apr 1979).",
+    "keyArtists": [
+      {
+        "name": "Stephen & Karen Strom",
+        "role": "astronomers, IPPS false-colour imaging",
+        "relevance": "Turned a digitized telescope image into a pixel brightness map — an early meeting of scientific computation and image-as-artwork."
+      }
+    ],
+    "themes": [
+      "false colour",
+      "brightness mapping",
+      "digitization",
+      "astronomy",
+      "scientific imaging",
+      "light as medium"
+    ]
   }
 ]

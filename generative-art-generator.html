@@ -218,7 +218,7 @@ let W = canvas.width, H = canvas.height;
 // v3.3.0 — additive, opt-in: flowCharacter 'convergence' — a deterministic op-art ruled lattice
 // (Vidal / Mac Entyre / Le Parc): curve-stitch line fans whose envelopes trace parabolas, tiled on
 // a node grid, with moiré. Also not in FLOW_CHARS. No existing genome renders differently.
-const ENGINE_VERSION = 'v3.3.0';
+const ENGINE_VERSION = 'v3.4.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1624,6 +1624,51 @@ function drawPixelLayer(g, pal, t) {
         ctx.fillStyle   = pal[(i * 3 + r) % pal.length];
         ctx.globalAlpha = clamp(0.45 + (rings - r) * 0.08, 0.4, 0.92);
         ctx.fillRect(cx - size + mSide, cy - size + mTop, (size - mSide) * 2, (size - mTop * 0.4) * 2);
+      }
+    }
+
+  } else if (char === 'brightmap') {
+    // BRIGHTMAP — a coarse pixel grid colored by brightness-as-radius through a
+    // false-color ramp: a digitized brightness map. Opt-in (not in PIXEL_CHARS).
+    // Evokes: Strom & Strom "Typical Spiral Galaxy" (NGC 5364, 1979, IPPS/Kitt Peak),
+    //         Landsat false-color, medical/scientific brightness→hue imaging.
+    // pal[0..4] = brightness ramp (bright→faint); pal[5] = space ground.
+    const cols = clamp(Math.round(g.gridCols || 16), 8, 40);
+    const size = W / cols;
+    const rows = Math.ceil(H / size);
+    const cxp = W * 0.5, cyp = H * 0.5;
+    const maxR = Math.hypot(W * 0.5, H * 0.5);
+    // inclined disk: elongate one axis and rotate slightly
+    const incA = 0.42, ca = Math.cos(incA), sa = Math.sin(incA), squash = 0.68;
+    const ramp = pal.slice(0, 5);
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        const px = c * size + size * 0.5, py = r * size + size * 0.5;
+        let dx = px - cxp, dy = py - cyp;
+        // rotate into disk frame, then squash the minor axis (inclination)
+        const rx = dx * ca + dy * sa;
+        const ry = (-dx * sa + dy * ca) / squash;
+        let d = Math.hypot(rx, ry) / (maxR * 0.82);     // 0 at core → ~1 at edge
+        // irregular contours: warp the brightness field outward (arms/clumps), but keep
+        // the nucleus smooth — perturbation scales with radius so the bright core survives
+        d += noise.noise2D(c * 0.34, r * 0.34) * 0.20 * clamp(d * 1.6, 0, 1);
+        let b = clamp(1 - d, 0, 1);
+        b = Math.pow(b, 1.25);                            // bright nucleus, fading halo
+        b += noise.noise2D(c * 0.9 + 3, r * 0.9 + 7) * 0.07; // fine digitized cell jitter
+        b = clamp(b, 0, 1);
+        if (b < 0.05) {
+          // faint scattered star-pixels over empty space
+          if (noise.noise2D(c * 3.7 + 11, r * 3.7 + 5) > 0.86) {
+            ctx.fillStyle = ramp[noise.noise2D(c * 1.1, r * 1.1) > 0 ? 0 : 4];
+            ctx.globalAlpha = 0.5;
+            ctx.fillRect(px - size * 0.2, py - size * 0.2, size * 0.4, size * 0.4);
+          }
+          continue;
+        }
+        const idx = clamp(Math.floor((1 - b) * ramp.length), 0, ramp.length - 1);
+        ctx.fillStyle = ramp[idx];
+        ctx.globalAlpha = clamp(0.62 + b * 0.38, 0.5, 1.0);
+        ctx.fillRect(c * size, r * size, size - 1, size - 1); // 1px gap → digitized grid reads
       }
     }
   }
