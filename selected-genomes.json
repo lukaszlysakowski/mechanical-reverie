@@ -5929,5 +5929,92 @@
       "scientific imaging",
       "light as medium"
     ]
+  },
+  {
+    "day": 98,
+    "date": "2026-07-21",
+    "title": "Adoration",
+    "filename": "mechanical-reverie-day-098-adoration-2026-07-21.png",
+    "fitness": 6.705,
+    "engineVersion": "v3.4.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "2437a84f3d9e68315122c86a2fdbd607b466809e3e1c060a1114ba9342ef8258",
+      "checksumStability": "12/12 identical — hard-canonical; thin dispersal strokes carry no GPU LSB noise",
+      "engineVersion": "v3.4.0",
+      "renderSeed": 3869958073,
+      "noiseSeed": 2000
+    },
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 6,
+      "cellPadding": 0.18938954609848568,
+      "rotation": 4.887641897198275,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.8387947878475189,
+      "gearComplexity": 7,
+      "chainFrequency": 0.26082766058294427,
+      "pixelDensity": 0.12351763534663185,
+      "pixelSize": 3,
+      "flowScale": 0.01,
+      "flowStrength": 1.3,
+      "particleCount": 1500,
+      "clockSpeed": 0.00595324634677918,
+      "oscillation": 2.1107288614723503,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.9,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 1.5045069520932355,
+      "hatchSpacing": 10.960520078845457,
+      "pixelCharacter": "data",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 2000,
+      "renderSeed": 3869958073,
+      "disorder": 0.25,
+      "disorderMode": "radial",
+      "disorderAngle": 5.074205128264299,
+      "paletteColors": [
+        "#f5c518",
+        "#ffd95a",
+        "#f0901a",
+        "#d0206f",
+        "#7a2ec0",
+        "#0b0a1e",
+        "#e83a9e",
+        "#3048d0"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Reduced Marjan's maximalist religious-icon to its ONE translatable signature — the radiating corona / halo of machine-parts. A clean single-character dispersal aureole (wFlow 0.90, others 0.13), gold-forward jewel palette, deep-violet void. Emergent radiance, not figuration; the figure and tank dropped. Gem-in-void register per the clean/non-busy value; distinct from Day 97's frame-filling brightness map.",
+      "condensedReason": "Marjan Moghaddam's 'Adoration of Gas Tank' (SIGGRAPH 2000 Art Gallery, New Orleans) is a 3D CGI Luminage C-print, 40x32in: a computer-generated figure with fractal/procedural skin holds a chrome 1967 Triumph Bonneville gas tank like a sacred relic, crowned by a gold hexagonal halo and a radiating corona of golden wrenches, on a deep blue->violet->magenta self-similar fractal field. From her 'Adorations' series — 3D homunculi adoring 'their own evolutionary origins in machines and cultural artifacts that defined our shift towards Post Humanism.' Noah reposted it to launch a SIGGRAPH-week thread of his own decades of work; his feed the same day carried two amplifications of Mechanical Reverie itself. The maximalist icon resists literal reproduction, so the engine reduces it to its one translatable signature — the radiating corona of repeated machine-parts, a halo of tools: radiance made of mechanism. Rendered as a single clean golden aureole (flowCharacter 'dispersal', wFlow 0.90, every other layer gated to 0.13) bursting from a centred focal point, in a custom gold-and-jewel palette (magenta/violet/blue drawn from the fractal field, deep-violet void ground) deliberately distinct from Day 97's Strom red/navy. The figure and tank are dropped — emergent radiance, not figuration — leaving one revered radiant object alone in a reverent void."
+    },
+    "tweetSummary": "NB SIGGRAPH-week repost of @TheMarjan (Marjan Moghaddam): 'Adoration of Gas Tank,' SIGGRAPH 2000 Art Gallery — 3D CG with computer-generated fractals, a religious-icon composition haloing a chrome motorcycle gas tank.",
+    "keyArtists": [
+      {
+        "name": "Marjan Moghaddam",
+        "role": "digital artist; SIGGRAPH Art Gallery pioneer (3D CGI, fractal computer graphics, later glitch art)",
+        "relevance": "Her SIGGRAPH 2000 'Adoration of Gas Tank' sanctifies industrial objects with computer-generated fractals — the machine as object of worship."
+      }
+    ],
+    "themes": [
+      "adoration / the machine sanctified",
+      "radiance from a center",
+      "fractal self-similarity",
+      "post-humanism",
+      "SIGGRAPH history"
+    ],
+    "keyDetails": "Marjan Moghaddam, 'Adoration of Gas Tank' (SIGGRAPH 2000) — the machine haloed. NB SIGGRAPH-week repost.",
+    "description": "Marjan Moghaddam's 'Adoration of Gas Tank' (SIGGRAPH 2000 Art Gallery, New Orleans) is a 3D CGI Luminage C-print, 40x32in: a computer-generated figure with fractal/procedural skin holds a chrome 1967 Triumph Bonneville gas tank like a sacred relic, crowned by a gold hexagonal halo and a radiating corona of golden wrenches, on a deep blue->violet->magenta self-similar fractal field. From her 'Adorations' series — 3D homunculi adoring 'their own evolutionary origins in machines and cultural artifacts that defined our shift towards Post Humanism.' Noah reposted it to launch a SIGGRAPH-week thread of his own decades of work; his feed the same day carried two amplifications of Mechanical Reverie itself. The maximalist icon resists literal reproduction, so the engine reduces it to its one translatable signature — the radiating corona of repeated machine-parts, a halo of tools: radiance made of mechanism. Rendered as a single clean golden aureole (flowCharacter 'dispersal', wFlow 0.90, every other layer gated to 0.13) bursting from a centred focal point, in a custom gold-and-jewel palette (magenta/violet/blue drawn from the fractal field, deep-violet void ground) deliberately distinct from Day 97's Strom red/navy. The figure and tank are dropped — emergent radiance, not figuration — leaving one revered radiant object alone in a reverent void.",
+    "condensedReason": "Marjan Moghaddam's 'Adoration of Gas Tank' (SIGGRAPH 2000 Art Gallery, New Orleans) is a 3D CGI Luminage C-print, 40x32in: a computer-generated figure with fractal/procedural skin holds a chrome 1967 Triumph Bonneville gas tank like a sacred relic, crowned by a gold hexagonal halo and a radiating corona of golden wrenches, on a deep blue->violet->magenta self-similar fractal field. From her 'Adorations' series — 3D homunculi adoring 'their own evolutionary origins in machines and cultural artifacts that defined our shift towards Post Humanism.' Noah reposted it to launch a SIGGRAPH-week thread of his own decades of work; his feed the same day carried two amplifications of Mechanical Reverie itself. The maximalist icon resists literal reproduction, so the engine reduces it to its one translatable signature — the radiating corona of repeated machine-parts, a halo of tools: radiance made of mechanism. Rendered as a single clean golden aureole (flowCharacter 'dispersal', wFlow 0.90, every other layer gated to 0.13) bursting from a centred focal point, in a custom gold-and-jewel palette (magenta/violet/blue drawn from the fractal field, deep-violet void ground) deliberately distinct from Day 97's Strom red/navy. The figure and tank are dropped — emergent radiance, not figuration — leaving one revered radiant object alone in a reverent void."
   }
 ]
