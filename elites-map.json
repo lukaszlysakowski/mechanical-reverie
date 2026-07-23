@@ -7,15 +7,13 @@
       "vortex",
       "mathematical",
       "dispersal",
-      "oscilloscope",
-      "data"
+      "oscilloscope"
     ],
     "mech": [
       "gear",
       "circuit",
       "plotter",
-      "led",
-      "armature"
+      "led"
     ],
     "ground": [
       "light",
@@ -23,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-23T05:00:58Z",
+  "updated": "2026-07-23T13:42:25Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.6991,
@@ -2060,52 +2058,66 @@
       "since": "2026-07-22T04:48:09Z"
     },
     "vortex|gear|light": {
-      "fitness": 6.1692871552259945,
+      "fitness": 6.581,
       "genome": {
-        "gridCols": 16,
-        "gridRows": 11,
-        "cellPadding": 0.13556637364288163,
-        "rotation": 3.641826832182741,
-        "globalRotation": 0.026749902453221657,
-        "paletteIndex": 9,
-        "bgDarkness": 0.1791406422567543,
-        "gearDensity": 0.5552477088487378,
-        "gearComplexity": 6,
-        "chainFrequency": 0.4623332288323986,
-        "pixelDensity": 0.18097339887775685,
-        "pixelSize": 7,
-        "flowScale": 0.01278031988841448,
-        "flowStrength": 2.7211478262075666,
-        "particleCount": 1349,
-        "clockSpeed": 0.010272022317519192,
-        "oscillation": 0.8166374264895745,
-        "wMechanical": 0.3407177864896865,
-        "wPixel": 0.383319746376724,
-        "wFlow": 0.8176819495745035,
-        "wGeometric": 0.6312828415087397,
-        "wOrganic": 0.7391420915173715,
-        "wHatch": 0.3651494400555959,
-        "hatchAngle": 0.2274900310378003,
-        "hatchSpacing": 14.02173586780945,
-        "pixelCharacter": "mosaic",
+        "gridCols": 10,
+        "gridRows": 7,
+        "cellPadding": 0.15128386009778697,
+        "rotation": 5.119809658092339,
+        "globalRotation": 0,
+        "paletteIndex": 10,
+        "bgDarkness": 0.12,
+        "gearDensity": 0.5,
+        "gearComplexity": 12,
+        "chainFrequency": 0.18,
+        "pixelDensity": 0.2974203151912915,
+        "pixelSize": 3,
+        "flowScale": 0.01,
+        "flowStrength": 2,
+        "particleCount": 500,
+        "clockSpeed": 0.016370126667803932,
+        "oscillation": 0.8425802206729409,
+        "wMechanical": 0.6,
+        "wPixel": 0.13,
+        "wFlow": 0.88,
+        "wGeometric": 0.13,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 0.33378383782124477,
+        "hatchSpacing": 13.855531258143268,
+        "pixelCharacter": "data",
         "flowCharacter": "vortex",
         "mechanicalCharacter": "gear",
         "symmetry": 0,
-        "layerCount": 7,
-        "noiseOctaves": 2,
-        "noiseSeed": 7325.560568096576,
-        "renderSeed": 1530663218.1384122,
-        "disorder": 0.553873617638736,
-        "disorderMode": "linear",
-        "disorderAngle": 3.9694907146140905
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 2000,
+        "renderSeed": 3174873028.752612,
+        "disorder": 0.18,
+        "disorderMode": "radial",
+        "disorderAngle": 1.145960236150376,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#e8e0d0",
+          "#8a8578",
+          "#1c1a16"
+        ]
       },
       "provenance": {
-        "type": "candidate",
-        "source": "Frontier F-001",
+        "type": "frontier",
+        "gen": 98,
         "day": null,
-        "date": null
+        "date": "2026-07-22",
+        "title": "The Mill",
+        "filename": "mechanical-reverie-frontier-001-vortex-gear-light-2026-07-22.png",
+        "cell": "vortex|gear|light",
+        "frontierIndex": 1
       },
-      "since": "2026-07-23T05:00:58Z"
+      "since": "2026-07-23T13:42:25Z"
     }
   },
   "challengeLog": [
@@ -3388,6 +3400,14 @@
       "incumbentFitness": 6.1693,
       "result": "held",
       "source": "Frontier F-001"
+    },
+    {
+      "ts": "2026-07-23T13:42:25Z",
+      "cell": "vortex|gear|light",
+      "challengerFitness": 6.581,
+      "incumbentFitness": 6.1693,
+      "result": "dethroned",
+      "source": "seed gen 98"
     }
   ],
   "frontierState": {
@@ -3400,5 +3420,14 @@
         "pickedBy": "manual"
       }
     ]
-  }
+  },
+  "legacyAxes": {
+    "flow": [
+      "data"
+    ],
+    "mech": [
+      "armature"
+    ]
+  },
+  "legacyNote": "Coordinates from earlier engine versions that the current engine cannot produce ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived pieces occupy these cells, so they are preserved and displayed, but they are excluded from the frontier and from coverage."
 }

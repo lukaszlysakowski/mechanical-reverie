@@ -148,6 +148,28 @@
   }
   .cell.unperformed .score-only .perform { color: #c4a265; }
 
+  .legacy-note {
+    max-width: 820px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #b0a078;
+    margin: -4px 0 16px;
+  }
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .legacy-grid .cell { min-height: 0; opacity: 0.88; }
+  .legacy-grid .cell.filled:hover { opacity: 1; }
+  .legacy-key {
+    font-family: monospace;
+    font-size: 12px;
+    color: #9c8a68;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
   .log-section {
     max-width: 900px;
     margin: 50px auto 0;
@@ -221,9 +243,20 @@ fetch('./elites-map.json?' + Date.now())
   .then(m => {
     const flows = m.axes.flow, mechs = m.axes.mech, grounds = m.axes.ground;
     const total = flows.length * mechs.length * grounds.length;
-    const filled = Object.keys(m.cells).length;
+    // Only cells whose coordinates the current engine can actually produce count toward
+    // coverage. Legacy coordinates (see m.legacyAxes) hold real archived pieces but are
+    // shown separately — counting them here would misreport the frontier.
+    const isActive = k => {
+      const [f, mc, gr] = k.split('|');
+      return flows.includes(f) && mechs.includes(mc) && grounds.includes(gr);
+    };
+    const activeKeys = Object.keys(m.cells).filter(isActive);
+    const legacyKeys = Object.keys(m.cells).filter(k => !isActive(k));
+    const filled = activeKeys.length;
     document.getElementById('stats').textContent =
-      `${filled} of ${total} cells mapped · ${total - filled} on the frontier · updated ${m.updated ? m.updated.substring(0, 10) : '—'}`;
+      `${filled} of ${total} cells mapped · ${total - filled} on the frontier`
+      + (legacyKeys.length ? ` · ${legacyKeys.length} legacy` : '')
+      + ` · updated ${m.updated ? m.updated.substring(0, 10) : '—'}`;
 
     const grids = document.getElementById('grids');
     grounds.forEach(gr => {
@@ -286,6 +319,38 @@ fetch('./elites-map.json?' + Date.now())
       section.appendChild(grid);
       grids.appendChild(section);
     });
+
+    // ── Legacy coordinates ──────────────────────────────────────────────
+    // Characters from earlier engine versions that the current engine can no longer produce
+    // ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived
+    // pieces occupy these cells, so they are shown here rather than silently dropped — but they
+    // are not part of the possibility space and never appear on the frontier.
+    if (legacyKeys.length) {
+      const sec = document.createElement('div');
+      sec.className = 'ground-section';
+      sec.innerHTML = `<h2>Legacy coordinates</h2>
+        <div class="legacy-note">${m.legacyNote || 'Coordinates from earlier engine versions that the current engine can no longer produce. These cells hold real archived pieces, so they are preserved here, but they are not part of the possibility space and never appear on the frontier.'}</div>`;
+      const wrap = document.createElement('div');
+      wrap.className = 'legacy-grid';
+      legacyKeys.sort().forEach(key => {
+        const e = m.cells[key];
+        const p = e.provenance || {};
+        const label = p.day ? `Day ${p.day}` : (p.title || p.date || 'archive');
+        const node = document.createElement(p.gen ? 'a' : 'div');
+        node.className = 'cell filled';
+        if (p.gen) node.href = `generative-art-generator.html?gen=${p.gen}`;
+        node.innerHTML = `
+          ${p.filename ? `<img class="thumb" src="${ART_PATH}${p.filename}" alt="${p.title || key}" loading="lazy">` : ''}
+          <div class="meta">
+            <div class="legacy-key">${key}</div>
+            <span class="fit">${e.fitness.toFixed(4)}</span>
+            <span class="prov"> · ${label}${p.title ? ' · ' + p.title : ''}</span>
+          </div>`;
+        wrap.appendChild(node);
+      });
+      sec.appendChild(wrap);
+      grids.appendChild(sec);
+    }
 
     const log = (m.challengeLog || []).slice(-10).reverse();
     if (log.length) {

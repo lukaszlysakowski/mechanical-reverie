@@ -6025,7 +6025,7 @@
     "date": "2026-07-22",
     "title": "The Mill",
     "filename": "mechanical-reverie-frontier-001-vortex-gear-light-2026-07-22.png",
-    "fitness": 4.6135,
+    "fitness": 6.581,
     "engineVersion": "v3.4.0",
     "certificate": {
       "deterministic": true,
@@ -6085,7 +6085,7 @@
     },
     "curatorial": {
       "score": "B+",
-      "notes": "First frontier entry. Cell contract (vortex / gear / light) held through curatorial retuning. Polarised two-vocabulary composition for readable depth rather than the search's muddy all-mid-weight result. NOTE: fitness 4.6135 is structurally low — the metric rewards either all-six-active or a PURE single character, and has no credit for a clean TWO-character 'duet', which is exactly what an Atlas cell defined by (flow x mech) requires. The image is deliberately better than its score; see memory.md.",
+      "notes": "First frontier entry. Cell contract (vortex / gear / light) held through curatorial retuning. Polarised two-vocabulary composition for readable depth rather than the search's muddy all-mid-weight result. Originally scored 4.6135 and was displaced from its own cell by that muddier candidate — which exposed a structural gap in the metric: it credited only all-six-active or a PURE single character, never a clean TWO-character duet, though every Atlas cell is defined as (flow x mech). The duet credit added 2026-07-22 scores this on two-character terms: 6.5810. Metric-only change — render path, PNG and certificate are untouched.",
       "condensedReason": "A rest day on the source feed, so the engine works its own map instead. This is the archive's FIRST frontier entry — a composition made to fill an empty cell in the Atlas rather than to answer a tweet. The cell is vortex/gear on a light ground: centripetal flow crossed with the gear vocabulary, drawn on paper. It sat empty because the daily record has favoured dark grounds for spiralling work and reserved the light/paper register for plotter and newsprint subjects, so vortex and gear had never met on white. The automatic cartographer pick was overridden: it targeted 'vortex|armature|light', but 'armature' is a phantom coordinate the current engine cannot render (it silently falls back to gear), so the pick was moved to the nearest real empty cell in the same emptiest region. The raw 21-candidate search won on palette 9, whose phosphor green flooded the ground and left every layer at mid weight — muddy, with no readable depth. Curatorially retuned while holding the cell contract: palette 10 Newsprint Monochrome (black ink on warm cream, light tone at index 5), weights polarised to two legible vocabularies — vortex flow 0.88 dominant, gear 0.60 as structure, every other layer gated to 0.13 — disorder 0.18 radial for an ordered machine drawing. Fine ink filaments spiral into a clear eye while outlined gear wheels float as fixed structure: Desmond Paul Henry territory, the drawing machine caught mid-turn."
     },
     "tweetSummary": "No source tweets — 2026-07-22 was a rest day on @Noahbolanowski's feed. Frontier Day protocol: the engine maps its own possibility space instead.",

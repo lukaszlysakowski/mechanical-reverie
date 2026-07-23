@@ -2034,6 +2034,42 @@ function calculateFitness(g) {
     }
   }
 
+  // ── Clean DUET credit (fitness refinement, Jul 2026 — render path UNCHANGED, ENGINE_VERSION stays) ──
+  // The companion to the pure single-character credit above. Between "all six layers active" and
+  // "one character alone" sits the deliberate TWO-vocabulary composition — and the default formula
+  // punished it hardest of all: `active * 0.5` counts only 2, so a clean duet scored ~4.6 while a
+  // MUDDY all-mid-weight field scored ~6.2. That is backwards, and it is structural rather than
+  // incidental: every MAP-Elites cell is defined as (flowCharacter × mechanicalCharacter), so the
+  // Atlas itself demands legible two-character work. Discovered 2026-07-22 when frontier piece
+  // F-001 "The Mill" (vortex flow 0.88 + gear 0.60, all else gated 0.13) scored 4.6135 and was
+  // then displaced from its own cell by the muddy candidate it had been curated to replace.
+  // Gate: a clear first and second voice, with every remaining layer gated low — the same
+  // clarity-over-density test as the pure credit. A duet with a third prominent layer fails and
+  // falls through to the normal formula, exactly as a muddied pure piece does.
+  {
+    const W = { flow: g.wFlow, geometric: g.wGeometric, pixel: g.wPixel,
+                mechanical: g.wMechanical, organic: g.wOrganic, hatch: g.wHatch ?? 0 };
+    const ranked = Object.entries(W).sort((a, b) => b[1] - a[1]);
+    const [domName, domW] = ranked[0];
+    const secondName = ranked[1][0], secondW = ranked[1][1];
+    const thirdMax = ranked[2][1];
+    if (domW >= 0.60 && secondW >= 0.45 && thirdMax <= 0.20) {
+      const pair = new Set([domName, secondName]);
+      let f = 4.7;
+      f += ((domW + secondW) / 2) * 1.2;                              // commitment to the two voices
+      f += (1 - (domW - secondW)) * 0.4;                              // a real duet, not a soloist with an echo
+      f += 0.3;                                                      // legible two-vocabulary composition
+      if (pair.has('mechanical') && g.gearDensity > 0.3 && g.gearDensity < 0.8) f += 0.15;
+      if (pair.has('flow')) {
+        const fs = g.flowStrength || 2;
+        if (fs >= 0.8 && fs <= 4.5) f += 0.15;                        // coherent flow energy
+      }
+      if (pair.has('geometric') && (g.gridCols || 6) >= 3 && (g.gridCols || 6) <= 14) f += 0.15;
+      f += (0.20 - thirdMax) * 1.5;                                  // the cleaner the gating, the stronger (≤ +0.30)
+      return clamp(f, 0, 6.9);                                       // same ceiling as the pure credit
+    }
+  }
+
   const weights = [g.wMechanical, g.wPixel, g.wFlow, g.wGeometric, g.wOrganic, g.wHatch ?? 0];
   const active = weights.filter(w => w > 0.3).length;
   score += active * 0.5; // Reward variety
