@@ -21,38 +21,69 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-23T13:42:25Z",
+  "updated": "2026-07-25T05:09:38Z",
   "cells": {
     "mathematical|gear|light": {
-      "fitness": 6.6991,
+      "fitness": 6.775,
       "genome": {
+        "gridCols": 10,
+        "gridRows": 4,
+        "cellPadding": 0.1902917811938942,
+        "rotation": 3.621542275377555,
+        "globalRotation": 0,
         "paletteIndex": 8,
-        "wFlow": 0.55,
-        "wMechanical": 0.72,
-        "wGeometric": 0.7,
-        "wHatch": 0.42,
-        "wPixel": 0.8104610647011993,
-        "wOrganic": 0.31,
+        "bgDarkness": 0.12,
+        "gearDensity": 0.4,
+        "gearComplexity": 12,
+        "chainFrequency": 0.15,
+        "pixelDensity": 0.8886409089670863,
+        "pixelSize": 6,
+        "flowScale": 0.01,
+        "flowStrength": 0.9,
+        "particleCount": 720,
+        "clockSpeed": 0.0037777015106453295,
+        "oscillation": 2.761682347661857,
+        "wMechanical": 0.8,
+        "wPixel": 0.13,
+        "wFlow": 0.85,
+        "wGeometric": 0.13,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 2.778467453374164,
+        "hatchSpacing": 19.640244276911297,
+        "pixelCharacter": "data",
         "flowCharacter": "mathematical",
         "mechanicalCharacter": "gear",
-        "pixelCharacter": "mosaic",
-        "symmetry": 0.0,
-        "gearDensity": 0.5,
-        "gridCols": 10,
+        "symmetry": 0,
         "layerCount": 6,
-        "hatchAngle": 0.0,
-        "hatchSpacing": 14,
-        "bgDarkness": 0.12
+        "noiseOctaves": 3,
+        "noiseSeed": 108,
+        "renderSeed": 1226711822,
+        "disorder": 0.1,
+        "disorderMode": "uniform",
+        "disorderAngle": 4.761951198067817,
+        "paletteColors": [
+          "#c4a07a",
+          "#8b6040",
+          "#6b4028",
+          "#4a2818",
+          "#e8e0d4",
+          "#f4f0ea",
+          "#d4c4a8",
+          "#1c1410"
+        ]
       },
       "provenance": {
-        "type": "archive-winner",
-        "gen": 73,
-        "day": 74,
-        "date": "2026-06-26",
-        "title": "Information Aesthetics",
-        "filename": "mechanical-reverie-day-074-information-aesthetics-2026-06-26.png"
+        "type": "frontier",
+        "gen": 99,
+        "day": null,
+        "date": "2026-07-24",
+        "title": "The Harmonic Analyzer",
+        "filename": "mechanical-reverie-frontier-002-mathematical-gear-light-2026-07-24.png",
+        "cell": "mathematical|gear|light",
+        "frontierIndex": 2
       },
-      "since": "2026-07-06T15:02:49Z"
+      "since": "2026-07-25T05:09:15Z"
     },
     "vortex|plotter|light": {
       "fitness": 6.7585,
@@ -3408,15 +3439,197 @@
       "incumbentFitness": 6.1693,
       "result": "dethroned",
       "source": "seed gen 98"
+    },
+    {
+      "ts": "2026-07-25T05:09:15Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 6.775,
+      "incumbentFitness": 6.6991,
+      "result": "dethroned",
+      "source": "seed gen 99"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 6.0681,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 6.0395,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 6.0352,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.8331,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.8251,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.8251,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.6525,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.6082,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.592,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.592,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.5681,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.5531,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.3866,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.2386,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 5.0171,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 4.8868,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 4.558,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 4.5266,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 4.391,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 3.9781,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
+    },
+    {
+      "ts": "2026-07-25T05:09:38Z",
+      "cell": "mathematical|gear|light",
+      "challengerFitness": 3.8621,
+      "incumbentFitness": 6.775,
+      "result": "held",
+      "source": "Frontier F-002"
     }
   ],
   "frontierState": {
-    "lastMode": "cartographer",
+    "lastMode": "challenger",
     "history": [
       {
         "ts": "2026-07-23T04:54:38Z",
         "mode": "cartographer",
         "cell": "vortex|gear|light",
+        "pickedBy": "manual"
+      },
+      {
+        "ts": "2026-07-25T05:04:12Z",
+        "mode": "challenger",
+        "cell": "mathematical|gear|light",
         "pickedBy": "manual"
       }
     ]
