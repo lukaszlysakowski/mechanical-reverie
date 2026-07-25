@@ -218,7 +218,7 @@ let W = canvas.width, H = canvas.height;
 // v3.3.0 — additive, opt-in: flowCharacter 'convergence' — a deterministic op-art ruled lattice
 // (Vidal / Mac Entyre / Le Parc): curve-stitch line fans whose envelopes trace parabolas, tiled on
 // a node grid, with moiré. Also not in FLOW_CHARS. No existing genome renders differently.
-const ENGINE_VERSION = 'v3.4.0';
+const ENGINE_VERSION = 'v3.5.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1188,7 +1188,11 @@ function drawGeometric(g, pal, t) {
       const sizeH = Math.max(1, h * 0.4 * (1 + nSize * 0.5 * d));
 
       // Vocabulary gates: below-d noise admits variety; above it, the uniform baseline holds.
-      const shape = gShape < d ? Math.floor(noise.noise2D(c * 3.7 + 503, r * 4.3 + 257) * 5) % 5 : baseShape;
+      // g.lockShape (v3.5.0, opt-in) keeps every cell at baseShape while rotation / displacement /
+      // fill / colour still respond to disorder — faithful to true Nees Schotter (squares that
+      // rotate but never change shape) and to Le Parc's kinetic square-grids. Default off →
+      // existing genomes are byte-identical.
+      const shape = (!g.lockShape && gShape < d) ? Math.floor(noise.noise2D(c * 3.7 + 503, r * 4.3 + 257) * 5) % 5 : baseShape;
       const colorIdx = gColor < d
         ? Math.floor(noise.noise2D(c * 1.9 + 809, r * 1.7 + 431) * pal.length) % pal.length
         : baseColorIdx;

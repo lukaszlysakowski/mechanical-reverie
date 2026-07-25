@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-20",
+  "updated": "2026-07-25",
   "concepts": [
     {
       "id": "bell-labs",
@@ -198,6 +198,10 @@
         {
           "gen": 95,
           "why": "Day 96 - Georg Nees's Butterfly Swarm rendered with the disorder dial named after his Schotter: order collapsing into geometric scatter (disorder 0.65)"
+        },
+        {
+          "gen": 100,
+          "why": "Le Parc's kinetic square-grid IS order-and-disorder made optical — a rigorous grid whose per-cell rotation (the engine's disorder dial, named after Nees's Schotter) generates shimmer. The hand-made twin of algorithmic Schotter."
         }
       ]
     },
@@ -456,6 +460,10 @@
         {
           "gen": 92,
           "why": "Day 93 — Miguel Ángel Vidal's ruled-line op-art (CAyC / Arte y Cibernética, 1969); the founding work of the wing"
+        },
+        {
+          "gen": 100,
+          "why": "Julio Le Parc, Argentine GRAV founder, shown at Buenos Aires's Instituto Di Tella (1967) — a cornerstone of the same Latin American optical/generative scene as Vidal's Arte Generativo."
         }
       ]
     },

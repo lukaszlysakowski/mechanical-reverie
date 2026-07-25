@@ -6180,5 +6180,95 @@
     "keyDetails": "Frontier F-002 — Atlas cell mathematical|gear|light. Challenger mode: dethroned Day 74 (6.699 → 6.775). Rest day.",
     "description": "A second consecutive rest day on the source feed (@Noahbolanowski quiet through SIGGRAPH week, only reposting), so the engine works its own map again. This is frontier entry F-002, and the first in CHALLENGER mode: rather than charting empty territory it attacks the stalest incumbent — cell mathematical/gear on a light ground, held since 2026-07-06 by Day 74 'Information Aesthetics' at 6.6991. The pairing is almost literal history: a gear train that computes wave interference is a HARMONIC ANALYZER — the Michelson-Stratton and Kelvin geared machines that mechanically summed Fourier harmonics and predicted tides. So the render sets the engine's mathematical character (superposed standing waves, Chladni/diffraction linework) against its gear character as a single mechanism: a graduated train of meshing gears marches across a field of sepia interference striations on warm engineering paper (palette 8), ordered disorder 0.10 uniform for Bense-style rationality. The raw 21-candidate search returned the usual muddy all-six-active field (fitness 6.07, pixel layer burying both characters); curatorially retuned to a clean two-voice DUET — mathematical flow 0.85 and gear 0.80, every other layer gated to 0.13 — which the new duet fitness credit scores at 6.7750, clearing the 6.7491 bar to take the cell. The duet credit, added the day before to fix exactly this, does real work on its first live outing.",
     "condensedReason": "A second consecutive rest day on the source feed (@Noahbolanowski quiet through SIGGRAPH week, only reposting), so the engine works its own map again. This is frontier entry F-002, and the first in CHALLENGER mode: rather than charting empty territory it attacks the stalest incumbent — cell mathematical/gear on a light ground, held since 2026-07-06 by Day 74 'Information Aesthetics' at 6.6991. The pairing is almost literal history: a gear train that computes wave interference is a HARMONIC ANALYZER — the Michelson-Stratton and Kelvin geared machines that mechanically summed Fourier harmonics and predicted tides. So the render sets the engine's mathematical character (superposed standing waves, Chladni/diffraction linework) against its gear character as a single mechanism: a graduated train of meshing gears marches across a field of sepia interference striations on warm engineering paper (palette 8), ordered disorder 0.10 uniform for Bense-style rationality. The raw 21-candidate search returned the usual muddy all-six-active field (fitness 6.07, pixel layer burying both characters); curatorially retuned to a clean two-voice DUET — mathematical flow 0.85 and gear 0.80, every other layer gated to 0.13 — which the new duet fitness credit scores at 6.7750, clearing the 6.7491 bar to take the cell. The duet credit, added the day before to fix exactly this, does real work on its first live outing."
+  },
+  {
+    "day": 99,
+    "date": "2026-07-25",
+    "title": "Continuous Mobile",
+    "filename": "mechanical-reverie-day-099-continuous-mobile-2026-07-25.png",
+    "fitness": 6.805,
+    "engineVersion": "v3.5.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "cc4c8268bcf7d8ba94a821c3d8165171ada89d56f20fccb30e88345c27e05149",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.5.0",
+      "renderSeed": 2558711814,
+      "noiseSeed": 431
+    },
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 10,
+      "cellPadding": 0.1,
+      "rotation": 3.141592653589793,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.9,
+      "gearDensity": 0.9145863333088612,
+      "gearComplexity": 12,
+      "chainFrequency": 0.7902885518459648,
+      "pixelDensity": 0.928639826920439,
+      "pixelSize": 7,
+      "flowScale": 0.01868099472610412,
+      "flowStrength": 0.5137166175686978,
+      "particleCount": 1543,
+      "clockSpeed": 0.013138306085162352,
+      "oscillation": 2.9195489757681954,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.13,
+      "wGeometric": 0.9,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 0.5486338303981015,
+      "hatchSpacing": 21.19283034030284,
+      "pixelCharacter": "grain",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 431,
+      "renderSeed": 2558711814,
+      "disorder": 0.5,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "baseShape": 1,
+      "baseColorIndex": 0,
+      "lockShape": true,
+      "paletteColors": [
+        "#ffffff",
+        "#cfcfcf",
+        "#9a9a9a",
+        "#6a6a6a",
+        "#e8e8e8",
+        "#050505",
+        "#808080",
+        "#303030"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Le Parc's kinetic square-grid via the disorder dial. Pure single-character geometric (wGeo 0.90, all else 0.13) so the pure-composition credit fires (6.8050). Needed a new capability, lockShape (v3.5.0), so the dial rotates + varies brightness while keeping every cell square — faithful to Le Parc AND to true Schotter. Custom silver-on-black palette (Mobile Lumalina Sur Noir). Clean/high-contrast; the archive's 100th piece. Ties Le Parc (kinetic op, by hand) to Nees (algorithmic Schotter, by program).",
+      "condensedReason": "Julio Le Parc (b. 1928), Argentine kinetic and op artist and founder of GRAV (Groupe de Recherche d'Art Visuel, Paris 1960; Grand Prize, 1966 Venice Biennale), turned rigorous grids into optical movement. Noah posted a 1967 clip of 'Le Parc: Centro de Artes Visuales' at the Instituto Torcuato Di Tella in Buenos Aires, showing Six Double Mirrors (1966) and two Continuous Mobiles — Mobile Lumalina Sur Noir (1962, silver squares on black) and Mobile Blanc Sur Blanc (white on white). All three share one signature: a grid of small square cells, each independently rotated to catch light, so shimmer and instability emerge FROM order rather than against it. That is precisely the engine's disorder dial — the Schotter mechanism named after Georg Nees — and the resonance is the point: Le Parc rotating mirror-squares by hand (1962-66) and Nees rotating squares by algorithm (1968) are the same gesture, kinetic op art meeting algorithmic op art. The render translates Mobile Lumalina Sur Noir: a field of tilted silver and white squares at varied brightness on a black void (custom palette, bgDarkness 0.90), geometric weight 0.90 with every other layer gated to 0.13, disorder 0.50 uniform rotating and lighting each cell. It needed a new engine capability, lockShape (v3.5.0): the disorder dial now rotates and varies the brightness of every cell while keeping each one a SQUARE — faithful both to Le Parc's constraint and to true Nees Schotter, which never changes shape either. The 100th piece in the archive."
+    },
+    "tweetSummary": "NB original thread on Julio Le Parc (GRAV; Venice 1966): a 1967 Di Tella Institute clip of Six Double Mirrors (1966) + Continuous Mobiles (Mobile Lumalina Sur Noir 1962, Mobile Blanc Sur Blanc). Kinetic op art of tilted reflective square-grids.",
+    "keyArtists": [
+      {
+        "name": "Julio Le Parc",
+        "role": "Argentine kinetic/op artist; GRAV founder; Venice Biennale Grand Prize 1966",
+        "relevance": "His rotated reflective square-grids are the hand-made twin of algorithmic Schotter — optical movement generated from rigorous order."
+      }
+    ],
+    "themes": [
+      "kinetic op — order and optical instability",
+      "light as reflection",
+      "the square repeated",
+      "GRAV / Di Tella",
+      "Latin American op art"
+    ],
+    "keyDetails": "Julio Le Parc — Mobile Lumalina Sur Noir (1962) / Six Double Mirrors (1966), Di Tella Institute 1967. NB original thread, 18 likes.",
+    "description": "Julio Le Parc (b. 1928), Argentine kinetic and op artist and founder of GRAV (Groupe de Recherche d'Art Visuel, Paris 1960; Grand Prize, 1966 Venice Biennale), turned rigorous grids into optical movement. Noah posted a 1967 clip of 'Le Parc: Centro de Artes Visuales' at the Instituto Torcuato Di Tella in Buenos Aires, showing Six Double Mirrors (1966) and two Continuous Mobiles — Mobile Lumalina Sur Noir (1962, silver squares on black) and Mobile Blanc Sur Blanc (white on white). All three share one signature: a grid of small square cells, each independently rotated to catch light, so shimmer and instability emerge FROM order rather than against it. That is precisely the engine's disorder dial — the Schotter mechanism named after Georg Nees — and the resonance is the point: Le Parc rotating mirror-squares by hand (1962-66) and Nees rotating squares by algorithm (1968) are the same gesture, kinetic op art meeting algorithmic op art. The render translates Mobile Lumalina Sur Noir: a field of tilted silver and white squares at varied brightness on a black void (custom palette, bgDarkness 0.90), geometric weight 0.90 with every other layer gated to 0.13, disorder 0.50 uniform rotating and lighting each cell. It needed a new engine capability, lockShape (v3.5.0): the disorder dial now rotates and varies the brightness of every cell while keeping each one a SQUARE — faithful both to Le Parc's constraint and to true Nees Schotter, which never changes shape either. The 100th piece in the archive.",
+    "condensedReason": "Julio Le Parc (b. 1928), Argentine kinetic and op artist and founder of GRAV (Groupe de Recherche d'Art Visuel, Paris 1960; Grand Prize, 1966 Venice Biennale), turned rigorous grids into optical movement. Noah posted a 1967 clip of 'Le Parc: Centro de Artes Visuales' at the Instituto Torcuato Di Tella in Buenos Aires, showing Six Double Mirrors (1966) and two Continuous Mobiles — Mobile Lumalina Sur Noir (1962, silver squares on black) and Mobile Blanc Sur Blanc (white on white). All three share one signature: a grid of small square cells, each independently rotated to catch light, so shimmer and instability emerge FROM order rather than against it. That is precisely the engine's disorder dial — the Schotter mechanism named after Georg Nees — and the resonance is the point: Le Parc rotating mirror-squares by hand (1962-66) and Nees rotating squares by algorithm (1968) are the same gesture, kinetic op art meeting algorithmic op art. The render translates Mobile Lumalina Sur Noir: a field of tilted silver and white squares at varied brightness on a black void (custom palette, bgDarkness 0.90), geometric weight 0.90 with every other layer gated to 0.13, disorder 0.50 uniform rotating and lighting each cell. It needed a new engine capability, lockShape (v3.5.0): the disorder dial now rotates and varies the brightness of every cell while keeping each one a SQUARE — faithful both to Le Parc's constraint and to true Nees Schotter, which never changes shape either. The 100th piece in the archive."
   }
 ]
