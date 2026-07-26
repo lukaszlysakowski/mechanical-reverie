@@ -219,8 +219,10 @@
 
 <div class="intro">
   The timeline shows what the world asked for; the Atlas shows what the machine can do.
-  Every cell is a behavioral niche — a flow character crossed with a mechanical character on a light or dark ground —
-  holding the best-known <em>score</em> for that kind of composition. Dashed cells are the frontier:
+  Each cell is a behavioral niche holding the best-known <em>score</em> for that kind of composition.
+  The engine works in two spaces: pieces built from a <em>flow character crossed with a mechanical
+  character</em>, and geometric pieces built from a <em>primitive scattered by the disorder dial</em>
+  (baseShape × disorder mode) — each on a light or dark ground. Dashed cells are the frontier:
   compositions this engine has never once made.
 </div>
 
@@ -242,83 +244,107 @@ fetch('./elites-map.json?' + Date.now())
   .then(r => r.json())
   .then(m => {
     const flows = m.axes.flow, mechs = m.axes.mech, grounds = m.axes.ground;
-    const total = flows.length * mechs.length * grounds.length;
-    // Only cells whose coordinates the current engine can actually produce count toward
-    // coverage. Legacy coordinates (see m.legacyAxes) hold real archived pieces but are
-    // shown separately — counting them here would misreport the frontier.
-    const isActive = k => {
+    // Two behaviour spaces: flow×mech (character × character × ground) and geometric
+    // (baseShape × disorderMode × ground). Geometric-dominant pieces that exhibit neither a flow
+    // nor a mech character live in the second space; their cell keys are namespaced 'geo|…'.
+    const GEO_SHAPES = ['circle', 'rectangle', 'triangle', 'diamond', 'cross'];
+    const GEO_MODES = ['uniform', 'radial', 'linear'];
+    const isGeo = k => k.startsWith('geo|');
+    const isActiveFlowMech = k => {
       const [f, mc, gr] = k.split('|');
       return flows.includes(f) && mechs.includes(mc) && grounds.includes(gr);
     };
+    const isActiveGeo = k => {
+      const [, s, mo, gr] = k.split('|');
+      return isGeo(k) && GEO_SHAPES.includes(s) && GEO_MODES.includes(mo) && grounds.includes(gr);
+    };
+    const isActive = k => isGeo(k) ? isActiveGeo(k) : isActiveFlowMech(k);
+    const fmTotal = flows.length * mechs.length * grounds.length;
+    const geoTotal = GEO_SHAPES.length * GEO_MODES.length * grounds.length;
+    const total = fmTotal + geoTotal;
+    // Legacy = cells whose coordinates the current engine can no longer produce (shown separately).
     const activeKeys = Object.keys(m.cells).filter(isActive);
+    const geoFilled = activeKeys.filter(isGeo).length;
     const legacyKeys = Object.keys(m.cells).filter(k => !isActive(k));
     const filled = activeKeys.length;
     document.getElementById('stats').textContent =
       `${filled} of ${total} cells mapped · ${total - filled} on the frontier`
+      + (geoFilled ? ` · ${geoFilled} geometric` : '')
       + (legacyKeys.length ? ` · ${legacyKeys.length} legacy` : '')
       + ` · updated ${m.updated ? m.updated.substring(0, 10) : '—'}`;
 
     const grids = document.getElementById('grids');
-    grounds.forEach(gr => {
+
+    // Build one cell node for a key (shared by both spaces). `frontierLabel` is the two-line
+    // hint shown for an empty (frontier) cell.
+    const buildCell = (key, frontierLabel) => {
+      const e = m.cells[key];
+      if (!e) {
+        const d = document.createElement('div');
+        d.className = 'cell empty';
+        d.innerHTML = `<div class="frontier-label">frontier<br>${frontierLabel}</div>`;
+        return d;
+      }
+      if (e.provenance && e.provenance.filename) {
+        const a = document.createElement('a');
+        a.className = 'cell filled';
+        a.href = e.provenance.gen ? `generative-art-generator.html?gen=${e.provenance.gen}` : `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
+        const dayLabel = e.provenance.day ? `Day ${e.provenance.day}` : (e.provenance.date || 'archive');
+        a.innerHTML = `
+          <img class="thumb" src="${ART_PATH}${e.provenance.filename}" alt="${e.provenance.title || key}" loading="lazy">
+          <div class="meta">
+            <span class="fit">${e.fitness.toFixed(4)}</span>
+            <span class="prov"> · ${dayLabel}${e.provenance.title ? ' · ' + e.provenance.title : ''}</span>
+          </div>`;
+        return a;
+      }
+      const a = document.createElement('a');
+      a.className = 'cell filled unperformed';
+      a.href = `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
+      a.innerHTML = `
+        <div class="score-only">
+          score only — not yet performed<br>
+          <span class="fit">${e.fitness.toFixed(4)}</span> · ${(e.provenance && e.provenance.source) || 'candidate'}<br>
+          <span class="perform">perform →</span>
+        </div>`;
+      return a;
+    };
+
+    // Generic axis-grid builder: rowValues × colValues, keyed by keyFn(row, col, ground).
+    const buildGrid = (title, rowValues, colValues, keyFn, frontierFn) => {
       const section = document.createElement('div');
       section.className = 'ground-section';
-      section.innerHTML = `<h2>${gr} ground</h2>`;
+      section.innerHTML = `<h2>${title}</h2>`;
       const grid = document.createElement('div');
       grid.className = 'atlas-grid';
-      grid.style.gridTemplateColumns = `110px repeat(${mechs.length}, 1fr)`;
-
+      grid.style.gridTemplateColumns = `110px repeat(${colValues.length}, 1fr)`;
       grid.appendChild(document.createElement('div')); // corner
-      mechs.forEach(mc => {
+      colValues.forEach(col => {
         const h = document.createElement('div');
         h.className = 'axis-label';
-        h.textContent = mc;
+        h.textContent = col;
         grid.appendChild(h);
       });
-
-      flows.forEach(fc => {
+      rowValues.forEach(row => {
         const rl = document.createElement('div');
         rl.className = 'axis-label row-label';
-        rl.textContent = fc;
+        rl.textContent = row;
         grid.appendChild(rl);
-
-        mechs.forEach(mc => {
-          const key = `${fc}|${mc}|${gr}`;
-          const e = m.cells[key];
-          if (!e) {
-            const d = document.createElement('div');
-            d.className = 'cell empty';
-            d.innerHTML = `<div class="frontier-label">frontier<br>${fc} / ${mc}</div>`;
-            grid.appendChild(d);
-          } else if (e.provenance && e.provenance.filename) {
-            const a = document.createElement('a');
-            a.className = 'cell filled';
-            a.href = e.provenance.gen ? `generative-art-generator.html?gen=${e.provenance.gen}` : `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
-            const dayLabel = e.provenance.day ? `Day ${e.provenance.day}` : (e.provenance.date || 'archive');
-            a.innerHTML = `
-              <img class="thumb" src="${ART_PATH}${e.provenance.filename}" alt="${e.provenance.title || key}" loading="lazy">
-              <div class="meta">
-                <span class="fit">${e.fitness.toFixed(4)}</span>
-                <span class="prov"> · ${dayLabel}${e.provenance.title ? ' · ' + e.provenance.title : ''}</span>
-              </div>`;
-            grid.appendChild(a);
-          } else {
-            const a = document.createElement('a');
-            a.className = 'cell filled unperformed';
-            a.href = `generative-art-generator.html?cell=${encodeURIComponent(key)}`;
-            a.innerHTML = `
-              <div class="score-only">
-                score only — not yet performed<br>
-                <span class="fit">${e.fitness.toFixed(4)}</span> · ${(e.provenance && e.provenance.source) || 'candidate'}<br>
-                <span class="perform">perform →</span>
-              </div>`;
-            grid.appendChild(a);
-          }
-        });
+        colValues.forEach(col => grid.appendChild(buildCell(keyFn(row, col), frontierFn(row, col))));
       });
-
       section.appendChild(grid);
       grids.appendChild(section);
-    });
+    };
+
+    // Flow × mech space (rows = flows, cols = mechs)
+    grounds.forEach(gr => buildGrid(
+      `${gr} ground`, flows, mechs,
+      (fc, mc) => `${fc}|${mc}|${gr}`, (fc, mc) => `${fc} / ${mc}`));
+
+    // Geometric space (rows = baseShape, cols = disorderMode)
+    grounds.forEach(gr => buildGrid(
+      `geometric — ${gr} ground`, GEO_SHAPES, GEO_MODES,
+      (s, mo) => `geo|${s}|${mo}|${gr}`, (s, mo) => `${s} / ${mo}`));
 
     // ── Legacy coordinates ──────────────────────────────────────────────
     // Characters from earlier engine versions that the current engine can no longer produce

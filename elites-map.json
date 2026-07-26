@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-25T19:41:45Z",
+  "updated": "2026-07-26T01:45:58Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -2134,6 +2134,132 @@
         "filename": "mechanical-reverie-day-098-adoration-2026-07-21.png"
       },
       "since": "2026-07-25T19:41:45Z"
+    },
+    "geo|triangle|uniform|light": {
+      "fitness": 6.805,
+      "genome": {
+        "gridCols": 7,
+        "gridRows": 7,
+        "cellPadding": 0.16019903473442018,
+        "rotation": 1.778724693285298,
+        "globalRotation": 0,
+        "paletteIndex": 10,
+        "bgDarkness": 0.1,
+        "gearDensity": 0.2684324400810375,
+        "gearComplexity": 11,
+        "chainFrequency": 0.5626257715965727,
+        "pixelDensity": 0.416764789492037,
+        "pixelSize": 4,
+        "flowScale": 0.014471346151523632,
+        "flowStrength": 2.967025772416235,
+        "particleCount": 615,
+        "clockSpeed": 0.011923218862709833,
+        "oscillation": 2.6134163165724313,
+        "wMechanical": 0.13,
+        "wPixel": 0.13,
+        "wFlow": 0.13,
+        "wGeometric": 0.9,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 1.8266901009741705,
+        "hatchSpacing": 7.48405378189403,
+        "pixelCharacter": "shard",
+        "flowCharacter": "dispersal",
+        "mechanicalCharacter": "plotter",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 3077.1781322063825,
+        "renderSeed": 1095530003.0257063,
+        "disorder": 0.65,
+        "disorderMode": "uniform",
+        "disorderAngle": 0,
+        "baseShape": 2,
+        "baseColorIndex": null,
+        "lockShape": true,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#e8e0d0",
+          "#8a8578",
+          "#1c1a16"
+        ]
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 95,
+        "day": 96,
+        "date": "2026-07-18",
+        "title": "Butterfly Swarm",
+        "filename": "mechanical-reverie-day-096-butterfly-swarm-2026-07-18.png"
+      },
+      "since": "2026-07-26T01:45:58Z"
+    },
+    "geo|rectangle|uniform|dark": {
+      "fitness": 6.805,
+      "genome": {
+        "gridCols": 13,
+        "gridRows": 10,
+        "cellPadding": 0.1,
+        "rotation": 3.141592653589793,
+        "globalRotation": 0,
+        "paletteIndex": 12,
+        "bgDarkness": 0.9,
+        "gearDensity": 0.9145863333088612,
+        "gearComplexity": 12,
+        "chainFrequency": 0.7902885518459648,
+        "pixelDensity": 0.928639826920439,
+        "pixelSize": 7,
+        "flowScale": 0.01868099472610412,
+        "flowStrength": 0.5137166175686978,
+        "particleCount": 1543,
+        "clockSpeed": 0.013138306085162352,
+        "oscillation": 2.9195489757681954,
+        "wMechanical": 0.13,
+        "wPixel": 0.13,
+        "wFlow": 0.13,
+        "wGeometric": 0.9,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 0.5486338303981015,
+        "hatchSpacing": 21.19283034030284,
+        "pixelCharacter": "grain",
+        "flowCharacter": "dispersal",
+        "mechanicalCharacter": "gear",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 431,
+        "renderSeed": 2558711814,
+        "disorder": 0.5,
+        "disorderMode": "uniform",
+        "disorderAngle": 0,
+        "baseShape": 1,
+        "baseColorIndex": 0,
+        "lockShape": true,
+        "paletteColors": [
+          "#ffffff",
+          "#cfcfcf",
+          "#9a9a9a",
+          "#6a6a6a",
+          "#e8e8e8",
+          "#050505",
+          "#808080",
+          "#303030"
+        ]
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 100,
+        "day": 99,
+        "date": "2026-07-25",
+        "title": "Continuous Mobile",
+        "filename": "mechanical-reverie-day-099-continuous-mobile-2026-07-25.png"
+      },
+      "since": "2026-07-26T01:45:58Z"
     }
   },
   "challengeLog": [
@@ -3624,6 +3750,22 @@
       "incumbentFitness": null,
       "result": "placed-empty",
       "source": "seed gen 97"
+    },
+    {
+      "ts": "2026-07-26T01:45:58Z",
+      "cell": "geo|triangle|uniform|light",
+      "challengerFitness": 6.805,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 95"
+    },
+    {
+      "ts": "2026-07-26T01:45:58Z",
+      "cell": "geo|rectangle|uniform|dark",
+      "challengerFitness": 6.805,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 100"
     }
   ],
   "frontierState": {
