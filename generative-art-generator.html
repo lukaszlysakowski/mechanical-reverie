@@ -2577,6 +2577,88 @@ function frontierSearch(cellKey, fresh = 12, polishPerParent = 3) {
   })), null, 2);
 }
 
+// ── Geometric frontier search (MAP-Elites Phase 3, geometric space) ──
+// Geo cell key: geo|{shape}|{mode}|{ground}. Locks baseShape, disorderMode and ground register,
+// and forces a shape-locked, geometric-dominant composition (wGeometric high, every other layer
+// gated ≤0.20) so EVERY candidate classifies to THIS geo cell — a candidate that let its flow or
+// mech weight rise would fall into the flow×mech space instead. Searches the expressive geometric
+// params: disorder amount, grid, padding, seed. Palette follows the ground register (newsprint ink
+// on light; silver on black). Same window interface + return shape as frontierSearch, so the FD3–FD5
+// save / certify / seed / challenge steps are identical.
+function geoFrontierSearch(cellKey, fresh = 12, polishPerParent = 3) {
+  const parts = cellKey.split('|');
+  if (parts.length !== 4 || parts[0] !== 'geo') return 'invalid geo cell key: ' + cellKey;
+  const [, shapeName, mode, ground] = parts;
+  const SHAPES = ['circle', 'rectangle', 'triangle', 'diamond', 'cross'];
+  const shapeIdx = SHAPES.indexOf(shapeName);
+  if (shapeIdx < 0) return 'unknown shape: ' + shapeName;
+  if (!['uniform', 'radial', 'linear'].includes(mode)) return 'unknown disorder mode: ' + mode;
+
+  // Ground register → monochrome substrate (the geometric idiom is ink-on-ground).
+  const darkPal  = ['#ffffff', '#cfcfcf', '#9a9a9a', '#6a6a6a', '#e8e0d4', '#050505', '#808080', '#303030'];
+  const pal = ground === 'dark' ? darkPal : palettes[10].slice();   // dark: silver on black · light: newsprint
+  const baseColorIdx = ground === 'dark' ? 0 : 1;                   // white ink on black · black ink on cream
+
+  const lock = g => {
+    g.baseShape = shapeIdx;
+    g.lockShape = true;
+    g.baseColorIndex = baseColorIdx;
+    // render() draws the lowest-weight `layerCount` layers; the geometric layer is the HIGHEST
+    // weight here, so it sorts last and needs the full stack of 6 to be reached and drawn.
+    // Without this, a random low layerCount silently excludes it → a blank canvas.
+    g.layerCount = 6;
+    g.disorderMode = mode;
+    if (g.disorder == null || isNaN(g.disorder)) g.disorder = rand(0.35, 0.70);
+    g.disorder = clamp(g.disorder, 0.20, 0.85);                     // keep the collapse expressive
+    g.disorderAngle = (mode === 'linear') ? (g.disorderAngle ?? rand(0, Math.PI)) : 0;
+    g.symmetry = 0;
+    // Geometric-dominant, everything else gated → classifies to the geo cell AND earns the
+    // pure single-character credit (wGeometric ≥ 0.85, all others ≤ 0.20).
+    g.wGeometric = rand(0.85, 0.95);
+    g.wFlow = rand(0.08, 0.18); g.wMechanical = rand(0.08, 0.18);
+    g.wPixel = rand(0.08, 0.18); g.wOrganic = rand(0.08, 0.18); g.wHatch = rand(0.08, 0.18);
+    g.gridCols = clamp(Math.round(g.gridCols || 10), 6, 14);        // legible + pure-credit gridCols range
+    g.gridRows = clamp(Math.round(g.gridCols * 0.78), 4, 12);
+    g.cellPadding = clamp(g.cellPadding ?? 0.12, 0.05, 0.25);
+    g.paletteIndex = ground === 'dark' ? 12 : 10;
+    g.paletteColors = pal.slice();                                  // literal → immune to the dynamic-slot clobber
+    g.bgDarkness = ground === 'dark' ? rand(0.82, 0.92) : rand(0.05, 0.16);
+    return g;
+  };
+
+  const phase1 = [];
+  for (let i = 0; i < fresh; i++) {
+    const g = lock(generateGenome());
+    phase1.push({ genome: g, fitness: calculateFitness(g), phase: 1 });
+  }
+  phase1.sort((a, b) => b.fitness - a.fitness);
+
+  const phase2 = [];
+  for (const parent of phase1.slice(0, 3)) {
+    for (let j = 0; j < polishPerParent; j++) {
+      const child = lock(mutateGenome(parent.genome, 0.10));         // lock re-applies after mutation
+      phase2.push({ genome: child, fitness: calculateFitness(child), phase: 2 });
+    }
+  }
+
+  const all = [...phase1, ...phase2].sort((a, b) => b.fitness - a.fitness);
+  window.__frontierCandidates = all.map(c => ({ genome: c.genome, fitness: c.fitness }));
+  window.__frontierBest = all[0].genome;
+  render(all[0].genome, 0);
+
+  const sub = document.querySelector('.subtitle');
+  if (sub) {
+    sub.textContent = `Geo frontier search — ${shapeName} / ${mode} / ${ground} — best ${all[0].fitness.toFixed(4)} of ${all.length}`;
+    sub.style.color = '#d4af37';
+  }
+  return JSON.stringify(all.slice(0, 6).map(c => ({
+    fitness: c.fitness.toFixed(4), phase: c.phase,
+    baseShape: SHAPES[c.genome.baseShape], disorder: c.genome.disorder?.toFixed(2),
+    disorderMode: c.genome.disorderMode, gridCols: c.genome.gridCols,
+    bgDarkness: c.genome.bgDarkness?.toFixed(2)
+  })), null, 2);
+}
+
 // ── Initial render ──
 // Load ancestry + tweet themes on startup, then render
 Promise.all([loadTweetThemes(), loadSelectedGenomes(), loadVisualThemes()]).then(async () => {
