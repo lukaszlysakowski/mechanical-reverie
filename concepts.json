@@ -157,7 +157,7 @@
     {
       "id": "order-and-disorder",
       "title": "Order & Disorder",
-      "thesis": "The central drama of the 60s plotter canon — Molnár's 1% of disorder, Nees's tumbling Schotter squares, Mohr's exhaustive rigor — and, since engine v3.1.0, a literal parameter of this archive's own instrument. These are the days where systematic order and its collapse are the subject: magic squares, perfect centrosymmetry, grid subdivision, and a thunderstorm crossing a rain-gauge network as the disorder dial's first assignment.",
+      "thesis": "The central drama of the 60s plotter canon — Molnár's 1% of disorder, Nees's tumbling Schotter squares, Mohr's exhaustive rigor — and, since engine v3.1.0, a literal parameter of this archive's own instrument. These are the days where systematic order and its collapse are the subject: magic squares, perfect centrosymmetry, grid subdivision, and a thunderstorm crossing a rain-gauge network as the disorder dial's first assignment. In late July the dial showed its full span in the archive's own voice: Le Parc's rectangles held at rigorous kinetic order (Continuous Mobile), then Voci's S.C.A.M let the same rectangles collapse into a heap of obsolete screens — one instrument, both poles.",
       "members": [
         {
           "gen": 52,
@@ -499,6 +499,25 @@
         {
           "gen": 95,
           "why": "Day 96 — Nees's Schmetterlingsschwarm: geometric wing-forms tumbling into scatter by the disorder dial named after his Schotter"
+        }
+      ]
+    },
+    {
+      "id": "the-frontier",
+      "title": "The Frontier",
+      "thesis": "On days the source feed rests, the engine does not sleep — it charts its own possibility space. These are Phase 3 of the Atlas (MAP-Elites): pieces composed not to answer a tweet but to fill an empty cell in the map, or to unseat a stale one. The Mill came first — a vortex crossed with gears on paper, cartographer-mode, claiming ground the engine had never worked. The Harmonic Analyzer followed in challenger-mode, a gear train computing wave interference that dethroned a cell held since spring. Where every other room is the archive reasoning about the world's history, this is the archive reasoning about ITSELF — the drawing machine surveying the territory it can reach and drawing its own map. After Cohen: not the drawing, but the program that knows what it can draw.",
+      "link": {
+        "href": "atlas.html",
+        "label": "See the Atlas →"
+      },
+      "members": [
+        {
+          "gen": 98,
+          "why": "First frontier entry (F-001). Cartographer-mode: claimed the empty cell vortex|gear|light — a spiral eye with gears on newsprint, ground the engine had never charted."
+        },
+        {
+          "gen": 99,
+          "why": "Frontier F-002, challenger-mode: a mathematical×gear duet (a harmonic analyzer — gears computing wave interference) that dethroned Day 74's mature cell. The first time a frontier piece improved on a standing elite."
         }
       ]
     }
