@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-25",
+  "updated": "2026-07-26",
   "concepts": [
     {
       "id": "bell-labs",
@@ -202,6 +202,10 @@
         {
           "gen": 100,
           "why": "Le Parc's kinetic square-grid IS order-and-disorder made optical — a rigorous grid whose per-cell rotation (the engine's disorder dial, named after Nees's Schotter) generates shimmer. The hand-made twin of algorithmic Schotter."
+        },
+        {
+          "gen": 101,
+          "why": "The disorder dial at its COLLAPSE pole — where Le Parc (gen 100) held a rigorous kinetic grid with the same rectangle vocabulary, Voci's S.C.A.M lets it tumble into a heap of obsolete screens. Order and its collapse, the two ends of one instrument."
         }
       ]
     },
@@ -225,6 +229,10 @@
         {
           "gen": 80,
           "why": "The Computer Art Society's U.S. chairman"
+        },
+        {
+          "gen": 101,
+          "why": "The NYIT Computer Graphics Lab (Alvy Ray Smith, Ed Catmull) — the seminal early-CGI institution whose pipeline seeded modern computer graphics and Pixar; Peter Voci's S.C.A.M and Bob came out of it."
         }
       ]
     },

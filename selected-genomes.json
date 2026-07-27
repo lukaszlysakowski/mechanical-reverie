@@ -6273,5 +6273,100 @@
     "keyDetails": "Julio Le Parc — Mobile Lumalina Sur Noir (1962) / Six Double Mirrors (1966), Di Tella Institute 1967. NB original thread, 18 likes.",
     "description": "Julio Le Parc (b. 1928), Argentine kinetic and op artist and founder of GRAV (Groupe de Recherche d'Art Visuel, Paris 1960; Grand Prize, 1966 Venice Biennale), turned rigorous grids into optical movement. Noah posted a 1967 clip of 'Le Parc: Centro de Artes Visuales' at the Instituto Torcuato Di Tella in Buenos Aires, showing Six Double Mirrors (1966) and two Continuous Mobiles — Mobile Lumalina Sur Noir (1962, silver squares on black) and Mobile Blanc Sur Blanc (white on white). All three share one signature: a grid of small square cells, each independently rotated to catch light, so shimmer and instability emerge FROM order rather than against it. That is precisely the engine's disorder dial — the Schotter mechanism named after Georg Nees — and the resonance is the point: Le Parc rotating mirror-squares by hand (1962-66) and Nees rotating squares by algorithm (1968) are the same gesture, kinetic op art meeting algorithmic op art. The render translates Mobile Lumalina Sur Noir: a field of tilted silver and white squares at varied brightness on a black void (custom palette, bgDarkness 0.90), geometric weight 0.90 with every other layer gated to 0.13, disorder 0.50 uniform rotating and lighting each cell. It needed a new engine capability, lockShape (v3.5.0): the disorder dial now rotates and varies the brightness of every cell while keeping each one a SQUARE — faithful both to Le Parc's constraint and to true Nees Schotter, which never changes shape either. The 100th piece in the archive.",
     "condensedReason": "Julio Le Parc (b. 1928), Argentine kinetic and op artist and founder of GRAV (Groupe de Recherche d'Art Visuel, Paris 1960; Grand Prize, 1966 Venice Biennale), turned rigorous grids into optical movement. Noah posted a 1967 clip of 'Le Parc: Centro de Artes Visuales' at the Instituto Torcuato Di Tella in Buenos Aires, showing Six Double Mirrors (1966) and two Continuous Mobiles — Mobile Lumalina Sur Noir (1962, silver squares on black) and Mobile Blanc Sur Blanc (white on white). All three share one signature: a grid of small square cells, each independently rotated to catch light, so shimmer and instability emerge FROM order rather than against it. That is precisely the engine's disorder dial — the Schotter mechanism named after Georg Nees — and the resonance is the point: Le Parc rotating mirror-squares by hand (1962-66) and Nees rotating squares by algorithm (1968) are the same gesture, kinetic op art meeting algorithmic op art. The render translates Mobile Lumalina Sur Noir: a field of tilted silver and white squares at varied brightness on a black void (custom palette, bgDarkness 0.90), geometric weight 0.90 with every other layer gated to 0.13, disorder 0.50 uniform rotating and lighting each cell. It needed a new engine capability, lockShape (v3.5.0): the disorder dial now rotates and varies the brightness of every cell while keeping each one a SQUARE — faithful both to Le Parc's constraint and to true Nees Schotter, which never changes shape either. The 100th piece in the archive."
+  },
+  {
+    "day": 100,
+    "date": "2026-07-26",
+    "title": "S.C.A.M.",
+    "filename": "mechanical-reverie-day-100-scam-2026-07-26.png",
+    "fitness": 6.805,
+    "engineVersion": "v3.5.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "7defe9c8808c6d001e59357db6df66d3070a985efcd867e8d5f53c2bff75867b",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.5.0",
+      "renderSeed": 1076668446,
+      "noiseSeed": 431
+    },
+    "genome": {
+      "gridCols": 12,
+      "gridRows": 9,
+      "cellPadding": 0.1,
+      "rotation": 3.141592653589793,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.12,
+      "gearDensity": 0.9548285596177144,
+      "gearComplexity": 18,
+      "chainFrequency": 0.45548316777390074,
+      "pixelDensity": 0.4735032853634209,
+      "pixelSize": 4,
+      "flowScale": 0.01970297193836478,
+      "flowStrength": 1.187014444519407,
+      "particleCount": 1701,
+      "clockSpeed": 0.017852480814354657,
+      "oscillation": 2.5869680398464556,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.13,
+      "wGeometric": 0.9,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 1.55865581147956,
+      "hatchSpacing": 7.67464636616981,
+      "pixelCharacter": "data",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 431,
+      "renderSeed": 1076668446,
+      "disorder": 0.62,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "baseShape": 1,
+      "baseColorIndex": 1,
+      "lockShape": true,
+      "paletteColors": [
+        "#ecebe2",
+        "#cabfa8",
+        "#a89e84",
+        "#6e6858",
+        "#c2cdd8",
+        "#d6cfbf",
+        "#8a8474",
+        "#3a362c"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Day 100. Voci's S.C.A.M rendered as an accumulation of screen-rectangles — the disorder dial at its collapse pole, counterpoint to Day 99 Le Parc's ordered grid (same rectangle+dial vocabulary, opposite register). Pure single-character geometric (wGeo 0.90, rest 0.13) → pure-composition credit, 6.8050. lockShape keeps every cell a rectangle; custom beige-computer palette with CRT-glow accents. First NB daily to land in the new geometric atlas space (geo|rectangle|uniform|light). Bob (the 3D face) declined — figurative, and not a true wash/colorfield subject.",
+      "condensedReason": "Peter Voci made 'S.C.A.M: Starving Computer Artist's Market' (1992) at the New York Institute of Technology Computer Graphics Lab — the seminal early-CGI institution (Alvy Ray Smith, Ed Catmull and the pipeline that seeded Pixar). The piece ropes off a mound of obsolete beige computers and CRT monitors like a museum relic: a satire on the computer artist's precarity and the ruthless obsolescence of the medium's own tools. Noah paired it with 'Bob' (1988), an early smooth-shaded 3D face seen in the same clip. Bob is figurative and its gradient sky would tempt the wash colorfield, but the subject is a face, not a field — so wash stays holstered, the same discipline that kept it off the Strom galaxy. The render takes the main tweet's one translatable signature: an accumulation of rectangular SCREEN-forms, a field of monitors some of them lit. It is the engine's disorder dial near its COLLAPSE pole — a deliberate counterpoint to Day 99's Le Parc, where the same rectangle-and-dial vocabulary held a rigorous kinetic grid; here it tumbles. wGeometric 0.90 with every other layer gated to 0.13, baseShape rectangle with lockShape (a coherent field of one form), disorder 0.62 uniform, in a custom '90s beige-plastic palette with CRT-blue and bright screen-glow accents on a pale room-floor ground. It lands in the archive's new geometric atlas space — geo|rectangle|uniform|light — the first NB daily to populate it. The 101st piece, and Day 100."
+    },
+    "tweetSummary": "NB original thread on Peter Voci / NYIT Computer Graphics Lab: 'S.C.A.M: Starving Computer Artist's Market' (1992) — a roped-off pile of obsolete beige computers satirizing the computer artist's precarity — plus 'Bob' (1988), an early smooth-shaded 3D face.",
+    "keyArtists": [
+      {
+        "name": "Peter Voci",
+        "role": "computer artist/animator, NYIT Computer Graphics Lab",
+        "relevance": "S.C.A.M (1992) satirizes computer-art obsolescence; Bob (1988) exemplifies NYIT's pioneering smooth-shaded 3D rendering."
+      },
+      {
+        "name": "NYIT Computer Graphics Lab",
+        "role": "seminal early-CGI institution",
+        "relevance": "Alvy Ray Smith / Ed Catmull era — the lineage that led to modern CGI and Pixar."
+      }
+    ],
+    "themes": [
+      "obsolescence / the medium eats its tools",
+      "the screen as unit",
+      "order collapsing",
+      "NYIT",
+      "early CGI"
+    ],
+    "keyDetails": "Peter Voci / NYIT — 'S.C.A.M: Starving Computer Artist's Market' (1992). NB original thread, 28 likes. Day 100.",
+    "description": "Peter Voci made 'S.C.A.M: Starving Computer Artist's Market' (1992) at the New York Institute of Technology Computer Graphics Lab — the seminal early-CGI institution (Alvy Ray Smith, Ed Catmull and the pipeline that seeded Pixar). The piece ropes off a mound of obsolete beige computers and CRT monitors like a museum relic: a satire on the computer artist's precarity and the ruthless obsolescence of the medium's own tools. Noah paired it with 'Bob' (1988), an early smooth-shaded 3D face seen in the same clip. Bob is figurative and its gradient sky would tempt the wash colorfield, but the subject is a face, not a field — so wash stays holstered, the same discipline that kept it off the Strom galaxy. The render takes the main tweet's one translatable signature: an accumulation of rectangular SCREEN-forms, a field of monitors some of them lit. It is the engine's disorder dial near its COLLAPSE pole — a deliberate counterpoint to Day 99's Le Parc, where the same rectangle-and-dial vocabulary held a rigorous kinetic grid; here it tumbles. wGeometric 0.90 with every other layer gated to 0.13, baseShape rectangle with lockShape (a coherent field of one form), disorder 0.62 uniform, in a custom '90s beige-plastic palette with CRT-blue and bright screen-glow accents on a pale room-floor ground. It lands in the archive's new geometric atlas space — geo|rectangle|uniform|light — the first NB daily to populate it. The 101st piece, and Day 100.",
+    "condensedReason": "Peter Voci made 'S.C.A.M: Starving Computer Artist's Market' (1992) at the New York Institute of Technology Computer Graphics Lab — the seminal early-CGI institution (Alvy Ray Smith, Ed Catmull and the pipeline that seeded Pixar). The piece ropes off a mound of obsolete beige computers and CRT monitors like a museum relic: a satire on the computer artist's precarity and the ruthless obsolescence of the medium's own tools. Noah paired it with 'Bob' (1988), an early smooth-shaded 3D face seen in the same clip. Bob is figurative and its gradient sky would tempt the wash colorfield, but the subject is a face, not a field — so wash stays holstered, the same discipline that kept it off the Strom galaxy. The render takes the main tweet's one translatable signature: an accumulation of rectangular SCREEN-forms, a field of monitors some of them lit. It is the engine's disorder dial near its COLLAPSE pole — a deliberate counterpoint to Day 99's Le Parc, where the same rectangle-and-dial vocabulary held a rigorous kinetic grid; here it tumbles. wGeometric 0.90 with every other layer gated to 0.13, baseShape rectangle with lockShape (a coherent field of one form), disorder 0.62 uniform, in a custom '90s beige-plastic palette with CRT-blue and bright screen-glow accents on a pale room-floor ground. It lands in the archive's new geometric atlas space — geo|rectangle|uniform|light — the first NB daily to populate it. The 101st piece, and Day 100."
   }
 ]
