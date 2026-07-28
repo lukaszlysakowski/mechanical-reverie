@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-26",
+  "updated": "2026-07-27",
   "concepts": [
     {
       "id": "bell-labs",
@@ -206,6 +206,10 @@
         {
           "gen": 101,
           "why": "The disorder dial at its COLLAPSE pole — where Le Parc (gen 100) held a rigorous kinetic grid with the same rectangle vocabulary, Voci's S.C.A.M lets it tumble into a heap of obsolete screens. Order and its collapse, the two ends of one instrument."
+        },
+        {
+          "gen": 102,
+          "why": "The disorder dial's RADIAL mode made legible for the first time: a gridded centre of open circles dissolving into scattered filled dots toward the rim — order tied to distance from the centre."
         }
       ]
     },
@@ -518,6 +522,10 @@
         {
           "gen": 99,
           "why": "Frontier F-002, challenger-mode: a mathematical×gear duet (a harmonic analyzer — gears computing wave interference) that dethroned Day 74's mature cell. The first time a frontier piece improved on a standing elite."
+        },
+        {
+          "gen": 102,
+          "why": "First frontier entry in the geometric space (F-003, cartographer). The engine charts the emptiest region of its own map — a circle/radial cell it had never made — producing an op-art dot screen with order dissolving radially outward."
         }
       ]
     }

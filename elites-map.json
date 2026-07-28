@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-07-27T03:02:45Z",
+  "updated": "2026-07-28T03:45:31Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -2323,6 +2323,71 @@
         "filename": "mechanical-reverie-day-100-scam-2026-07-26.png"
       },
       "since": "2026-07-27T03:02:45Z"
+    },
+    "geo|circle|radial|light": {
+      "fitness": 6.8527,
+      "genome": {
+        "gridCols": 14,
+        "gridRows": 11,
+        "cellPadding": 0.0815534206637449,
+        "rotation": 4.396111222964693,
+        "globalRotation": -0.11802336997470952,
+        "paletteIndex": 10,
+        "bgDarkness": 0.07258254100263986,
+        "gearDensity": 0.5341411399557999,
+        "gearComplexity": 18,
+        "chainFrequency": 0.31591932200128464,
+        "pixelDensity": 0.20050714181315046,
+        "pixelSize": 7,
+        "flowScale": 0.007046539326536329,
+        "flowStrength": 1.602921541477627,
+        "particleCount": 1411,
+        "clockSpeed": 0.008296449303202457,
+        "oscillation": 1.2319748135103281,
+        "wMechanical": 0.120125582438506,
+        "wPixel": 0.09240802693800187,
+        "wFlow": 0.08448892808711285,
+        "wGeometric": 0.9329061591089297,
+        "wOrganic": 0.11086721496697041,
+        "wHatch": 0.10956860193804337,
+        "hatchAngle": 0.056710326225172025,
+        "hatchSpacing": 14.96148143131976,
+        "pixelCharacter": "mosaic",
+        "flowCharacter": "dispersal",
+        "mechanicalCharacter": "gear",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 3736.2396958526874,
+        "renderSeed": 2614236308.1731257,
+        "disorder": 0.785980552686257,
+        "disorderMode": "radial",
+        "disorderAngle": 0,
+        "baseShape": 0,
+        "baseColorIndex": 1,
+        "lockShape": true,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#e8e0d0",
+          "#8a8578",
+          "#1c1a16"
+        ]
+      },
+      "provenance": {
+        "type": "frontier",
+        "gen": 102,
+        "day": null,
+        "date": "2026-07-27",
+        "title": "Radial Halftone",
+        "filename": "mechanical-reverie-frontier-003-geo-circle-radial-light-2026-07-27.png",
+        "cell": "geo|circle|radial|light",
+        "frontierIndex": 3
+      },
+      "since": "2026-07-28T03:45:01Z"
     }
   },
   "challengeLog": [
@@ -3837,10 +3902,186 @@
       "incumbentFitness": null,
       "result": "placed-empty",
       "source": "seed gen 101"
+    },
+    {
+      "ts": "2026-07-28T03:45:01Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.8527,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 102"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.8527,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.8243,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.8039,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.8018,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.791,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7876,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7851,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.784,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7839,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7755,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7728,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7541,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7475,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7441,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.739,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7374,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7245,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7187,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.7127,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.6977,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-07-28T03:45:31Z",
+      "cell": "geo|circle|radial|light",
+      "challengerFitness": 6.6967,
+      "incumbentFitness": 6.8527,
+      "result": "held",
+      "source": "Frontier F-003"
     }
   ],
   "frontierState": {
-    "lastMode": "challenger",
+    "lastMode": "cartographer",
     "history": [
       {
         "ts": "2026-07-23T04:54:38Z",
@@ -3852,6 +4093,12 @@
         "ts": "2026-07-25T05:04:12Z",
         "mode": "challenger",
         "cell": "mathematical|gear|light",
+        "pickedBy": "manual"
+      },
+      {
+        "ts": "2026-07-28T03:42:05Z",
+        "mode": "cartographer",
+        "cell": "geo|circle|radial|light",
         "pickedBy": "manual"
       }
     ]
