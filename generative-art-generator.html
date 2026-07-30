@@ -218,7 +218,7 @@ let W = canvas.width, H = canvas.height;
 // v3.3.0 — additive, opt-in: flowCharacter 'convergence' — a deterministic op-art ruled lattice
 // (Vidal / Mac Entyre / Le Parc): curve-stitch line fans whose envelopes trace parabolas, tiled on
 // a node grid, with moiré. Also not in FLOW_CHARS. No existing genome renders differently.
-const ENGINE_VERSION = 'v3.5.0';
+const ENGINE_VERSION = 'v3.6.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1092,7 +1092,7 @@ function render(g, t = 0) {
   ctx.restore();
 
   // Frame vignette
-  drawVignette();
+  drawVignette(g);
 
   // Update stats
   fitnessScore = calculateFitness(g);
@@ -1977,10 +1977,16 @@ function drawHatch(g, pal, t) {
   ctx.globalAlpha = 1;
 }
 
-function drawVignette() {
+function drawVignette(g) {
+  // v3.6.0: vignette strength is a genome parameter. Default 0.6 preserves every prior render
+  // bit-identically (absent → 0.6). Set g.vignetteStrength = 0 for a FLAT ground — right for
+  // sources that are prints/diagrams on paper (e.g. a Julesz random-dot stereogram), where the
+  // moody dark-edge framing would falsify the flat white substrate.
+  const strength = (g && typeof g.vignetteStrength === 'number') ? g.vignetteStrength : 0.6;
+  if (strength <= 0) return;
   const gradient = ctx.createRadialGradient(W / 2, H / 2, W * 0.25, W / 2, H / 2, W * 0.7);
   gradient.addColorStop(0, 'rgba(0,0,0,0)');
-  gradient.addColorStop(1, 'rgba(0,0,0,0.6)');
+  gradient.addColorStop(1, `rgba(0,0,0,${strength})`);
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, W, H);
 }

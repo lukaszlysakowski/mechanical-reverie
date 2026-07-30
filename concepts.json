@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-27",
+  "updated": "2026-07-29",
   "concepts": [
     {
       "id": "bell-labs",
@@ -50,6 +50,10 @@
         {
           "gen": 91,
           "why": "Day 92 — Leon Harmon's block portraits, the Bell Labs face-perception research reduced to a grid of averaged gray tones"
+        },
+        {
+          "gen": 103,
+          "why": "Bela Julesz invented the random-dot stereogram at Bell Labs — computer-generated noise concealing depth the eye alone can fuse. A cornerstone of the Bell Labs computation-meets-perception legacy, paired with John R. Pierce's own words."
         }
       ]
     },
@@ -210,6 +214,10 @@
         {
           "gen": 102,
           "why": "The disorder dial's RADIAL mode made legible for the first time: a gridded centre of open circles dissolving into scattered filled dots toward the rim — order tied to distance from the centre."
+        },
+        {
+          "gen": 103,
+          "why": "Order hidden IN randomness: a field that looks like pure noise but conceals structure only binocular fusion reveals. Pierce, 1968: mathematical order is not the order the senses perceive — the disorder dial's theme, proved perceptually."
         }
       ]
     },
