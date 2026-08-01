@@ -161,7 +161,7 @@
     {
       "id": "order-and-disorder",
       "title": "Order & Disorder",
-      "thesis": "The central drama of the 60s plotter canon — Molnár's 1% of disorder, Nees's tumbling Schotter squares, Mohr's exhaustive rigor — and, since engine v3.1.0, a literal parameter of this archive's own instrument. These are the days where systematic order and its collapse are the subject: magic squares, perfect centrosymmetry, grid subdivision, and a thunderstorm crossing a rain-gauge network as the disorder dial's first assignment. In late July the dial showed its full span in the archive's own voice: Le Parc's rectangles held at rigorous kinetic order (Continuous Mobile), then Voci's S.C.A.M let the same rectangles collapse into a heap of obsolete screens — one instrument, both poles.",
+      "thesis": "The central drama of the 60s plotter canon — Molnár's 1% of disorder, Nees's tumbling Schotter squares, Mohr's exhaustive rigor — and, since engine v3.1.0, a literal parameter of this archive's own instrument. These are the days where systematic order and its collapse are the subject: magic squares, perfect centrosymmetry, grid subdivision, and a thunderstorm crossing a rain-gauge network as the disorder dial's first assignment. In late July the dial showed its full span in the archive's own voice: Le Parc's rectangles held at rigorous kinetic order (Continuous Mobile), then Voci's S.C.A.M let the same rectangles collapse into a heap of obsolete screens — one instrument, both poles. Norbert Wiener gave that drama its physics: in The Human Use of Human Beings (1950) he called living things and machines alike 'pockets of decreasing entropy' resisting the universe's drift toward disorder — the disorder dial is that thought made a knob.",
       "members": [
         {
           "gen": 52,
@@ -479,7 +479,7 @@
     {
       "id": "arte-y-cibernetica",
       "title": "Arte y Cibernética",
-      "thesis": "Latin America built its own computer and generative art, and often got there first. In Buenos Aires, Miguel Ángel Vidal and Eduardo Mac Entyre launched Arte Generativo at the turn of the 1960s — optical form generated from families of ruled lines — and by 1969 Jorge Glusberg's CAyC (Centro de Arte y Comunicación) was staging Arte y Cibernética, a landmark of cybernetic art in the global South. This wing collects that southern lineage, a parallel to the northern canon of Bell Labs and Stuttgart. It opens with one work and waits for its neighbours — Mac Entyre, Cordeiro, Le Parc, the whole generative South.",
+      "thesis": "Latin America built its own computer and generative art, and often got there first. In Buenos Aires, Miguel Ángel Vidal and Eduardo Mac Entyre launched Arte Generativo at the turn of the 1960s — optical form generated from families of ruled lines — and by 1969 Jorge Glusberg's CAyC (Centro de Arte y Comunicación) was staging Arte y Cibernética, a landmark of cybernetic art in the global South. This wing collects that southern lineage, a parallel to the northern canon of Bell Labs and Stuttgart. It opens with one work and waits for its neighbours — Mac Entyre, Cordeiro, Le Parc, the whole generative South. The word in the room's name is Norbert Wiener's: he coined cybernetics — control and communication in the animal and the machine — and his The Human Use of Human Beings (1950) is the field's conscience. These artists worked inside the science of the feedback loop; so does this engine, whose fitness function is a loop of its own.",
       "members": [
         {
           "gen": 92,
