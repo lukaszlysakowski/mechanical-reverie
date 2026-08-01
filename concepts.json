@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-29",
+  "updated": "2026-07-31",
   "concepts": [
     {
       "id": "bell-labs",
@@ -364,6 +364,10 @@
         {
           "gen": 39,
           "why": "Screen Anthem — flat-color marks on a navy sea"
+        },
+        {
+          "gen": 104,
+          "why": "The other artist at the 1985 Amiga screen: where Haring brought subway-chalk outline, Warhol brought garish RGB pop-portraiture. Whose Hand renders that digital-pop palette (electric blue / yellow / red on navy) — and Noah's question of the artist's hand vs the machine's demo, which is this archive's own."
         }
       ]
     },

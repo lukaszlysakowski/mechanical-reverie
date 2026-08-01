@@ -6549,5 +6549,97 @@
     "keyDetails": "Bela Julesz — Computer-Generated Stereogram (Bell Labs, 1965/66). NB thread, 115 likes. A random-dot stereogram.",
     "description": "Bela Julesz invented the random-dot stereogram at Bell Labs (1959-60): a field of computer-generated random black-and-white dots that reads as pure noise, yet — fused binocularly — reveals a hidden 3D figure (nested concentric squares) from disparity alone, with no monocular cue. Noah acquired the sole surviving 1966 lucite vectographic print, gifted at Bell Labs' 'The Human Use of Computing Machines' symposium, and paired it with John R. Pierce's 1968 remark that mathematical order has 'demonstrably' little to do with the order the senses perceive — Julesz's proof that the eye finds form the mathematics cannot. The engine's 'data' pixelCharacter was built for exactly this ('binary on/off, structured rows, high contrast — Julesz random-dot stereograms'), so the 'change the program' move was already made; the render is MR's OWN random-dot field — unmistakably a stereogram, but a freshly generated one, not a copy of the print (no red text, lucite, or traced hidden figure). wPixel 0.92 with every other layer gated to 0.13, pixelCharacter 'data', pure black square dots on flat white (pixelDensity 0.42). The one lever this needed became a new engine capability: the frame vignette is now a genome parameter (v3.6.0), set to 0 so the substrate reads as flat white PAPER — a print, not a moody lit scene. And the hidden order stays hidden, exactly as Pierce insisted: the structure is there, but not for mathematics or ordinary sight to see.",
     "condensedReason": "Bela Julesz invented the random-dot stereogram at Bell Labs (1959-60): a field of computer-generated random black-and-white dots that reads as pure noise, yet — fused binocularly — reveals a hidden 3D figure (nested concentric squares) from disparity alone, with no monocular cue. Noah acquired the sole surviving 1966 lucite vectographic print, gifted at Bell Labs' 'The Human Use of Computing Machines' symposium, and paired it with John R. Pierce's 1968 remark that mathematical order has 'demonstrably' little to do with the order the senses perceive — Julesz's proof that the eye finds form the mathematics cannot. The engine's 'data' pixelCharacter was built for exactly this ('binary on/off, structured rows, high contrast — Julesz random-dot stereograms'), so the 'change the program' move was already made; the render is MR's OWN random-dot field — unmistakably a stereogram, but a freshly generated one, not a copy of the print (no red text, lucite, or traced hidden figure). wPixel 0.92 with every other layer gated to 0.13, pixelCharacter 'data', pure black square dots on flat white (pixelDensity 0.42). The one lever this needed became a new engine capability: the frame vignette is now a genome parameter (v3.6.0), set to 0 so the substrate reads as flat white PAPER — a print, not a moody lit scene. And the hidden order stays hidden, exactly as Pierce insisted: the structure is there, but not for mathematics or ordinary sight to see."
+  },
+  {
+    "day": 102,
+    "date": "2026-07-31",
+    "title": "Whose Hand",
+    "filename": "mechanical-reverie-day-102-whose-hand-2026-07-31.png",
+    "fitness": 6.505,
+    "engineVersion": "v3.6.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "53e28e1516e566fed8f4c32ee2d01f24f26fba86a6efea34d57d3e5ef6eaddf4",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.6.0",
+      "renderSeed": 3034907334,
+      "noiseSeed": 431
+    },
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 12,
+      "cellPadding": 0.19613073308736817,
+      "rotation": 6.117256218785919,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.78,
+      "gearDensity": 0.9177058356814771,
+      "gearComplexity": 7,
+      "chainFrequency": 0.4645037163264373,
+      "pixelDensity": 0.5,
+      "pixelSize": 22,
+      "flowScale": 0.02,
+      "flowStrength": 3.9499647307896204,
+      "particleCount": 1626,
+      "clockSpeed": 0.01945090589075961,
+      "oscillation": 0.5186535237444321,
+      "wMechanical": 0.13,
+      "wPixel": 0.9,
+      "wFlow": 0.13,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 2.5771572409681607,
+      "hatchSpacing": 10.847723717953027,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 431,
+      "renderSeed": 3034907334,
+      "disorder": 0.3,
+      "disorderMode": "uniform",
+      "disorderAngle": 6.175153691546224,
+      "paletteColors": [
+        "#00b4ff",
+        "#ffe000",
+        "#ff2a1a",
+        "#00b4ff",
+        "#ffe000",
+        "#0a0a2e",
+        "#ff28b4",
+        "#ff8400"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Warhol's 1985 Amiga works via the digital-pop aesthetic, NOT his face (anchor: connect, don't illustrate). Chunky 'mosaic' pop-pixels in the self-portrait's electric-blue/yellow/red RGB on navy, CRT vignette left on. The title answers Noah's attribution nuance ('whose hand — artist, engineer, or machine') — which is MR's own question (engine/Claude/user/Noah). Pure single-character pixel (wPixel 0.90). Bell Labs-era? No — Commodore/Amiga; joins Haring at the Screen (Amiga/digital-pop) + Prediction Fulfilled (the machine as artist's hand).",
+      "condensedReason": "In 1985 Commodore commissioned Andy Warhol to demonstrate the Amiga 1000, and he made digital works in GraphiCraft — the famous Debbie Harry portrait, self-portraits, flowers — dithered, high-saturation pixel graphics in the machine's garish RGB palette. Noah shows a self-portrait from the 'Greenbaum floppy disk' (eight animated works made WITH the Commodore engineer who taught Warhol the Amiga) and draws a sharp line: these are hard to attribute to Warhol's hand — 'more a demo of tech capability' — against the works verifiably his. The resonance the engine seized is authorship itself: whose hand made it — the artist's, the engineer's, the machine's? That is Mechanical Reverie's own question. So, per the anchor — connect but never illustrate — the render does not redraw Warhol's face; it makes the Amiga digital-pop AESTHETIC its own: chunky dithered pop-pixels (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the self-portrait's electric blue, yellow and red with magenta and orange accents, on a deep navy CRT ground, the frame's vignette left on to read as a glowing screen. The machine makes its own 'demo of tech capability' — the same ambiguity Warhol's Amiga works pose, now posed by the engine. Whose hand, indeed."
+    },
+    "tweetSummary": "NB thread (50 likes) on Andy Warhol's 1985 Amiga works — the Greenbaum floppy disk made with a Commodore engineer — and the question of whose hand made them: the artist's, or a demo of tech capability.",
+    "keyArtists": [
+      {
+        "name": "Andy Warhol",
+        "role": "pop artist; digital works on the Amiga 1000 (1985)",
+        "relevance": "A landmark pop-meets-computer moment; the Greenbaum-disk pieces raise the artist's-hand-vs-machine-demo question."
+      },
+      {
+        "name": "Commodore / Amiga (Greenbaum disk)",
+        "role": "the engineer who taught Warhol the machine and co-made the demo works",
+        "relevance": "The collaboration blurs authorship — art or tech demonstration."
+      }
+    ],
+    "themes": [
+      "digital pop — the Amiga palette",
+      "whose hand? — machine authorship",
+      "the low-res pixel",
+      "Commodore Amiga",
+      "Warhol"
+    ],
+    "keyDetails": "Andy Warhol — Amiga works (1985, Greenbaum floppy disk). NB thread, 50 likes. Whose hand — artist, engineer, or machine?",
+    "description": "In 1985 Commodore commissioned Andy Warhol to demonstrate the Amiga 1000, and he made digital works in GraphiCraft — the famous Debbie Harry portrait, self-portraits, flowers — dithered, high-saturation pixel graphics in the machine's garish RGB palette. Noah shows a self-portrait from the 'Greenbaum floppy disk' (eight animated works made WITH the Commodore engineer who taught Warhol the Amiga) and draws a sharp line: these are hard to attribute to Warhol's hand — 'more a demo of tech capability' — against the works verifiably his. The resonance the engine seized is authorship itself: whose hand made it — the artist's, the engineer's, the machine's? That is Mechanical Reverie's own question. So, per the anchor — connect but never illustrate — the render does not redraw Warhol's face; it makes the Amiga digital-pop AESTHETIC its own: chunky dithered pop-pixels (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the self-portrait's electric blue, yellow and red with magenta and orange accents, on a deep navy CRT ground, the frame's vignette left on to read as a glowing screen. The machine makes its own 'demo of tech capability' — the same ambiguity Warhol's Amiga works pose, now posed by the engine. Whose hand, indeed.",
+    "condensedReason": "In 1985 Commodore commissioned Andy Warhol to demonstrate the Amiga 1000, and he made digital works in GraphiCraft — the famous Debbie Harry portrait, self-portraits, flowers — dithered, high-saturation pixel graphics in the machine's garish RGB palette. Noah shows a self-portrait from the 'Greenbaum floppy disk' (eight animated works made WITH the Commodore engineer who taught Warhol the Amiga) and draws a sharp line: these are hard to attribute to Warhol's hand — 'more a demo of tech capability' — against the works verifiably his. The resonance the engine seized is authorship itself: whose hand made it — the artist's, the engineer's, the machine's? That is Mechanical Reverie's own question. So, per the anchor — connect but never illustrate — the render does not redraw Warhol's face; it makes the Amiga digital-pop AESTHETIC its own: chunky dithered pop-pixels (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the self-portrait's electric blue, yellow and red with magenta and orange accents, on a deep navy CRT ground, the frame's vignette left on to read as a glowing screen. The machine makes its own 'demo of tech capability' — the same ambiguity Warhol's Amiga works pose, now posed by the engine. Whose hand, indeed."
   }
 ]
