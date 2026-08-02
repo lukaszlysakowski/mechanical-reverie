@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-08-01T03:38:41Z",
+  "updated": "2026-08-02T03:34:52Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -86,50 +86,66 @@
       "since": "2026-07-25T05:09:15Z"
     },
     "vortex|plotter|light": {
-      "fitness": 6.7585,
+      "fitness": 6.831,
       "genome": {
-        "gridCols": 7,
-        "gridRows": 6,
-        "cellPadding": 0.16165678570441636,
-        "rotation": 2.529774028490078,
-        "globalRotation": -0.1303638860541492,
-        "paletteIndex": 8,
-        "bgDarkness": 0.15,
+        "gridCols": 10,
+        "gridRows": 4,
+        "cellPadding": 0.18887677427205332,
+        "rotation": 4.118874626774596,
+        "globalRotation": 0,
+        "paletteIndex": 10,
+        "bgDarkness": 0.12,
         "gearDensity": 0.5,
-        "gearComplexity": 13,
-        "chainFrequency": 0.15795379581146396,
-        "pixelDensity": 0.20794719052167188,
-        "pixelSize": 2,
-        "flowScale": 0.010556867336617998,
-        "flowStrength": 1.2478918445821834,
-        "particleCount": 1893,
-        "clockSpeed": 0.01692667125955287,
-        "oscillation": 1.4243466223328136,
-        "wMechanical": 0.6,
-        "wPixel": 0.45,
-        "wFlow": 0.68,
-        "wGeometric": 0.5,
-        "wOrganic": 0.52,
-        "wHatch": 0.45,
-        "hatchAngle": 0,
-        "hatchSpacing": 11,
-        "pixelCharacter": "halftone",
+        "gearComplexity": 10,
+        "chainFrequency": 0.5,
+        "pixelDensity": 0.6016983581302833,
+        "pixelSize": 10,
+        "flowScale": 0.01,
+        "flowStrength": 2.2,
+        "particleCount": 700,
+        "clockSpeed": 0.008202943474914216,
+        "oscillation": 2.1212846353945163,
+        "wMechanical": 0.85,
+        "wPixel": 0.13,
+        "wFlow": 0.88,
+        "wGeometric": 0.13,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 2.7466617535280182,
+        "hatchSpacing": 5.226992416361401,
+        "pixelCharacter": "mosaic",
         "flowCharacter": "vortex",
         "mechanicalCharacter": "plotter",
-        "symmetry": 0.4,
+        "symmetry": 0,
         "layerCount": 6,
-        "noiseOctaves": 1,
-        "noiseSeed": 7360.394915254168
+        "noiseOctaves": 4,
+        "noiseSeed": 431,
+        "renderSeed": 2504113291,
+        "disorder": 0.15,
+        "disorderMode": "uniform",
+        "disorderAngle": 1.016160137299247,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#e8e0d0",
+          "#8a8578",
+          "#1c1a16"
+        ]
       },
       "provenance": {
-        "type": "archive-winner",
-        "gen": 80,
-        "day": 81,
-        "date": "2026-07-05",
-        "title": "Exotic Paint Brush",
-        "filename": "mechanical-reverie-day-081-exotic-paint-brush-2026-07-05.png"
+        "type": "frontier",
+        "gen": 105,
+        "day": null,
+        "date": "2026-08-01",
+        "title": "The Drawing Machine",
+        "filename": "mechanical-reverie-frontier-004-vortex-plotter-light-2026-08-01.png",
+        "cell": "vortex|plotter|light",
+        "frontierIndex": 4
       },
-      "since": "2026-07-06T15:02:49Z"
+      "since": "2026-08-02T03:34:28Z"
     },
     "biological|gear|light": {
       "fitness": 6.688,
@@ -4078,10 +4094,186 @@
       "incumbentFitness": 6.8527,
       "result": "held",
       "source": "Frontier F-003"
+    },
+    {
+      "ts": "2026-08-02T03:34:28Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 6.831,
+      "incumbentFitness": 6.7585,
+      "result": "dethroned",
+      "source": "seed gen 105"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.8225,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.7196,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.6942,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.6619,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.5651,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.5651,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.5651,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.5651,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.2672,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.0672,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.0642,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.0147,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.9701,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.9553,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.9358,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.736,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.664,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.5685,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.4946,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.1814,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-02T03:34:52Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 4.1687,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Frontier F-004"
     }
   ],
   "frontierState": {
-    "lastMode": "cartographer",
+    "lastMode": "challenger",
     "history": [
       {
         "ts": "2026-07-23T04:54:38Z",
@@ -4099,6 +4291,12 @@
         "ts": "2026-07-28T03:42:05Z",
         "mode": "cartographer",
         "cell": "geo|circle|radial|light",
+        "pickedBy": "manual"
+      },
+      {
+        "ts": "2026-08-02T03:30:57Z",
+        "mode": "challenger",
+        "cell": "vortex|plotter|light",
         "pickedBy": "manual"
       }
     ]

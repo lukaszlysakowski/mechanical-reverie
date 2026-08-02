@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-31",
+  "updated": "2026-08-01",
   "concepts": [
     {
       "id": "bell-labs",
@@ -538,6 +538,10 @@
         {
           "gen": 102,
           "why": "First frontier entry in the geometric space (F-003, cartographer). The engine charts the emptiest region of its own map — a circle/radial cell it had never made — producing an op-art dot screen with order dissolving radially outward."
+        },
+        {
+          "gen": 105,
+          "why": "Challenger-mode: dethroned the map's oldest incumbent, Day 81 'Exotic Paint Brush', in vortex|plotter|light — a vortex+plotter duet (Desmond Paul Henry drawing-machine arcs over spiralling hair-lines). The drawing machine besting an older self, via the duet credit the engine learned since."
         }
       ]
     }
