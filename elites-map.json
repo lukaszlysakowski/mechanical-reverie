@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-08-02T03:34:52Z",
+  "updated": "2026-08-03T03:08:46Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -2404,6 +2404,71 @@
         "frontierIndex": 3
       },
       "since": "2026-07-28T03:45:01Z"
+    },
+    "geo|diamond|linear|light": {
+      "fitness": 6.84,
+      "genome": {
+        "gridCols": 12,
+        "gridRows": 9,
+        "cellPadding": 0.1,
+        "rotation": 3.141592653589793,
+        "globalRotation": 0,
+        "paletteIndex": 10,
+        "bgDarkness": 0.12,
+        "gearDensity": 0.5386587539626367,
+        "gearComplexity": 15,
+        "chainFrequency": 0.16057166463502878,
+        "pixelDensity": 0.7890230886630057,
+        "pixelSize": 8,
+        "flowScale": 0.014143381933870729,
+        "flowStrength": 2.657908064182884,
+        "particleCount": 1279,
+        "clockSpeed": 0.008645728919322998,
+        "oscillation": 2.1173650929119603,
+        "wMechanical": 0.12,
+        "wPixel": 0.12,
+        "wFlow": 0.12,
+        "wGeometric": 0.92,
+        "wOrganic": 0.12,
+        "wHatch": 0.12,
+        "hatchAngle": 0.1784444720484828,
+        "hatchSpacing": 9.050831303066609,
+        "pixelCharacter": "mosaic",
+        "flowCharacter": "dispersal",
+        "mechanicalCharacter": "gear",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 431,
+        "renderSeed": 1200704439.530647,
+        "disorder": 0.62,
+        "disorderMode": "linear",
+        "disorderAngle": 0,
+        "baseShape": 3,
+        "baseColorIndex": 1,
+        "lockShape": true,
+        "paletteColors": [
+          "#f4f2ec",
+          "#0a0a0a",
+          "#c9bfa8",
+          "#3a352c",
+          "#5a5a5a",
+          "#e8e0d0",
+          "#8a8578",
+          "#1c1a16"
+        ]
+      },
+      "provenance": {
+        "type": "frontier",
+        "gen": 106,
+        "day": null,
+        "date": "2026-08-02",
+        "title": "Entropy Gradient",
+        "filename": "mechanical-reverie-frontier-005-geo-diamond-linear-light-2026-08-02.png",
+        "cell": "geo|diamond|linear|light",
+        "frontierIndex": 5
+      },
+      "since": "2026-08-03T03:08:15Z"
     }
   },
   "challengeLog": [
@@ -4270,10 +4335,186 @@
       "incumbentFitness": 6.831,
       "result": "held",
       "source": "Frontier F-004"
+    },
+    {
+      "ts": "2026-08-03T03:08:15Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.84,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 106"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.8587,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.8196,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.8156,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.8012,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7844,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7826,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.781,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7741,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7724,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7681,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7662,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7654,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7643,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7601,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7556,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7467,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7455,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7454,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7353,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.7209,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
+    },
+    {
+      "ts": "2026-08-03T03:08:46Z",
+      "cell": "geo|diamond|linear|light",
+      "challengerFitness": 6.692,
+      "incumbentFitness": 6.84,
+      "result": "held",
+      "source": "Frontier F-005"
     }
   ],
   "frontierState": {
-    "lastMode": "challenger",
+    "lastMode": "cartographer",
     "history": [
       {
         "ts": "2026-07-23T04:54:38Z",
@@ -4297,6 +4538,12 @@
         "ts": "2026-08-02T03:30:57Z",
         "mode": "challenger",
         "cell": "vortex|plotter|light",
+        "pickedBy": "manual"
+      },
+      {
+        "ts": "2026-08-03T03:04:32Z",
+        "mode": "cartographer",
+        "cell": "geo|diamond|linear|light",
         "pickedBy": "manual"
       }
     ]

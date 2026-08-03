@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-01",
+  "updated": "2026-08-02",
   "concepts": [
     {
       "id": "bell-labs",
@@ -218,6 +218,10 @@
         {
           "gen": 103,
           "why": "Order hidden IN randomness: a field that looks like pure noise but conceals structure only binocular fusion reveals. Pierce, 1968: mathematical order is not the order the senses perceive — the disorder dial's theme, proved perceptually."
+        },
+        {
+          "gen": 106,
+          "why": "The disorder dial's LINEAR mode, first seen: order tied not to a centre but to a direction — a diamond grid rigorous at one edge and scattered at the other. A spatial entropy gradient, Wiener's drift-to-disorder made a single readable slope."
         }
       ]
     },
@@ -542,6 +546,10 @@
         {
           "gen": 105,
           "why": "Challenger-mode: dethroned the map's oldest incumbent, Day 81 'Exotic Paint Brush', in vortex|plotter|light — a vortex+plotter duet (Desmond Paul Henry drawing-machine arcs over spiralling hair-lines). The drawing machine besting an older self, via the duet credit the engine learned since."
+        },
+        {
+          "gen": 106,
+          "why": "Cartographer-mode: charted the first LINEAR-disorder cell in the archive — a diamond lattice dissolving left-to-right, order becoming disorder along a line. The map's own emptiness led the engine to a mode it had never performed."
         }
       ]
     }
