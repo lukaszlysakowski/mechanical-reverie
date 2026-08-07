@@ -6808,5 +6808,97 @@
     "keyDetails": "Frontier F-005 — geometric Atlas cell geo|diamond|linear|light. First linear-disorder piece: diamonds dissolving along a line. Rest day.",
     "description": "A rest day on the source feed, so the engine charts its own map — and the cartographer, alternating to the emptiest region, opened two coordinates the archive had never made: the diamond primitive and, for the first time anywhere, the LINEAR disorder mode. Where uniform disorder tumbles every cell equally and radial ties collapse to distance from a centre, linear ties it to a direction: order dissolving along a line. The result is a lattice of small diamonds, rigorous and upright at the left edge, progressively rotating, drifting and scattering toward the right — a spatial gradient from order to disorder, which is to say an entropy gradient, the disorder dial made a slope. It is the Molnár and Nees lineage of directional decay drawn in the engine's own hand: shape-locked to the diamond (wGeometric 0.92, every other layer gated to 0.12), disorder 0.62 linear along the horizontal, newsprint ink on cream. It also closes a loop with the week's philosophy — Wiener's pockets of order held against the universe's drift to disorder, now a single frame you can read left to right.",
     "condensedReason": "A rest day on the source feed, so the engine charts its own map — and the cartographer, alternating to the emptiest region, opened two coordinates the archive had never made: the diamond primitive and, for the first time anywhere, the LINEAR disorder mode. Where uniform disorder tumbles every cell equally and radial ties collapse to distance from a centre, linear ties it to a direction: order dissolving along a line. The result is a lattice of small diamonds, rigorous and upright at the left edge, progressively rotating, drifting and scattering toward the right — a spatial gradient from order to disorder, which is to say an entropy gradient, the disorder dial made a slope. It is the Molnár and Nees lineage of directional decay drawn in the engine's own hand: shape-locked to the diamond (wGeometric 0.92, every other layer gated to 0.12), disorder 0.62 linear along the horizontal, newsprint ink on cream. It also closes a loop with the week's philosophy — Wiener's pockets of order held against the universe's drift to disorder, now a single frame you can read left to right."
+  },
+  {
+    "day": 103,
+    "date": "2026-08-05",
+    "title": "At Twenty Meters",
+    "filename": "mechanical-reverie-day-103-at-twenty-meters-2026-08-05.png",
+    "fitness": 6.505,
+    "engineVersion": "v3.6.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "50365a378328f156e6d831da71f806defb8f5cd9d12ff9c9f0371772d5a3a579",
+      "checksumStability": "14/14 identical — hard-canonical",
+      "engineVersion": "v3.6.0",
+      "renderSeed": 1907613171.8978693,
+      "noiseSeed": 431
+    },
+    "genome": {
+      "gridCols": 18,
+      "gridRows": 7,
+      "cellPadding": 0.06614721952538746,
+      "rotation": 3.8027330318673247,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.55,
+      "gearDensity": 0.837784968369506,
+      "gearComplexity": 19,
+      "chainFrequency": 0.19383164210071493,
+      "pixelDensity": 0.5,
+      "pixelSize": 22,
+      "flowScale": 0.02,
+      "flowStrength": 2.6332284353559694,
+      "particleCount": 687,
+      "clockSpeed": 0.015652388607907755,
+      "oscillation": 2.130880022552304,
+      "wMechanical": 0.13,
+      "wPixel": 0.9,
+      "wFlow": 0.13,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 2.4409705160542785,
+      "hatchSpacing": 8.96134778347668,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 431,
+      "renderSeed": 1907613171.8978693,
+      "disorder": 0.3,
+      "disorderMode": "uniform",
+      "disorderAngle": 4.0668938206373,
+      "paletteColors": [
+        "#2f74c0",
+        "#f0c02c",
+        "#e87020",
+        "#2f74c0",
+        "#f0c02c",
+        "#2e1c0e",
+        "#c0341a",
+        "#ecd0a4"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Dali's Gala/Lincoln double-image via the computer PIXELATION itself (not the faces — anchor: connect, don't illustrate). Chunky 'mosaic' blocks in the pixelated-Lincoln palette (Mediterranean blue/gold/orange + rust/cream) on warm dark ground, CRT... no — painterly vignette on. Ties directly to the Harmon block-portrait lineage (Days 62, 92) in Dali's saturated color, and to the recognition-from-a-field theme (Harmon, Julesz Day 101). Mosaic's even cycling buried the blue/gold at first — rebalanced the palette to front-load the iconic trio. Pure pixel (wPixel 0.90) → excluded from atlas. Watched the source video (1975 RTVE studio interview) per request.",
+      "condensedReason": "Salvador Dali's 'Gala Contemplating the Mediterranean Sea which at Twenty Meters Becomes the Portrait of Abraham Lincoln' (1976) is a double image: a nude Gala on a warm Mediterranean ground, and a central grid of coloured blocks that resolves — from far away, or through reversed binoculars — into the face of Abraham Lincoln. Dali painted it directly from Leon Harmon's computer-pixelated Lincoln, the Bell Labs 'Studies in Perception' block portrait he saw in Scientific American: fine art made from a computer image, and the same recognition-from-a-field the archive met in Harmon (Days 62, 92) and in Julesz's random dots. Noah paired the 1976 painting with a 1975 RTVE interview — Dali in his Portlligat studio, 'my latest painting in progress... but suddenly, a surprise.' The engine renders the pixelation itself, not the faces: a field of chunky mosaic blocks (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the double-image's saturated palette — Mediterranean blue, gold and orange with rust and cream — on a warm dark ground, the frame's vignette left on for the painting's shadowed depth. The hidden portrait stays hidden, carried by the title alone: at twenty meters, a face. Translate, don't illustrate — the computer pixel Dali borrowed from a machine, handed back to one."
+    },
+    "tweetSummary": "NB thread (18 likes): a 1975 Dali RTVE interview video + his 1976 'Gala... Becomes the Portrait of Abraham Lincoln' — a double-image painted from Leon Harmon's computer-pixelated Lincoln (Bell Labs).",
+    "keyArtists": [
+      {
+        "name": "Salvador Dali",
+        "role": "surrealist painter",
+        "relevance": "Painted the 1976 double-image directly from Harmon's computer-pixelated Lincoln — fine art from a computer image."
+      },
+      {
+        "name": "Leon Harmon",
+        "role": "Bell Labs perception researcher",
+        "relevance": "His block-portrait Lincoln is Dali's source; the archive's Harmon lineage (Days 62, 92)."
+      }
+    ],
+    "themes": [
+      "recognition from pixels",
+      "the double image",
+      "computer image into painting",
+      "Harmon lineage",
+      "Dali"
+    ],
+    "keyDetails": "Salvador Dali — 'Gala... Becomes the Portrait of Abraham Lincoln' (1976), from Harmon's pixelated Lincoln. NB video thread, 18 likes.",
+    "description": "Salvador Dali's 'Gala Contemplating the Mediterranean Sea which at Twenty Meters Becomes the Portrait of Abraham Lincoln' (1976) is a double image: a nude Gala on a warm Mediterranean ground, and a central grid of coloured blocks that resolves — from far away, or through reversed binoculars — into the face of Abraham Lincoln. Dali painted it directly from Leon Harmon's computer-pixelated Lincoln, the Bell Labs 'Studies in Perception' block portrait he saw in Scientific American: fine art made from a computer image, and the same recognition-from-a-field the archive met in Harmon (Days 62, 92) and in Julesz's random dots. Noah paired the 1976 painting with a 1975 RTVE interview — Dali in his Portlligat studio, 'my latest painting in progress... but suddenly, a surprise.' The engine renders the pixelation itself, not the faces: a field of chunky mosaic blocks (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the double-image's saturated palette — Mediterranean blue, gold and orange with rust and cream — on a warm dark ground, the frame's vignette left on for the painting's shadowed depth. The hidden portrait stays hidden, carried by the title alone: at twenty meters, a face. Translate, don't illustrate — the computer pixel Dali borrowed from a machine, handed back to one.",
+    "condensedReason": "Salvador Dali's 'Gala Contemplating the Mediterranean Sea which at Twenty Meters Becomes the Portrait of Abraham Lincoln' (1976) is a double image: a nude Gala on a warm Mediterranean ground, and a central grid of coloured blocks that resolves — from far away, or through reversed binoculars — into the face of Abraham Lincoln. Dali painted it directly from Leon Harmon's computer-pixelated Lincoln, the Bell Labs 'Studies in Perception' block portrait he saw in Scientific American: fine art made from a computer image, and the same recognition-from-a-field the archive met in Harmon (Days 62, 92) and in Julesz's random dots. Noah paired the 1976 painting with a 1975 RTVE interview — Dali in his Portlligat studio, 'my latest painting in progress... but suddenly, a surprise.' The engine renders the pixelation itself, not the faces: a field of chunky mosaic blocks (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the double-image's saturated palette — Mediterranean blue, gold and orange with rust and cream — on a warm dark ground, the frame's vignette left on for the painting's shadowed depth. The hidden portrait stays hidden, carried by the title alone: at twenty meters, a face. Translate, don't illustrate — the computer pixel Dali borrowed from a machine, handed back to one."
   }
 ]

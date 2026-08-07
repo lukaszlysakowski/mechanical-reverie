@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-02",
+  "updated": "2026-08-05",
   "concepts": [
     {
       "id": "bell-labs",
@@ -550,6 +550,30 @@
         {
           "gen": 106,
           "why": "Cartographer-mode: charted the first LINEAR-disorder cell in the archive — a diamond lattice dissolving left-to-right, order becoming disorder along a line. The map's own emptiness led the engine to a mode it had never performed."
+        }
+      ]
+    },
+    {
+      "id": "recognition",
+      "title": "Recognition",
+      "thesis": "The perceptual discovery at the heart of early computer art: that a coarse field of marks — blocks, dots, pixels — is completed by the eye into a face or a form the field does not literally contain. Leon Harmon proved it at Bell Labs, degrading Lincoln to a grid of tonal squares the brain still reads as Lincoln; Béla Julesz proved it again with random-dot stereograms, where the fusing eye finds depth in pure noise. Then Salvador Dalí staked a masterwork on it, painting his 1976 Gala directly from Harmon's pixelated Lincoln so that a surrealist canvas becomes, at twenty meters, a president. It is Wiener's insight in the register of vision — meaning is order the mind holds against a field of noise — and it is why this engine's mosaics and dot-fields are never only texture: the viewer is invited to complete them. Recognition is the collaboration the work cannot finish on its own.",
+      "link": null,
+      "members": [
+        {
+          "gen": 61,
+          "why": "Harmon's block portrait — Lincoln from a grid of tonal squares, recognition from the coarsest possible field. The founding case (Bell Labs, Studies in Perception)."
+        },
+        {
+          "gen": 91,
+          "why": "Harmon's gray blocks again — the eye averaging a mosaic into a face; the medium of pixelation as the subject."
+        },
+        {
+          "gen": 103,
+          "why": "Julesz's random-dot stereogram — the brain fusing pure noise into a hidden form, order the mathematics cannot see. Recognition without any figurative cue at all."
+        },
+        {
+          "gen": 107,
+          "why": "Dalí painting from Harmon's pixelated Lincoln — the computer's recognition-from-a-field carried into fine art; a nude Gala that resolves, at twenty meters, into a president."
         }
       ]
     }
