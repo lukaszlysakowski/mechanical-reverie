@@ -6900,5 +6900,97 @@
     "keyDetails": "Salvador Dali — 'Gala... Becomes the Portrait of Abraham Lincoln' (1976), from Harmon's pixelated Lincoln. NB video thread, 18 likes.",
     "description": "Salvador Dali's 'Gala Contemplating the Mediterranean Sea which at Twenty Meters Becomes the Portrait of Abraham Lincoln' (1976) is a double image: a nude Gala on a warm Mediterranean ground, and a central grid of coloured blocks that resolves — from far away, or through reversed binoculars — into the face of Abraham Lincoln. Dali painted it directly from Leon Harmon's computer-pixelated Lincoln, the Bell Labs 'Studies in Perception' block portrait he saw in Scientific American: fine art made from a computer image, and the same recognition-from-a-field the archive met in Harmon (Days 62, 92) and in Julesz's random dots. Noah paired the 1976 painting with a 1975 RTVE interview — Dali in his Portlligat studio, 'my latest painting in progress... but suddenly, a surprise.' The engine renders the pixelation itself, not the faces: a field of chunky mosaic blocks (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the double-image's saturated palette — Mediterranean blue, gold and orange with rust and cream — on a warm dark ground, the frame's vignette left on for the painting's shadowed depth. The hidden portrait stays hidden, carried by the title alone: at twenty meters, a face. Translate, don't illustrate — the computer pixel Dali borrowed from a machine, handed back to one.",
     "condensedReason": "Salvador Dali's 'Gala Contemplating the Mediterranean Sea which at Twenty Meters Becomes the Portrait of Abraham Lincoln' (1976) is a double image: a nude Gala on a warm Mediterranean ground, and a central grid of coloured blocks that resolves — from far away, or through reversed binoculars — into the face of Abraham Lincoln. Dali painted it directly from Leon Harmon's computer-pixelated Lincoln, the Bell Labs 'Studies in Perception' block portrait he saw in Scientific American: fine art made from a computer image, and the same recognition-from-a-field the archive met in Harmon (Days 62, 92) and in Julesz's random dots. Noah paired the 1976 painting with a 1975 RTVE interview — Dali in his Portlligat studio, 'my latest painting in progress... but suddenly, a surprise.' The engine renders the pixelation itself, not the faces: a field of chunky mosaic blocks (pixelCharacter 'mosaic', wPixel 0.90 with every other layer gated to 0.13) in the double-image's saturated palette — Mediterranean blue, gold and orange with rust and cream — on a warm dark ground, the frame's vignette left on for the painting's shadowed depth. The hidden portrait stays hidden, carried by the title alone: at twenty meters, a face. Translate, don't illustrate — the computer pixel Dali borrowed from a machine, handed back to one."
+  },
+  {
+    "day": 104,
+    "date": "2026-08-08",
+    "title": "Pure Sensation",
+    "filename": "mechanical-reverie-day-104-pure-sensation-2026-08-08.png",
+    "fitness": 6.84,
+    "engineVersion": "v3.6.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "ae1902113bdb99e106173ff625191c9e59fdece004c18bec8764abb1577b0c49",
+      "checksumStability": "14/14 identical — hard-canonical",
+      "engineVersion": "v3.6.0",
+      "renderSeed": 736216807.5100038,
+      "noiseSeed": 777
+    },
+    "genome": {
+      "gridCols": 17,
+      "gridRows": 7,
+      "cellPadding": 0.1298544727968935,
+      "rotation": 1.4156861085855943,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.9,
+      "gearDensity": 0.6651317992270152,
+      "gearComplexity": 21,
+      "chainFrequency": 0.07901128544376756,
+      "pixelDensity": 0.702645474637858,
+      "pixelSize": 12,
+      "flowScale": 0.01,
+      "flowStrength": 1.7,
+      "particleCount": 1543,
+      "clockSpeed": 0.017615583199231618,
+      "oscillation": 2.033125613013331,
+      "wMechanical": 0.12,
+      "wPixel": 0.12,
+      "wFlow": 0.92,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 1.7408432197344688,
+      "hatchSpacing": 10.705205395069228,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "wash",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 777,
+      "renderSeed": 736216807.5100038,
+      "disorder": 0.2,
+      "disorderMode": "radial",
+      "disorderAngle": 1.7300523803169048,
+      "paletteColors": [
+        "#7ad838",
+        "#efe23a",
+        "#f0902c",
+        "#e83828",
+        "#8a3cc8",
+        "#0b0c12",
+        "#30c8c0",
+        "#3866c8"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "THE FIRST WASH DAY. Kac's Aromapoetry — a scent-only book, pure diffusion, no visual form — is exactly the dissolution subject wash was built for (Blake) and had awaited for weeks (repeatedly declined to force it onto non-colorfield sources). Rendered the DISSOLUTION, not the book/plumes (anchor: connect, don't illustrate): aromatic colour blooming/dissolving on near-black. Low flowStrength so distinct scents survive as soft regions before merging (higher fs → warm-pink monochrome; light ground washes out — wash needs dark to glow via lighten blend). Pure single-character wash (wFlow 0.92) → wash pure-credit, 6.8400. Pure-flow → excluded from atlas. New-media artist Eduardo Kac enters the archive. Second consecutive project-repost by NB (the 'five actors' tweet) — milestone.",
+      "condensedReason": "Eduardo Kac's 'Aromapoetry' (2011) is a book with no text and no image — only scent: twelve aromapoems, each page a custom fragrance held in mesoporous glass, meant to be read with the nose, not the eyes. A mirror-silver book of blank reflective pages beside a case of vials; Kac's own diagram shows the reading as coloured plumes rising and dissolving from the page. 'Language dissolved into pure sensation.' Noah reposted it from Michael Spalter's digital-art collection. It is the truest subject the engine's wash mode has ever met — and its FIRST archived use. Wash (soft radial gradients dissolving into one another) was built for Jeremy Blake's colorfields and had waited, unused, for a source that was pure diffusion; a work with no visual form at all, only scent, is exactly that. Per the anchor the render does not draw the book, the vials, or literal curling plumes — that would be illustration; it renders the dissolution itself: aromatic colour (Kac's green, gold, orange, red, violet, blue) blooming and dissolving into one another on a near-black ground, so the wash's lighten blend lets them glow. wFlow 0.92 with every other layer gated to 0.12, flowStrength held low so distinct scents survive as soft colour-regions before they merge. The invisible made visible — a poem you were meant to smell, given at last a body of light."
+    },
+    "tweetSummary": "NB reposted the Spalter collection on Eduardo Kac's 'Aromapoetry' (2011) — a book with no text, only scent; twelve aromapoems held in mesoporous glass, read with the nose. Language dissolved into pure sensation.",
+    "keyArtists": [
+      {
+        "name": "Eduardo Kac",
+        "role": "new-media artist (holopoetry, telepresence, bio-art)",
+        "relevance": "Aromapoetry dissolves language into scent — poetry beyond the visual and textual."
+      },
+      {
+        "name": "Michael Spalter",
+        "role": "collector, Spalter Digital Art collection",
+        "relevance": "The repost source; a major digital-art collection."
+      }
+    ],
+    "themes": [
+      "language dissolved into pure sensation",
+      "reading with the nose",
+      "the invisible made visible",
+      "colorfield / dissolution",
+      "Eduardo Kac"
+    ],
+    "keyDetails": "Eduardo Kac — Aromapoetry (2011), a book of scent, no text. NB repost of the Spalter collection, 21 likes. The archive's first wash colorfield.",
+    "description": "Eduardo Kac's 'Aromapoetry' (2011) is a book with no text and no image — only scent: twelve aromapoems, each page a custom fragrance held in mesoporous glass, meant to be read with the nose, not the eyes. A mirror-silver book of blank reflective pages beside a case of vials; Kac's own diagram shows the reading as coloured plumes rising and dissolving from the page. 'Language dissolved into pure sensation.' Noah reposted it from Michael Spalter's digital-art collection. It is the truest subject the engine's wash mode has ever met — and its FIRST archived use. Wash (soft radial gradients dissolving into one another) was built for Jeremy Blake's colorfields and had waited, unused, for a source that was pure diffusion; a work with no visual form at all, only scent, is exactly that. Per the anchor the render does not draw the book, the vials, or literal curling plumes — that would be illustration; it renders the dissolution itself: aromatic colour (Kac's green, gold, orange, red, violet, blue) blooming and dissolving into one another on a near-black ground, so the wash's lighten blend lets them glow. wFlow 0.92 with every other layer gated to 0.12, flowStrength held low so distinct scents survive as soft colour-regions before they merge. The invisible made visible — a poem you were meant to smell, given at last a body of light.",
+    "condensedReason": "Eduardo Kac's 'Aromapoetry' (2011) is a book with no text and no image — only scent: twelve aromapoems, each page a custom fragrance held in mesoporous glass, meant to be read with the nose, not the eyes. A mirror-silver book of blank reflective pages beside a case of vials; Kac's own diagram shows the reading as coloured plumes rising and dissolving from the page. 'Language dissolved into pure sensation.' Noah reposted it from Michael Spalter's digital-art collection. It is the truest subject the engine's wash mode has ever met — and its FIRST archived use. Wash (soft radial gradients dissolving into one another) was built for Jeremy Blake's colorfields and had waited, unused, for a source that was pure diffusion; a work with no visual form at all, only scent, is exactly that. Per the anchor the render does not draw the book, the vials, or literal curling plumes — that would be illustration; it renders the dissolution itself: aromatic colour (Kac's green, gold, orange, red, violet, blue) blooming and dissolving into one another on a near-black ground, so the wash's lighten blend lets them glow. wFlow 0.92 with every other layer gated to 0.12, flowStrength held low so distinct scents survive as soft colour-regions before they merge. The invisible made visible — a poem you were meant to smell, given at last a body of light."
   }
 ]
