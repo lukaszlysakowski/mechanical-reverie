@@ -6992,5 +6992,100 @@
     "keyDetails": "Eduardo Kac — Aromapoetry (2011), a book of scent, no text. NB repost of the Spalter collection, 21 likes. The archive's first wash colorfield.",
     "description": "Eduardo Kac's 'Aromapoetry' (2011) is a book with no text and no image — only scent: twelve aromapoems, each page a custom fragrance held in mesoporous glass, meant to be read with the nose, not the eyes. A mirror-silver book of blank reflective pages beside a case of vials; Kac's own diagram shows the reading as coloured plumes rising and dissolving from the page. 'Language dissolved into pure sensation.' Noah reposted it from Michael Spalter's digital-art collection. It is the truest subject the engine's wash mode has ever met — and its FIRST archived use. Wash (soft radial gradients dissolving into one another) was built for Jeremy Blake's colorfields and had waited, unused, for a source that was pure diffusion; a work with no visual form at all, only scent, is exactly that. Per the anchor the render does not draw the book, the vials, or literal curling plumes — that would be illustration; it renders the dissolution itself: aromatic colour (Kac's green, gold, orange, red, violet, blue) blooming and dissolving into one another on a near-black ground, so the wash's lighten blend lets them glow. wFlow 0.92 with every other layer gated to 0.12, flowStrength held low so distinct scents survive as soft colour-regions before they merge. The invisible made visible — a poem you were meant to smell, given at last a body of light.",
     "condensedReason": "Eduardo Kac's 'Aromapoetry' (2011) is a book with no text and no image — only scent: twelve aromapoems, each page a custom fragrance held in mesoporous glass, meant to be read with the nose, not the eyes. A mirror-silver book of blank reflective pages beside a case of vials; Kac's own diagram shows the reading as coloured plumes rising and dissolving from the page. 'Language dissolved into pure sensation.' Noah reposted it from Michael Spalter's digital-art collection. It is the truest subject the engine's wash mode has ever met — and its FIRST archived use. Wash (soft radial gradients dissolving into one another) was built for Jeremy Blake's colorfields and had waited, unused, for a source that was pure diffusion; a work with no visual form at all, only scent, is exactly that. Per the anchor the render does not draw the book, the vials, or literal curling plumes — that would be illustration; it renders the dissolution itself: aromatic colour (Kac's green, gold, orange, red, violet, blue) blooming and dissolving into one another on a near-black ground, so the wash's lighten blend lets them glow. wFlow 0.92 with every other layer gated to 0.12, flowStrength held low so distinct scents survive as soft colour-regions before they merge. The invisible made visible — a poem you were meant to smell, given at last a body of light."
+  },
+  {
+    "day": 105,
+    "date": "2026-08-11",
+    "title": "Hommage a Monet",
+    "filename": "mechanical-reverie-day-105-hommage-a-monet-2026-08-11.png",
+    "fitness": 6.82,
+    "engineVersion": "v3.6.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "fb7759b603f7fd047f4094d93f15f42a1f302b5356cfbe9c7d4df7ba4c949cc7",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.6.0",
+      "renderSeed": 1867663514,
+      "noiseSeed": 88
+    },
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 9,
+      "cellPadding": 0.12,
+      "rotation": 1.5707963267948966,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.45,
+      "gearDensity": 0.7392908225877692,
+      "gearComplexity": 7,
+      "chainFrequency": 0.7602321811253101,
+      "pixelDensity": 0.3374212777227012,
+      "pixelSize": 4,
+      "flowScale": 0.008284709914334507,
+      "flowStrength": 2.6347763187204696,
+      "particleCount": 1138,
+      "clockSpeed": 0.004873495732784093,
+      "oscillation": 1.5553148366534697,
+      "wMechanical": 0.12,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.9,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 2.8985798388175343,
+      "hatchSpacing": 11.584242303969468,
+      "pixelCharacter": "shard",
+      "flowCharacter": "wash",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 88,
+      "renderSeed": 1867663514,
+      "disorder": 0.45,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "baseShape": 1,
+      "baseColorIndex": 1,
+      "lockShape": true,
+      "paletteColors": [
+        "#8fb4d4",
+        "#5f8fbf",
+        "#a8c8e0",
+        "#3e6a92",
+        "#ef8a2c",
+        "#16283e",
+        "#6e98bc",
+        "#c4dae8"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Vera Molnar's Hommage a Monet — computational impressionism. Geometric rectangle-grid (her quadrilaterals) + lockShape + disorder 0.45 (her signature ordered-field-lightly-perturbed = the disorder dial's namesake), in a Monet palette (blue water/mist + rare orange sun; orange at 1 palette slot so it stays sparse). Did not repaint Monet's harbour (anchor: connect, don't illustrate) — ran Molnar's own program. Joins The Molnar Room + Order & Disorder. Lands in geo space geo|rectangle|uniform (3rd rectangle-uniform piece after Le Parc/dark & S.C.A.M/light).",
+      "condensedReason": "Vera Molnar's 'Hommage a Monet' (1981), made for Television Francaise 1, sets her algorithm in continuous dialogue with Monet's Impression, Soleil Levant (1872): the misty blue harbour and its orange sunrise, re-seen as a field of rectangular blocks on a CRT. Molnar is a founder of algorithmic art and this archive's own disorder-dial figure (The Molnar Room) — the engine's 'disorder' parameter descends from her lineage of rigorous grids perturbed by a little chance. Here that lineage meets Impressionism: Monet's shimmer of light on water becomes a grid of quadrilaterals, tilted just enough to vibrate, and his orange sun dissolves into a handful of rare orange blocks among the blue. Noah showed it in dialogue with the 1872 painting; the engine answers not by repainting the harbour (illustration) but by running its own version of Molnar's program: geometric-dominant, shape-locked to the rectangle (wGeometric 0.90, every other layer gated to 0.12), disorder 0.45 uniform for the impressionist shimmer, in a custom Monet palette — a range of blues for the water and mist on a deep-blue ground, with a single orange slot so the sun stays as rare as it is in the painting. Order lightly perturbed, computed into light."
+    },
+    "tweetSummary": "NB original video: Vera Molnar's 'Hommage a Monet' (1981, TF1) in dialogue with Monet's Impression, Soleil Levant (1872) — the harbour's blue mist and orange sun rendered as her algorithmic grid of quadrilaterals.",
+    "keyArtists": [
+      {
+        "name": "Vera Molnar",
+        "role": "pioneer of algorithmic/computer art; the archive's disorder-dial figure",
+        "relevance": "Hommage a Monet (1981) translates Impressionism into computation."
+      },
+      {
+        "name": "Claude Monet",
+        "role": "Impressionist painter",
+        "relevance": "Impression, Soleil Levant (1872) — the blue harbour and orange sun Molnar reinterprets."
+      }
+    ],
+    "themes": [
+      "computational impressionism",
+      "order lightly perturbed",
+      "the sun dissolved into blocks",
+      "Molnar",
+      "Impressionism"
+    ],
+    "keyDetails": "Vera Molnar — Hommage a Monet (1981, TF1), in dialogue with Monet's Soleil Levant (1872). NB original video, 19 likes.",
+    "description": "Vera Molnar's 'Hommage a Monet' (1981), made for Television Francaise 1, sets her algorithm in continuous dialogue with Monet's Impression, Soleil Levant (1872): the misty blue harbour and its orange sunrise, re-seen as a field of rectangular blocks on a CRT. Molnar is a founder of algorithmic art and this archive's own disorder-dial figure (The Molnar Room) — the engine's 'disorder' parameter descends from her lineage of rigorous grids perturbed by a little chance. Here that lineage meets Impressionism: Monet's shimmer of light on water becomes a grid of quadrilaterals, tilted just enough to vibrate, and his orange sun dissolves into a handful of rare orange blocks among the blue. Noah showed it in dialogue with the 1872 painting; the engine answers not by repainting the harbour (illustration) but by running its own version of Molnar's program: geometric-dominant, shape-locked to the rectangle (wGeometric 0.90, every other layer gated to 0.12), disorder 0.45 uniform for the impressionist shimmer, in a custom Monet palette — a range of blues for the water and mist on a deep-blue ground, with a single orange slot so the sun stays as rare as it is in the painting. Order lightly perturbed, computed into light.",
+    "condensedReason": "Vera Molnar's 'Hommage a Monet' (1981), made for Television Francaise 1, sets her algorithm in continuous dialogue with Monet's Impression, Soleil Levant (1872): the misty blue harbour and its orange sunrise, re-seen as a field of rectangular blocks on a CRT. Molnar is a founder of algorithmic art and this archive's own disorder-dial figure (The Molnar Room) — the engine's 'disorder' parameter descends from her lineage of rigorous grids perturbed by a little chance. Here that lineage meets Impressionism: Monet's shimmer of light on water becomes a grid of quadrilaterals, tilted just enough to vibrate, and his orange sun dissolves into a handful of rare orange blocks among the blue. Noah showed it in dialogue with the 1872 painting; the engine answers not by repainting the harbour (illustration) but by running its own version of Molnar's program: geometric-dominant, shape-locked to the rectangle (wGeometric 0.90, every other layer gated to 0.12), disorder 0.45 uniform for the impressionist shimmer, in a custom Monet palette — a range of blues for the water and mist on a deep-blue ground, with a single orange slot so the sun stays as rare as it is in the painting. Order lightly perturbed, computed into light."
   }
 ]

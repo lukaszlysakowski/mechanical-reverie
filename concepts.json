@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-05",
+  "updated": "2026-08-11",
   "concepts": [
     {
       "id": "bell-labs",
@@ -222,6 +222,10 @@
         {
           "gen": 106,
           "why": "The disorder dial's LINEAR mode, first seen: order tied not to a centre but to a direction — a diamond grid rigorous at one edge and scattered at the other. A spatial entropy gradient, Wiener's drift-to-disorder made a single readable slope."
+        },
+        {
+          "gen": 109,
+          "why": "The disorder dial's namesake at work: Molnar's rigorous grid of rectangles perturbed just enough to shimmer — order lightly disturbed, here made to vibrate like Monet's light on water."
         }
       ]
     },
@@ -303,6 +307,10 @@
         {
           "gen": 77,
           "why": "Predicting 2026 — generative delegation described in 1981"
+        },
+        {
+          "gen": 109,
+          "why": "Molnar's own 'Hommage a Monet' (1981) — her algorithm in dialogue with Monet's Soleil Levant, rendered here as her signature quadrilateral grid in Monet's blue-and-orange. The room's namesake meeting Impressionism."
         }
       ]
     },
