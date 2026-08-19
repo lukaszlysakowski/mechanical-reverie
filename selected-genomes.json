@@ -7087,5 +7087,91 @@
     "keyDetails": "Vera Molnar — Hommage a Monet (1981, TF1), in dialogue with Monet's Soleil Levant (1872). NB original video, 19 likes.",
     "description": "Vera Molnar's 'Hommage a Monet' (1981), made for Television Francaise 1, sets her algorithm in continuous dialogue with Monet's Impression, Soleil Levant (1872): the misty blue harbour and its orange sunrise, re-seen as a field of rectangular blocks on a CRT. Molnar is a founder of algorithmic art and this archive's own disorder-dial figure (The Molnar Room) — her lifelong method was to build a rigorously ordered grid of shapes and then displace it by a small, controlled amount of chance ('le desordre'), and the engine's 'disorder' parameter is modelled on exactly that idea. This piece applies her METHOD rather than reconstructing her code: it does not repaint Monet's harbour (illustration), and it is not a port of her Fortran — it turns the one knob that is her contribution to the medium (an ordered rectangle-grid perturbed by disorder 0.45) inside Mechanical Reverie's own engine. Geometric-dominant (wGeometric 0.90, every other layer gated to 0.12), shape-locked to the rectangle, uniform disorder for the impressionist shimmer, in a custom Monet palette — a range of blues for water and mist on a deep-blue ground, with a single orange slot so the sun stays as rare as it is in the painting. The Monet resemblance comes from that palette; Molnar's method supplies the grid and its measured disorder. Order lightly perturbed, computed into light.",
     "condensedReason": "Vera Molnar's 'Hommage a Monet' (1981), made for Television Francaise 1, sets her algorithm in continuous dialogue with Monet's Impression, Soleil Levant (1872): the misty blue harbour and its orange sunrise, re-seen as a field of rectangular blocks on a CRT. Molnar is a founder of algorithmic art and this archive's own disorder-dial figure (The Molnar Room) — her lifelong method was to build a rigorously ordered grid of shapes and then displace it by a small, controlled amount of chance ('le desordre'), and the engine's 'disorder' parameter is modelled on exactly that idea. This piece applies her METHOD rather than reconstructing her code: it does not repaint Monet's harbour (illustration), and it is not a port of her Fortran — it turns the one knob that is her contribution to the medium (an ordered rectangle-grid perturbed by disorder 0.45) inside Mechanical Reverie's own engine. Geometric-dominant (wGeometric 0.90, every other layer gated to 0.12), shape-locked to the rectangle, uniform disorder for the impressionist shimmer, in a custom Monet palette — a range of blues for water and mist on a deep-blue ground, with a single orange slot so the sun stays as rare as it is in the painting. The Monet resemblance comes from that palette; Molnar's method supplies the grid and its measured disorder. Order lightly perturbed, computed into light."
+  },
+  {
+    "day": 106,
+    "date": "2026-08-16",
+    "title": "Cold Start",
+    "filename": "mechanical-reverie-day-106-cold-start-2026-08-16.png",
+    "fitness": 6.52,
+    "engineVersion": "v3.6.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5e074fb064ecf375fed1d5cd8b91f924654c892aefb4f0fe9129af6eff150231",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.6.0",
+      "renderSeed": 3218613708,
+      "noiseSeed": 3705.19297794212
+    },
+    "genome": {
+      "gridCols": 11,
+      "gridRows": 11,
+      "cellPadding": 0.1517168088376112,
+      "rotation": 6.080381366561849,
+      "globalRotation": -0.10289289659466955,
+      "paletteIndex": 10,
+      "bgDarkness": 0.82,
+      "gearDensity": 0.7,
+      "gearComplexity": 6,
+      "chainFrequency": 0.78,
+      "pixelDensity": 0.5231792102152242,
+      "pixelSize": 8,
+      "flowScale": 0.01,
+      "flowStrength": 0.85,
+      "particleCount": 280,
+      "clockSpeed": 0.01840850502546536,
+      "oscillation": 1.2,
+      "wMechanical": 0.9,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 0,
+      "hatchSpacing": 10,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "oscilloscope",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 3705.19297794212,
+      "renderSeed": 3218613708,
+      "disorder": 0.3,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#e8e6e0",
+        "#b8b6b0",
+        "#8a8884",
+        "#5c5a56",
+        "#f4f2ec",
+        "#0d0d0f",
+        "#3a3936",
+        "#d0cec8"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "BBC Tomorrow's World 1969 school-computer clip — the machine as heavy physical apparatus (key, oil, ~15 switches, generator room). Rendered the apparatus as a clean pure-mechanical schematic: a constellation of gear/dial shapes wired by dashed chains (mechanicalCharacter 'gear', gearDensity 0.70, wMechanical 0.90, others 0.12). Monochrome broadcast grays, dark ground, film-grain disorder 0.30. Dropped an oscilloscope signal voice that buried the dials — clarity over density (anchor). Fitness 6.52 (pure-single mechanical credit). The archive's namesake made literal.",
+      "condensedReason": "In a BBC Tomorrow's World segment from February 1969, starting a school computer was a physical ritual: turn a key, check the oil levels, flick fifteen or so switches, and page the boys down in the generator room to bring up the power. Noah's clip — grainy black-and-white broadcast film of a bespectacled operator reaching up to a wall panel — catches the moment computing was still an ENGINE you cranked to life by hand, effortful and mechanical, before the frictionless digital. It is this archive's own name made literal: mechanical reverie. Per the anchor (connect, don't illustrate), the engine does not redraw the man or his panel; it renders the APPARATUS ITSELF as a schematic — a constellation of star-shaped dials and cogs (mechanicalCharacter 'gear', gearDensity 0.70 for a fuller bank of switches) wired together by dashed chains, the wiring that would carry the generator's power. Held to a clean pure-mechanical read (wMechanical 0.90, every other voice suppressed to 0.12) so the dials stay legible rather than muddied — an early attempt to add an oscilloscope 'signal' voice was dropped because its sweeping traces buried the apparatus, and the chains already carry the sense of a powered, connected machine. Monochrome broadcast grays on a near-black ground (custom palette, dark tone pinned at index 5) with a light film-grain disorder (0.30 uniform) for the 1969 television surface. The machine as diagram, waiting to be switched on."
+    },
+    "tweetSummary": "NB original video (BBC Tomorrow's World, Feb 1969): starting a school computer meant a key, oil checks, ~15 switches, and paging the generator-room crew — computing as a physical, mechanical ritual.",
+    "keyArtists": [
+      {
+        "name": "BBC Tomorrow's World",
+        "role": "BBC science & technology programme (from 1965)",
+        "relevance": "Feb 1969 segment documenting the physical ritual of starting an early institutional/school computer."
+      }
+    ],
+    "themes": [
+      "the machine as apparatus",
+      "mechanical reverie made literal",
+      "monochrome broadcast",
+      "early institutional computing"
+    ],
+    "keyDetails": "BBC Tomorrow's World, Feb 1969 — starting a school computer: a key, oil checks, ~15 switches, the generator room. NB original video, 13 likes.",
+    "description": "In a BBC Tomorrow's World segment from February 1969, starting a school computer was a physical ritual: turn a key, check the oil levels, flick fifteen or so switches, and page the boys down in the generator room to bring up the power. Noah's clip — grainy black-and-white broadcast film of a bespectacled operator reaching up to a wall panel — catches the moment computing was still an ENGINE you cranked to life by hand, effortful and mechanical, before the frictionless digital. It is this archive's own name made literal: mechanical reverie. Per the anchor (connect, don't illustrate), the engine does not redraw the man or his panel; it renders the APPARATUS ITSELF as a schematic — a constellation of star-shaped dials and cogs (mechanicalCharacter 'gear', gearDensity 0.70 for a fuller bank of switches) wired together by dashed chains, the wiring that would carry the generator's power. Held to a clean pure-mechanical read (wMechanical 0.90, every other voice suppressed to 0.12) so the dials stay legible rather than muddied — an early attempt to add an oscilloscope 'signal' voice was dropped because its sweeping traces buried the apparatus, and the chains already carry the sense of a powered, connected machine. Monochrome broadcast grays on a near-black ground (custom palette, dark tone pinned at index 5) with a light film-grain disorder (0.30 uniform) for the 1969 television surface. The machine as diagram, waiting to be switched on.",
+    "condensedReason": "In a BBC Tomorrow's World segment from February 1969, starting a school computer was a physical ritual: turn a key, check the oil levels, flick fifteen or so switches, and page the boys down in the generator room to bring up the power. Noah's clip — grainy black-and-white broadcast film of a bespectacled operator reaching up to a wall panel — catches the moment computing was still an ENGINE you cranked to life by hand, effortful and mechanical, before the frictionless digital. It is this archive's own name made literal: mechanical reverie. Per the anchor (connect, don't illustrate), the engine does not redraw the man or his panel; it renders the APPARATUS ITSELF as a schematic — a constellation of star-shaped dials and cogs (mechanicalCharacter 'gear', gearDensity 0.70 for a fuller bank of switches) wired together by dashed chains, the wiring that would carry the generator's power. Held to a clean pure-mechanical read (wMechanical 0.90, every other voice suppressed to 0.12) so the dials stay legible rather than muddied — an early attempt to add an oscilloscope 'signal' voice was dropped because its sweeping traces buried the apparatus, and the chains already carry the sense of a powered, connected machine. Monochrome broadcast grays on a near-black ground (custom palette, dark tone pinned at index 5) with a light film-grain disorder (0.30 uniform) for the 1969 television surface. The machine as diagram, waiting to be switched on."
   }
 ]
