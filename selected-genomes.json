@@ -7173,5 +7173,101 @@
     "keyDetails": "BBC Tomorrow's World, Feb 1969 — starting a school computer: a key, oil checks, ~15 switches, the generator room. NB original video, 13 likes.",
     "description": "In a BBC Tomorrow's World segment from February 1969, starting a school computer was a physical ritual: turn a key, check the oil levels, flick fifteen or so switches, and page the boys down in the generator room to bring up the power. Noah's clip — grainy black-and-white broadcast film of a bespectacled operator reaching up to a wall panel — catches the moment computing was still an ENGINE you cranked to life by hand, effortful and mechanical, before the frictionless digital. It is this archive's own name made literal: mechanical reverie. Per the anchor (connect, don't illustrate), the engine does not redraw the man or his panel; it renders the APPARATUS ITSELF as a schematic — a constellation of star-shaped dials and cogs (mechanicalCharacter 'gear', gearDensity 0.70 for a fuller bank of switches) wired together by dashed chains, the wiring that would carry the generator's power. Held to a clean pure-mechanical read (wMechanical 0.90, every other voice suppressed to 0.12) so the dials stay legible rather than muddied — an early attempt to add an oscilloscope 'signal' voice was dropped because its sweeping traces buried the apparatus, and the chains already carry the sense of a powered, connected machine. Monochrome broadcast grays on a near-black ground (custom palette, dark tone pinned at index 5) with a light film-grain disorder (0.30 uniform) for the 1969 television surface. The machine as diagram, waiting to be switched on.",
     "condensedReason": "In a BBC Tomorrow's World segment from February 1969, starting a school computer was a physical ritual: turn a key, check the oil levels, flick fifteen or so switches, and page the boys down in the generator room to bring up the power. Noah's clip — grainy black-and-white broadcast film of a bespectacled operator reaching up to a wall panel — catches the moment computing was still an ENGINE you cranked to life by hand, effortful and mechanical, before the frictionless digital. It is this archive's own name made literal: mechanical reverie. Per the anchor (connect, don't illustrate), the engine does not redraw the man or his panel; it renders the APPARATUS ITSELF as a schematic — a constellation of star-shaped dials and cogs (mechanicalCharacter 'gear', gearDensity 0.70 for a fuller bank of switches) wired together by dashed chains, the wiring that would carry the generator's power. Held to a clean pure-mechanical read (wMechanical 0.90, every other voice suppressed to 0.12) so the dials stay legible rather than muddied — an early attempt to add an oscilloscope 'signal' voice was dropped because its sweeping traces buried the apparatus, and the chains already carry the sense of a powered, connected machine. Monochrome broadcast grays on a near-black ground (custom palette, dark tone pinned at index 5) with a light film-grain disorder (0.30 uniform) for the 1969 television surface. The machine as diagram, waiting to be switched on."
+  },
+  {
+    "day": 107,
+    "date": "2026-08-19",
+    "title": "In Three Dimensions",
+    "filename": "mechanical-reverie-day-107-in-three-dimensions-2026-08-19.png",
+    "fitness": 6.52,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "3d3cf1efe73bbf6524a0fc31d88a28d33ac82bee85afaa901421e805d57fd3a2",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 1854789765,
+      "noiseSeed": 7523.580186033711
+    },
+    "genome": {
+      "gridCols": 10,
+      "gridRows": 3,
+      "cellPadding": 0.0352413226781545,
+      "rotation": 2.2454141549993207,
+      "globalRotation": -0.10497353957135884,
+      "paletteIndex": 10,
+      "bgDarkness": 0.6,
+      "gearDensity": 0.45,
+      "gearComplexity": 21,
+      "chainFrequency": 0.8157612094664238,
+      "pixelDensity": 0.5202093614797383,
+      "pixelSize": 6,
+      "flowScale": 0.013846079556271014,
+      "flowStrength": 2.4931805102589113,
+      "particleCount": 1426,
+      "clockSpeed": 0.018215969887525642,
+      "oscillation": 0.8803756405268075,
+      "wMechanical": 0.9,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 1.384512530462131,
+      "hatchSpacing": 22.75841347665325,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 7523.580186033711,
+      "renderSeed": 1854789765,
+      "disorder": 0.1,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#f2f2f6",
+        "#e6e6ec",
+        "#ffffff",
+        "#d6d6de",
+        "#ececf2",
+        "#050507",
+        "#c8c8d2",
+        "#f8f8fc"
+      ],
+      "vignetteStrength": 0.32,
+      "stereo": true,
+      "stereoSeparation": 0.08,
+      "plotterAzimuth": 0.5,
+      "plotterElevation": 0.42
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "A. Michael Noll (Bell Labs) x Dalí stereoscopy — NB's own discovery. FLAGSHIP: taught the engine two new capabilities (v3.7.0) for it — 'vectors' character (Noll's random straight lines in a cube, orthographic 3D projection) + a stereo ANAGLYPH compositor (two eye-azimuths tinted red/cyan, additive; real per-line depth disparity, deterministic). Pure-vectors (wMechanical 0.90, others 0.12); ~61 lines; light-on-black so red/cyan reads clean, white where lines fuse at screen depth. The Blake->wash / Vidal->convergence precedent: change the program, not the drawing. Joins the Bell Labs Wing. Opt-in (vectors not in MECH_CHARS, stereo off by default; excluded from the atlas like wash/convergence/brightmap). Fitness 6.52 (pure-single credit).",
+      "condensedReason": "On 19 August 2026 Noah Bolanowski published his own art-historical discovery: A. Michael Noll's 1964 computer-generated artwork appears embedded inside Salvador Dalí's painting 'The Sleeping Smoker' (1973) — and shaped Dalí's sustained stereoscopic painting practice. Noll, an engineer at Bell Laboratories and one of the very first computer artists, made a 'three-dimensional picture pair of a random structure of 50 lines falling at random within a cube': fifty straight segments whose endpoint X, Y, Z coordinates were chosen by a uniform pseudorandom process on an IBM 7094 in FORTRAN, output through a Stromberg-Carlson SC-4020 microfilm recorder as a STEREO PAIR. Dalí — who declared in 1973 that 'art and technology have been separated for centuries, but Dalí unites them… in three dimensions,' and in 1974 that he now painted 'the reality of fantasy' — set that computer line-cloud into his canvas and built offset stereoscopic panels beside it. This piece renders that exact confluence. Per the anchor (connect, don't illustrate) it neither repaints Dalí nor traces Noll's plot: instead the engine learned to run Noll's METHOD and see it as Dalí did. Two capabilities were added for it (engine v3.7.0): a 'vectors' character — N straight segments with uniform-pseudorandom 3D endpoints, orthographically projected (here ~61 lines in the imaginary cube) — and a stereo anaglyph compositor that performs the score from two eye azimuths, tinting one red and one cyan and compositing them additively, so every line takes on real horizontal disparity in proportion to its depth. Light lines on a near-black ground; where a line sits at the screen plane its two eyes fuse to white. Put on red-cyan glasses and Noll's random cube stands up off the page — art and technology united, in three dimensions."
+    },
+    "tweetSummary": "NB's discovery (pinned, 26 likes): A. Michael Noll's 1964 computer artwork — 50 random straight lines in a cube, a Bell Labs stereo pair — found inside Dalí's 'The Sleeping Smoker' (1973), influencing Dalí's stereoscopic painting. 'Dalí unites them… in three dimensions.'",
+    "keyArtists": [
+      {
+        "name": "A. Michael Noll",
+        "role": "Bell Labs engineer; a founder of computer art (from 1962)",
+        "relevance": "'50 lines falling at random within a cube' (1964, IBM 7094 / FORTRAN / SC-4020) — a stereoscopic computer artwork Dalí embedded in his painting."
+      },
+      {
+        "name": "Salvador Dalí",
+        "role": "Surrealist painter",
+        "relevance": "Set Noll's computer artwork into 'The Sleeping Smoker' (1973) and pursued stereoscopic painting; 'art and technology… Dalí unites them in three dimensions.'"
+      }
+    ],
+    "themes": [
+      "random lines in a cube",
+      "stereoscopy / anaglyph",
+      "Bell Labs computation meets Surrealism",
+      "the reality of fantasy"
+    ],
+    "keyDetails": "A. Michael Noll (Bell Labs), 1964 — '50 random lines in a cube', found in Dalí's 'The Sleeping Smoker' (1973). NB discovery, pinned, 26 likes.",
+    "description": "On 19 August 2026 Noah Bolanowski published his own art-historical discovery: A. Michael Noll's 1964 computer-generated artwork appears embedded inside Salvador Dalí's painting 'The Sleeping Smoker' (1973) — and shaped Dalí's sustained stereoscopic painting practice. Noll, an engineer at Bell Laboratories and one of the very first computer artists, made a 'three-dimensional picture pair of a random structure of 50 lines falling at random within a cube': fifty straight segments whose endpoint X, Y, Z coordinates were chosen by a uniform pseudorandom process on an IBM 7094 in FORTRAN, output through a Stromberg-Carlson SC-4020 microfilm recorder as a STEREO PAIR. Dalí — who declared in 1973 that 'art and technology have been separated for centuries, but Dalí unites them… in three dimensions,' and in 1974 that he now painted 'the reality of fantasy' — set that computer line-cloud into his canvas and built offset stereoscopic panels beside it. This piece renders that exact confluence. Per the anchor (connect, don't illustrate) it neither repaints Dalí nor traces Noll's plot: instead the engine learned to run Noll's METHOD and see it as Dalí did. Two capabilities were added for it (engine v3.7.0): a 'vectors' character — N straight segments with uniform-pseudorandom 3D endpoints, orthographically projected (here ~61 lines in the imaginary cube) — and a stereo anaglyph compositor that performs the score from two eye azimuths, tinting one red and one cyan and compositing them additively, so every line takes on real horizontal disparity in proportion to its depth. Light lines on a near-black ground; where a line sits at the screen plane its two eyes fuse to white. Put on red-cyan glasses and Noll's random cube stands up off the page — art and technology united, in three dimensions.",
+    "condensedReason": "On 19 August 2026 Noah Bolanowski published his own art-historical discovery: A. Michael Noll's 1964 computer-generated artwork appears embedded inside Salvador Dalí's painting 'The Sleeping Smoker' (1973) — and shaped Dalí's sustained stereoscopic painting practice. Noll, an engineer at Bell Laboratories and one of the very first computer artists, made a 'three-dimensional picture pair of a random structure of 50 lines falling at random within a cube': fifty straight segments whose endpoint X, Y, Z coordinates were chosen by a uniform pseudorandom process on an IBM 7094 in FORTRAN, output through a Stromberg-Carlson SC-4020 microfilm recorder as a STEREO PAIR. Dalí — who declared in 1973 that 'art and technology have been separated for centuries, but Dalí unites them… in three dimensions,' and in 1974 that he now painted 'the reality of fantasy' — set that computer line-cloud into his canvas and built offset stereoscopic panels beside it. This piece renders that exact confluence. Per the anchor (connect, don't illustrate) it neither repaints Dalí nor traces Noll's plot: instead the engine learned to run Noll's METHOD and see it as Dalí did. Two capabilities were added for it (engine v3.7.0): a 'vectors' character — N straight segments with uniform-pseudorandom 3D endpoints, orthographically projected (here ~61 lines in the imaginary cube) — and a stereo anaglyph compositor that performs the score from two eye azimuths, tinting one red and one cyan and compositing them additively, so every line takes on real horizontal disparity in proportion to its depth. Light lines on a near-black ground; where a line sits at the screen plane its two eyes fuse to white. Put on red-cyan glasses and Noll's random cube stands up off the page — art and technology united, in three dimensions."
   }
 ]

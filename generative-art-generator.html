@@ -218,7 +218,14 @@ let W = canvas.width, H = canvas.height;
 // v3.3.0 — additive, opt-in: flowCharacter 'convergence' — a deterministic op-art ruled lattice
 // (Vidal / Mac Entyre / Le Parc): curve-stitch line fans whose envelopes trace parabolas, tiled on
 // a node grid, with moiré. Also not in FLOW_CHARS. No existing genome renders differently.
-const ENGINE_VERSION = 'v3.6.0';
+// v3.7.0 — additive, opt-in (Day 107, A. Michael Noll × Dalí stereoscopy): (1) mechanicalCharacter
+// 'vectors' — Noll's 1964 "N straight lines falling at random within a cube": N segments with uniform
+// -pseudorandom 3D endpoints (renderRng), orthographically projected. (2) a STEREO ANAGLYPH compositor,
+// gated by genome flag `stereo`: renders the score from two eye azimuths (g.__eyeAngle, read by
+// drawVectorField), tints one red + one cyan, composites additively → real per-line depth disparity.
+// Both are opt-in: 'vectors' is not in MECH_CHARS and `stereo` defaults off, so no existing genome
+// renders differently. Deterministic (renderRng reseeds per pass; both eyes share identical geometry).
+const ENGINE_VERSION = 'v3.7.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1040,6 +1047,11 @@ let noise = new SimplexNoise(genome.noiseSeed);
 
 // ── Rendering Engine ──
 function render(g, t = 0) {
+  // v3.7.0 stereo anaglyph: when `stereo` is set (and this isn't already an inner eye pass),
+  // hand off to the two-eye compositor, then fall through to the shared stats tail below.
+  if (g.stereo && !g.__inner) {
+    renderStereoComposite(g, t);
+  } else {
   noise = new SimplexNoise(g.noiseSeed);
   // Deterministic render path: all stochastic draws below come from renderRng.
   // Fallback for pre-doctrine genomes without renderSeed: derive from noiseSeed
@@ -1093,6 +1105,7 @@ function render(g, t = 0) {
 
   // Frame vignette
   drawVignette(g);
+  } // end normal (non-stereo) render body
 
   // Update stats
   fitnessScore = calculateFitness(g);
@@ -1103,6 +1116,43 @@ function render(g, t = 0) {
     Math.floor((g.wMechanical * 3 + g.wPixel * 5 + g.wFlow * 7 + g.paletteIndex) % styleNames.length)
   ];
   document.getElementById('genome').textContent = 'DNA: ' + genomeToString(g);
+}
+
+// ── v3.7.0 Stereo anaglyph compositor ──
+// After A. Michael Noll's 1964 3D line-pair and Dalí's stereoscopic painting practice. Renders the
+// score twice — a left and a right eye at ±stereoSeparation of projection azimuth (drawVectorField
+// reads g.__eyeAngle) — tints the left pass red and the right pass cyan, and composites them
+// additively on black. Deterministic: render() reseeds renderRng from renderSeed at the top of every
+// pass, so both eyes share identical random geometry and differ ONLY by projection angle, giving each
+// line horizontal disparity proportional to its depth. Requires a dark ground (paletteColors[5] near
+// black) and light line colours so the additive red/cyan reads cleanly; overlaps at screen depth fuse
+// to white. Layers without depth (everything but 'vectors') render identically in both eyes → zero
+// disparity → they sit at the screen plane.
+function renderStereoComposite(g, t) {
+  const sep = g.stereoSeparation ?? 0.08;   // radians of azimuth between the two eyes (half each side)
+  const eye = (angle) => {
+    const off = document.createElement('canvas'); off.width = W; off.height = H;
+    const pCtx = ctx, pW = W, pH = H;
+    ctx = off.getContext('2d');
+    render(Object.assign({}, g, { __inner: true, stereo: false, __eyeAngle: angle, vignetteStrength: 0 }), t);
+    ctx = pCtx; W = pW; H = pH;
+    return off;
+  };
+  const L = eye(-sep), R = eye(+sep);
+  const tint = (src, color) => {
+    const o = document.createElement('canvas'); o.width = W; o.height = H;
+    const c = o.getContext('2d');
+    c.drawImage(src, 0, 0);
+    c.globalCompositeOperation = 'multiply';   // keep only this colour's channel(s): red or cyan
+    c.fillStyle = color; c.fillRect(0, 0, W, H);
+    return o;
+  };
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  ctx.globalCompositeOperation = 'lighter';    // additive: black grounds contribute nothing
+  ctx.drawImage(tint(L, '#ff0000'), 0, 0);     // left eye  → red
+  ctx.drawImage(tint(R, '#00ffff'), 0, 0);     // right eye → cyan
+  ctx.globalCompositeOperation = 'source-over';
+  drawVignette(g);
 }
 
 // ── Drawing Functions ──
@@ -1266,6 +1316,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'circuit') { drawCircuitTraces(g, pal, t); return; }
   if (ch === 'plotter') { drawPlotterArm(g, pal, t);    return; }
   if (ch === 'led')     { drawLedMatrix(g, pal, t);     return; }
+  if (ch === 'vectors') { drawVectorField(g, pal, t);   return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1402,6 +1453,37 @@ function drawPlotterArm(g, pal, t) {
   }
   ctx.globalAlpha = 1;
   ctx.setLineDash([]);
+}
+
+// VECTORS: A. Michael Noll, 1964 — "N straight lines falling at random within a cube" (IBM 7094 /
+// FORTRAN / Stromberg-Carlson SC-4020 microfilm recorder, Bell Labs). N line segments whose two
+// endpoints have uniform-pseudorandom X,Y,Z in a cube, orthographically projected. Under the stereo
+// compositor (v3.7.0) g.__eyeAngle rotates the projection azimuth, so each line acquires horizontal
+// disparity proportional to its depth — the piece's stereoscopic 3D. Endpoints come from renderRng,
+// so both eyes generate identical geometry and differ ONLY by projection angle.
+function drawVectorField(g, pal, t) {
+  const N = Math.floor(30 + g.gearDensity * 70);          // ~30–90 lines (Noll used 50)
+  const cx = W / 2, cy = H / 2;
+  const R = Math.min(W, H) * 0.34;                          // the imaginary cube's footprint
+  const az = (g.plotterAzimuth ?? 0.5) + (g.__eyeAngle || 0);
+  const el = g.plotterElevation ?? 0.42;
+  const ca = Math.cos(az), sa = Math.sin(az), ce = Math.cos(el), se = Math.sin(el);
+  const proj = (x, y, z) => {                               // rotate azimuth (Y) then elevation (X), orthographic
+    const X = x * ca + z * sa;
+    const Z = -x * sa + z * ca;
+    const Y = y * ce - Z * se;
+    return [cx + X * R, cy + Y * R];
+  };
+  ctx.lineCap = 'round';
+  for (let i = 0; i < N; i++) {
+    const a = proj(renderRng() * 2 - 1, renderRng() * 2 - 1, renderRng() * 2 - 1);
+    const b = proj(renderRng() * 2 - 1, renderRng() * 2 - 1, renderRng() * 2 - 1);
+    ctx.strokeStyle = pal[i % pal.length];
+    ctx.lineWidth = 0.7 + (i % 3) * 0.45;
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
 }
 
 // LED: Regular grid of lit/unlit circles — early display / HUMAN ONE aesthetic
