@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-08-20T04:23:40Z",
+  "updated": "2026-08-21T04:18:18Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -148,50 +148,68 @@
       "since": "2026-08-02T03:34:28Z"
     },
     "biological|gear|light": {
-      "fitness": 6.688,
+      "fitness": 6.861,
       "genome": {
-        "gridCols": 12,
-        "gridRows": 8,
-        "cellPadding": 0.03,
-        "rotation": 0.05,
-        "globalRotation": 0,
-        "paletteIndex": 9,
-        "bgDarkness": 0.04,
-        "gearDensity": 0.55,
-        "gearComplexity": 12,
-        "chainFrequency": 0.12,
-        "pixelDensity": 0.9,
-        "pixelSize": 4,
-        "flowScale": 0.007,
-        "flowStrength": 0.9,
-        "particleCount": 360,
-        "clockSpeed": 0.008,
-        "oscillation": 0.5,
-        "wMechanical": 0.4,
-        "wPixel": 0.9,
-        "wGeometric": 0.78,
-        "wFlow": 0.31,
-        "wOrganic": 0.31,
-        "wHatch": 0.45,
-        "hatchAngle": 0,
-        "hatchSpacing": 8,
-        "pixelCharacter": "mosaic",
+        "gridCols": 9,
+        "gridRows": 12,
+        "cellPadding": 0.06443560094319753,
+        "rotation": 3.1119604623364903,
+        "globalRotation": -0.030155517453155412,
+        "paletteIndex": 10,
+        "bgDarkness": 0.35,
+        "gearDensity": 0.52,
+        "gearComplexity": 16,
+        "chainFrequency": 0.5857034497994562,
+        "pixelDensity": 0.3618442298362449,
+        "pixelSize": 3,
+        "flowScale": 0.01234022585572764,
+        "flowStrength": 2,
+        "particleCount": 923,
+        "clockSpeed": 0.006471983515432044,
+        "oscillation": 2.278654982905555,
+        "wMechanical": 0.88,
+        "wPixel": 0.13,
+        "wFlow": 0.88,
+        "wGeometric": 0.13,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 2.1582629781192626,
+        "hatchSpacing": 14.134413435899098,
+        "pixelCharacter": "shard",
         "flowCharacter": "biological",
         "mechanicalCharacter": "gear",
-        "symmetry": 0.5,
+        "symmetry": 0,
         "layerCount": 6,
-        "noiseOctaves": 3,
-        "noiseSeed": 5224.52
+        "noiseOctaves": 5,
+        "noiseSeed": 5839.773209548126,
+        "renderSeed": 1318031991.2476382,
+        "disorder": 0.2,
+        "disorderMode": "uniform",
+        "disorderAngle": 0,
+        "paletteColors": [
+          "#2a2a2a",
+          "#4a4a4a",
+          "#8a3020",
+          "#b8602a",
+          "#6a6a6a",
+          "#f4f1e8",
+          "#3a3a3a",
+          "#1a1a1a"
+        ],
+        "vignetteStrength": 0.45,
+        "stereo": false
       },
       "provenance": {
-        "type": "archive-winner",
-        "gen": 51,
-        "day": 52,
-        "date": "2026-05-24",
-        "title": "Art of Simulation",
-        "filename": "mechanical-reverie-2026-05-24-art-of-simulation.png"
+        "type": "frontier",
+        "gen": 112,
+        "day": null,
+        "date": "2026-08-20",
+        "title": "Clockwork Garden",
+        "filename": "mechanical-reverie-frontier-006-biological-gear-light-2026-08-20.png",
+        "cell": "biological|gear|light",
+        "frontierIndex": 6
       },
-      "since": "2026-07-06T15:02:49Z"
+      "since": "2026-08-21T04:18:18Z"
     },
     "transit|led|light": {
       "fitness": 6.574,
@@ -4681,10 +4699,186 @@
       "incumbentFitness": 6.053,
       "result": "held",
       "source": "Day 106 candidates"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 6.861,
+      "incumbentFitness": 6.688,
+      "result": "dethroned",
+      "source": "seed gen 112"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.7789,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.7348,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.7246,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.7246,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.5761,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.1721,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.1721,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.1721,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.1274,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.0886,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.0761,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.0761,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 5.014,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.8003,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.7733,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.6779,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.6533,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.5913,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.4741,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.4643,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
+    },
+    {
+      "ts": "2026-08-21T04:18:18Z",
+      "cell": "biological|gear|light",
+      "challengerFitness": 4.1203,
+      "incumbentFitness": 6.861,
+      "result": "held",
+      "source": "Frontier F006"
     }
   ],
   "frontierState": {
-    "lastMode": "cartographer",
+    "lastMode": "challenger",
     "history": [
       {
         "ts": "2026-07-23T04:54:38Z",
@@ -4715,6 +4909,12 @@
         "mode": "cartographer",
         "cell": "geo|diamond|linear|light",
         "pickedBy": "manual"
+      },
+      {
+        "ts": "2026-08-21T04:14:15Z",
+        "mode": "challenger",
+        "cell": "biological|gear|light",
+        "pickedBy": "auto"
       }
     ]
   },
