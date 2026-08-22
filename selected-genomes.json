@@ -7353,5 +7353,93 @@
     "keyDetails": "Frontier F-006 — Atlas cell biological|gear|light. Challenger: dethroned Day 52 'Art of Simulation' (6.688 → 6.861). Rest day.",
     "description": "Frontier F-006 fills a challenger target in the flow×mech Atlas: cell biological|gear|light, held since 6 July by Day 52 'Art of Simulation' (fitness 6.688). On 2026-08-20 the source feed rested — Noah posted only A. Michael Noll's own words elaborating the previous day's discovery (Noll: '50 short lines like sticks… scattered randomly in three dimensions… I never knew Dalí even knew of my computer art… astonished to learn this after over half a century'), a coda to the flagship Day 107 rather than a new visual source. So the engine worked its own map instead. This piece answers the cell, not a tweet: a clean two-voice duet of the biological flow character (branching, cellular sprigs and hooks) and the gear mechanical character (spiky star-cogs wired by dashed chains), on a warm newsprint-cream ground — a clockwork garden. Held to a legible duet (wFlow = wMechanical = 0.88, every other layer gated to 0.13) so both vocabularies read cleanly rather than muddying into a field; gearDensity 0.52 and flowStrength 2.0 keep each voice coherent. At fitness 6.8610 it clears the 6.738 bar and takes the cell from Day 52 — the map advancing on a quiet day.",
     "condensedReason": "Frontier F-006 fills a challenger target in the flow×mech Atlas: cell biological|gear|light, held since 6 July by Day 52 'Art of Simulation' (fitness 6.688). On 2026-08-20 the source feed rested — Noah posted only A. Michael Noll's own words elaborating the previous day's discovery (Noll: '50 short lines like sticks… scattered randomly in three dimensions… I never knew Dalí even knew of my computer art… astonished to learn this after over half a century'), a coda to the flagship Day 107 rather than a new visual source. So the engine worked its own map instead. This piece answers the cell, not a tweet: a clean two-voice duet of the biological flow character (branching, cellular sprigs and hooks) and the gear mechanical character (spiky star-cogs wired by dashed chains), on a warm newsprint-cream ground — a clockwork garden. Held to a legible duet (wFlow = wMechanical = 0.88, every other layer gated to 0.13) so both vocabularies read cleanly rather than muddying into a field; gearDensity 0.52 and flowStrength 2.0 keep each voice coherent. At fitness 6.8610 it clears the 6.738 bar and takes the cell from Day 52 — the map advancing on a quiet day."
+  },
+  {
+    "day": 108,
+    "date": "2026-08-21",
+    "title": "Rock It Gently",
+    "filename": "mechanical-reverie-day-108-rock-it-gently-2026-08-21.png",
+    "fitness": 6.52,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "33a32193220d2545d4ae6f542e7833438933eae5e5b7d545c012646acc1d2e3a",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 2612908492,
+      "noiseSeed": 1958.624934843367
+    },
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 3,
+      "cellPadding": 0.09496306527895251,
+      "rotation": 5.80380717292927,
+      "globalRotation": 0.05,
+      "paletteIndex": 10,
+      "bgDarkness": 0.75,
+      "gearDensity": 0.3,
+      "gearComplexity": 22,
+      "chainFrequency": 0.09099691672179255,
+      "pixelDensity": 0.8962265472772992,
+      "pixelSize": 4,
+      "flowScale": 0.013789738187920272,
+      "flowStrength": 1.999431124681696,
+      "particleCount": 1078,
+      "clockSpeed": 0.007716776768570555,
+      "oscillation": 1.1972639788683435,
+      "wMechanical": 0.9,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 2.0705972886100525,
+      "hatchSpacing": 16.058637794758226,
+      "pixelCharacter": "nested",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 1958.624934843367,
+      "renderSeed": 2612908492,
+      "disorder": 0.12,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#565450",
+        "#767066",
+        "#96907f",
+        "#b0a894",
+        "#c8c0ad",
+        "#191914",
+        "#d9a95e",
+        "#efe3c8"
+      ],
+      "vignetteStrength": 0.5,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Edward Kienholz 'The Friendly Grey Computer' (1965) — a computer built into a rocking chair, humanized with a mock care-manual ('treat your computer well…; rock it gently'). Rendered the console's FACE as a grid of round gauges/indicator lights (mechanicalCharacter 'led', wMechanical 0.90, others 0.12 — pure-single credit), warm amber/cream glow among greys (keeps 'grey'), dark-gallery ground, soft 0.05 tilt = the gentle rock, low disorder 0.12. Did NOT draw the chair/cabinet (anchor). No engine changes (user request). Fitness 6.52.",
+      "condensedReason": "In 1965 Edward Kienholz built 'The Friendly Grey Computer — Star Gauge Model 54': a grey electronic cabinet crowded with round dials, gauges and meters, blinking lights and a cable, mounted on the curved base of a child's rocking chair. Noah's clip from 'Kienholz On Exhibit' (1966) shows it in its dark gallery, rockers and console catching the light. Kienholz supplied a straight-faced care-manual: computers get overworked and fatigued, fall into 'funky moods,' and need affection and rest — 'treat your computer well, it will treat you well'; if it sulks, rock it gently for ten or twenty minutes. It is Dada tenderness — the machine humanized, kept like a pet, at the very moment the real computer was becoming an object of fear. Per the anchor (connect, don't illustrate) the engine renders neither the chair nor the cabinet but the console's FACE: a grid of round gauges and indicator lights (mechanicalCharacter 'led', wMechanical 0.90 with every other layer gated to 0.12) warm-lit — amber and cream glows among cooler greys, keeping the 'grey' in the name — on a dark-gallery ground, the whole panel given a soft 0.05-radian tilt for the gentle rock and a low, calm disorder (0.12). A tender, whimsical machine-portrait: the friendly computer, lights on, waiting to be treated well."
+    },
+    "tweetSummary": "NB video (Kienholz On Exhibit, 1966): Edward Kienholz's 'The Friendly Grey Computer — Star Gauge Model 54' (1965), a computer in a rocking chair with a mock care-manual — computers get fatigued and funky; treat them well, rock them gently.",
+    "keyArtists": [
+      {
+        "name": "Edward Kienholz",
+        "role": "American assemblage / installation artist",
+        "relevance": "'The Friendly Grey Computer: Star Gauge Model 54' (1965) — a computer humanized into a rocking-chair pet with a care-manual; Dada tenderness toward the machine."
+      }
+    ],
+    "themes": [
+      "the humanized machine",
+      "console of round gauges",
+      "friendly grey",
+      "Dada tenderness"
+    ],
+    "keyDetails": "Edward Kienholz, 1965 — 'The Friendly Grey Computer: Star Gauge Model 54', a computer in a rocking chair. NB video (Kienholz On Exhibit, 1966), 20 likes.",
+    "description": "In 1965 Edward Kienholz built 'The Friendly Grey Computer — Star Gauge Model 54': a grey electronic cabinet crowded with round dials, gauges and meters, blinking lights and a cable, mounted on the curved base of a child's rocking chair. Noah's clip from 'Kienholz On Exhibit' (1966) shows it in its dark gallery, rockers and console catching the light. Kienholz supplied a straight-faced care-manual: computers get overworked and fatigued, fall into 'funky moods,' and need affection and rest — 'treat your computer well, it will treat you well'; if it sulks, rock it gently for ten or twenty minutes. It is Dada tenderness — the machine humanized, kept like a pet, at the very moment the real computer was becoming an object of fear. Per the anchor (connect, don't illustrate) the engine renders neither the chair nor the cabinet but the console's FACE: a grid of round gauges and indicator lights (mechanicalCharacter 'led', wMechanical 0.90 with every other layer gated to 0.12) warm-lit — amber and cream glows among cooler greys, keeping the 'grey' in the name — on a dark-gallery ground, the whole panel given a soft 0.05-radian tilt for the gentle rock and a low, calm disorder (0.12). A tender, whimsical machine-portrait: the friendly computer, lights on, waiting to be treated well.",
+    "condensedReason": "In 1965 Edward Kienholz built 'The Friendly Grey Computer — Star Gauge Model 54': a grey electronic cabinet crowded with round dials, gauges and meters, blinking lights and a cable, mounted on the curved base of a child's rocking chair. Noah's clip from 'Kienholz On Exhibit' (1966) shows it in its dark gallery, rockers and console catching the light. Kienholz supplied a straight-faced care-manual: computers get overworked and fatigued, fall into 'funky moods,' and need affection and rest — 'treat your computer well, it will treat you well'; if it sulks, rock it gently for ten or twenty minutes. It is Dada tenderness — the machine humanized, kept like a pet, at the very moment the real computer was becoming an object of fear. Per the anchor (connect, don't illustrate) the engine renders neither the chair nor the cabinet but the console's FACE: a grid of round gauges and indicator lights (mechanicalCharacter 'led', wMechanical 0.90 with every other layer gated to 0.12) warm-lit — amber and cream glows among cooler greys, keeping the 'grey' in the name — on a dark-gallery ground, the whole panel given a soft 0.05-radian tilt for the gentle rock and a low, calm disorder (0.12). A tender, whimsical machine-portrait: the friendly computer, lights on, waiting to be treated well."
   }
 ]
