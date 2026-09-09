@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-07",
+  "updated": "2026-09-04",
   "concepts": [
     {
       "id": "bell-labs",
@@ -58,6 +58,10 @@
         {
           "gen": 111,
           "why": "A. Michael Noll made his 1964 random-line-cube on Bell Labs' IBM 7094 — a stereoscopic computer artwork Dalí later embedded in his painting. The Wing's line-drawing pioneer, rendered here as a red/cyan anaglyph."
+        },
+        {
+          "gen": 116,
+          "why": "'The Thinking Machine' (Bell Telephone, 1968) and its 'computers can be programmed to appear creative' claim, closing on Harmon & Knowlton's Bell Labs computer art — MR's founding question, answered here with Lloyd Sumner's plotter curves."
         }
       ]
     },
