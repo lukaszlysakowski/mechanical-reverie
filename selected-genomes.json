@@ -7528,5 +7528,97 @@
     "keyDetails": "Vibeke Sorensen, 1985 — 'Fish and Chips', early 3D CG fish over integrated-circuit chips. NB original, 35 likes.",
     "description": "Vibeke Sorensen's 'Fish and Chips' (1985) is an early 3D computer-rendered pun: a school of faceted low-poly magenta fish, crimson-finned and cyan-eyed, drifting in a black void above a neat grid of brown DIP integrated-circuit chips laid out on a vivid royal-blue plane — fish and chips, organic life among silicon. Sorensen is a pioneer of digital art and, especially, of digital COLOR (her JPL/Caltech-era work made the computer a colorist's instrument), and it is the electric palette as much as the joke that makes the image hers. Noah posted it plainly, dated and named. Per the anchor (connect, don't illustrate) the engine redraws neither fish nor chip: it renders the juxtaposition as a DUET in its own vocabulary — the biological flow character (organic, drifting, branching forms = the shoal of life) at wFlow 0.85 over the circuit mechanical character (silicon traces and nodes = the chips) at wMechanical 0.85, every other layer gated to 0.13 so the two voices stay legible. The palette is lifted straight from the work: hot magenta and pink, crimson, royal blue and a cyan spark, scattered across a black ground (index 5). A shoal of colour drifting over a silicon reef — life among the electronics.",
     "condensedReason": "Vibeke Sorensen's 'Fish and Chips' (1985) is an early 3D computer-rendered pun: a school of faceted low-poly magenta fish, crimson-finned and cyan-eyed, drifting in a black void above a neat grid of brown DIP integrated-circuit chips laid out on a vivid royal-blue plane — fish and chips, organic life among silicon. Sorensen is a pioneer of digital art and, especially, of digital COLOR (her JPL/Caltech-era work made the computer a colorist's instrument), and it is the electric palette as much as the joke that makes the image hers. Noah posted it plainly, dated and named. Per the anchor (connect, don't illustrate) the engine redraws neither fish nor chip: it renders the juxtaposition as a DUET in its own vocabulary — the biological flow character (organic, drifting, branching forms = the shoal of life) at wFlow 0.85 over the circuit mechanical character (silicon traces and nodes = the chips) at wMechanical 0.85, every other layer gated to 0.13 so the two voices stay legible. The palette is lifted straight from the work: hot magenta and pink, crimson, royal blue and a cyan spark, scattered across a black ground (index 5). A shoal of colour drifting over a silicon reef — life among the electronics."
+  },
+  {
+    "day": 110,
+    "date": "2026-09-06",
+    "title": "Persistence of Vision",
+    "filename": "mechanical-reverie-day-110-persistence-of-vision-2026-09-06.png",
+    "fitness": 6.825,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "72a797059660be5f1719cbd38fff46b68320c38f65ede85fb36bd5b663e6172f",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 692793801,
+      "noiseSeed": 6105.439059028428
+    },
+    "genome": {
+      "gridCols": 6,
+      "gridRows": 6,
+      "cellPadding": 0.035920024623786975,
+      "rotation": 5.9532927084875675,
+      "globalRotation": -0.030118725693134587,
+      "paletteIndex": 10,
+      "bgDarkness": 0.85,
+      "gearDensity": 0.2307552727691787,
+      "gearComplexity": 13,
+      "chainFrequency": 0.36525705805278236,
+      "pixelDensity": 0.2326752622182845,
+      "pixelSize": 4,
+      "flowScale": 0.012,
+      "flowStrength": 2.4,
+      "particleCount": 500,
+      "clockSpeed": 0.005729518366132152,
+      "oscillation": 1.3946955003173114,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.92,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 0,
+      "hatchSpacing": 6,
+      "pixelCharacter": "shard",
+      "flowCharacter": "convergence",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 6105.439059028428,
+      "renderSeed": 692793801,
+      "disorder": 0.07,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#f4f4f4",
+        "#d8d8d8",
+        "#b0b0b0",
+        "#e8e8e8",
+        "#ffffff",
+        "#08080a",
+        "#888888",
+        "#c8c8c8"
+      ],
+      "vignetteStrength": 0.4,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "NB quote-tweet framing @ktymaknr's slit-mirror praxinoscope/zoetrope as 'the technologically assisted return of Op Art.' Rendered MR's Op Art vocabulary — the 'convergence' character (op-art curve-stitch lattice) — as a pure field (wFlow 0.92, others 0.13), 6×6 node grid, stark B/W, disorder 0.07 (Op Art is precise). Did NOT draw the device (anchor). No engine changes. Fitness 6.8250 (pure-single convergence credit — needs gridCols/gridRows∈[3,8] + hatchSpacing∈[2,8] for the bonuses). 2nd convergence/optical piece after gen 92 (Vidal); a 3rd could mint an Op-Art room. No room membership yet.",
+      "condensedReason": "On 6 September Noah quote-posted a video by the maker kitayama akinari (@ktymaknr) — a praxinoscope rebuilt with slits cut into the edge of each mirror facet and a zoetrope nested inside: a circular drum of a dozen angled mirrors spinning an animation that strobes into motion through the slits, the 19th-century optical toy reborn with contemporary precision. Noah's caption named the destination: 'The technologically assisted return of Op Art will be glorious.' A reply agreed — 'algorithmic precision fits that geometry so well.' Op Art is exactly what Mechanical Reverie's 'convergence' character was built to render: the ruled curve-stitch lattice of Vidal, Mac Entyre and Le Parc, whose straight lines bend the eye into moiré. Per the anchor (connect, don't illustrate) the engine draws no praxinoscope; it renders the OPTICAL EFFECT the device produces — a pure convergence field (wFlow 0.92, every shape layer gated to 0.13), a 6×6 grid of parabolic fan-envelopes whose white threads carve luminous lens-shaped voids and vibrate between the cells. Stark black and white for maximum optical charge, near-zero disorder (0.07) because the illusion depends on exactness. Persistence of vision: still lines that will not hold still."
+    },
+    "tweetSummary": "NB quote-tweet (50 likes): @ktymaknr's praxinoscope with slit-edged mirrors + nested zoetrope — 'the technologically assisted return of Op Art will be glorious.' Rendered as a stark convergence moiré field.",
+    "keyArtists": [
+      {
+        "name": "kitayama akinari (@ktymaknr)",
+        "role": "contemporary kinetic-optical maker",
+        "relevance": "Built a slit-mirror praxinoscope with a nested zoetrope — a modern optical-animation device."
+      },
+      {
+        "name": "Op Art (Riley / Vasarely / Le Parc)",
+        "role": "1960s optical & kinetic art",
+        "relevance": "The tradition NB names; MR renders it through the 'convergence' curve-stitch lattice."
+      }
+    ],
+    "themes": [
+      "optical vibration (Op Art)",
+      "persistence of vision",
+      "algorithmic precision"
+    ],
+    "keyDetails": "@ktymaknr praxinoscope (slit mirrors + zoetrope), 2026 — NB: 'the technologically assisted return of Op Art.' Quote-tweet, 50 likes.",
+    "description": "On 6 September Noah quote-posted a video by the maker kitayama akinari (@ktymaknr) — a praxinoscope rebuilt with slits cut into the edge of each mirror facet and a zoetrope nested inside: a circular drum of a dozen angled mirrors spinning an animation that strobes into motion through the slits, the 19th-century optical toy reborn with contemporary precision. Noah's caption named the destination: 'The technologically assisted return of Op Art will be glorious.' A reply agreed — 'algorithmic precision fits that geometry so well.' Op Art is exactly what Mechanical Reverie's 'convergence' character was built to render: the ruled curve-stitch lattice of Vidal, Mac Entyre and Le Parc, whose straight lines bend the eye into moiré. Per the anchor (connect, don't illustrate) the engine draws no praxinoscope; it renders the OPTICAL EFFECT the device produces — a pure convergence field (wFlow 0.92, every shape layer gated to 0.13), a 6×6 grid of parabolic fan-envelopes whose white threads carve luminous lens-shaped voids and vibrate between the cells. Stark black and white for maximum optical charge, near-zero disorder (0.07) because the illusion depends on exactness. Persistence of vision: still lines that will not hold still.",
+    "condensedReason": "On 6 September Noah quote-posted a video by the maker kitayama akinari (@ktymaknr) — a praxinoscope rebuilt with slits cut into the edge of each mirror facet and a zoetrope nested inside: a circular drum of a dozen angled mirrors spinning an animation that strobes into motion through the slits, the 19th-century optical toy reborn with contemporary precision. Noah's caption named the destination: 'The technologically assisted return of Op Art will be glorious.' A reply agreed — 'algorithmic precision fits that geometry so well.' Op Art is exactly what Mechanical Reverie's 'convergence' character was built to render: the ruled curve-stitch lattice of Vidal, Mac Entyre and Le Parc, whose straight lines bend the eye into moiré. Per the anchor (connect, don't illustrate) the engine draws no praxinoscope; it renders the OPTICAL EFFECT the device produces — a pure convergence field (wFlow 0.92, every shape layer gated to 0.13), a 6×6 grid of parabolic fan-envelopes whose white threads carve luminous lens-shaped voids and vibrate between the cells. Stark black and white for maximum optical charge, near-zero disorder (0.07) because the illusion depends on exactness. Persistence of vision: still lines that will not hold still."
   }
 ]
