@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-09-07",
   "concepts": [
     {
       "id": "bell-labs",
@@ -124,6 +124,10 @@
         {
           "gen": 89,
           "why": "Day 90 — Noriko Umeda's text-to-speech work at Bell Labs (the talking computer, 1973)"
+        },
+        {
+          "gen": 114,
+          "why": "Vibeke Sorensen — pioneer of digital color and computer animation; 'Fish and Chips' (1985) joins Bute, Molnar and Sollfrank in the room of women who built the medium."
         }
       ]
     },

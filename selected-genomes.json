@@ -7441,5 +7441,92 @@
     "keyDetails": "Edward Kienholz, 1965 — 'The Friendly Grey Computer: Star Gauge Model 54', a computer in a rocking chair. NB video (Kienholz On Exhibit, 1966), 20 likes.",
     "description": "In 1965 Edward Kienholz built 'The Friendly Grey Computer — Star Gauge Model 54': a grey electronic cabinet crowded with round dials, gauges and meters, blinking lights and a cable, mounted on the curved base of a child's rocking chair. Noah's clip from 'Kienholz On Exhibit' (1966) shows it in its dark gallery, rockers and console catching the light. Kienholz supplied a straight-faced care-manual: computers get overworked and fatigued, fall into 'funky moods,' and need affection and rest — 'treat your computer well, it will treat you well'; if it sulks, rock it gently for ten or twenty minutes. It is Dada tenderness — the machine humanized, kept like a pet, at the very moment the real computer was becoming an object of fear. Per the anchor (connect, don't illustrate) the engine renders neither the chair nor the cabinet but the console's FACE: a grid of round gauges and indicator lights (mechanicalCharacter 'led', wMechanical 0.90 with every other layer gated to 0.12) warm-lit — amber and cream glows among cooler greys, keeping the 'grey' in the name — on a dark-gallery ground, the whole panel given a soft 0.05-radian tilt for the gentle rock and a low, calm disorder (0.12). A tender, whimsical machine-portrait: the friendly computer, lights on, waiting to be treated well.",
     "condensedReason": "In 1965 Edward Kienholz built 'The Friendly Grey Computer — Star Gauge Model 54': a grey electronic cabinet crowded with round dials, gauges and meters, blinking lights and a cable, mounted on the curved base of a child's rocking chair. Noah's clip from 'Kienholz On Exhibit' (1966) shows it in its dark gallery, rockers and console catching the light. Kienholz supplied a straight-faced care-manual: computers get overworked and fatigued, fall into 'funky moods,' and need affection and rest — 'treat your computer well, it will treat you well'; if it sulks, rock it gently for ten or twenty minutes. It is Dada tenderness — the machine humanized, kept like a pet, at the very moment the real computer was becoming an object of fear. Per the anchor (connect, don't illustrate) the engine renders neither the chair nor the cabinet but the console's FACE: a grid of round gauges and indicator lights (mechanicalCharacter 'led', wMechanical 0.90 with every other layer gated to 0.12) warm-lit — amber and cream glows among cooler greys, keeping the 'grey' in the name — on a dark-gallery ground, the whole panel given a soft 0.05-radian tilt for the gentle rock and a low, calm disorder (0.12). A tender, whimsical machine-portrait: the friendly computer, lights on, waiting to be treated well."
+  },
+  {
+    "day": 109,
+    "date": "2026-09-07",
+    "title": "Silicon Reef",
+    "filename": "mechanical-reverie-day-109-silicon-reef-2026-09-07.png",
+    "fitness": 6.825,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "fbf2c95e021becb0790f09ae696c1fdf021b666053f96f235ef4d9f552bc4c94",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 2362871383,
+      "noiseSeed": 3154.356127125727
+    },
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 11,
+      "cellPadding": 0.1593721112923209,
+      "rotation": 1.873011690618959,
+      "globalRotation": -0.11530049524342462,
+      "paletteIndex": 10,
+      "bgDarkness": 0.8,
+      "gearDensity": 0.5,
+      "gearComplexity": 22,
+      "chainFrequency": 0.6225568919969896,
+      "pixelDensity": 0.07880900217407305,
+      "pixelSize": 6,
+      "flowScale": 0.010527205909824113,
+      "flowStrength": 2,
+      "particleCount": 1041,
+      "clockSpeed": 0.0038656466206540853,
+      "oscillation": 1.8612051908954514,
+      "wMechanical": 0.85,
+      "wPixel": 0.13,
+      "wFlow": 0.85,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 0.8397181750830538,
+      "hatchSpacing": 7.899465311669383,
+      "pixelCharacter": "shard",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 3154.356127125727,
+      "renderSeed": 2362871383,
+      "disorder": 0.2,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#ff3f8f",
+        "#c81e5a",
+        "#2b5cc8",
+        "#00d0e0",
+        "#ff77b0",
+        "#000006",
+        "#6a4a3a",
+        "#e8e8f0"
+      ],
+      "vignetteStrength": 0.45,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Vibeke Sorensen 'Fish and Chips' (1985) — early 3D CG pun (fish + IC chips = life among silicon), by a digital-color pioneer. Rendered the JUXTAPOSITION as a clean biological+circuit DUET (wFlow=wMechanical=0.85, others 0.13), in Sorensen's own black/royal-blue/magenta/cyan palette. Did NOT redraw fish or chips (anchor). No engine changes. Fitness 6.8250 (duet credit). Joins Women Pioneers.",
+      "condensedReason": "Vibeke Sorensen's 'Fish and Chips' (1985) is an early 3D computer-rendered pun: a school of faceted low-poly magenta fish, crimson-finned and cyan-eyed, drifting in a black void above a neat grid of brown DIP integrated-circuit chips laid out on a vivid royal-blue plane — fish and chips, organic life among silicon. Sorensen is a pioneer of digital art and, especially, of digital COLOR (her JPL/Caltech-era work made the computer a colorist's instrument), and it is the electric palette as much as the joke that makes the image hers. Noah posted it plainly, dated and named. Per the anchor (connect, don't illustrate) the engine redraws neither fish nor chip: it renders the juxtaposition as a DUET in its own vocabulary — the biological flow character (organic, drifting, branching forms = the shoal of life) at wFlow 0.85 over the circuit mechanical character (silicon traces and nodes = the chips) at wMechanical 0.85, every other layer gated to 0.13 so the two voices stay legible. The palette is lifted straight from the work: hot magenta and pink, crimson, royal blue and a cyan spark, scattered across a black ground (index 5). A shoal of colour drifting over a silicon reef — life among the electronics."
+    },
+    "tweetSummary": "NB image (35 likes): 'Fish and Chips' by Vibeke Sorensen (1985) — low-poly magenta fish drifting over a grid of integrated-circuit chips on royal blue; a digital-color pioneer's pun on life among silicon.",
+    "keyArtists": [
+      {
+        "name": "Vibeke Sorensen",
+        "role": "pioneer of digital art, computer animation & digital color",
+        "relevance": "'Fish and Chips' (1985) — an early 3D CG pun juxtaposing organic fish with integrated-circuit chips."
+      }
+    ],
+    "themes": [
+      "life among silicon",
+      "vivid early-CG color",
+      "the circuit field"
+    ],
+    "keyDetails": "Vibeke Sorensen, 1985 — 'Fish and Chips', early 3D CG fish over integrated-circuit chips. NB original, 35 likes.",
+    "description": "Vibeke Sorensen's 'Fish and Chips' (1985) is an early 3D computer-rendered pun: a school of faceted low-poly magenta fish, crimson-finned and cyan-eyed, drifting in a black void above a neat grid of brown DIP integrated-circuit chips laid out on a vivid royal-blue plane — fish and chips, organic life among silicon. Sorensen is a pioneer of digital art and, especially, of digital COLOR (her JPL/Caltech-era work made the computer a colorist's instrument), and it is the electric palette as much as the joke that makes the image hers. Noah posted it plainly, dated and named. Per the anchor (connect, don't illustrate) the engine redraws neither fish nor chip: it renders the juxtaposition as a DUET in its own vocabulary — the biological flow character (organic, drifting, branching forms = the shoal of life) at wFlow 0.85 over the circuit mechanical character (silicon traces and nodes = the chips) at wMechanical 0.85, every other layer gated to 0.13 so the two voices stay legible. The palette is lifted straight from the work: hot magenta and pink, crimson, royal blue and a cyan spark, scattered across a black ground (index 5). A shoal of colour drifting over a silicon reef — life among the electronics.",
+    "condensedReason": "Vibeke Sorensen's 'Fish and Chips' (1985) is an early 3D computer-rendered pun: a school of faceted low-poly magenta fish, crimson-finned and cyan-eyed, drifting in a black void above a neat grid of brown DIP integrated-circuit chips laid out on a vivid royal-blue plane — fish and chips, organic life among silicon. Sorensen is a pioneer of digital art and, especially, of digital COLOR (her JPL/Caltech-era work made the computer a colorist's instrument), and it is the electric palette as much as the joke that makes the image hers. Noah posted it plainly, dated and named. Per the anchor (connect, don't illustrate) the engine redraws neither fish nor chip: it renders the juxtaposition as a DUET in its own vocabulary — the biological flow character (organic, drifting, branching forms = the shoal of life) at wFlow 0.85 over the circuit mechanical character (silicon traces and nodes = the chips) at wMechanical 0.85, every other layer gated to 0.13 so the two voices stay legible. The palette is lifted straight from the work: hot magenta and pink, crimson, royal blue and a cyan spark, scattered across a black ground (index 5). A shoal of colour drifting over a silicon reef — life among the electronics."
   }
 ]
