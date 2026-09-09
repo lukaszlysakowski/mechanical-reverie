@@ -648,8 +648,25 @@ async function init() {
     return;
   }
 
+  // Tag each entry with its TRUE archive gen (1-based array position) and original index
+  // BEFORE any filter/sort — the "Gen N" label and ?gen=N links depend on the array position.
+  genomes.forEach((g, i) => { g._gen = i + 1; g._orig = i; });
+
   // Filter to entries that have dates and filenames
   genomes = genomes.filter(g => g.date && g.filename);
+
+  // Display in DATE order (a piece may be processed out of calendar order — e.g. clearing a
+  // backlog newest-first). Tie-break by true gen so same-date entries keep archive order.
+  genomes.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a._gen - b._gen));
+
+  // Remap parentIndex (an ORIGINAL 0-based array index) to the new display position, so lineage
+  // arrows still connect the right cards after sorting.
+  const origToDisplay = {};
+  genomes.forEach((g, i) => { origToDisplay[g._orig] = i; });
+  genomes.forEach(g => {
+    g._parentDisplay = (g.parentIndex !== null && g.parentIndex !== undefined && origToDisplay[g.parentIndex] !== undefined)
+      ? origToDisplay[g.parentIndex] : null;
+  });
 
   updateStats();
   renderStrip();
@@ -729,8 +746,8 @@ function renderStrip() {
     ).join('');
 
     let lineageText = '';
-    if (genome.parentIndex !== null && genome.parentIndex !== undefined) {
-      const parent = genomes[genome.parentIndex];
+    if (genome._parentDisplay !== null && genome._parentDisplay !== undefined) {
+      const parent = genomes[genome._parentDisplay];
       if (parent) {
         lineageText = `child of ${titleFromFilename(parent.filename, parent)}`;
       }
@@ -743,7 +760,7 @@ function renderStrip() {
 
     const keyDetailsText = genome.keyDetails || '';
     const reasonText = genome.description || genome.condensedReason || '';
-    const genNum = i + 1;
+    const genNum = genome._gen;
     const titleText = titleFromFilename(genome.filename, genome);
     card.innerHTML = `
       <div class="card-image-wrap" onclick="window.open('generative-art-generator.html?gen=${genNum}', '_blank')" title="Open ${titleText.replace(/"/g, '&quot;')} — view this piece">
@@ -795,10 +812,10 @@ function drawLineageArrows() {
   svg.style.height = strip.offsetHeight + 'px';
 
   genomes.forEach((genome, i) => {
-    if (genome.parentIndex === null || genome.parentIndex === undefined) return;
+    if (genome._parentDisplay === null || genome._parentDisplay === undefined) return;
 
     const childCard = cards[i];
-    const parentCard = cards[genome.parentIndex];
+    const parentCard = cards[genome._parentDisplay];
     if (!childCard || !parentCard) return;
 
     const childImg = childCard.querySelector('.card-image-wrap');
