@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-09-09T19:48:02Z",
+  "updated": "2026-09-11T20:19:26Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -2339,67 +2339,69 @@
       "since": "2026-07-26T01:45:58Z"
     },
     "geo|rectangle|uniform|light": {
-      "fitness": 6.805,
+      "fitness": 6.82,
       "genome": {
-        "gridCols": 12,
-        "gridRows": 9,
-        "cellPadding": 0.1,
-        "rotation": 3.141592653589793,
-        "globalRotation": 0,
-        "paletteIndex": 12,
-        "bgDarkness": 0.12,
-        "gearDensity": 0.9548285596177144,
-        "gearComplexity": 18,
-        "chainFrequency": 0.45548316777390074,
-        "pixelDensity": 0.4735032853634209,
-        "pixelSize": 4,
-        "flowScale": 0.01970297193836478,
-        "flowStrength": 1.187014444519407,
-        "particleCount": 1701,
-        "clockSpeed": 0.017852480814354657,
-        "oscillation": 2.5869680398464556,
-        "wMechanical": 0.13,
-        "wPixel": 0.13,
-        "wFlow": 0.13,
+        "gridCols": 6,
+        "gridRows": 5,
+        "cellPadding": 0.28,
+        "rotation": 3.294787421691931,
+        "globalRotation": -0.02251195662513219,
+        "paletteIndex": 10,
+        "bgDarkness": 0.5,
+        "gearDensity": 0.7975363346227206,
+        "gearComplexity": 7,
+        "chainFrequency": 0.6977159884007863,
+        "pixelDensity": 0.16825762101752786,
+        "pixelSize": 5,
+        "flowScale": 0.008856268502205753,
+        "flowStrength": 2.9217613897112193,
+        "particleCount": 411,
+        "clockSpeed": 0.004971268844257648,
+        "oscillation": 2.0804687761839755,
+        "wMechanical": 0.12,
+        "wPixel": 0.12,
+        "wFlow": 0.12,
         "wGeometric": 0.9,
-        "wOrganic": 0.13,
-        "wHatch": 0.13,
-        "hatchAngle": 1.55865581147956,
-        "hatchSpacing": 7.67464636616981,
-        "pixelCharacter": "data",
-        "flowCharacter": "dispersal",
+        "wOrganic": 0.12,
+        "wHatch": 0.12,
+        "hatchAngle": 1.446740293486461,
+        "hatchSpacing": 11.187805756174708,
+        "pixelCharacter": "halftone",
+        "flowCharacter": "transit",
         "mechanicalCharacter": "gear",
         "symmetry": 0,
         "layerCount": 6,
-        "noiseOctaves": 4,
-        "noiseSeed": 431,
-        "renderSeed": 1076668446,
+        "noiseOctaves": 3,
+        "noiseSeed": 3467.384995770424,
+        "renderSeed": 2248975475.5704675,
         "disorder": 0.62,
         "disorderMode": "uniform",
         "disorderAngle": 0,
-        "baseShape": 1,
-        "baseColorIndex": 1,
-        "lockShape": true,
         "paletteColors": [
-          "#ecebe2",
-          "#cabfa8",
-          "#a89e84",
-          "#6e6858",
-          "#c2cdd8",
-          "#d6cfbf",
-          "#8a8474",
-          "#3a362c"
-        ]
+          "#8a7a92",
+          "#c87838",
+          "#a87844",
+          "#e0a050",
+          "#6a5a72",
+          "#5a3218",
+          "#3a2a24",
+          "#5a7aa8"
+        ],
+        "baseShape": 1,
+        "baseColorIndex": 4,
+        "lockShape": true,
+        "vignetteStrength": 0.82,
+        "stereo": false
       },
       "provenance": {
         "type": "archive-winner",
-        "gen": 101,
-        "day": 100,
-        "date": "2026-07-26",
-        "title": "S.C.A.M.",
-        "filename": "mechanical-reverie-day-100-scam-2026-07-26.png"
+        "gen": 117,
+        "day": 112,
+        "date": "2026-09-11",
+        "title": "Farther Than the Horizon",
+        "filename": "mechanical-reverie-day-112-farther-than-the-horizon-2026-09-11.png"
       },
-      "since": "2026-07-27T03:02:45Z"
+      "since": "2026-09-11T20:19:26Z"
     },
     "geo|circle|radial|light": {
       "fitness": 6.8527,
@@ -2725,182 +2727,6 @@
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 5.6687,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 5.6687,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 5.6602,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 5.5893,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|plotter|light",
-      "challengerFitness": 5.5756,
-      "incumbentFitness": null,
-      "result": "placed-empty",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "transit|circuit|light",
-      "challengerFitness": 5.4963,
-      "incumbentFitness": 6.7425,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 5.4154,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|led|light",
-      "challengerFitness": 5.3862,
-      "incumbentFitness": 6.6205,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "vortex|circuit|light",
-      "challengerFitness": 5.3128,
-      "incumbentFitness": null,
-      "result": "placed-empty",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "vortex|circuit|light",
-      "challengerFitness": 5.1844,
-      "incumbentFitness": 5.3128,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "dispersal|circuit|light",
-      "challengerFitness": 4.9438,
-      "incumbentFitness": 5.7211,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:09:59Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 4.4999,
-      "incumbentFitness": 6.4828,
-      "result": "held",
-      "source": "Day 83 candidates"
-    },
-    {
-      "ts": "2026-07-09T05:11:46Z",
-      "cell": "data|circuit|light",
-      "challengerFitness": 6.7355,
-      "incumbentFitness": 6.4828,
-      "result": "dethroned",
-      "source": "seed gen 82"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "mathematical|led|dark",
-      "challengerFitness": 6.8288,
-      "incumbentFitness": null,
-      "result": "placed-empty",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "mathematical|led|dark",
-      "challengerFitness": 6.8288,
-      "incumbentFitness": 6.8288,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "mathematical|led|dark",
-      "challengerFitness": 6.8288,
-      "incumbentFitness": 6.8288,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "mathematical|led|dark",
-      "challengerFitness": 6.5021,
-      "incumbentFitness": 6.8288,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "biological|led|dark",
-      "challengerFitness": 6.1608,
-      "incumbentFitness": 6.76,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "biological|led|dark",
-      "challengerFitness": 6.1228,
-      "incumbentFitness": 6.76,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "biological|led|dark",
-      "challengerFitness": 6.1228,
-      "incumbentFitness": 6.76,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "biological|led|dark",
-      "challengerFitness": 6.1228,
-      "incumbentFitness": 6.76,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
-    {
-      "ts": "2026-07-10T03:57:20Z",
-      "cell": "mathematical|led|dark",
-      "challengerFitness": 5.8862,
-      "incumbentFitness": 6.8288,
-      "result": "held",
-      "source": "Day 84 candidates"
-    },
     {
       "ts": "2026-07-10T03:57:20Z",
       "cell": "mathematical|led|dark",
@@ -5124,6 +4950,182 @@
       "incumbentFitness": 6.197,
       "result": "dethroned",
       "source": "seed gen 116"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.5273,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.4395,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "biological|gear|dark",
+      "challengerFitness": 5.4166,
+      "incumbentFitness": 6.6725,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "dispersal|gear|dark",
+      "challengerFitness": 5.226,
+      "incumbentFitness": 6.705,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|circuit|dark",
+      "challengerFitness": 5.1703,
+      "incumbentFitness": 6.717,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.0675,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.0483,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 4.6359,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 4.6252,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 4.1456,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 3.7476,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 3.3426,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.5599,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.5135,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.0829,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.4578,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.4187,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "transit|gear|dark",
+      "challengerFitness": 5.4395,
+      "incumbentFitness": 6.053,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "biological|gear|dark",
+      "challengerFitness": 5.4469,
+      "incumbentFitness": 6.6725,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "biological|gear|dark",
+      "challengerFitness": 5.3802,
+      "incumbentFitness": 6.6725,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "biological|gear|dark",
+      "challengerFitness": 5.4166,
+      "incumbentFitness": 6.6725,
+      "result": "held",
+      "source": "Day 112 candidates"
+    },
+    {
+      "ts": "2026-09-11T20:19:26Z",
+      "cell": "geo|rectangle|uniform|light",
+      "challengerFitness": 6.82,
+      "incumbentFitness": 6.805,
+      "result": "dethroned",
+      "source": "seed gen 117"
     }
   ],
   "frontierState": {

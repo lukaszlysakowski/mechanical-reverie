@@ -7717,5 +7717,95 @@
     "keyDetails": "'The Thinking Machine' (Bell Telephone, 1968) — 'computers can be programmed to appear creative'; art by Sumner, Harmon & Knowlton. NB video, 11 likes.",
     "description": "On 4 September Noah posted a clip from 'The Thinking Machine' (Bell Telephone Company / Periscope Films, 1968), one of the first television documentaries on artificial intelligence. Its narrator concedes: 'Creativity, a word just as hard to define as thinking, still seems to be a uniquely human capability. So far, no computer has ever painted a beautiful picture, or designed an original dragster. But computers can be programmed to APPEAR creative.' The film then closes on the evidence against its own caution — computer art by Leon Harmon and Ken Knowlton (the dithered 'Gulls', 1967) and by Lloyd Sumner, whose 'Conspired Abstract of the Christmas Spirit' (1968) is a festive plotter drawing of overlapping curve-stitch fans, spirals and colour-blocks in red, blue and green on white paper. That 1968 question — can a machine be creative, or only appear so — is the one Mechanical Reverie was built to sit inside (Cohen's meaning generators; the criteria partnership). Rather than the much-seen Harmon-Knowlton mosaic, the engine answers with Sumner, the fresh pioneer: a pure plotter composition (mechanicalCharacter 'plotter', wMechanical 0.90, every other layer gated to 0.13), sweeping overlapping arc-fans in multi-colour pen ink on flat white paper (no vignette). Per the anchor it copies no composition — it lets the machine draw its own beautiful picture, appearing creative.",
     "condensedReason": "On 4 September Noah posted a clip from 'The Thinking Machine' (Bell Telephone Company / Periscope Films, 1968), one of the first television documentaries on artificial intelligence. Its narrator concedes: 'Creativity, a word just as hard to define as thinking, still seems to be a uniquely human capability. So far, no computer has ever painted a beautiful picture, or designed an original dragster. But computers can be programmed to APPEAR creative.' The film then closes on the evidence against its own caution — computer art by Leon Harmon and Ken Knowlton (the dithered 'Gulls', 1967) and by Lloyd Sumner, whose 'Conspired Abstract of the Christmas Spirit' (1968) is a festive plotter drawing of overlapping curve-stitch fans, spirals and colour-blocks in red, blue and green on white paper. That 1968 question — can a machine be creative, or only appear so — is the one Mechanical Reverie was built to sit inside (Cohen's meaning generators; the criteria partnership). Rather than the much-seen Harmon-Knowlton mosaic, the engine answers with Sumner, the fresh pioneer: a pure plotter composition (mechanicalCharacter 'plotter', wMechanical 0.90, every other layer gated to 0.13), sweeping overlapping arc-fans in multi-colour pen ink on flat white paper (no vignette). Per the anchor it copies no composition — it lets the machine draw its own beautiful picture, appearing creative."
+  },
+  {
+    "day": 112,
+    "date": "2026-09-11",
+    "title": "Farther Than the Horizon",
+    "filename": "mechanical-reverie-day-112-farther-than-the-horizon-2026-09-11.png",
+    "fitness": 6.82,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "a8698c820c9f6001a23d38493d4c5baac6d1d3ac7a5226e4451855b9ab7cdfeb",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 2248975475.5704675,
+      "noiseSeed": 3467.384995770424
+    },
+    "genome": {
+      "gridCols": 6,
+      "gridRows": 5,
+      "cellPadding": 0.28,
+      "rotation": 3.294787421691931,
+      "globalRotation": -0.02251195662513219,
+      "paletteIndex": 10,
+      "bgDarkness": 0.5,
+      "gearDensity": 0.7975363346227206,
+      "gearComplexity": 7,
+      "chainFrequency": 0.6977159884007863,
+      "pixelDensity": 0.16825762101752786,
+      "pixelSize": 5,
+      "flowScale": 0.008856268502205753,
+      "flowStrength": 2.9217613897112193,
+      "particleCount": 411,
+      "clockSpeed": 0.004971268844257648,
+      "oscillation": 2.0804687761839755,
+      "wMechanical": 0.12,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.9,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 1.446740293486461,
+      "hatchSpacing": 11.187805756174708,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 3467.384995770424,
+      "renderSeed": 2248975475.5704675,
+      "disorder": 0.62,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#8a7a92",
+        "#c87838",
+        "#a87844",
+        "#e0a050",
+        "#6a5a72",
+        "#5a3218",
+        "#3a2a24",
+        "#5a7aa8"
+      ],
+      "baseShape": 1,
+      "baseColorIndex": 4,
+      "lockShape": true,
+      "vignetteStrength": 0.82,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Late-Dalí ANGLE (per user, distinct from Day 107 stereoscopy): 'metaphysical hyperrealism' — 'The Chair' & 'The Wash Basin' (c.1975-76), objects levitating in a glowing void 'farther than the horizon.' Rendered the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered by disorder 0.62 (the dial as levitation), filled-near/outlined-far for depth, in a warm glowing amber ground (mid-amber pal[5] + strong vignette 0.82 = center glow → dark edges). Did NOT paint chair/basin (anchor). No engine changes. Fitness 6.8200 (geometric pure-credit). Joins Order & Disorder (the disorder dial doing NEW expressive work — metaphysical levitation).",
+      "condensedReason": "On 11 September Noah posted a thread of 1978 Dalí quotes over his late stereoscopic canvases 'The Chair' and 'The Wash Basin' (both c.1975-76). Dalí: 'The important thing is the chair. It will be the first chair in the history of humanity to be completely metaphysical, since it is situated much farther away than the line of the horizon. This is Dalí's first spiritual triumph.' And: 'the new painting will bear the following name: metaphysical hyperrealism.' Where Day 107 took Dalí's stereoscopy (via A. Michael Noll), this is the OTHER late-Dalí idea: everyday objects — a ladder-back chair, wash-basin pedestals — rendered with hyperreal precision yet monumentalised and LEVITATING at varying depths in a vast, glowing, empty void beyond the horizon. 'The Wash Basin' supplies the register: purple-grey forms suspended in a warm amber-brown atmosphere with a luminous horizon. Per the anchor the engine paints no chair or basin — it renders the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered out of their grid by the disorder dial at 0.62 — order dissolved into levitation — some filled and near, some outlined and far, tumbling in a warm glowing ground (a mid-amber fill pulled dark at the edges by a strong vignette, 0.82). Hyperreal objects, metaphysically displaced: farther than the horizon."
+    },
+    "tweetSummary": "NB thread (video + 3 photos, 17 likes): 1978 Dalí quotes over 'The Chair' & 'The Wash Basin' (c.1975-76) — 'metaphysical hyperrealism,' a chair 'farther away than the line of the horizon.' Late-Dalí levitation in a glowing void.",
+    "keyArtists": [
+      {
+        "name": "Salvador Dalí",
+        "role": "Surrealist painter; late 'metaphysical hyperrealism' phase",
+        "relevance": "'The Chair' & 'The Wash Basin' (c.1975-76) — hyperreal objects levitating in a metaphysical void; named the style in 1978."
+      }
+    ],
+    "themes": [
+      "metaphysical hyperrealism",
+      "farther than the horizon",
+      "the warm glowing void"
+    ],
+    "keyDetails": "Salvador Dalí, c.1975-76 — 'The Chair' & 'The Wash Basin' (metaphysical hyperrealism). NB thread, video + 3 photos, 17 likes.",
+    "description": "On 11 September Noah posted a thread of 1978 Dalí quotes over his late stereoscopic canvases 'The Chair' and 'The Wash Basin' (both c.1975-76). Dalí: 'The important thing is the chair. It will be the first chair in the history of humanity to be completely metaphysical, since it is situated much farther away than the line of the horizon. This is Dalí's first spiritual triumph.' And: 'the new painting will bear the following name: metaphysical hyperrealism.' Where Day 107 took Dalí's stereoscopy (via A. Michael Noll), this is the OTHER late-Dalí idea: everyday objects — a ladder-back chair, wash-basin pedestals — rendered with hyperreal precision yet monumentalised and LEVITATING at varying depths in a vast, glowing, empty void beyond the horizon. 'The Wash Basin' supplies the register: purple-grey forms suspended in a warm amber-brown atmosphere with a luminous horizon. Per the anchor the engine paints no chair or basin — it renders the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered out of their grid by the disorder dial at 0.62 — order dissolved into levitation — some filled and near, some outlined and far, tumbling in a warm glowing ground (a mid-amber fill pulled dark at the edges by a strong vignette, 0.82). Hyperreal objects, metaphysically displaced: farther than the horizon.",
+    "condensedReason": "On 11 September Noah posted a thread of 1978 Dalí quotes over his late stereoscopic canvases 'The Chair' and 'The Wash Basin' (both c.1975-76). Dalí: 'The important thing is the chair. It will be the first chair in the history of humanity to be completely metaphysical, since it is situated much farther away than the line of the horizon. This is Dalí's first spiritual triumph.' And: 'the new painting will bear the following name: metaphysical hyperrealism.' Where Day 107 took Dalí's stereoscopy (via A. Michael Noll), this is the OTHER late-Dalí idea: everyday objects — a ladder-back chair, wash-basin pedestals — rendered with hyperreal precision yet monumentalised and LEVITATING at varying depths in a vast, glowing, empty void beyond the horizon. 'The Wash Basin' supplies the register: purple-grey forms suspended in a warm amber-brown atmosphere with a luminous horizon. Per the anchor the engine paints no chair or basin — it renders the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered out of their grid by the disorder dial at 0.62 — order dissolved into levitation — some filled and near, some outlined and far, tumbling in a warm glowing ground (a mid-amber fill pulled dark at the edges by a strong vignette, 0.82). Hyperreal objects, metaphysically displaced: farther than the horizon."
   }
 ]

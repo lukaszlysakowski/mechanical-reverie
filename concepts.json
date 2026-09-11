@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-04",
+  "updated": "2026-09-11",
   "concepts": [
     {
       "id": "bell-labs",
@@ -238,6 +238,10 @@
         {
           "gen": 109,
           "why": "The disorder dial's namesake at work: Molnar's rigorous grid of rectangles perturbed just enough to shimmer — order lightly disturbed, here made to vibrate like Monet's light on water."
+        },
+        {
+          "gen": 117,
+          "why": "The disorder dial doing NEW expressive work: an ordered grid of monoliths scattered at d=0.62 into a floating, tumbling void — order dissolved into Dalí's metaphysical levitation ('farther than the horizon')."
         }
       ]
     },
