@@ -75,7 +75,7 @@ echo "→ Committing: $MSG"
 cd "$DST"
 git add .
 git diff --cached --quiet && echo "  (nothing to commit)" && exit 0
-git commit -m "$MSG"
+git commit -m "$MSG" -m "Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 
 echo "→ Pushing to GitHub..."
 git push origin main
