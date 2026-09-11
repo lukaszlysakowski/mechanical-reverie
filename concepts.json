@@ -600,6 +600,33 @@
           "why": "Dalí painting from Harmon's pixelated Lincoln — the computer's recognition-from-a-field carried into fine art; a nude Gala that resolves, at twenty meters, into a president."
         }
       ]
+    },
+    {
+      "id": "thinking-machine",
+      "title": "The Thinking Machine",
+      "thesis": "The archive's most self-referential room: the work asking whether the work is creative. In 1968 the documentary 'The Thinking Machine' conceded that a computer had never 'painted a beautiful picture' and could only be 'programmed to appear creative' — and every piece here worries that same seam between appearing and being. Peter Denes gave the machine a voice; Warhol's Amiga raised the question of whose hand really made the mark; Kienholz built the computer a rocking chair and a care-manual so it might be tended like something alive; Vibeke Sorensen set living fish among the silicon chips. It is the question Mechanical Reverie is itself an instance of — Cohen's meaning generators, Wiener's feedback loop, a fitness function standing in for a human eye. The room does not answer it. It keeps asking.",
+      "members": [
+        {
+          "gen": 82,
+          "why": "Peter Denes' 1966 Bell Labs computer speech — the machine given a VOICE, the first way a computer came to 'appear' human."
+        },
+        {
+          "gen": 104,
+          "why": "Warhol's 1985 Amiga works: whose hand made them — the artist's, the engineer's, or the machine's? Authorship as the agency question."
+        },
+        {
+          "gen": 113,
+          "why": "Kienholz's 'Friendly Grey Computer' (1965) — a computer humanized into a rocking-chair pet with a care-manual; tend it as if it were alive."
+        },
+        {
+          "gen": 114,
+          "why": "Sorensen's 'Fish and Chips' (1985) — living fish drifting among integrated-circuit chips; organic life set literally against the silicon."
+        },
+        {
+          "gen": 116,
+          "why": "'The Thinking Machine' (Bell Telephone, 1968) — the room's namesake and its thesis stated outright: 'computers can be programmed to appear creative.'"
+        }
+      ]
     }
   ]
 }
