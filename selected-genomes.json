@@ -7807,5 +7807,92 @@
     "keyDetails": "Salvador Dalí, c.1975-76 — 'The Chair' & 'The Wash Basin' (metaphysical hyperrealism). NB thread, video + 3 photos, 17 likes.",
     "description": "On 11 September Noah posted a thread of 1978 Dalí quotes over his late stereoscopic canvases 'The Chair' and 'The Wash Basin' (both c.1975-76). Dalí: 'The important thing is the chair. It will be the first chair in the history of humanity to be completely metaphysical, since it is situated much farther away than the line of the horizon. This is Dalí's first spiritual triumph.' And: 'the new painting will bear the following name: metaphysical hyperrealism.' Where Day 107 took Dalí's stereoscopy (via A. Michael Noll), this is the OTHER late-Dalí idea: everyday objects — a ladder-back chair, wash-basin pedestals — rendered with hyperreal precision yet monumentalised and LEVITATING at varying depths in a vast, glowing, empty void beyond the horizon. 'The Wash Basin' supplies the register: purple-grey forms suspended in a warm amber-brown atmosphere with a luminous horizon. Per the anchor the engine paints no chair or basin — it renders the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered out of their grid by the disorder dial at 0.62 — order dissolved into levitation — some filled and near, some outlined and far, tumbling in a warm glowing ground (a mid-amber fill pulled dark at the edges by a strong vignette, 0.82). Hyperreal objects, metaphysically displaced: farther than the horizon.",
     "condensedReason": "On 11 September Noah posted a thread of 1978 Dalí quotes over his late stereoscopic canvases 'The Chair' and 'The Wash Basin' (both c.1975-76). Dalí: 'The important thing is the chair. It will be the first chair in the history of humanity to be completely metaphysical, since it is situated much farther away than the line of the horizon. This is Dalí's first spiritual triumph.' And: 'the new painting will bear the following name: metaphysical hyperrealism.' Where Day 107 took Dalí's stereoscopy (via A. Michael Noll), this is the OTHER late-Dalí idea: everyday objects — a ladder-back chair, wash-basin pedestals — rendered with hyperreal precision yet monumentalised and LEVITATING at varying depths in a vast, glowing, empty void beyond the horizon. 'The Wash Basin' supplies the register: purple-grey forms suspended in a warm amber-brown atmosphere with a luminous horizon. Per the anchor the engine paints no chair or basin — it renders the MOOD: crisp geometric monoliths (baseShape rectangle, lockShape, wGeometric 0.90) scattered out of their grid by the disorder dial at 0.62 — order dissolved into levitation — some filled and near, some outlined and far, tumbling in a warm glowing ground (a mid-amber fill pulled dark at the edges by a strong vignette, 0.82). Hyperreal objects, metaphysically displaced: farther than the horizon."
+  },
+  {
+    "day": 113,
+    "date": "2026-09-10",
+    "title": "Going Viral",
+    "filename": "mechanical-reverie-day-113-going-viral-2026-09-10.png",
+    "fitness": 6.52,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "11732035e12146c5ba27e97ee10330c1098af28702f13a63653fe9ed88606240",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 3054803794.27026,
+      "noiseSeed": 2502.232495832016
+    },
+    "genome": {
+      "gridCols": 14,
+      "gridRows": 4,
+      "cellPadding": 0.2110158617448028,
+      "rotation": 2.988800193788868,
+      "globalRotation": 0.09076330808430352,
+      "paletteIndex": 10,
+      "bgDarkness": 0.25,
+      "gearDensity": 0.7636023883093578,
+      "gearComplexity": 14,
+      "chainFrequency": 0.5075635441820805,
+      "pixelDensity": 0.72,
+      "pixelSize": 26,
+      "flowScale": 0.0150098286342981,
+      "flowStrength": 1.8888548547347896,
+      "particleCount": 915,
+      "clockSpeed": 0.01183929141408827,
+      "oscillation": 2.0096235698954588,
+      "wMechanical": 0.12,
+      "wPixel": 0.9,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 0.7842953927061282,
+      "hatchSpacing": 9.754007118534805,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 2502.232495832016,
+      "renderSeed": 3054803794.27026,
+      "disorder": 0.16,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#3a352c",
+        "#6a6255",
+        "#948b78",
+        "#4a4438",
+        "#c4bca8",
+        "#e8e0cc",
+        "#7a7264",
+        "#1e1a14"
+      ],
+      "vignetteStrength": 0,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Leon Harmon's block-Lincoln as a viral 1971 AP wire-photo ('Computer Creates Puzzling Picture', ~200 squares / 16 greys). Chose the VIRALITY + NEWSPRINT angle over recognition (already deep in the archive). Coarse grey mosaic (pixelCharacter 'mosaic', wPixel 0.90, others 0.12 — pure-single credit), 16-grey warm-newsprint palette, chunky blocks (pixelSize 26), halftone grain, flat paper (vignetteStrength 0). Did NOT draw a face (anchor). No engine changes. Fitness 6.5200. Joins The Newsprint Archive + Recognition (dual: it is both the archetypal recognizability experiment and the wire-photo that spread).",
+      "condensedReason": "On 10 September Noah posted, with the caption 'What going viral looked like for a Computer Artist in 1971,' an aged AP newspaper clipping headlined 'Computer Creates Puzzling Picture.' It reproduces Leon D. Harmon's Bell Labs experiment 'to learn the least amount of visual information a picture may contain, yet be recognizable': a portrait 'divided into about 200 squares, each an even tone from one of 16 shades of gray' — Abraham Lincoln, if you squint from fifteen feet. The archive already owns Harmon's RECOGNITION side (the Recognition room, dark grounds, the eye completing the coarse marks); the fresh idea Noah names is VIRALITY — the block-portrait mass-reproduced across the wire services and newspapers, an early meme, surviving not as an artwork but as a clipping. So this piece takes the NEWSPRINT register (per the anchor, no Lincoln and no face is drawn): a coarse mosaic of grey blocks in sixteen tones (pixelCharacter 'mosaic', wPixel 0.90, every other layer gated to 0.12), chunky enough to demand the fifteen-foot squint, printed on warm cream paper with a halftone grain and no vignette — the flat aged newsprint on which the computer's face actually went viral."
+    },
+    "tweetSummary": "NB (animated GIF, 73 likes): 'What going viral looked like for a Computer Artist in 1971' — an AP clipping of Leon Harmon's coarse block-portrait of Lincoln (~200 squares, 16 greys). The computer image as early meme, spread through newsprint.",
+    "keyArtists": [
+      {
+        "name": "Leon D. Harmon",
+        "role": "Bell Labs perception researcher / computer-art pioneer",
+        "relevance": "His block-mosaic recognizability portrait became a viral 1971 AP wire-photo, 'Computer Creates Puzzling Picture.'"
+      }
+    ],
+    "themes": [
+      "going viral in 1971",
+      "sixteen shades of gray",
+      "aged newsprint"
+    ],
+    "keyDetails": "Leon Harmon, 1971 — block-portrait of Lincoln (~200 squares, 16 greys) as a viral AP wire-photo. NB animated GIF, 73 likes.",
+    "description": "On 10 September Noah posted, with the caption 'What going viral looked like for a Computer Artist in 1971,' an aged AP newspaper clipping headlined 'Computer Creates Puzzling Picture.' It reproduces Leon D. Harmon's Bell Labs experiment 'to learn the least amount of visual information a picture may contain, yet be recognizable': a portrait 'divided into about 200 squares, each an even tone from one of 16 shades of gray' — Abraham Lincoln, if you squint from fifteen feet. The archive already owns Harmon's RECOGNITION side (the Recognition room, dark grounds, the eye completing the coarse marks); the fresh idea Noah names is VIRALITY — the block-portrait mass-reproduced across the wire services and newspapers, an early meme, surviving not as an artwork but as a clipping. So this piece takes the NEWSPRINT register (per the anchor, no Lincoln and no face is drawn): a coarse mosaic of grey blocks in sixteen tones (pixelCharacter 'mosaic', wPixel 0.90, every other layer gated to 0.12), chunky enough to demand the fifteen-foot squint, printed on warm cream paper with a halftone grain and no vignette — the flat aged newsprint on which the computer's face actually went viral.",
+    "condensedReason": "On 10 September Noah posted, with the caption 'What going viral looked like for a Computer Artist in 1971,' an aged AP newspaper clipping headlined 'Computer Creates Puzzling Picture.' It reproduces Leon D. Harmon's Bell Labs experiment 'to learn the least amount of visual information a picture may contain, yet be recognizable': a portrait 'divided into about 200 squares, each an even tone from one of 16 shades of gray' — Abraham Lincoln, if you squint from fifteen feet. The archive already owns Harmon's RECOGNITION side (the Recognition room, dark grounds, the eye completing the coarse marks); the fresh idea Noah names is VIRALITY — the block-portrait mass-reproduced across the wire services and newspapers, an early meme, surviving not as an artwork but as a clipping. So this piece takes the NEWSPRINT register (per the anchor, no Lincoln and no face is drawn): a coarse mosaic of grey blocks in sixteen tones (pixelCharacter 'mosaic', wPixel 0.90, every other layer gated to 0.12), chunky enough to demand the fifteen-foot squint, printed on warm cream paper with a halftone grain and no vignette — the flat aged newsprint on which the computer's face actually went viral."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-11",
+  "updated": "2026-09-10",
   "concepts": [
     {
       "id": "bell-labs",
@@ -167,6 +167,10 @@
         {
           "gen": 91,
           "why": "Day 92 — Harmon's gray-block mosaic in monochrome newsprint tones; the story survives as a 1980 retrospective clipping"
+        },
+        {
+          "gen": 118,
+          "why": "The purest case of the room's thesis: Harmon's computer portrait survived as an AP wire-photo clipping — halftone-grained, deckle-edged, warm with age — and 'went viral' through the newspapers in 1971."
         }
       ]
     },
@@ -598,6 +602,10 @@
         {
           "gen": 107,
           "why": "Dalí painting from Harmon's pixelated Lincoln — the computer's recognition-from-a-field carried into fine art; a nude Gala that resolves, at twenty meters, into a president."
+        },
+        {
+          "gen": 118,
+          "why": "The archetype itself: Harmon's ~200-square, 16-grey block-portrait — the least information needed for the eye to complete a face (squint from fifteen feet). The experiment the whole room descends from."
         }
       ]
     },
