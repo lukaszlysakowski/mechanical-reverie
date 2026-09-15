@@ -7894,5 +7894,95 @@
     "keyDetails": "Leon Harmon, 1971 — block-portrait of Lincoln (~200 squares, 16 greys) as a viral AP wire-photo. NB animated GIF, 73 likes.",
     "description": "On 10 September Noah posted, with the caption 'What going viral looked like for a Computer Artist in 1971,' an aged AP newspaper clipping headlined 'Computer Creates Puzzling Picture.' It reproduces Leon D. Harmon's Bell Labs experiment 'to learn the least amount of visual information a picture may contain, yet be recognizable': a portrait 'divided into about 200 squares, each an even tone from one of 16 shades of gray' — Abraham Lincoln, if you squint from fifteen feet. The archive already owns Harmon's RECOGNITION side (the Recognition room, dark grounds, the eye completing the coarse marks); the fresh idea Noah names is VIRALITY — the block-portrait mass-reproduced across the wire services and newspapers, an early meme, surviving not as an artwork but as a clipping. So this piece takes the NEWSPRINT register (per the anchor, no Lincoln and no face is drawn): a coarse mosaic of grey blocks in sixteen tones (pixelCharacter 'mosaic', wPixel 0.90, every other layer gated to 0.12), chunky enough to demand the fifteen-foot squint, printed on warm cream paper with a halftone grain and no vignette — the flat aged newsprint on which the computer's face actually went viral.",
     "condensedReason": "On 10 September Noah posted, with the caption 'What going viral looked like for a Computer Artist in 1971,' an aged AP newspaper clipping headlined 'Computer Creates Puzzling Picture.' It reproduces Leon D. Harmon's Bell Labs experiment 'to learn the least amount of visual information a picture may contain, yet be recognizable': a portrait 'divided into about 200 squares, each an even tone from one of 16 shades of gray' — Abraham Lincoln, if you squint from fifteen feet. The archive already owns Harmon's RECOGNITION side (the Recognition room, dark grounds, the eye completing the coarse marks); the fresh idea Noah names is VIRALITY — the block-portrait mass-reproduced across the wire services and newspapers, an early meme, surviving not as an artwork but as a clipping. So this piece takes the NEWSPRINT register (per the anchor, no Lincoln and no face is drawn): a coarse mosaic of grey blocks in sixteen tones (pixelCharacter 'mosaic', wPixel 0.90, every other layer gated to 0.12), chunky enough to demand the fifteen-foot squint, printed on warm cream paper with a halftone grain and no vignette — the flat aged newsprint on which the computer's face actually went viral."
+  },
+  {
+    "day": 114,
+    "date": "2026-09-15",
+    "title": "A Robot Named Vera",
+    "filename": "mechanical-reverie-day-114-a-robot-named-vera-2026-09-15.png",
+    "fitness": 6.82,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "d0b503ddebb7fcfb723133b80720408be1aa1b3bd96746bd747527357c096de8",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 3173565635.9820576,
+      "noiseSeed": 5811.253940924511
+    },
+    "genome": {
+      "gridCols": 10,
+      "gridRows": 8,
+      "cellPadding": 0.16,
+      "rotation": 3.5259437779084073,
+      "globalRotation": 0.05406531104224416,
+      "paletteIndex": 10,
+      "bgDarkness": 0.2,
+      "gearDensity": 0.5525847331439425,
+      "gearComplexity": 16,
+      "chainFrequency": 0.1068642189057332,
+      "pixelDensity": 0.3647486561245944,
+      "pixelSize": 7,
+      "flowScale": 0.009272366133513912,
+      "flowStrength": 2.479003557840424,
+      "particleCount": 623,
+      "clockSpeed": 0.0034417784330781254,
+      "oscillation": 0.8565520093689915,
+      "wMechanical": 0.12,
+      "wPixel": 0.12,
+      "wFlow": 0.12,
+      "wGeometric": 0.9,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 2.597865155997952,
+      "hatchSpacing": 11.085517895737794,
+      "pixelCharacter": "shard",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 5811.253940924511,
+      "renderSeed": 3173565635.9820576,
+      "disorder": 0.42,
+      "disorderMode": "linear",
+      "disorderAngle": 0.6,
+      "paletteColors": [
+        "#c0392b",
+        "#1a1a1a",
+        "#8a2a22",
+        "#5a5a5a",
+        "#3a3a3a",
+        "#f2efe6",
+        "#2c4a7a",
+        "#a0a0a0"
+      ],
+      "baseShape": 1,
+      "baseColorIndex": 0,
+      "lockShape": true,
+      "vignetteStrength": 0,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Vera Molnar's 1981 dream of 'a robot named Vera Molnar' that grasps her process's logic and meticulously executes it — nearly MR's charter. Fresh angle vs Day 105 (Monet blue): the ROBOT/logic. Rigorous quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90, geometric pure-credit) in RED/black plotter ink on white paper, LINEAR disorder 0.42 (order degrading methodically down an axis = meticulous execution + measured chance). Did NOT draw Molnar/robot (anchor). No engine changes. Fitness 6.8200. Joins The Molnar Room + The Thinking Machine (the artist's dream of a machine that grasps and executes her logic = the agency question).",
+      "condensedReason": "On 15 September Noah posted 1981 footage of Vera Molnar at her studio terminal with one of the most Mechanical-Reverie sentences ever spoken: 'One of my dreams... is to build a robot named Vera Molnar, who will... be able to grasp the underlying logic of my entire process and... meticulously follows every single order that I give him.' It is nearly a charter for this engine — a machine that internalizes an artist's process and executes it (Cohen's meaning generators, the criteria partnership). Molnar is the archive's disorder-dial figure, and Day 105 already gave her Monet homage in blue quadrilaterals; the fresh idea here is the ROBOT executing the LOGIC. So the piece renders her rigorous language in a different register (per the anchor it draws neither Molnar nor a robot): a grid of quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90) in her RED-and-black plotter ink on warm white paper, with the disorder dial in LINEAR mode (disorder 0.42) rather than Day 105's uniform — near-perfect ordered outlines along the top degrading methodically downward into rotated, filled, deviating squares. Order meticulously followed, with the measured chance that is itself part of the logic the robot must grasp: the artist's process, machine-executed."
+    },
+    "tweetSummary": "NB video (41 likes): Vera Molnar, 1981 — 'a robot named Vera Molnar, who will grasp the underlying logic of my entire process and meticulously follows every single order.' The artist's logic made machine.",
+    "keyArtists": [
+      {
+        "name": "Vera Molnar",
+        "role": "pioneer of algorithmic art; the archive's disorder-dial figure",
+        "relevance": "1981 dream of a robot that internalizes her creative logic and executes her orders — a manifesto for the machine-artist."
+      }
+    ],
+    "themes": [
+      "the artist's logic made machine",
+      "meticulous systematic order",
+      "grasping the logic"
+    ],
+    "keyDetails": "Vera Molnar, 1981 — her dream of 'a robot named Vera Molnar' that grasps her process and executes it. NB video, 41 likes.",
+    "description": "On 15 September Noah posted 1981 footage of Vera Molnar at her studio terminal with one of the most Mechanical-Reverie sentences ever spoken: 'One of my dreams... is to build a robot named Vera Molnar, who will... be able to grasp the underlying logic of my entire process and... meticulously follows every single order that I give him.' It is nearly a charter for this engine — a machine that internalizes an artist's process and executes it (Cohen's meaning generators, the criteria partnership). Molnar is the archive's disorder-dial figure, and Day 105 already gave her Monet homage in blue quadrilaterals; the fresh idea here is the ROBOT executing the LOGIC. So the piece renders her rigorous language in a different register (per the anchor it draws neither Molnar nor a robot): a grid of quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90) in her RED-and-black plotter ink on warm white paper, with the disorder dial in LINEAR mode (disorder 0.42) rather than Day 105's uniform — near-perfect ordered outlines along the top degrading methodically downward into rotated, filled, deviating squares. Order meticulously followed, with the measured chance that is itself part of the logic the robot must grasp: the artist's process, machine-executed.",
+    "condensedReason": "On 15 September Noah posted 1981 footage of Vera Molnar at her studio terminal with one of the most Mechanical-Reverie sentences ever spoken: 'One of my dreams... is to build a robot named Vera Molnar, who will... be able to grasp the underlying logic of my entire process and... meticulously follows every single order that I give him.' It is nearly a charter for this engine — a machine that internalizes an artist's process and executes it (Cohen's meaning generators, the criteria partnership). Molnar is the archive's disorder-dial figure, and Day 105 already gave her Monet homage in blue quadrilaterals; the fresh idea here is the ROBOT executing the LOGIC. So the piece renders her rigorous language in a different register (per the anchor it draws neither Molnar nor a robot): a grid of quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90) in her RED-and-black plotter ink on warm white paper, with the disorder dial in LINEAR mode (disorder 0.42) rather than Day 105's uniform — near-perfect ordered outlines along the top degrading methodically downward into rotated, filled, deviating squares. Order meticulously followed, with the measured chance that is itself part of the logic the robot must grasp: the artist's process, machine-executed."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-15",
   "concepts": [
     {
       "id": "bell-labs",
@@ -331,6 +331,10 @@
         {
           "gen": 109,
           "why": "Molnar's own 'Hommage a Monet' (1981) — her algorithm in dialogue with Monet's Soleil Levant, rendered here as her signature quadrilateral grid in Monet's blue-and-orange. The room's namesake meeting Impressionism."
+        },
+        {
+          "gen": 119,
+          "why": "Molnar's 1981 dream of 'a robot named Vera Molnar' that grasps the logic of her process and executes it — her machine imaginaire made explicit; the room's namesake on the very idea this engine is built on."
         }
       ]
     },
@@ -633,6 +637,10 @@
         {
           "gen": 116,
           "why": "'The Thinking Machine' (Bell Telephone, 1968) — the room's namesake and its thesis stated outright: 'computers can be programmed to appear creative.'"
+        },
+        {
+          "gen": 119,
+          "why": "The artist's own version of the room's question: Molnar dreams a machine that internalizes her creative LOGIC and executes it — not 'can a machine make art?' but 'can it grasp my process and be me?'"
         }
       ]
     }
