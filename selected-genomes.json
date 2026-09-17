@@ -8071,5 +8071,92 @@
     "keyDetails": "Roman Verostko, 1986 — 'The Magic Hand of Chance' (random pixels in a cosmic circular field). NB thread, 25 likes.",
     "description": "On 16 September Noah posted 1986 footage of Roman Verostko demonstrating his early work 'The Magic Hand of Chance.' Verostko — the artist who coined 'algorist,' a former Benedictine monk who fused code with the illuminated and the sacred — narrates: 'I'm using a totally random placement of pixels in that circular field. And you get a kind of cosmic thing happening,' and, of his generator, 'I'm not superstitious about our pseudo-randomizer. It just happens.' His screen shows 'The sayings of Omphalos' — a circular field split into a spiral, one lobe solid magenta, the other a scatter of random pixels, on vivid red. Chance as a cosmic, almost sacred, generative force. Per the anchor the engine redraws neither the yin-yang nor the letters of C-H-A-N-C-E: it renders the magic hand itself — a field of pixels scattered by the disorder dial (his pseudo-randomizer) at 0.7, radial, into swirling clusters and lone chance-sparks across a vivid CRT-red void (pixelCharacter 'mosaic', wPixel 0.90, others gated to 0.12), in Verostko's Omphalos palette of red, magenta, purple and surprising teal. Order and chance, made cosmic.",
     "condensedReason": "On 16 September Noah posted 1986 footage of Roman Verostko demonstrating his early work 'The Magic Hand of Chance.' Verostko — the artist who coined 'algorist,' a former Benedictine monk who fused code with the illuminated and the sacred — narrates: 'I'm using a totally random placement of pixels in that circular field. And you get a kind of cosmic thing happening,' and, of his generator, 'I'm not superstitious about our pseudo-randomizer. It just happens.' His screen shows 'The sayings of Omphalos' — a circular field split into a spiral, one lobe solid magenta, the other a scatter of random pixels, on vivid red. Chance as a cosmic, almost sacred, generative force. Per the anchor the engine redraws neither the yin-yang nor the letters of C-H-A-N-C-E: it renders the magic hand itself — a field of pixels scattered by the disorder dial (his pseudo-randomizer) at 0.7, radial, into swirling clusters and lone chance-sparks across a vivid CRT-red void (pixelCharacter 'mosaic', wPixel 0.90, others gated to 0.12), in Verostko's Omphalos palette of red, magenta, purple and surprising teal. Order and chance, made cosmic."
+  },
+  {
+    "day": 116,
+    "date": "2026-09-16",
+    "title": "Interference",
+    "filename": "mechanical-reverie-day-116-interference-2026-09-16.png",
+    "fitness": 6.705,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "8d752c3741c15f72c74076b19725b17b471a0b86c433b21aa431576cea872769",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 3800183270,
+      "noiseSeed": 4185.512785163742
+    },
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 6,
+      "cellPadding": 0.04225184987513736,
+      "rotation": 4.908080922163981,
+      "globalRotation": -0.08128040315521382,
+      "paletteIndex": 10,
+      "bgDarkness": 0.2,
+      "gearDensity": 0.6889374095160322,
+      "gearComplexity": 12,
+      "chainFrequency": 0.9808139269741699,
+      "pixelDensity": 0.8646564083258179,
+      "pixelSize": 4,
+      "flowScale": 0.0075,
+      "flowStrength": 3.1,
+      "particleCount": 1700,
+      "clockSpeed": 0.01393450502299775,
+      "oscillation": 1.7,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.9,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 2.1076705760793697,
+      "hatchSpacing": 17.72231795896574,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 4185.512785163742,
+      "renderSeed": 3800183270,
+      "disorder": 0.35,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#d83020",
+        "#2838a0",
+        "#f0c020",
+        "#e07028",
+        "#ffffff",
+        "#f0e6d2",
+        "#1a2060",
+        "#2a8060"
+      ],
+      "vignetteStrength": 0,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Dali 'Spectacles with Holograms and Computers' (1975-76) — MISSED on the 09-16 run, recovered on verification; 4th Dali but a NEW sub-topic (holography). A hologram = an interference pattern of light. Rendered the interference itself: dense swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, others 0.13 — pure flow credit), radial diffraction centres, Dali's vivid palette on cream. Did NOT draw the head/spectacles (anchor). No engine changes. Fitness 6.7050. Joins Light as Medium (a hologram is literally made of light). NOTE: shares date 2026-09-16 with Day 115 (Verostko) — both carry genome.paletteColors so loadArchiveDay reproduces each correctly (no date-collision ambiguity).",
+      "condensedReason": "A post from 09-16 missed on that day's run and recovered on a later verification: 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76,' a lithograph from his 'Imagination and Objects of the Future' portfolio (16 likes). A profile head opens to reveal the brain as a labyrinth of swirling red, blue and yellow painterly loops; an orange-and-blue op-art diffraction burst floats upper-right; and fine ray and interference lines scatter across cream and white — late Dali imagining augmented VISION, the organic mind fused with holography and computation. It is the fourth Dali in the archive (after recognition, stereoscopy and metaphysical hyperrealism) but a genuinely new sub-topic: holography. A hologram is recorded as an interference pattern of light, and that is the thread the engine pulls. Per the anchor it paints neither the head nor the spectacles: it renders the interference itself — a dense field of swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, every other layer gated to 0.13), radiating from diffraction-like centres in Dali's red / blue / yellow / green on warm cream paper. The mind as a coloured optical field; holographic interference made flow."
+    },
+    "tweetSummary": "NB post (16 likes): 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76' — the brain as swirling colour, wired to holography and computers. Rendered as a vivid interference field of vortex filaments.",
+    "keyArtists": [
+      {
+        "name": "Salvador Dali",
+        "role": "Surrealist painter; late futurist/optical phase",
+        "relevance": "'Spectacles with Holograms and Computers' (1975-76) — future vision via holography + computing; the brain as swirling colour."
+      }
+    ],
+    "themes": [
+      "the wired mind",
+      "holographic interference",
+      "vivid Dali colour"
+    ],
+    "keyDetails": "Salvador Dali, 1975-76 — 'Spectacles with Holograms and Computers' (holography + the wired mind). NB post, 16 likes.",
+    "description": "A post from 09-16 missed on that day's run and recovered on a later verification: 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76,' a lithograph from his 'Imagination and Objects of the Future' portfolio (16 likes). A profile head opens to reveal the brain as a labyrinth of swirling red, blue and yellow painterly loops; an orange-and-blue op-art diffraction burst floats upper-right; and fine ray and interference lines scatter across cream and white — late Dali imagining augmented VISION, the organic mind fused with holography and computation. It is the fourth Dali in the archive (after recognition, stereoscopy and metaphysical hyperrealism) but a genuinely new sub-topic: holography. A hologram is recorded as an interference pattern of light, and that is the thread the engine pulls. Per the anchor it paints neither the head nor the spectacles: it renders the interference itself — a dense field of swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, every other layer gated to 0.13), radiating from diffraction-like centres in Dali's red / blue / yellow / green on warm cream paper. The mind as a coloured optical field; holographic interference made flow.",
+    "condensedReason": "A post from 09-16 missed on that day's run and recovered on a later verification: 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76,' a lithograph from his 'Imagination and Objects of the Future' portfolio (16 likes). A profile head opens to reveal the brain as a labyrinth of swirling red, blue and yellow painterly loops; an orange-and-blue op-art diffraction burst floats upper-right; and fine ray and interference lines scatter across cream and white — late Dali imagining augmented VISION, the organic mind fused with holography and computation. It is the fourth Dali in the archive (after recognition, stereoscopy and metaphysical hyperrealism) but a genuinely new sub-topic: holography. A hologram is recorded as an interference pattern of light, and that is the thread the engine pulls. Per the anchor it paints neither the head nor the spectacles: it renders the interference itself — a dense field of swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, every other layer gated to 0.13), radiating from diffraction-like centres in Dali's red / blue / yellow / green on warm cream paper. The mind as a coloured optical field; holographic interference made flow."
   }
 ]
