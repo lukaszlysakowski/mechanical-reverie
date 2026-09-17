@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-15",
+  "updated": "2026-09-16",
   "concepts": [
     {
       "id": "bell-labs",
@@ -246,6 +246,10 @@
         {
           "gen": 117,
           "why": "The disorder dial doing NEW expressive work: an ordered grid of monoliths scattered at d=0.62 into a floating, tumbling void — order dissolved into Dalí's metaphysical levitation ('farther than the horizon')."
+        },
+        {
+          "gen": 120,
+          "why": "Verostko's 'pseudo-randomizer' — 'the magic hand of chance' — is the disorder dial made mystical: random pixels scattered (disorder 0.7 radial) into a cosmic field. Chance as a generative, almost sacred, force."
         }
       ]
     },

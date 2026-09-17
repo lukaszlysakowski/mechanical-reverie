@@ -7984,5 +7984,92 @@
     "keyDetails": "Vera Molnar, 1981 — her dream of 'a robot named Vera Molnar' that grasps her process and executes it. NB video, 41 likes.",
     "description": "On 15 September Noah posted 1981 footage of Vera Molnar at her studio terminal with one of the most Mechanical-Reverie sentences ever spoken: 'One of my dreams... is to build a robot named Vera Molnar, who will... be able to grasp the underlying logic of my entire process and... meticulously follows every single order that I give him.' It is nearly a charter for this engine — a machine that internalizes an artist's process and executes it (Cohen's meaning generators, the criteria partnership). Molnar is the archive's disorder-dial figure, and Day 105 already gave her Monet homage in blue quadrilaterals; the fresh idea here is the ROBOT executing the LOGIC. So the piece renders her rigorous language in a different register (per the anchor it draws neither Molnar nor a robot): a grid of quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90) in her RED-and-black plotter ink on warm white paper, with the disorder dial in LINEAR mode (disorder 0.42) rather than Day 105's uniform — near-perfect ordered outlines along the top degrading methodically downward into rotated, filled, deviating squares. Order meticulously followed, with the measured chance that is itself part of the logic the robot must grasp: the artist's process, machine-executed.",
     "condensedReason": "On 15 September Noah posted 1981 footage of Vera Molnar at her studio terminal with one of the most Mechanical-Reverie sentences ever spoken: 'One of my dreams... is to build a robot named Vera Molnar, who will... be able to grasp the underlying logic of my entire process and... meticulously follows every single order that I give him.' It is nearly a charter for this engine — a machine that internalizes an artist's process and executes it (Cohen's meaning generators, the criteria partnership). Molnar is the archive's disorder-dial figure, and Day 105 already gave her Monet homage in blue quadrilaterals; the fresh idea here is the ROBOT executing the LOGIC. So the piece renders her rigorous language in a different register (per the anchor it draws neither Molnar nor a robot): a grid of quadrilaterals (baseShape rectangle, lockShape, wGeometric 0.90) in her RED-and-black plotter ink on warm white paper, with the disorder dial in LINEAR mode (disorder 0.42) rather than Day 105's uniform — near-perfect ordered outlines along the top degrading methodically downward into rotated, filled, deviating squares. Order meticulously followed, with the measured chance that is itself part of the logic the robot must grasp: the artist's process, machine-executed."
+  },
+  {
+    "day": 115,
+    "date": "2026-09-16",
+    "title": "The Magic Hand of Chance",
+    "filename": "mechanical-reverie-day-115-the-magic-hand-of-chance-2026-09-16.png",
+    "fitness": 6.52,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "fc28dc8efc86df5abee3f36db56cddf6a0e82415d20d47d932d027e46cc52e09",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 2658266644.487385,
+      "noiseSeed": 6892.0267257088635
+    },
+    "genome": {
+      "gridCols": 12,
+      "gridRows": 8,
+      "cellPadding": 0.124590484991041,
+      "rotation": 0.9524467478353547,
+      "globalRotation": -0.00644288966852506,
+      "paletteIndex": 10,
+      "bgDarkness": 0.18,
+      "gearDensity": 0.6674630110085957,
+      "gearComplexity": 13,
+      "chainFrequency": 0.786601186310944,
+      "pixelDensity": 0.4,
+      "pixelSize": 12,
+      "flowScale": 0.01078050689822736,
+      "flowStrength": 2.504711901354055,
+      "particleCount": 498,
+      "clockSpeed": 0.01339321841719297,
+      "oscillation": 1.8098773217671216,
+      "wMechanical": 0.12,
+      "wPixel": 0.9,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.12,
+      "wHatch": 0.12,
+      "hatchAngle": 1.6973464071359672,
+      "hatchSpacing": 19.082206412715454,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "gear",
+      "symmetry": 3,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 6892.0267257088635,
+      "renderSeed": 2658266644.487385,
+      "disorder": 0.7,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#c020a0",
+        "#20b090",
+        "#3060d0",
+        "#e8e0e8",
+        "#d040b0",
+        "#c81810",
+        "#7a1060",
+        "#40d0c0"
+      ],
+      "vignetteStrength": 0.35,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Roman Verostko (the 'algorist,' ex-Benedictine monk), 'The Magic Hand of Chance' (1986) — 'random placement of pixels in a circular field... a cosmic thing'; his 'pseudo-randomizer.' First proper Verostko feature. Rendered chance-as-cosmic-force: pixel scatter (pixelCharacter 'mosaic', wPixel 0.90, others 0.12), disorder 0.7 radial (the pseudo-randomizer = the disorder dial), vivid red cosmic void + magenta/purple/teal (his Omphalos palette), opened up for breathing space. Did NOT redraw the yin-yang/letters (anchor). No engine changes. Fitness 6.5200. Joins Order & Disorder (chance/pseudo-randomness). NOTE: 2nd piece of the 'machine sublime / cosmic-sacred' watch (after gen 97 Adoration) — a 3rd would mint the room.",
+      "condensedReason": "On 16 September Noah posted 1986 footage of Roman Verostko demonstrating his early work 'The Magic Hand of Chance.' Verostko — the artist who coined 'algorist,' a former Benedictine monk who fused code with the illuminated and the sacred — narrates: 'I'm using a totally random placement of pixels in that circular field. And you get a kind of cosmic thing happening,' and, of his generator, 'I'm not superstitious about our pseudo-randomizer. It just happens.' His screen shows 'The sayings of Omphalos' — a circular field split into a spiral, one lobe solid magenta, the other a scatter of random pixels, on vivid red. Chance as a cosmic, almost sacred, generative force. Per the anchor the engine redraws neither the yin-yang nor the letters of C-H-A-N-C-E: it renders the magic hand itself — a field of pixels scattered by the disorder dial (his pseudo-randomizer) at 0.7, radial, into swirling clusters and lone chance-sparks across a vivid CRT-red void (pixelCharacter 'mosaic', wPixel 0.90, others gated to 0.12), in Verostko's Omphalos palette of red, magenta, purple and surprising teal. Order and chance, made cosmic."
+    },
+    "tweetSummary": "NB thread (25 likes): Roman Verostko, 1986, 'The Magic Hand of Chance' — 'a totally random placement of pixels in that circular field... a cosmic thing,' his 'pseudo-randomizer.' Chance made cosmic.",
+    "keyArtists": [
+      {
+        "name": "Roman Verostko",
+        "role": "pioneer of algorithmic/plotter art; coined 'algorist'; former Benedictine monk",
+        "relevance": "'The Magic Hand of Chance' (1986) — random pixels in a circular cosmic field, driven by his pseudo-randomizer."
+      }
+    ],
+    "themes": [
+      "the magic hand of chance",
+      "cosmic circular field",
+      "vivid CRT red"
+    ],
+    "keyDetails": "Roman Verostko, 1986 — 'The Magic Hand of Chance' (random pixels in a cosmic circular field). NB thread, 25 likes.",
+    "description": "On 16 September Noah posted 1986 footage of Roman Verostko demonstrating his early work 'The Magic Hand of Chance.' Verostko — the artist who coined 'algorist,' a former Benedictine monk who fused code with the illuminated and the sacred — narrates: 'I'm using a totally random placement of pixels in that circular field. And you get a kind of cosmic thing happening,' and, of his generator, 'I'm not superstitious about our pseudo-randomizer. It just happens.' His screen shows 'The sayings of Omphalos' — a circular field split into a spiral, one lobe solid magenta, the other a scatter of random pixels, on vivid red. Chance as a cosmic, almost sacred, generative force. Per the anchor the engine redraws neither the yin-yang nor the letters of C-H-A-N-C-E: it renders the magic hand itself — a field of pixels scattered by the disorder dial (his pseudo-randomizer) at 0.7, radial, into swirling clusters and lone chance-sparks across a vivid CRT-red void (pixelCharacter 'mosaic', wPixel 0.90, others gated to 0.12), in Verostko's Omphalos palette of red, magenta, purple and surprising teal. Order and chance, made cosmic.",
+    "condensedReason": "On 16 September Noah posted 1986 footage of Roman Verostko demonstrating his early work 'The Magic Hand of Chance.' Verostko — the artist who coined 'algorist,' a former Benedictine monk who fused code with the illuminated and the sacred — narrates: 'I'm using a totally random placement of pixels in that circular field. And you get a kind of cosmic thing happening,' and, of his generator, 'I'm not superstitious about our pseudo-randomizer. It just happens.' His screen shows 'The sayings of Omphalos' — a circular field split into a spiral, one lobe solid magenta, the other a scatter of random pixels, on vivid red. Chance as a cosmic, almost sacred, generative force. Per the anchor the engine redraws neither the yin-yang nor the letters of C-H-A-N-C-E: it renders the magic hand itself — a field of pixels scattered by the disorder dial (his pseudo-randomizer) at 0.7, radial, into swirling clusters and lone chance-sparks across a vivid CRT-red void (pixelCharacter 'mosaic', wPixel 0.90, others gated to 0.12), in Verostko's Omphalos palette of red, magenta, purple and surprising teal. Order and chance, made cosmic."
   }
 ]
