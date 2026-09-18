@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "concepts": [
     {
       "id": "bell-labs",
@@ -171,6 +171,10 @@
         {
           "gen": 118,
           "why": "The purest case of the room's thesis: Harmon's computer portrait survived as an AP wire-photo clipping — halftone-grained, deckle-edged, warm with age — and 'went viral' through the newspapers in 1971."
+        },
+        {
+          "gen": 122,
+          "why": "Early computer art surviving as newspaper coverage: an aged, deckle-edged El Comercio (Lima) clipping reproducing a Computer Technique Group contour work in 1971."
         }
       ]
     },
@@ -277,6 +281,10 @@
         {
           "gen": 101,
           "why": "The NYIT Computer Graphics Lab (Alvy Ray Smith, Ed Catmull) — the seminal early-CGI institution whose pipeline seeded modern computer graphics and Pixar; Peter Voci's S.C.A.M and Bob came out of it."
+        },
+        {
+          "gen": 122,
+          "why": "An exhibition, not an individual: 'Arte y Cibernetica' (1971), IBM Peru + CAyC Buenos Aires + Computer Technique Group Japan — the network that carried computer art across the Americas and the Pacific."
         }
       ]
     },
@@ -532,6 +540,10 @@
         {
           "gen": 100,
           "why": "Julio Le Parc, Argentine GRAV founder, shown at Buenos Aires's Instituto Di Tella (1967) — a cornerstone of the same Latin American optical/generative scene as Vidal's Arte Generativo."
+        },
+        {
+          "gen": 122,
+          "why": "The room's literal namesake: the 1971 'Arte y Cibernetica' exhibition (Lima, IBM Peru), lent by CAyC Buenos Aires and including the Computer Technique Group of Japan — the pan-American / trans-Pacific cybernetic-art network, as an El Comercio clipping."
         }
       ]
     },

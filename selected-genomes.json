@@ -8158,5 +8158,97 @@
     "keyDetails": "Salvador Dali, 1975-76 — 'Spectacles with Holograms and Computers' (holography + the wired mind). NB post, 16 likes.",
     "description": "A post from 09-16 missed on that day's run and recovered on a later verification: 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76,' a lithograph from his 'Imagination and Objects of the Future' portfolio (16 likes). A profile head opens to reveal the brain as a labyrinth of swirling red, blue and yellow painterly loops; an orange-and-blue op-art diffraction burst floats upper-right; and fine ray and interference lines scatter across cream and white — late Dali imagining augmented VISION, the organic mind fused with holography and computation. It is the fourth Dali in the archive (after recognition, stereoscopy and metaphysical hyperrealism) but a genuinely new sub-topic: holography. A hologram is recorded as an interference pattern of light, and that is the thread the engine pulls. Per the anchor it paints neither the head nor the spectacles: it renders the interference itself — a dense field of swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, every other layer gated to 0.13), radiating from diffraction-like centres in Dali's red / blue / yellow / green on warm cream paper. The mind as a coloured optical field; holographic interference made flow.",
     "condensedReason": "A post from 09-16 missed on that day's run and recovered on a later verification: 'Spectacles with Holograms and Computers by Salvador Dali, 1975-76,' a lithograph from his 'Imagination and Objects of the Future' portfolio (16 likes). A profile head opens to reveal the brain as a labyrinth of swirling red, blue and yellow painterly loops; an orange-and-blue op-art diffraction burst floats upper-right; and fine ray and interference lines scatter across cream and white — late Dali imagining augmented VISION, the organic mind fused with holography and computation. It is the fourth Dali in the archive (after recognition, stereoscopy and metaphysical hyperrealism) but a genuinely new sub-topic: holography. A hologram is recorded as an interference pattern of light, and that is the thread the engine pulls. Per the anchor it paints neither the head nor the spectacles: it renders the interference itself — a dense field of swirling coloured filaments (flowCharacter 'vortex', wFlow 0.90, every other layer gated to 0.13), radiating from diffraction-like centres in Dali's red / blue / yellow / green on warm cream paper. The mind as a coloured optical field; holographic interference made flow."
+  },
+  {
+    "day": 117,
+    "date": "2026-09-17",
+    "title": "Arte y Cibernética",
+    "filename": "mechanical-reverie-day-117-arte-y-cibernetica-2026-09-17.png",
+    "fitness": 6.825,
+    "engineVersion": "v3.7.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "47c28f1a7656a70d04088be065d4a7be9e520f576dc95e6f458c0f53737afcf2",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.7.0",
+      "renderSeed": 3559261888,
+      "noiseSeed": 419.3604064285461
+    },
+    "genome": {
+      "gridCols": 5,
+      "gridRows": 5,
+      "cellPadding": 0.025340008660933284,
+      "rotation": 2.5676958183268495,
+      "globalRotation": 0.1288109523324805,
+      "paletteIndex": 10,
+      "bgDarkness": 0.2,
+      "gearDensity": 0.22464655621251373,
+      "gearComplexity": 7,
+      "chainFrequency": 0.08469943109077194,
+      "pixelDensity": 0.029729442683971707,
+      "pixelSize": 5,
+      "flowScale": 0.011,
+      "flowStrength": 2.4,
+      "particleCount": 710,
+      "clockSpeed": 0.017592317399741333,
+      "oscillation": 2.4231112545963747,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.92,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 0,
+      "hatchSpacing": 5,
+      "pixelCharacter": "shard",
+      "flowCharacter": "convergence",
+      "mechanicalCharacter": "circuit",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 419.3604064285461,
+      "renderSeed": 3559261888,
+      "disorder": 0.06,
+      "disorderMode": "uniform",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#0e0c08",
+        "#2a251e",
+        "#4a4438",
+        "#1a1712",
+        "#6a6255",
+        "#f0e8d6",
+        "#3a352c",
+        "#141009"
+      ],
+      "vignetteStrength": 0,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "The 1971 'Arte y Cibernetica' exhibition (Lima / IBM Peru / CAyC Buenos Aires / Computer Technique Group Japan), via an aged El Comercio clipping — a CTG contour-transformation (radiating contour lines forming a head). Rendered the op-art contour FIELD (flowCharacter 'convergence', wFlow 0.92, others 0.13 — pure-single credit), gridCols/gridRows 5, disorder 0.06 (rigorous), charcoal on cream newsprint, tilted like a torn clipping. Did NOT draw the head (anchor). No engine changes. Fitness 6.8250. Joins Arte y Cibernetica (3rd member — its literal namesake exhibition) + The Newsprint Archive + The Institutions. Introduces the Computer Technique Group of Japan.",
+      "condensedReason": "Noah's most-liked recent post (107 likes): an aged El Comercio (Lima) newspaper clipping from 1971 announcing the exhibition 'Arte y Cibernetica,' inaugurated under the auspices of IBM Peru at the Institute of Contemporary Art. Lent by the Centro de Arte y Comunicaciones (CAyC) of Buenos Aires, it gathered sixteen works by Charles Mattox, Lloyd Sumner and the Grupo de Arte y Cibernetica of Buenos Aires, plus two works by the Computer Technique Group of Japan — a genuinely pan-American, trans-Pacific cybernetic-art network. The pictured piece is a Computer Technique Group contour transformation: a dense field of concentric, radiating contour lines that resolve, in the negative space, into a profile head, with a diamond node at the centre from which straight lines fan. Per the anchor the engine draws no head — it renders the CONTOUR FIELD the head is made of: the op-art 'convergence' character (curve-stitch line-fans whose envelopes trace moire), wFlow 0.92 with every shape layer gated to 0.13, a rigorous near-zero disorder (0.06), tilted slightly like a torn clipping and printed in charcoal ink on warm cream newsprint. The line-field that a computer drew, as Lima's paper reproduced it in 1971."
+    },
+    "tweetSummary": "NB post (107 likes): an El Comercio clipping of the 1971 'Arte y Cibernetica' exhibition (Lima/IBM Peru, CAyC Buenos Aires, Computer Technique Group Japan) — a CTG contour-line work. Rendered as an op-art convergence contour field on aged newsprint.",
+    "keyArtists": [
+      {
+        "name": "Computer Technique Group (CTG), Japan",
+        "role": "pioneering Japanese computer-art collective (late 1960s)",
+        "relevance": "Two works in the 1971 'Arte y Cibernetica' show; their contour-transformation line-fields are the pictured style."
+      },
+      {
+        "name": "CAyC / Grupo de Arte y Cibernetica (Buenos Aires)",
+        "role": "Latin American cybernetic-art center and group",
+        "relevance": "Organized and lent the exhibition — the pan-American computer-art network."
+      }
+    ],
+    "themes": [
+      "Arte y Cibernetica (1971)",
+      "radiating contour field",
+      "aged newsprint"
+    ],
+    "keyDetails": "1971 'Arte y Cibernetica' exhibition (Lima/IBM Peru, CAyC Buenos Aires, Computer Technique Group Japan) via El Comercio clipping. NB post, 107 likes.",
+    "description": "Noah's most-liked recent post (107 likes): an aged El Comercio (Lima) newspaper clipping from 1971 announcing the exhibition 'Arte y Cibernetica,' inaugurated under the auspices of IBM Peru at the Institute of Contemporary Art. Lent by the Centro de Arte y Comunicaciones (CAyC) of Buenos Aires, it gathered sixteen works by Charles Mattox, Lloyd Sumner and the Grupo de Arte y Cibernetica of Buenos Aires, plus two works by the Computer Technique Group of Japan — a genuinely pan-American, trans-Pacific cybernetic-art network. The pictured piece is a Computer Technique Group contour transformation: a dense field of concentric, radiating contour lines that resolve, in the negative space, into a profile head, with a diamond node at the centre from which straight lines fan. Per the anchor the engine draws no head — it renders the CONTOUR FIELD the head is made of: the op-art 'convergence' character (curve-stitch line-fans whose envelopes trace moire), wFlow 0.92 with every shape layer gated to 0.13, a rigorous near-zero disorder (0.06), tilted slightly like a torn clipping and printed in charcoal ink on warm cream newsprint. The line-field that a computer drew, as Lima's paper reproduced it in 1971.",
+    "condensedReason": "Noah's most-liked recent post (107 likes): an aged El Comercio (Lima) newspaper clipping from 1971 announcing the exhibition 'Arte y Cibernetica,' inaugurated under the auspices of IBM Peru at the Institute of Contemporary Art. Lent by the Centro de Arte y Comunicaciones (CAyC) of Buenos Aires, it gathered sixteen works by Charles Mattox, Lloyd Sumner and the Grupo de Arte y Cibernetica of Buenos Aires, plus two works by the Computer Technique Group of Japan — a genuinely pan-American, trans-Pacific cybernetic-art network. The pictured piece is a Computer Technique Group contour transformation: a dense field of concentric, radiating contour lines that resolve, in the negative space, into a profile head, with a diamond node at the centre from which straight lines fan. Per the anchor the engine draws no head — it renders the CONTOUR FIELD the head is made of: the op-art 'convergence' character (curve-stitch line-fans whose envelopes trace moire), wFlow 0.92 with every shape layer gated to 0.13, a rigorous near-zero disorder (0.06), tilted slightly like a torn clipping and printed in charcoal ink on warm cream newsprint. The line-field that a computer drew, as Lima's paper reproduced it in 1971."
   }
 ]
