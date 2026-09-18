@@ -225,7 +225,14 @@ let W = canvas.width, H = canvas.height;
 // drawVectorField), tints one red + one cyan, composites additively → real per-line depth disparity.
 // Both are opt-in: 'vectors' is not in MECH_CHARS and `stereo` defaults off, so no existing genome
 // renders differently. Deterministic (renderRng reseeds per pass; both eyes share identical geometry).
-const ENGINE_VERSION = 'v3.7.0';
+// v3.8.0 — bugfix (convergence blank-canvas): pickInk() picks the convergence lattice's ink colour and
+// used a mid-brightness bonus that ignored very dark inks — so a custom palette whose inks are ALL
+// near-identical dark tones scored the light ground (pal[5]) highest, drawing cream-on-cream = blank
+// (hit on Day 117). Added a guard: if the chosen ink is within 40 luminance of the ground it falls back
+// to the palette's max-contrast colour. The guard triggers ONLY in that degenerate case; every existing
+// convergence piece (gens 92, 110, 117) keeps its exact ink → renders bit-identical (verified, checksums
+// unchanged). pickInk is used ONLY by convergence, so no other character is affected.
+const ENGINE_VERSION = 'v3.8.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -269,6 +276,11 @@ function hexA(hex, a) {
 // Pick the palette's "ink" — its most saturated, mid-brightness colour — so op-art line families
 // read against the ground on any palette (Vidal's blue, a vivid hue, or the darkest grey of a mono set).
 function pickInk(pal) {
+  const lum = hex => {
+    const h = (hex || '').replace('#', '');
+    const r = parseInt(h.substr(0, 2), 16), g = parseInt(h.substr(2, 2), 16), b = parseInt(h.substr(4, 2), 16);
+    return isNaN(r) ? null : 0.299 * r + 0.587 * g + 0.114 * b;
+  };
   let best = pal[0], bestScore = -1;
   for (const hex of pal) {
     const h = (hex || '').replace('#', '');
@@ -277,6 +289,20 @@ function pickInk(pal) {
     const mx = Math.max(r, g, b), mn = Math.min(r, g, b), mid = (r + g + b) / 3;
     const score = (mx - mn) + (mid > 40 && mid < 210 ? 60 : 0); // chroma + mid-brightness bonus
     if (score > bestScore) { bestScore = score; best = hex; }
+  }
+  // v3.8.0 guard: the ink must contrast with the ground (pal[5]). When every ink is near-identical (all
+  // very dark, or all very light), the scoring above can land on the ground colour itself and the
+  // convergence lattice renders invisibly (blank canvas). Only in that case, fall back to the palette's
+  // maximum-luminance-contrast colour. Non-degenerate palettes never reach this branch → output unchanged.
+  const bg = lum(pal[5]);
+  if (bg != null && lum(best) != null && Math.abs(lum(best) - bg) < 40) {
+    let alt = best, altContrast = -1;
+    for (const hex of pal) {
+      const L = lum(hex); if (L == null) continue;
+      const c = Math.abs(L - bg);
+      if (c > altContrast) { altContrast = c; alt = hex; }
+    }
+    best = alt;
   }
   return best;
 }
