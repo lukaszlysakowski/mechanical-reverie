@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-09-18T03:39:01Z",
+  "updated": "2026-09-19T19:32:40Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -1025,52 +1025,66 @@
       "since": "2026-07-06T15:02:49Z"
     },
     "oscilloscope|gear|dark": {
-      "fitness": 6.563628173548381,
+      "fitness": 6.705,
       "genome": {
-        "gridCols": 11,
-        "gridRows": 3,
-        "cellPadding": 0.13472697043142168,
-        "rotation": 4.977952981888887,
-        "globalRotation": -0.09121039679867507,
+        "gridCols": 9,
+        "gridRows": 10,
+        "cellPadding": 0.15658607044065534,
+        "rotation": 2.904640421283593,
+        "globalRotation": -0.00705218462099122,
         "paletteIndex": 10,
-        "bgDarkness": 0.6498413243121713,
-        "gearDensity": 0.3340196298206799,
-        "gearComplexity": 16,
-        "chainFrequency": 0.44651923491587897,
-        "pixelDensity": 0.4554679291320457,
-        "pixelSize": 2,
-        "flowScale": 0.011787422082389528,
-        "flowStrength": 1.0201466638468673,
-        "particleCount": 1770,
-        "clockSpeed": 0.014618812784724773,
-        "oscillation": 1.1007904319293413,
-        "wMechanical": 1,
-        "wPixel": 0.8164752102228992,
-        "wFlow": 1,
-        "wGeometric": 0.6430691969169902,
-        "wOrganic": 0.5581572877430606,
-        "wHatch": 0.9777856109235257,
-        "hatchAngle": 0.19914890721587986,
-        "hatchSpacing": 14.658332300972312,
-        "pixelCharacter": "shard",
+        "bgDarkness": 0.82,
+        "gearDensity": 0.006041322689263828,
+        "gearComplexity": 19,
+        "chainFrequency": 0.009971506389541696,
+        "pixelDensity": 0.45012477580369514,
+        "pixelSize": 4,
+        "flowScale": 0.011,
+        "flowStrength": 2.2,
+        "particleCount": 1300,
+        "clockSpeed": 0.01,
+        "oscillation": 1.6,
+        "wMechanical": 0.13,
+        "wPixel": 0.13,
+        "wFlow": 0.9,
+        "wGeometric": 0.13,
+        "wOrganic": 0.13,
+        "wHatch": 0.13,
+        "hatchAngle": 2.37437423452009,
+        "hatchSpacing": 14.46388240503161,
+        "pixelCharacter": "data",
         "flowCharacter": "oscilloscope",
         "mechanicalCharacter": "gear",
-        "symmetry": 3,
-        "layerCount": 7,
-        "noiseOctaves": 1,
-        "noiseSeed": 4336.594425014054,
-        "renderSeed": 2331939421,
-        "disorder": 0.3242489241166676,
-        "disorderMode": "linear",
-        "disorderAngle": 0.34927547728752006
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 9842.854781485588,
+        "renderSeed": 3071293345,
+        "disorder": 0.35,
+        "disorderMode": "radial",
+        "disorderAngle": 0,
+        "paletteColors": [
+          "#ff2a2a",
+          "#ff8000",
+          "#ffe000",
+          "#28d050",
+          "#00d8e8",
+          "#08040e",
+          "#ff2ad0",
+          "#3a6aff"
+        ],
+        "vignetteStrength": 0.4,
+        "stereo": false
       },
       "provenance": {
-        "type": "candidate",
-        "source": "Day 106 candidates",
-        "day": null,
-        "date": null
+        "type": "archive-winner",
+        "gen": 123,
+        "day": 118,
+        "date": "2026-09-18",
+        "title": "Global Groove",
+        "filename": "mechanical-reverie-day-118-global-groove-2026-09-18.png"
       },
-      "since": "2026-08-19T05:27:22Z"
+      "since": "2026-09-19T19:32:40Z"
     },
     "data|plotter|dark": {
       "fitness": 6.7115,
@@ -2936,86 +2950,6 @@
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.8527,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.8243,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.8039,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.8018,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.791,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.7876,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.7851,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.784,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.7839,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
-    {
-      "ts": "2026-07-28T03:45:31Z",
-      "cell": "geo|circle|radial|light",
-      "challengerFitness": 6.7755,
-      "incumbentFitness": 6.8527,
-      "result": "held",
-      "source": "Frontier F-003"
-    },
     {
       "ts": "2026-07-28T03:45:31Z",
       "cell": "geo|circle|radial|light",
@@ -5335,6 +5269,86 @@
       "incumbentFitness": 6.775,
       "result": "held",
       "source": "Day 117 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "dispersal|gear|light",
+      "challengerFitness": 6.143,
+      "incumbentFitness": 6.118,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "vortex|plotter|light",
+      "challengerFitness": 5.641,
+      "incumbentFitness": 6.831,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "mathematical|plotter|light",
+      "challengerFitness": 5.6318,
+      "incumbentFitness": 6.7235,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "vortex|gear|light",
+      "challengerFitness": 5.1739,
+      "incumbentFitness": 6.705,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "oscilloscope|circuit|dark",
+      "challengerFitness": 5.0111,
+      "incumbentFitness": 5.0328,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "oscilloscope|led|dark",
+      "challengerFitness": 4.2595,
+      "incumbentFitness": 5.2156,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "dispersal|gear|light",
+      "challengerFitness": 6.143,
+      "incumbentFitness": 6.118,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "dispersal|gear|light",
+      "challengerFitness": 5.6006,
+      "incumbentFitness": 6.118,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "dispersal|gear|light",
+      "challengerFitness": 6.1362,
+      "incumbentFitness": 6.118,
+      "result": "held",
+      "source": "Day 118 candidates"
+    },
+    {
+      "ts": "2026-09-19T19:32:40Z",
+      "cell": "oscilloscope|gear|dark",
+      "challengerFitness": 6.705,
+      "incumbentFitness": 6.5636,
+      "result": "dethroned",
+      "source": "seed gen 123"
     }
   ],
   "frontierState": {

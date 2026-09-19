@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "concepts": [
     {
       "id": "bell-labs",
@@ -447,6 +447,10 @@
         {
           "gen": 89,
           "why": "Day 90 — Bell Labs' DDP-516 speech synthesis (Coker & Umeda): the schematic that turns text into a voice — 4th entry, the wing's deepest technical portrait"
+        },
+        {
+          "gen": 123,
+          "why": "Global Groove is a music-and-dance collage ('music is a language; dance is a language too') by Paik the Fluxus composer, rendered here in the oscilloscope waveform — the archive's sonic character."
         }
       ]
     },
@@ -502,6 +506,10 @@
         {
           "gen": 121,
           "why": "A hologram is literally made of light — recorded as an interference pattern of light itself. Dali's 'Spectacles with Holograms and Computers' renders future vision as luminous interference; light is the medium, not the display."
+        },
+        {
+          "gen": 123,
+          "why": "Paik's medium is the electronic light-image itself: the colorized video signal of the Paik-Abe synthesizer, emitted from the CRT — light as material, not display."
         }
       ]
     },
@@ -525,6 +533,10 @@
         {
           "gen": 75,
           "why": "CLICKBAIT — the blockchain as color atlas"
+        },
+        {
+          "gen": 123,
+          "why": "Global Groove (1973) is the prophecy the room is about: 'an imaginary video landscape that anticipates what might happen when all the countries of the world are connected by cable television' — the networked world, foreseen in signal."
         }
       ]
     },

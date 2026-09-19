@@ -8250,5 +8250,97 @@
     "keyDetails": "1971 'Arte y Cibernetica' exhibition (Lima/IBM Peru, CAyC Buenos Aires, Computer Technique Group Japan) via El Comercio clipping. NB post, 107 likes.",
     "description": "Noah's most-liked recent post (107 likes): an aged El Comercio (Lima) newspaper clipping from 1971 announcing the exhibition 'Arte y Cibernetica,' inaugurated under the auspices of IBM Peru at the Institute of Contemporary Art. Lent by the Centro de Arte y Comunicaciones (CAyC) of Buenos Aires, it gathered sixteen works by Charles Mattox, Lloyd Sumner and the Grupo de Arte y Cibernetica of Buenos Aires, plus two works by the Computer Technique Group of Japan — a genuinely pan-American, trans-Pacific cybernetic-art network. The pictured piece is a Computer Technique Group contour transformation: a dense field of concentric, radiating contour lines that resolve, in the negative space, into a profile head, with a diamond node at the centre from which straight lines fan. Per the anchor the engine draws no head — it renders the CONTOUR FIELD the head is made of: the op-art 'convergence' character (curve-stitch line-fans whose envelopes trace moire), wFlow 0.92 with every shape layer gated to 0.13, a rigorous near-zero disorder (0.06), tilted slightly like a torn clipping and printed in charcoal ink on warm cream newsprint. The line-field that a computer drew, as Lima's paper reproduced it in 1971.",
     "condensedReason": "Noah's most-liked recent post (107 likes): an aged El Comercio (Lima) newspaper clipping from 1971 announcing the exhibition 'Arte y Cibernetica,' inaugurated under the auspices of IBM Peru at the Institute of Contemporary Art. Lent by the Centro de Arte y Comunicaciones (CAyC) of Buenos Aires, it gathered sixteen works by Charles Mattox, Lloyd Sumner and the Grupo de Arte y Cibernetica of Buenos Aires, plus two works by the Computer Technique Group of Japan — a genuinely pan-American, trans-Pacific cybernetic-art network. The pictured piece is a Computer Technique Group contour transformation: a dense field of concentric, radiating contour lines that resolve, in the negative space, into a profile head, with a diamond node at the centre from which straight lines fan. Per the anchor the engine draws no head — it renders the CONTOUR FIELD the head is made of: the op-art 'convergence' character (curve-stitch line-fans whose envelopes trace moire), wFlow 0.92 with every shape layer gated to 0.13, a rigorous near-zero disorder (0.06), tilted slightly like a torn clipping and printed in charcoal ink on warm cream newsprint. The line-field that a computer drew, as Lima's paper reproduced it in 1971."
+  },
+  {
+    "day": 118,
+    "date": "2026-09-18",
+    "title": "Global Groove",
+    "filename": "mechanical-reverie-day-118-global-groove-2026-09-18.png",
+    "fitness": 6.705,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "1490b32f9757273437be3dce4a7cd2f5e0a497de6f9c8a8407655cdafd821619",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 3071293345,
+      "noiseSeed": 9842.854781485588
+    },
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 10,
+      "cellPadding": 0.15658607044065534,
+      "rotation": 2.904640421283593,
+      "globalRotation": -0.00705218462099122,
+      "paletteIndex": 10,
+      "bgDarkness": 0.82,
+      "gearDensity": 0.006041322689263828,
+      "gearComplexity": 19,
+      "chainFrequency": 0.009971506389541696,
+      "pixelDensity": 0.45012477580369514,
+      "pixelSize": 4,
+      "flowScale": 0.011,
+      "flowStrength": 2.2,
+      "particleCount": 1300,
+      "clockSpeed": 0.01,
+      "oscillation": 1.6,
+      "wMechanical": 0.13,
+      "wPixel": 0.13,
+      "wFlow": 0.9,
+      "wGeometric": 0.13,
+      "wOrganic": 0.13,
+      "wHatch": 0.13,
+      "hatchAngle": 2.37437423452009,
+      "hatchSpacing": 14.46388240503161,
+      "pixelCharacter": "data",
+      "flowCharacter": "oscilloscope",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 9842.854781485588,
+      "renderSeed": 3071293345,
+      "disorder": 0.35,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "paletteColors": [
+        "#ff2a2a",
+        "#ff8000",
+        "#ffe000",
+        "#28d050",
+        "#00d8e8",
+        "#08040e",
+        "#ff2ad0",
+        "#3a6aff"
+      ],
+      "vignetteStrength": 0.4,
+      "stereo": false
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Nam June Paik 'Global Groove' (1973) — FIRST Paik in the archive (a major gap), the founder of video art. His 1974 quote prophesies the networked world (cable-TV → internet); '/Electronic Zen: We Are in Open Circuits' (1969). Rendered the electronic SIGNAL (Paik-Abe video synthesizer): oscilloscope flow (wFlow 0.90, others 0.13 — pure-single credit), dense saturated Lissajous traces in video RGB on a black CRT ground. Abandoned a 'wash' colorfield first attempt (muted the saturation — wrong for psychedelic video). Did NOT draw dancers/TVs (anchor). Fitness 6.7050. First piece on ENGINE v3.8.0. Joins The Network (the cable-TV prophecy) + Light as Medium (video = emitted light) + The Sonic Dimension (music/dance collage; the oscilloscope is the sonic character).",
+      "condensedReason": "Across 18-19 September Noah ran a thread on Nam June Paik — the founder of video art, and until now a major gap in this archive. Its centre is 'Global Groove' (1973). Paik, 1974: '[Global Groove] is a global music festival, a kind of imaginary video landscape that anticipates what might happen when all the countries of the world are connected to one another by cable television' — a startlingly exact prophecy of the networked world, made of colour and signal rather than prose. Alongside it, 'Electronic Zen: We Are in Open Circuits' (1969): Paik on charting the alpha waves of Zen monks and on 'art and engineering, art and chemistry.' Global Groove is built with the Paik-Abe video synthesizer — chroma-keyed dancers dissolving into saturated psychedelic colour, feedback, and oscilloscope waveform. Per the anchor the engine redraws no dancer or TV set: it renders the SIGNAL itself, the electronic image as pure open circuit — the oscilloscope flow character (wFlow 0.90, every other layer gated to 0.13), a dense riot of Lissajous traces in saturated video RGB (red, yellow, green, cyan, magenta, blue) glowing on a black CRT ground. An early attempt to render the colorization as a soft 'wash' colorfield was abandoned — it muted the saturation to pastel, and Global Groove is anything but muted. We are in open circuits."
+    },
+    "tweetSummary": "NB thread (38 + 41 likes): Nam June Paik's 'Global Groove' (1973) — 'an imaginary video landscape that anticipates all the countries of the world connected by cable television.' Rendered as saturated oscilloscope video-synth signal on black.",
+    "keyArtists": [
+      {
+        "name": "Nam June Paik",
+        "role": "founder of video art; Fluxus; built the Paik-Abe video synthesizer",
+        "relevance": "'Global Groove' (1973) — psychedelic colorized video collage prophesying the globally-networked world."
+      },
+      {
+        "name": "Shuya Abe",
+        "role": "engineer; co-built the Paik-Abe video synthesizer",
+        "relevance": "The instrument behind Global Groove's colorization and waveforms."
+      }
+    ],
+    "themes": [
+      "the imaginary video landscape",
+      "video-synth colorization",
+      "we are in open circuits"
+    ],
+    "keyDetails": "Nam June Paik, 1973 — 'Global Groove' (video-synth prophecy of the networked world). NB thread, 38-41 likes. First Paik in the archive.",
+    "description": "Across 18-19 September Noah ran a thread on Nam June Paik — the founder of video art, and until now a major gap in this archive. Its centre is 'Global Groove' (1973). Paik, 1974: '[Global Groove] is a global music festival, a kind of imaginary video landscape that anticipates what might happen when all the countries of the world are connected to one another by cable television' — a startlingly exact prophecy of the networked world, made of colour and signal rather than prose. Alongside it, 'Electronic Zen: We Are in Open Circuits' (1969): Paik on charting the alpha waves of Zen monks and on 'art and engineering, art and chemistry.' Global Groove is built with the Paik-Abe video synthesizer — chroma-keyed dancers dissolving into saturated psychedelic colour, feedback, and oscilloscope waveform. Per the anchor the engine redraws no dancer or TV set: it renders the SIGNAL itself, the electronic image as pure open circuit — the oscilloscope flow character (wFlow 0.90, every other layer gated to 0.13), a dense riot of Lissajous traces in saturated video RGB (red, yellow, green, cyan, magenta, blue) glowing on a black CRT ground. An early attempt to render the colorization as a soft 'wash' colorfield was abandoned — it muted the saturation to pastel, and Global Groove is anything but muted. We are in open circuits.",
+    "condensedReason": "Across 18-19 September Noah ran a thread on Nam June Paik — the founder of video art, and until now a major gap in this archive. Its centre is 'Global Groove' (1973). Paik, 1974: '[Global Groove] is a global music festival, a kind of imaginary video landscape that anticipates what might happen when all the countries of the world are connected to one another by cable television' — a startlingly exact prophecy of the networked world, made of colour and signal rather than prose. Alongside it, 'Electronic Zen: We Are in Open Circuits' (1969): Paik on charting the alpha waves of Zen monks and on 'art and engineering, art and chemistry.' Global Groove is built with the Paik-Abe video synthesizer — chroma-keyed dancers dissolving into saturated psychedelic colour, feedback, and oscilloscope waveform. Per the anchor the engine redraws no dancer or TV set: it renders the SIGNAL itself, the electronic image as pure open circuit — the oscilloscope flow character (wFlow 0.90, every other layer gated to 0.13), a dense riot of Lissajous traces in saturated video RGB (red, yellow, green, cyan, magenta, blue) glowing on a black CRT ground. An early attempt to render the colorization as a soft 'wash' colorfield was abandoned — it muted the saturation to pastel, and Global Groove is anything but muted. We are in open circuits."
   }
 ]
