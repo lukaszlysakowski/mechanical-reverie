@@ -2385,8 +2385,13 @@ function pickVideoMime() {
 
 async function recordVideo(seconds = 10, fps = 30) {
   if (!(window.MediaRecorder && canvas.captureStream)) throw new Error('MediaRecorder/captureStream unsupported in this browser');
+  // A hidden/background tab stops compositing → captureStream yields no frames (a 1-frame clip). Refuse.
+  if (document.hidden) throw new Error('Keep this tab visible and focused while recording — a background tab stops producing video frames.');
   const mime = pickVideoMime();
   const ext = mime.startsWith('video/mp4') ? 'mp4' : 'webm';
+  // captureStream(fps) samples the canvas in REAL TIME at the target rate — so the clip is exactly
+  // `seconds` long regardless of how fast each frame renders (a slow/dense piece just looks choppier,
+  // never longer). The animation is driven by the normal rAF loop; we sample whatever it draws.
   const stream = canvas.captureStream(fps);
   const rec = new MediaRecorder(stream, Object.assign({ videoBitsPerSecond: 12000000 }, mime ? { mimeType: mime } : {}));
   const chunks = [];
@@ -2395,7 +2400,7 @@ async function recordVideo(seconds = 10, fps = 30) {
 
   const wasAnimating = animating;
   if (!animating) { animating = true; animate(); }   // drive render(genome, time++) via rAF
-  rec.start();
+  rec.start(250);                                     // timeslice → periodic chunks + fragment timing
   await new Promise(r => setTimeout(r, seconds * 1000));
   rec.stop();
   await stopped;
