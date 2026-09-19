@@ -583,6 +583,7 @@
 <div class="controls">
   <button id="btn-strip" class="active" onclick="showStrip()">Strip View</button>
   <button id="btn-animate" onclick="startAnimation()">Animate</button>
+  <button id="sortToggle" onclick="toggleSort()" title="Flip the timeline order (newest↔oldest, left to right)">↔ Newest first</button>
   <div class="speed-control">
     <span>Speed</span>
     <input type="range" id="speed" min="1" max="8" value="4" oninput="updateSpeed()">
@@ -655,27 +656,44 @@ async function init() {
   // Filter to entries that have dates and filenames
   genomes = genomes.filter(g => g.date && g.filename);
 
-  // Display in DATE order (a piece may be processed out of calendar order — e.g. clearing a
-  // backlog newest-first). Tie-break by true gen so same-date entries keep archive order.
-  genomes.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a._gen - b._gen));
+  applySort();
+  updateStats();
+  renderStrip();
+}
 
-  // Remap parentIndex (an ORIGINAL 0-based array index) to the new display position, so lineage
-  // arrows still connect the right cards after sorting.
+// Display order by DATE. Default 'desc' = newest first (left) → oldest (right); 'asc' = chronological
+// (oldest → newest). Tie-break by true gen so same-date entries keep archive order in either direction.
+// (A piece can be processed out of calendar order — e.g. clearing a backlog — so we always sort by date.)
+let sortDir = 'desc';
+function applySort() {
+  const dir = sortDir === 'asc' ? 1 : -1;
+  genomes.sort((a, b) =>
+    a.date < b.date ? -dir : a.date > b.date ? dir : (sortDir === 'asc' ? a._gen - b._gen : b._gen - a._gen));
+
+  // Rebuild parentIndex (ORIGINAL 0-based array index) → current display position, so lineage arrows
+  // stay correct after any sort.
   const origToDisplay = {};
   genomes.forEach((g, i) => { origToDisplay[g._orig] = i; });
   genomes.forEach(g => {
     g._parentDisplay = (g.parentIndex !== null && g.parentIndex !== undefined && origToDisplay[g.parentIndex] !== undefined)
       ? origToDisplay[g.parentIndex] : null;
   });
+}
 
-  updateStats();
+function toggleSort() {
+  sortDir = (sortDir === 'desc') ? 'asc' : 'desc';
+  applySort();
   renderStrip();
+  const btn = document.getElementById('sortToggle');
+  if (btn) btn.textContent = sortDir === 'desc' ? '↔ Newest first' : '↔ Oldest first';
 }
 
 function updateStats() {
   const days = genomes.length;
-  const firstDate = genomes[0]?.date || '?';
-  const lastDate = genomes[genomes.length - 1]?.date || '?';
+  // Earliest → latest, independent of display sort direction.
+  const dates = genomes.map(g => g.date).sort();
+  const firstDate = dates[0] || '?';
+  const lastDate = dates[dates.length - 1] || '?';
   const avgScore = (genomes.reduce((s, g) => s + (g.fitness || 0), 0) / days).toFixed(2);
   const hof = genomes.filter(g => g.hallOfFame).length;
   const extinct = genomes.filter(g => g.extinct).length;
@@ -720,7 +738,7 @@ function renderStrip() {
 
   genomes.forEach((genome, i) => {
     if (i > 0) {
-      const gap = daysBetween(genomes[i-1].date, genome.date);
+      const gap = Math.abs(daysBetween(genomes[i-1].date, genome.date)); // magnitude works in either sort direction
       if (gap > 1) {
         const gapEl = document.createElement('div');
         gapEl.className = 'gap';
