@@ -172,6 +172,7 @@
   <button onclick="exportArt(1)">Save 1×</button>
   <button onclick="exportArt(2)">Save 2×</button>
   <button onclick="exportArt(4)">Save 4×</button>
+  <button onclick="saveVideo(this)" id="videoBtn" title="Record a 10-second video of the animation — MP4 where the browser supports it (share-ready), else WebM">🎬 Save MP4</button>
   <button class="dev-only" onclick="resetLineage()">New Lineage</button>
   <button class="dev-only" onclick="loadTweetThemes()" id="syncBtn">Sync Tweets</button>
 </div>
@@ -2365,6 +2366,74 @@ function animate() {
 function stopAnimation() {
   animating = false;
   if (animFrame) cancelAnimationFrame(animFrame);
+}
+
+// ── Video export (share) ──
+// Records the LIVE animation (render(genome, time) per frame) to a downloadable clip. This is a
+// PERFORMANCE of the score, not a new canonical artifact — the archive still is the still PNG + score,
+// and render() is unchanged (no ENGINE_VERSION bump). Prefers H.264 MP4 (Twitter-ready) where the
+// browser's MediaRecorder supports it, else falls back to WebM (labelled so). Client-side download,
+// so it works on the public site too (no save server needed).
+function pickVideoMime() {
+  const prefs = [
+    'video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1.42E01E', 'video/mp4',
+    'video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'
+  ];
+  for (const m of prefs) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(m)) return m; } catch (e) {} }
+  return '';
+}
+
+async function recordVideo(seconds = 10, fps = 30) {
+  if (!(window.MediaRecorder && canvas.captureStream)) throw new Error('MediaRecorder/captureStream unsupported in this browser');
+  const mime = pickVideoMime();
+  const ext = mime.startsWith('video/mp4') ? 'mp4' : 'webm';
+  const stream = canvas.captureStream(fps);
+  const rec = new MediaRecorder(stream, Object.assign({ videoBitsPerSecond: 12000000 }, mime ? { mimeType: mime } : {}));
+  const chunks = [];
+  rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  const stopped = new Promise(res => { rec.onstop = res; });
+
+  const wasAnimating = animating;
+  if (!animating) { animating = true; animate(); }   // drive render(genome, time++) via rAF
+  rec.start();
+  await new Promise(r => setTimeout(r, seconds * 1000));
+  rec.stop();
+  await stopped;
+  if (!wasAnimating) stopAnimation();
+
+  const blob = new Blob(chunks, { type: mime || 'video/webm' });
+  const url = URL.createObjectURL(blob);
+  const subTxt = ((document.querySelector('.subtitle') || {}).textContent) || '';
+  const tMatch = subTxt.match(/—\s*"([^"]+)"/);   // .subtitle reads: Viewing … — "Title" (date)
+  const slug = ('mechanical-reverie-' + ((tMatch && tMatch[1]) || 'animation'))
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70) || 'mechanical-reverie';
+  const a = document.createElement('a');
+  a.href = url; a.download = `${slug}-${seconds}s.${ext}`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 8000);
+  return { ext, mime: mime || '(browser default)', bytes: blob.size };
+}
+
+async function saveVideo(btn) {
+  const label = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; }
+  const secs = 10;
+  try {
+    if (btn) btn.textContent = '● Recording…';
+    // simple countdown feedback
+    let left = secs;
+    const tick = setInterval(() => { left--; if (btn && left > 0) btn.textContent = `● Recording ${left}s`; }, 1000);
+    const res = await recordVideo(secs, 30);
+    clearInterval(tick);
+    if (btn) btn.textContent = res.ext === 'mp4' ? '✓ MP4 saved' : '✓ WebM saved';
+    console.log('video export:', res);
+  } catch (e) {
+    console.error('video export failed:', e);
+    if (btn) btn.textContent = '✗ Failed';
+    alert('Video export failed: ' + e.message);
+  } finally {
+    if (btn) setTimeout(() => { btn.disabled = false; btn.textContent = label || '🎬 Save MP4'; }, 2500);
+  }
 }
 
 function saveArt() { exportArt(1); }
