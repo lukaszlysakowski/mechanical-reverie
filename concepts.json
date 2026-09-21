@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-18",
+  "updated": "2026-09-20",
   "concepts": [
     {
       "id": "bell-labs",
@@ -62,6 +62,10 @@
         {
           "gen": 116,
           "why": "'The Thinking Machine' (Bell Telephone, 1968) and its 'computers can be programmed to appear creative' claim, closing on Harmon & Knowlton's Bell Labs computer art — MR's founding question, answered here with Lloyd Sumner's plotter curves."
+        },
+        {
+          "gen": 124,
+          "why": "A. Michael Noll's 'Computer Composition with Lines' (1964) and Paik's Etude I (1967) — both made at Bell Labs, where Noll taught Paik FORTRAN on the IBM 7094. The wing's origin artist: art as the durable output of a signals lab. MR answers with its 'vectors' character (built as its Noll vocabulary) run pure at Noll's own line count of 50."
         }
       ]
     },
@@ -254,6 +258,10 @@
         {
           "gen": 120,
           "why": "Verostko's 'pseudo-randomizer' — 'the magic hand of chance' — is the disorder dial made mystical: random pixels scattered (disorder 0.7 radial) into a cosmic field. Chance as a generative, almost sacred, force."
+        },
+        {
+          "gen": 124,
+          "why": "Paik's 1968 dictum stated at the source — 'the problem is how to use these two characters [order and randomness] effectively.' Noll's statistical line scatter confined to a central, ordered field: chance held inside a frame. The room's thesis in its purest form."
         }
       ]
     },
