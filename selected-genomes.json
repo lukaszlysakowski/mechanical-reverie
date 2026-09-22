@@ -8438,5 +8438,99 @@
     "keyDetails": "A. Michael Noll, 1964 — 'Computer Composition with Lines' (micro-film negative + plot). Paik Etude I (1967, IBM 7094). Paik 1968: the art is using order and randomness effectively. Engine draws exactly 50 lines to answer Noll's 50.",
     "description": "Fifty luminous ivory line segments scattered by the engine's own statistical distribution into a central cluster on a deep near-black ground — the micro-film negative of a computer composition with lines. The 'vectors' character (Mechanical Reverie's A. Michael Noll vocabulary) run pure, at Noll's own line count. Not a copy of Noll's plot but the same instruction executed by a different program; Paik's 'two characters' — order and randomness — held in the balance of a confined, random scatter.",
     "condensedReason": "Pure 'vectors' at N=50 (Noll's count) as micro-film negative; same instruction, MR's own program; Paik's order/randomness dictum as frame."
+  },
+  {
+    "day": 120,
+    "date": "2026-09-21",
+    "title": "Choreography",
+    "filename": "mechanical-reverie-day-120-choreography-2026-09-21.png",
+    "fitness": 6.331,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "d3a0192d2828626cfe2efc8ee6265bce2a77bc30a15408959a156fc6741c5479",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 924879,
+      "noiseSeed": 71144
+    },
+    "genome": {
+      "gridCols": 17,
+      "gridRows": 10,
+      "cellPadding": 0.10963902497704645,
+      "rotation": 0.3214341155850587,
+      "globalRotation": 0.13750262524614468,
+      "paletteIndex": 10,
+      "bgDarkness": 0.94,
+      "gearDensity": 0.7,
+      "gearComplexity": 19,
+      "chainFrequency": 0.92,
+      "pixelDensity": 0.9843160902047597,
+      "pixelSize": 6,
+      "flowScale": 0.011137622562103404,
+      "flowStrength": 1.7604641358019855,
+      "particleCount": 214,
+      "clockSpeed": 0,
+      "oscillation": 2.4,
+      "wMechanical": 0.78,
+      "wPixel": 0.1,
+      "wFlow": 0.12,
+      "wGeometric": 0.13,
+      "wOrganic": 0.1,
+      "wHatch": 0.52,
+      "hatchAngle": 0,
+      "hatchSpacing": 13,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 71144,
+      "renderSeed": 924879,
+      "disorder": null,
+      "disorderMode": "uniform",
+      "disorderAngle": 4.191665562873712,
+      "paletteColors": [
+        "#EDEEF0",
+        "#C7CACE",
+        "#FAFBFC",
+        "#9BA0A6",
+        "#DDE0E3",
+        "#0A0A0B",
+        "#B4B8BD",
+        "#E4E6E9"
+      ],
+      "stereo": false,
+      "vignette": 0.28
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Algorithmic MOTION day, both works from the Lucas Museum Collection. NB paired Larry Cuba's 'Calculated Movements' (1985) — Cuba: 'the tools evolved simultaneously with the visual composition... The films are like progress reports' — with A. Michael Noll's 'Computer-Generated Ballet' (1965), which Noll conceived watching Balanchine's ballet of Stravinsky's 'Apollo' ('the computer could be programmed to create stick figures in 3D as a tool for choreographers... the first computer-generated ballet was programmed in 1965'). Lovely continuity: yesterday was Noll's STATIC line composition (1964); today his lines are set in MOTION (1965), joined by Cuba extending calculated movement into the 1980s. ONE core signature = calculated movement traced as swept arcs (the 'plotter' character, drawPlotterArm: nested concentric arc-sweeps from off-canvas pivots — the harmonograph / choreographed-pen lineage) over a ruled horizontal scan-line field (horizontal 'hatch', hatchAngle 0). A clean DUET (wMechanical 0.78 dominant + wHatch 0.52 second, every other layer ≤ 0.13 — duet credit): the ruled field is the shared visual armature of BOTH sources (Cuba's raster scan-lines / Noll's ruled stage floor); the radiating ribbon-sweeps are the choreography moving over it. B&W-film palette (neutral silver-grey inks, near-black ground) — both sources are monochrome 16mm. Did NOT draw dancers or letterforms (anchor); reduced motion to its computed trace. Fitness 6.331, cert d3a0192d… 12/12 hard-canonical, engine v3.8.0. Third Noll-touched piece in the archive (gens 111, 124, 125).",
+      "condensedReason": "Calculated movement as swept plotter-arcs radiating over a ruled scan-line field (duet), in B&W film silver — Cuba's 'Calculated Movements' armature + Noll's computer-generated ballet, reduced to the computed trace of motion."
+    },
+    "tweetSummary": "NB, 2026-09-21 (Lucas Museum Collection): Larry Cuba's 'Calculated Movements' (1985, algorithmic animation) + A. Michael Noll's 'Computer-Generated Ballet' (1965, stick figures for choreographers). The day of computed MOTION.",
+    "keyArtists": [
+      {
+        "name": "Larry Cuba",
+        "role": "pioneer of algorithmic computer animation; 'Calculated Movements' (1985); also the Death Star briefing graphics in Star Wars (1977)",
+        "relevance": "primary — the day's title concept and hero video"
+      },
+      {
+        "name": "A. Michael Noll",
+        "role": "'Computer-Generated Ballet' (1965) — first computer choreography, stick figures in 3D; conceived at Balanchine's 'Apollo'",
+        "relevance": "primary — sets his 1964 lines (yesterday) into motion; 3rd Noll piece"
+      }
+    ],
+    "themes": [
+      "calculated movement",
+      "computed choreography",
+      "motion over a ruled/raster field",
+      "the harmonograph / plotter sweep",
+      "black-and-white film"
+    ],
+    "keyDetails": "Larry Cuba 'Calculated Movements' (1985) + A. Michael Noll 'Computer-Generated Ballet' (1965), both Lucas Museum Collection. Noll conceived his ballet at Balanchine's 'Apollo'. Motion reduced to swept plotter-arcs over a scan-line field.",
+    "description": "Luminous silver ribbon-sweeps radiate from a bright pivot and cross over a field of ruled horizontal scan-lines, on black film — calculated movement traced as choreographed arcs. The 'plotter' character (nested concentric arc-sweeps) over a horizontal hatch, a clean duet in monochrome. Not dancers and not letterforms but the computed trace of motion itself: Larry Cuba's 'Calculated Movements' and A. Michael Noll's computer-generated ballet, in the engine's own vocabulary.",
+    "condensedReason": "Swept plotter-arcs over a ruled scan-line field (duet), B&W film — the computed trace of motion; Cuba + Noll."
   }
 ]
