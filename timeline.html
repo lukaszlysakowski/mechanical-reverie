@@ -310,6 +310,30 @@
     border-color: #4a3e2e;
     color: #c9b896;
   }
+  .card-rooms {
+    margin-top: 7px;
+    line-height: 1.9;
+  }
+  .card-rooms .room-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #c4a265;
+    text-decoration: none;
+    border: 1px solid #4a3e2e;
+    background: rgba(196, 162, 101, 0.06);
+    padding: 1px 7px;
+    margin: 2px 3px 0 0;
+    border-radius: 10px;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .card-rooms .room-tag::before { content: "\25C6\00A0"; opacity: 0.55; font-size: 9px; }
+  .card-rooms .room-tag:hover {
+    background: rgba(196, 162, 101, 0.16);
+    color: #e6cf9c;
+    border-color: #c4a265;
+  }
   .card-lineage {
     font-size: 12px;
     color: #9c8a68;
@@ -636,6 +660,7 @@
 <script>
 const ART_PATH = 'art/';
 let genomes = [];
+let roomsByGen = {};   // gen (1-based archive index) → [{id, title}] from concepts.json
 let animInterval = null;
 let animIndex = 0;
 let animSpeed = 3000;
@@ -652,6 +677,23 @@ async function init() {
   // Tag each entry with its TRUE archive gen (1-based array position) and original index
   // BEFORE any filter/sort — the "Gen N" label and ?gen=N links depend on the array position.
   genomes.forEach((g, i) => { g._gen = i + 1; g._orig = i; });
+
+  // Room membership per gen (from the concepts registry) → chips on each card. concepts.json
+  // uses the same 1-based archive index as _gen, so the mapping is direct. Fails soft: no
+  // concepts.json (or a fetch error) just means no room chips — the timeline still renders.
+  try {
+    const cjson = await (await fetch('concepts.json?t=' + Date.now())).json();
+    roomsByGen = {};
+    (cjson.concepts || []).forEach(room => {
+      (room.members || []).forEach(m => {
+        if (m.gen == null) return;
+        (roomsByGen[m.gen] = roomsByGen[m.gen] || []).push({ id: room.id, title: room.title });
+      });
+    });
+  } catch (e) {
+    console.warn('Could not load concepts.json for room tags:', e);
+    roomsByGen = {};
+  }
 
   // Filter to entries that have dates and filenames
   genomes = genomes.filter(g => g.date && g.filename);
@@ -780,6 +822,12 @@ function renderStrip() {
     const reasonText = genome.description || genome.condensedReason || '';
     const genNum = genome._gen;
     const titleText = titleFromFilename(genome.filename, genome);
+    const rooms = roomsByGen[genNum] || [];
+    const roomsHtml = rooms.length
+      ? `<div class="card-rooms">${rooms.map(r =>
+          `<a class="room-tag" href="concepts.html#${r.id}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Concept room: ${r.title.replace(/"/g, '&quot;')}">${r.title}</a>`
+        ).join('')}</div>`
+      : '';
     card.innerHTML = `
       <div class="card-image-wrap" onclick="window.open('generative-art-generator.html?gen=${genNum}', '_blank')" title="Open ${titleText.replace(/"/g, '&quot;')} — view this piece">
         <img src="${ART_PATH}${genome.filename}" alt="${titleText}" loading="lazy">
@@ -799,6 +847,7 @@ function renderStrip() {
         ${genome.frontier ? `<div class="card-frontier">FRONTIER · ${(genome.cell || '').replace(/\|/g, ' / ')}</div>` : ''}
         <div class="card-title"><a class="card-title-link" href="generative-art-generator.html?gen=${genNum}" target="_blank" onclick="event.stopPropagation()">${titleText}</a></div>
         <div class="card-themes">${themeTags}</div>
+        ${roomsHtml}
         ${lineageText ? `<div class="card-lineage">${lineageText}</div>` : ''}
         ${keyDetailsText ? `<div class="card-keydetails">${keyDetailsText}</div>` : ''}
         ${reasonText ? `<div class="card-reason">${reasonText}</div>` : ''}
