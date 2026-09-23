@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-20",
+  "updated": "2026-09-22",
   "concepts": [
     {
       "id": "bell-labs",
@@ -518,6 +518,10 @@
         {
           "gen": 123,
           "why": "Paik's medium is the electronic light-image itself: the colorized video signal of the Paik-Abe synthesizer, emitted from the CRT — light as material, not display."
+        },
+        {
+          "gen": 126,
+          "why": "Nam June Paik's 'Lake Placid ’80' reduced to its glowing dot-matrix — the 'led' character run pure, a video wall of emitted colored light (Paik-Abe blue/green/magenta on video-black). Emitted light as the material, not the display: the LED grid that Harmon's squares were destined for, here carrying the colorized Winter Games. Joins Global Groove (123) as the room's second Paik."
         }
       ]
     },

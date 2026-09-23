@@ -8532,5 +8532,99 @@
     "keyDetails": "Larry Cuba 'Calculated Movements' (1985) + A. Michael Noll 'Computer-Generated Ballet' (1965), both Lucas Museum Collection. Noll conceived his ballet at Balanchine's 'Apollo'. Motion reduced to swept plotter-arcs over a scan-line field.",
     "description": "Luminous silver ribbon-sweeps radiate from a bright pivot and cross over a field of ruled horizontal scan-lines, on black film — calculated movement traced as choreographed arcs. The 'plotter' character (nested concentric arc-sweeps) over a horizontal hatch, a clean duet in monochrome. Not dancers and not letterforms but the computed trace of motion itself: Larry Cuba's 'Calculated Movements' and A. Michael Noll's computer-generated ballet, in the engine's own vocabulary.",
     "condensedReason": "Swept plotter-arcs over a ruled scan-line field (duet), B&W film — the computed trace of motion; Cuba + Noll."
+  },
+  {
+    "day": 121,
+    "date": "2026-09-22",
+    "title": "Synthesized Energy",
+    "filename": "mechanical-reverie-day-121-synthesized-energy-2026-09-22.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "cafa5d2e581bf77b22607c5e2ba67f7b8aa54154c9ffb6a21266ffbaa5fa0b0c",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 772568,
+      "noiseSeed": 70233
+    },
+    "genome": {
+      "gridCols": 15,
+      "gridRows": 12,
+      "cellPadding": 0.09533902779626058,
+      "rotation": 6.220987934174852,
+      "globalRotation": -0.02019402287926486,
+      "paletteIndex": 10,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.85,
+      "gearComplexity": 18,
+      "chainFrequency": 0.8480299897165738,
+      "pixelDensity": 0.9304630710041626,
+      "pixelSize": 2,
+      "flowScale": 0.0036018108327945057,
+      "flowStrength": 3.24602139349761,
+      "particleCount": 1866,
+      "clockSpeed": 0,
+      "oscillation": 1.9627045900208355,
+      "wMechanical": 0.95,
+      "wPixel": 0.12,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 2.6061267199422318,
+      "hatchSpacing": 11.155806156168563,
+      "pixelCharacter": "shard",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 70233,
+      "renderSeed": 772568,
+      "disorder": null,
+      "disorderMode": "radial",
+      "disorderAngle": 2.596014016711356,
+      "paletteColors": [
+        "#10002A",
+        "#2A0060",
+        "#8A2AA0",
+        "#20489C",
+        "#1E6BFF",
+        "#08080F",
+        "#2BE81E",
+        "#FF2AA6"
+      ],
+      "stereo": false,
+      "vignette": 0.32
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Nam June Paik again — but a wholly distinct signature from Global Groove (Day 118). NB posted 'Lake Placid ’80' (Paik, 1980): his video collage of the 1980 Winter Olympics, quoting Lori Zippay (EAI) — 'Ski jumpers, skaters and hockey players are re-edited, fragmented, colorized, accelerated and transformed, colliding on the screen in a frenzy of synthesized energy,' mixed with the dancers from Global Groove. The video frames show chroma-keyed figures (flat saturated green bodies) over hot magenta/blue color-fields with Paik's recurring motif: a grid of glowing dots. ONE core signature = that colorized DOT-MATRIX / video-wall (the 'led' mechanical character, drawLedMatrix: a regular grid of noise-lit circles, colour picked by brightness band — 'early display aesthetic'), run PURE (wMechanical 0.95, all others ≤ 0.12 — pure-single-character credit). Custom palette 10 in Paik-Abe video colour: the three lit bands (4,6,7) carry electric blue #1E6BFF, green #2BE81E, hot magenta #FF2AA6; ground (idx5) near-black #08080F so the dots glow as regions on video-black. The noise field clusters same-colour dots into keyed regions — a blue dot-field, a green figure, a magenta core — echoing the frames without drawing skaters (anchor). SATURATED, not washed (the Day 118 lesson: wash desaturates Paik; here pure lit dots stay electric). Distinct from Global Groove's oscilloscope LINES and from Choreography's plotter ARCS — this is the video display as a grid of glowing DOTS. Fitness 6.57, cert cafa5d2e… 12/12 hard-canonical, engine v3.8.0.",
+      "condensedReason": "Paik's 'Lake Placid ’80' reduced to the colorized video-wall DOT-MATRIX ('led' character, pure) in Paik-Abe blue/green/magenta on video-black — distinct from Global Groove's lines; saturated, not washed."
+    },
+    "tweetSummary": "NB, 2026-09-22: Nam June Paik's 'Lake Placid ’80' (1980) — Winter-Olympics footage fragmented, colorized, accelerated into 'a frenzy of synthesized energy' (Lori Zippay/EAI), mixed with the Global Groove dancers.",
+    "keyArtists": [
+      {
+        "name": "Nam June Paik",
+        "role": "founder of video art; 'Lake Placid ’80' (1980) Winter-Olympics video collage; Paik-Abe synthesizer",
+        "relevance": "primary — 3rd Paik-touched piece (Global Groove 123, Fifty Lines frame 124, here 126); distinct dot-matrix signature"
+      },
+      {
+        "name": "Lori Zippay",
+        "role": "EAI director; catalogue description of Lake Placid ’80",
+        "relevance": "source of the 'frenzy of synthesized energy' framing / the title"
+      }
+    ],
+    "themes": [
+      "colorized video (Paik-Abe synthesizer)",
+      "the LED / video-wall dot-matrix",
+      "fragmented & accelerated motion",
+      "the Winter Olympics as signal",
+      "saturated electric colour"
+    ],
+    "keyDetails": "Nam June Paik, 'Lake Placid ’80' (1980) — fragmented, colorized Winter-Olympics collage; Lori Zippay (EAI). Reduced to the pure colorized dot-matrix (led character) in Paik-Abe blue/green/magenta.",
+    "description": "A video-wall of glowing dots in electric blue, green and hot magenta on video-black — the colorized dot-matrix that is Nam June Paik's recurring motif, here answering 'Lake Placid ’80' (1980), his fragmented, accelerated collage of the Winter Olympics. The 'led' character run pure: noise clusters same-colour dots into keyed regions — a blue field, a green figure, a magenta core — the Games dissolved into synthesized energy. Not skaters but the signal that carried them.",
+    "condensedReason": "Pure 'led' dot-matrix in Paik-Abe blue/green/magenta on video-black — 'Lake Placid ’80' as the colorized video-wall; distinct from Global Groove's lines."
   }
 ]
