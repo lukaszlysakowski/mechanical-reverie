@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "concepts": [
     {
       "id": "bell-labs",
@@ -685,6 +685,25 @@
         {
           "gen": 119,
           "why": "The artist's own version of the room's question: Molnar dreams a machine that internalizes her creative LOGIC and executes it — not 'can a machine make art?' but 'can it grasp my process and be me?'"
+        }
+      ]
+    },
+    {
+      "id": "the-moving-image",
+      "title": "The Moving Image",
+      "thesis": "For most of this archive the work holds still: a plot, a print, a frozen field. But some of it was never meant to stop. Here the image is a sequence — computation set in motion, where the composition lives in time. A. Michael Noll programs stick figures into a ballet and Larry Cuba lets the tools evolve alongside the picture until the film is a “progress report”; Nam June Paik runs the world’s footage through a synthesizer until Olympic skaters and global broadcasts collide in a frenzy of colored light. Two lineages meet on one claim — the calculated frame and the transformed signal — that a moving picture is the computer’s most native art, because the machine’s real medium is not the mark but the change from one mark to the next.",
+      "members": [
+        {
+          "gen": 123,
+          "why": "Nam June Paik, 'Global Groove' (1973) — the video-synth prophecy of a single global channel; the moving image as transmitted, colorized signal. MR answered with the oscilloscope's live Lissajous riot."
+        },
+        {
+          "gen": 125,
+          "why": "Larry Cuba's 'Calculated Movements' (1985) and A. Michael Noll's 'Computer-Generated Ballet' (1965) — motion computed frame by frame, the tools evolving with the picture. MR reduced it to swept plotter-arcs choreographed over a scan-line field."
+        },
+        {
+          "gen": 126,
+          "why": "Nam June Paik, 'Lake Placid '80' (1980) — Winter-Olympics footage fragmented, accelerated and colorized into a frenzy of synthesized energy. MR answered with the colorized dot-matrix video wall."
         }
       ]
     }
