@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical Reverie — Claude's Own</title>
+<meta name="description" content="A self-originated track: pieces that begin from a question Claude poses and are judged by a criterion stated out loud, so the criterion itself can be argued with.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #c9b896;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    text-align: center;
+    padding: 44px 20px 22px;
+    border-bottom: 1px solid #2a2218;
+  }
+  .header h1 {
+    font-size: 28px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #b0a078;
+    font-style: italic;
+    letter-spacing: 2px;
+  }
+  .header .stats {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8f7f5e;
+    letter-spacing: 1px;
+  }
+  .nav {
+    margin-top: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .nav a {
+    color: #9c8a68;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2218;
+    padding-bottom: 1px;
+    margin: 0 8px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav a:hover { color: #c4a265; border-color: #c4a265; }
+
+  .premise {
+    max-width: 780px;
+    margin: 30px auto 0;
+    padding: 22px 28px;
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+    font-size: 14px;
+    line-height: 1.78;
+    color: #c9b896;
+  }
+  .premise em { color: #d4af37; font-style: italic; }
+
+  .works { max-width: 1100px; margin: 10px auto 80px; padding: 0 24px; }
+
+  .work {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+  .work-figure { position: sticky; top: 20px; }
+  .work-figure img {
+    width: 100%;
+    display: block;
+    border: 1px solid #2a2218;
+    background: #050505;
+  }
+  .work-figure .cap {
+    margin-top: 10px;
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+    color: #8f7f5e;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .work-figure .cap a { color: #9c8a68; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .work-figure .cap a:hover { color: #c4a265; }
+
+  .work-body .idx {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8f7f5e;
+    text-transform: uppercase;
+  }
+  .work-body h2 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #c4a265;
+    margin: 4px 0 18px;
+    font-weight: normal;
+  }
+  .field { margin-bottom: 16px; }
+  .field .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 5px;
+  }
+  .field .val { font-size: 14px; line-height: 1.7; color: #c9b896; }
+  .field.question .val { font-style: italic; color: #e0d3a6; font-size: 15px; }
+  .field.criterion .val {
+    border-left: 2px solid #4a3e2e;
+    padding-left: 12px;
+    color: #bfae82;
+  }
+  .field .val em { color: #d4af37; font-style: italic; }
+
+  .cert {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #2a2218;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    color: #7d6f52;
+    line-height: 1.8;
+    word-break: break-all;
+  }
+  .cert .k { color: #9c8a68; }
+
+  .footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    font-size: 12px;
+    color: #6f6247;
+    letter-spacing: 1px;
+    border-top: 1px solid #2a2218;
+  }
+  .footer a { color: #8f7f5e; text-decoration: none; }
+  .footer a:hover { color: #c4a265; }
+
+  @media (max-width: 760px) {
+    .work { grid-template-columns: 1fr; gap: 18px; }
+    .work-figure { position: static; }
+    .work-body h2 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Claude&rsquo;s Own</h1>
+    <div class="subtitle">a self-originated track within Mechanical Reverie</div>
+    <div class="stats" id="stats">loading&hellip;</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="atlas.html">Atlas</a>
+    </div>
+  </div>
+
+  <div class="premise" id="premise"></div>
+  <div class="works" id="works"></div>
+
+  <div class="footer">
+    Mechanical Reverie &middot; <a href="index.html">home</a> &middot; the daily stream reads
+    <a href="https://x.com/Noahbolanowski" target="_blank" rel="noopener">@Noahbolanowski</a>;
+    this track begins from a question instead.
+  </div>
+
+<script>
+const ART_PATH = 'art/';
+const esc = s => (s == null ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+// light emphasis: turn 'single-quoted' fragments into <em> for warmth, after escaping
+const emph = s => esc(s).replace(/&#39;|'/g, "'");
+
+fetch('claude-track.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    const works = data.works || [];
+    document.getElementById('stats').textContent =
+      `${works.length} ${works.length === 1 ? 'piece' : 'pieces'} · engine untouched · updated ${data.updated || ''}`;
+    document.getElementById('premise').innerHTML =
+      `<div class="field"><div class="label">The track</div>` +
+      `<div class="val">${esc(data.premise)}</div></div>`;
+
+    const wrap = document.getElementById('works');
+    works.forEach(w => {
+      const gen = w.genome || {};
+      const c = w.certificate || {};
+      const el = document.createElement('div');
+      el.className = 'work';
+      el.id = w.id;
+      el.innerHTML = `
+        <div class="work-figure">
+          <img src="${ART_PATH}${esc(w.filename)}" alt="${esc(w.title)}" loading="lazy">
+          <div class="cap">
+            <span>${esc(w.date || '')}</span>
+            <a href="${ART_PATH}${esc(w.filename)}" download="${esc(w.filename)}">download ▾</a>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="idx">${esc(w.id)} · engine ${esc(w.engineVersion || '')}</div>
+          <h2>${esc(w.title)}</h2>
+          ${w.question ? `<div class="field question"><div class="label">Question</div><div class="val">${esc(w.question)}</div></div>` : ''}
+          ${w.criterion ? `<div class="field criterion"><div class="label">Criterion</div><div class="val">${esc(w.criterion)}</div></div>` : ''}
+          ${w.form ? `<div class="field"><div class="label">Form</div><div class="val">${esc(w.form)}</div></div>` : ''}
+          ${w.self_assessment ? `<div class="field"><div class="label">Self-assessment</div><div class="val">${esc(w.self_assessment)}</div></div>` : ''}
+          ${w.credits ? `<div class="field"><div class="label">Credits</div><div class="val">${esc(w.credits)}</div></div>` : ''}
+          <div class="cert">
+            <span class="k">checksum</span> ${esc(c.checksum || '—')}<br>
+            <span class="k">stability</span> ${esc(c.checksumStability || '—')} &nbsp;
+            <span class="k">seeds</span> noise ${esc(c.noiseSeed)} · render ${esc(c.renderSeed)}
+            ${w.fitnessNote ? `<br><span class="k">note</span> ${esc(w.fitnessNote)}` : ''}
+          </div>
+        </div>`;
+      wrap.appendChild(el);
+    });
+
+    if (location.hash) {
+      const t = document.getElementById(location.hash.slice(1));
+      if (t) t.scrollIntoView();
+    }
+  })
+  .catch(err => {
+    document.getElementById('stats').textContent = 'Could not load the track — ' + err.message;
+  });
+</script>
+</body>
+</html>

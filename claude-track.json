@@ -1,0 +1,45 @@
+{
+  "track": "Claude's Own",
+  "premise": "A parallel strand to the daily Noah stream. Here the source is not a tweet but a question Claude poses; and each piece is judged by a criterion Claude states out loud, so the criterion itself can be argued with. Same engine, same canonical-seeds discipline (genome + seeds + ENGINE_VERSION, certified). The engine is never changed for this track.",
+  "started": "2026-09-23",
+  "updated": "2026-09-23",
+  "works": [
+    {
+      "id": "claude-001",
+      "title": "Threshold",
+      "date": "2026-09-23",
+      "filename": "mechanical-reverie-claude-001-threshold-2026-09-23.png",
+      "engineVersion": "v3.8.0",
+      "question": "Can a still image make the threshold between order and noise its subject — not order, not chaos, but the place where one becomes the other?",
+      "criterion": "(1) A viewer can locate where order gives way to noise. (2) Both poles earn their place — order has presence, noise isn't mush. (3) The composition reads as being ABOUT that edge. Failure = a uniform field, or a transition so smooth no threshold is locatable.",
+      "form": "Pure geometric (Nees/Molnár disorder-dial vocabulary), radial disorder: a quiet ordered lattice at the centre fraying outward into surfacing, tumbling noise. Tone-on-tone on a deep field so order is embedded rather than stamped — the marks SURFACE as disorder rises. Palette and question are Claude's; the disorder dial is Nees & Molnár's.",
+      "self_assessment": "Two iterations with the user as critic. v1 (linear ramp, bright ground) failed: the exposed background made the marks obvious and spelled the edge out. The fix — a dark field, tone-on-tone, and radial disorder (calm centre, fraying edges) — reframed the criterion: the 'edge' is not a line in space but a LEGIBILITY threshold, the radius at which marks cross from below-notice into presence. The current engine can express that; it cannot make a sharp discontinuity (a monotonic dial dissolves gently), which is a real limit noted for a possible future capability.",
+      "credits": "Disorder-dial vocabulary after Georg Nees (Schotter, 1968) and Vera Molnár. Question, criterion, palette and composition by Claude.",
+      "certificate": {
+        "deterministic": true,
+        "checksum": "00448c9c57c7812ce710a69d2d2ee159df09182c8959822550164b144860f4b1",
+        "checksumStability": "12/12 identical — hard-canonical",
+        "engineVersion": "v3.8.0",
+        "renderSeed": 22302,
+        "noiseSeed": 2027
+      },
+      "fitness": 6.47,
+      "fitnessNote": "Recorded, but this track is chosen by the stated criterion, not the fitness function.",
+      "genome": {
+        "gridCols": 18, "gridRows": 13, "cellPadding": 0.05, "rotation": 2.2,
+        "globalRotation": 0.1448488011319182, "paletteIndex": 10, "bgDarkness": 0.9,
+        "gearDensity": 0.19954309464050934, "gearComplexity": 8, "chainFrequency": 0.10121426375337506,
+        "pixelDensity": 0.37114877589953077, "pixelSize": 8, "flowScale": 0.003163897897555221,
+        "flowStrength": 2.4306457944822384, "particleCount": 520, "clockSpeed": 0,
+        "oscillation": 2.614891471126113, "wMechanical": 0.12, "wPixel": 0.1, "wFlow": 0.11,
+        "wGeometric": 0.95, "wOrganic": 0.1, "wHatch": 0.1, "hatchAngle": 0.7483771889350783,
+        "hatchSpacing": 12.893966762960853, "pixelCharacter": "grain", "flowCharacter": "mathematical",
+        "mechanicalCharacter": "vectors", "symmetry": 0, "layerCount": 6, "noiseOctaves": 4,
+        "noiseSeed": 2027, "renderSeed": 22302, "disorder": 1, "disorderMode": "radial",
+        "disorderAngle": 0,
+        "paletteColors": ["#10141A","#454E58","#5A6570","#2C333B","#6E7A85","#1E242B","#333B44","#262D34"],
+        "stereo": false, "vignette": 0, "baseColorIndex": 6, "baseShape": 1
+      }
+    }
+  ]
+}
