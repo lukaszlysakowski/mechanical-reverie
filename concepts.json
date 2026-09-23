@@ -706,6 +706,21 @@
           "why": "Nam June Paik, 'Lake Placid '80' (1980) — Winter-Olympics footage fragmented, accelerated and colorized into a frenzy of synthesized energy. MR answered with the colorized dot-matrix video wall."
         }
       ]
+    },
+    {
+      "id": "paik",
+      "title": "The Paik Room",
+      "thesis": "Nam June Paik did not paint with light so much as bend it. Trained as a composer, he treated the television signal as an instrument — the Paik-Abe synthesizer smearing broadcast into saturated colour, feedback and Zen. This room holds the days the archive spent inside that signal: 'Global Groove' (1973), his prophecy of a single global channel where every culture streams at once, and 'Lake Placid ’80' (1980), the Winter Olympics fragmented, accelerated and colorized into a frenzy of synthesized energy. Mechanical Reverie answers each in a different corner of its own vocabulary — the oscilloscope's live Lissajous riot for the raw signal, the LED video-wall dot-matrix for the colorized broadcast — because Paik was never one image but a way of making the image electric. (His thinking threads further still: the order-and-randomness dictum that frames the Noll day, 'Fifty Lines', is Paik's too.)",
+      "members": [
+        {
+          "gen": 123,
+          "why": "'Global Groove' (1973) — the video-synth prophecy of a single global channel, 'a glimpse of the video landscape of tomorrow.' MR answered with the oscilloscope's live Lissajous riot: the raw electronic signal as the medium."
+        },
+        {
+          "gen": 126,
+          "why": "'Lake Placid ’80' (1980) — Winter-Olympics footage fragmented, accelerated and colorized into 'a frenzy of synthesized energy' (Lori Zippay / EAI). MR answered with the colorized dot-matrix video wall: the display itself as glowing colored light."
+        }
+      ]
     }
   ]
 }
