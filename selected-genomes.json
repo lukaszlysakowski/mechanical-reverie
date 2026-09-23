@@ -8626,5 +8626,106 @@
     "keyDetails": "Nam June Paik, 'Lake Placid ’80' (1980) — fragmented, colorized Winter-Olympics collage; Lori Zippay (EAI). Reduced to the pure colorized dot-matrix (led character) in Paik-Abe blue/green/magenta.",
     "description": "A video-wall of glowing dots in electric blue, green and hot magenta on video-black — the colorized dot-matrix that is Nam June Paik's recurring motif, here answering 'Lake Placid ’80' (1980), his fragmented, accelerated collage of the Winter Olympics. The 'led' character run pure: noise clusters same-colour dots into keyed regions — a blue field, a green figure, a magenta core — the Games dissolved into synthesized energy. Not skaters but the signal that carried them.",
     "condensedReason": "Pure 'led' dot-matrix in Paik-Abe blue/green/magenta on video-black — 'Lake Placid ’80' as the colorized video-wall; distinct from Global Groove's lines."
+  },
+  {
+    "day": 122,
+    "date": "2026-09-23",
+    "title": "Encoded",
+    "filename": "mechanical-reverie-day-122-encoded-2026-09-23.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "b29ab23a832f844ad48906d1e881ffbc14a5d666e7a8eae9c37842ac4495ed37",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 344173,
+      "noiseSeed": 31288
+    },
+    "genome": {
+      "gridCols": 14,
+      "gridRows": 9,
+      "cellPadding": 0.12735237596965837,
+      "rotation": 4.051061738705798,
+      "globalRotation": -0.07191894560810178,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.88,
+      "gearComplexity": 14,
+      "chainFrequency": 0.2718145096273815,
+      "pixelDensity": 0.8631039097288017,
+      "pixelSize": 5,
+      "flowScale": 0.013808934067840185,
+      "flowStrength": 2.1044810436372923,
+      "particleCount": 1601,
+      "clockSpeed": 0,
+      "oscillation": 1.7888480786603025,
+      "wMechanical": 0.95,
+      "wPixel": 0.1,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 2.2228447418905466,
+      "hatchSpacing": 18.615145305418395,
+      "pixelCharacter": "data",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 31288,
+      "renderSeed": 344173,
+      "disorder": null,
+      "disorderMode": "linear",
+      "disorderAngle": 4.728299975338058,
+      "paletteColors": [
+        "#8FE9FF",
+        "#D8F7FF",
+        "#FFFFFF",
+        "#3AA8D8",
+        "#BEEBFF",
+        "#04060B",
+        "#5FD0F2",
+        "#A6E4FF"
+      ],
+      "stereo": false,
+      "plotterAzimuth": 0.7,
+      "plotterElevation": 0.34,
+      "vignette": 0.36
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "The birth of photorealistic 3D CGI. NB posted the 1981 story of John Whitney Jr. & Gary Demos at Information International Inc. (Triple-I / III): 'Working from models provided by Lucasfilm, Triple-I first made a set of accurate blueprints, which were then digitalized and encoded in the computer — a process that took six weeks — ... the viability of the technique was proven to George Lucas.' They digitized a Star Wars X-wing and rendered a shaded test for The Empire Strikes Back (the deal fell through, but the test succeeded). Video frames show the raw 1978 renders — pale, luminous, low-res ships on black (phosphor/CRT). ONE core signature = the WIREFRAME: a 3D form as a projected lattice of glowing lines in the void. Deliberately the 'vectors' character again (drawVectorField) — because it IS Noll's 1964 algorithm ('N straight lines projected orthographically from a cube'), and the X-wing wireframe used exactly that orthographic-projection technique 14 years later: the same math, from Noll's abstract composition to Hollywood's spaceship. Distinguished from Fifty Lines (124) by a DENSER wireframe mass (gearDensity 0.88, N≈91) and a PHOSPHOR-CGI palette (cyan #8FE9FF / white highlights / CRT-black ground) instead of warm ivory. Pure single-character (wMechanical 0.95, others ≤ 0.12). Did NOT draw the X-wing (anchor) — reduced it to the encoded, projected wireframe. Fitness 6.57, cert b29ab23a… 12/12 hard-canonical, v3.8.0. Star Wars/Lucasfilm CGI lineage links to Larry Cuba (Death Star trench wireframe, 1977; the Choreography day) and the Lucas Museum thread.",
+      "condensedReason": "1981 Triple-I digitized X-wing (birth of 3D CGI) reduced to the phosphor WIREFRAME — 'vectors' (Noll's own projected-line algorithm, the technique CGI inherited), denser + cyan-CRT to distinguish from Fifty Lines."
+    },
+    "tweetSummary": "NB, 2026-09-23: 1981 — John Whitney Jr. & Gary Demos (Information International/Triple-I) digitized a Star Wars X-wing from Lucasfilm blueprints, encoded it over six weeks and rendered a shaded CGI test for The Empire Strikes Back, proving the technique to Lucas.",
+    "keyArtists": [
+      {
+        "name": "John Whitney Jr.",
+        "role": "CGI pioneer at Information International Inc. (Triple-I); son of motion-graphics pioneer John Whitney Sr.",
+        "relevance": "primary — co-author of the 1981 digitized X-wing test"
+      },
+      {
+        "name": "Gary Demos",
+        "role": "CGI pioneer (Triple-I, later Digital Productions); digital film imaging",
+        "relevance": "primary — co-author of the digitized X-wing test"
+      },
+      {
+        "name": "A. Michael Noll",
+        "role": "whose 1964 orthographic-projected-line algorithm ('vectors') is the technique CGI wireframes inherited",
+        "relevance": "lineage — the engine's 'vectors' character connects Noll's lines to the X-wing wireframe"
+      }
+    ],
+    "themes": [
+      "the birth of 3D CGI",
+      "wireframe / digitized 3D model",
+      "phosphor / vector-display graphics",
+      "Star Wars / Lucasfilm CGI",
+      "blueprint encoded as data"
+    ],
+    "keyDetails": "1981 — John Whitney Jr. & Gary Demos (Information International Inc./Triple-I) digitized a Star Wars X-wing from Lucasfilm blueprints (six weeks to encode) and rendered a shaded CGI test for The Empire Strikes Back. Reduced to the phosphor wireframe (vectors = Noll's projected-line algorithm).",
+    "description": "A dense wireframe mass of glowing cyan and white lines tumbling in the black void — a 3D form as a projected lattice of light, the digitized and encoded model of early CGI. The 'vectors' character (Noll's own orthographic-projection algorithm, the technique Hollywood wireframes inherited) run pure, in phosphor-CRT colour: the 1981 Triple-I X-wing test reduced not to the spaceship but to the encoded geometry that made it possible.",
+    "condensedReason": "Phosphor wireframe (pure 'vectors', Noll's projected-line algorithm) — the 1981 Triple-I digitized X-wing as encoded 3D geometry; denser + cyan-CRT to distinguish from Fifty Lines."
   }
 ]
