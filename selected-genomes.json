@@ -8831,5 +8831,95 @@
     "keyDetails": "WESTWORLD (1973) — the gunslinger's 'electronic eyes': John Whitney Jr. on Triple-I's FR-80 scanned footage into a mosaic of 3,600 colour rectangles, each a numerical value — the first digital image processing in a feature film. Reduced to the pure pixel mosaic in monochrome blue.",
     "description": "An image dissolved into a grid of ~3,600 tonal blue rectangles on near-black — the gunslinger's 'electronic eyes' from Westworld (1973), the first digital image processing in a feature film. John Whitney Jr. scanned footage frame by frame into a mosaic of colour rectangles, each a numerical value; Mechanical Reverie answers with the pure pixel mosaic in the iconic 'squares of monochrome blue', reducing the scene not to a face but to the digitizing grid itself. The same artist and machine (Triple-I's FR-80) as yesterday's wireframe X-wing.",
     "condensedReason": "Pure pixel mosaic (~3,600 rectangles) in monochrome blue — Westworld's robot vision, Whitney Jr./Triple-I; the image as a grid of numerical values."
+  },
+  {
+    "day": 124,
+    "date": "2026-09-24",
+    "title": "The Painter's Grid",
+    "filename": "mechanical-reverie-day-124-the-painters-grid-2026-09-24.png",
+    "fitness": 6.444,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "0c74a368788b2a572849dca1219be9282985e75503196444546c192eaf2d3dca",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 37152,
+      "noiseSeed": 3377
+    },
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 6,
+      "cellPadding": 0.12034884724829181,
+      "rotation": 1.4,
+      "globalRotation": -0.011114572933649702,
+      "paletteIndex": 10,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.6595776870988981,
+      "gearComplexity": 20,
+      "chainFrequency": 0.523978149193807,
+      "pixelDensity": 0.13905561213020246,
+      "pixelSize": 8,
+      "flowScale": 0.02,
+      "flowStrength": 3.2,
+      "particleCount": 1973,
+      "clockSpeed": 0,
+      "oscillation": 1.8209408466529418,
+      "wMechanical": 0.12,
+      "wPixel": 0.1,
+      "wFlow": 0.62,
+      "wGeometric": 0.5,
+      "wOrganic": 0.12,
+      "wHatch": 0.1,
+      "hatchAngle": 0.39034270528384685,
+      "hatchSpacing": 18.32253504138228,
+      "pixelCharacter": "data",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 3377,
+      "renderSeed": 37152,
+      "disorder": 0.15,
+      "disorderMode": "uniform",
+      "disorderAngle": 4.755938348290176,
+      "paletteColors": [
+        "#E23A2A",
+        "#F0872E",
+        "#2E6FE0",
+        "#22B0A0",
+        "#F0D9A8",
+        "#0A0A16",
+        "#8A3FD0",
+        "#E8C24A"
+      ],
+      "stereo": false,
+      "baseShape": 1,
+      "baseColorIndex": 4,
+      "vignette": 0.3
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "Second piece for 2026-09-24 (backlog from the same rich day as 'Westworld'/Day 123), explored at the user's request. NB: 'Ed Emshwiller was once an abstract expressionist painter, but now he's one of the grand old men of computer art' (1983 CBC 'Computers & Arts'). Noah showed the elderly Emshwiller (portrait) + one of his 'EMSH' pulp sci-fi covers; his computer-art landmark is 'Sunstone' (1979, NYIT). Emshwiller uniquely BRIDGES the painter's gesture and the machine. ONE core idea = that transition, rendered as a DUET: the 'vortex' flow character as lush, multicolour gestural brush-strokes (the abstract-expressionist HAND) with a regular grid of computed squares imposed over it (the MACHINE / computer's order). wFlow 0.62 dominant + wGeometric 0.50 second (duet credit); a light disorder 0.15 humanises the grid so it isn't dead-rigid. Saturated Emshwiller-space palette (ray-gun crimson, orange, electric blue, teal, cream, violet, gold on deep-space near-black) — used 'vortex' (not 'wash', which desaturates to a muddy haze — tested and rejected, cf. Global Groove) so the gestural colour stays alive. Did NOT draw the pulp spaceman/robot or a face (anchor). Fitness 6.444, cert 0c74a368… 12/12 hard-canonical, v3.8.0. First 'vortex' hero + first painterly-gesture piece in this recent run — distinct from the line/dot/mosaic pieces around it.",
+      "condensedReason": "Emshwiller (painter → computer artist) as a DUET: 'vortex' gestural brush-strokes (the hand) under a computed square grid (the machine), in a saturated space palette. Used vortex not wash (wash muddies)."
+    },
+    "tweetSummary": "NB, 2026-09-24 (backlog): Ed Emshwiller — 'once an abstract expressionist painter, now one of the grand old men of computer art' (1983 CBC). Painter (EMSH pulp covers, gestural roots) turned computer-art pioneer (Sunstone, 1979).",
+    "keyArtists": [
+      {
+        "name": "Ed Emshwiller",
+        "role": "abstract-expressionist painter & 'EMSH' sci-fi illustrator turned computer/video-art pioneer; 'Sunstone' (1979, NYIT)",
+        "relevance": "primary — the hand-to-machine bridge the piece is built on"
+      }
+    ],
+    "themes": [
+      "the painter turned computer artist",
+      "gesture vs. the computed grid",
+      "abstract-expressionist mark-making",
+      "hand and machine"
+    ],
+    "keyDetails": "Ed Emshwiller — 'once an abstract expressionist painter, now one of the grand old men of computer art' (1983 CBC 'Computers & Arts'). Painter/illustrator (EMSH) → computer-art pioneer (Sunstone, 1979, NYIT). Rendered as gesture (vortex) under a computed grid.",
+    "description": "Lush, multicoloured gestural brush-strokes — the abstract-expressionist hand — run beneath a quiet grid of computed squares, the machine's order imposed over the painting. Ed Emshwiller was a gestural painter who became a grand old man of computer art; 'The Painter's Grid' holds both at once: the vortex of the hand and the lattice of the program, in the saturated blues, reds and golds of his science-fiction worlds. Not the spaceman he painted, but the meeting of gesture and geometry that his life traced.",
+    "condensedReason": "Gesture (vortex brush-strokes) under a computed square grid — Emshwiller, the painter who became a computer artist; saturated space palette, vortex not wash."
   }
 ]
