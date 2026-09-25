@@ -8727,5 +8727,109 @@
     "keyDetails": "1981 — John Whitney Jr. & Gary Demos (Information International Inc./Triple-I) digitized a Star Wars X-wing from Lucasfilm blueprints (six weeks to encode) and rendered a shaded CGI test for The Empire Strikes Back. Reduced to the phosphor wireframe (vectors = Noll's projected-line algorithm).",
     "description": "A dense wireframe mass of glowing cyan and white lines tumbling in the black void — a 3D form as a projected lattice of light, the digitized and encoded model of early CGI. The 'vectors' character (Noll's own orthographic-projection algorithm, the technique Hollywood wireframes inherited) run pure, in phosphor-CRT colour: the 1981 Triple-I X-wing test reduced not to the spaceship but to the encoded geometry that made it possible.",
     "condensedReason": "Phosphor wireframe (pure 'vectors', Noll's projected-line algorithm) — the 1981 Triple-I digitized X-wing as encoded 3D geometry; denser + cyan-CRT to distinguish from Fifty Lines."
+  },
+  {
+    "day": 123,
+    "date": "2026-09-24",
+    "title": "3,600 Rectangles",
+    "filename": "mechanical-reverie-day-123-3600-rectangles-2026-09-24.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5c1a4d3baa9ed89f6722d27e17585d1f9b76f7b560e77729e880702358f3024c",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 80316,
+      "noiseSeed": 7301
+    },
+    "genome": {
+      "gridCols": 14,
+      "gridRows": 4,
+      "cellPadding": 0.10619322732863018,
+      "rotation": 0.711690597249805,
+      "globalRotation": 0.0883886055058086,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.6294771996747611,
+      "gearComplexity": 7,
+      "chainFrequency": 0.9747794580837627,
+      "pixelDensity": 0.97,
+      "pixelSize": 12,
+      "flowScale": 0.045,
+      "flowStrength": 3.6402265660591,
+      "particleCount": 1078,
+      "clockSpeed": 0,
+      "oscillation": 2.3708358269324767,
+      "wMechanical": 0.12,
+      "wPixel": 0.95,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 1.1738332141760663,
+      "hatchSpacing": 13.687136458334273,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 7301,
+      "renderSeed": 80316,
+      "disorder": null,
+      "disorderMode": "uniform",
+      "disorderAngle": 5.560509119888288,
+      "paletteColors": [
+        "#08122E",
+        "#123A72",
+        "#1E56A8",
+        "#2E7AD8",
+        "#5AA6F2",
+        "#050914",
+        "#8FC8FF",
+        "#3E68C0"
+      ],
+      "stereo": false,
+      "vignette": 0.18
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "A rich, multi-thread Noah day that was nearly missed — the viral Salvador Dalí / Dick Cavett anteater clip (505 likes) buried three substantive computer-art threads on the profile Posts tab (found via from: search): Ed Emshwiller ('grand old man of computer art', 1983 CBC), Vera Molnár executing 'Hommage à Dürer' (1990 clip), and WESTWORLD (1973). Chose WESTWORLD as the strongest + most engine-native + a continuation of yesterday. The gunslinger robot's POV ('electronic eyes') was the FIRST digital image processing in a feature film: John Whitney Jr., on Information International's FR-80 Graphic Recorder — the SAME company (Triple-I) and artist as yesterday's 'Encoded' (the 1981 X-wing). Method (Whitney Jr., 1973): 'scan production footage frame by frame, convert it to numerical information... produce a new image composed of an array of squares... a mosaic of 3600 color rectangles per anamorphic frame, each given a numerical gray-scale value.' ONE core signature = that pixel MOSAIC (the engine's 'mosaic' pixel character, drawPixelLayer: a W/pixelSize × H/pixelSize grid of noise-valued colour rectangles), run PURE (wPixel 0.95, others ≤ 0.12 — pure-single-character credit). pixelSize 12 → ~3,120 cells (≈ Whitney's 3600). Rendered as the iconic 'squares of monochrome blue' test frame: a custom blue-scale palette so tonal blue rectangles read as a digitized image dissolved into blocks, on near-black. Did NOT draw the gunslinger/face (anchor) — reduced the SCENE to the digitizing grid itself. Distinct from Synthesized Energy's saturated-RGB LED dots (that = round lit dots; this = tonal rectangles, monochrome). Fitness 6.57, cert 5c1a4d3b… 12/12 hard-canonical, v3.8.0. Titled to Whitney's own number (cf. 'Fifty Lines' → Noll's 50).",
+      "condensedReason": "WESTWORLD (1973) robot vision — John Whitney Jr. / Triple-I FR-80, the first digital image processing in film — reduced to the pure pixel MOSAIC (~3,600 rectangles) in the iconic monochrome-blue. Continues yesterday's Whitney/Triple-I 'Encoded'."
+    },
+    "tweetSummary": "NB, 2026-09-24: behind a viral Dalí/Cavett anteater clip, three computer-art threads — Ed Emshwiller, Vera Molnár (Hommage à Dürer, 1990), and WESTWORLD (1973): the gunslinger's 'electronic eyes', a mosaic of 3,600 colour rectangles by John Whitney Jr. on Triple-I's FR-80.",
+    "keyArtists": [
+      {
+        "name": "John Whitney Jr.",
+        "role": "devised the Westworld (1973) robot-POV pixel mosaic on Information International's FR-80 — the first digital image processing in a feature film",
+        "relevance": "primary; same artist/company as yesterday's 'Encoded' (Triple-I X-wing, 1981)"
+      },
+      {
+        "name": "Information International Inc. (Triple-I)",
+        "role": "FR-80 Graphic Recorder executed the Westworld robot vision",
+        "relevance": "the Triple-I through-line across two days"
+      },
+      {
+        "name": "Vera Molnár",
+        "role": "clip of her executing 'Hommage à Dürer' (1990) — also posted today",
+        "relevance": "noted; The Molnár Room figure (backlog)"
+      },
+      {
+        "name": "Ed Emshwiller",
+        "role": "'grand old man of computer art' (1983 CBC) — also posted today",
+        "relevance": "noted (backlog)"
+      }
+    ],
+    "themes": [
+      "pixelation / digital image processing",
+      "the mosaic of colour rectangles",
+      "Westworld / robot vision",
+      "Triple-I FR-80 (Whitney Jr.)",
+      "the image reduced to numerical values"
+    ],
+    "keyDetails": "WESTWORLD (1973) — the gunslinger's 'electronic eyes': John Whitney Jr. on Triple-I's FR-80 scanned footage into a mosaic of 3,600 colour rectangles, each a numerical value — the first digital image processing in a feature film. Reduced to the pure pixel mosaic in monochrome blue.",
+    "description": "An image dissolved into a grid of ~3,600 tonal blue rectangles on near-black — the gunslinger's 'electronic eyes' from Westworld (1973), the first digital image processing in a feature film. John Whitney Jr. scanned footage frame by frame into a mosaic of colour rectangles, each a numerical value; Mechanical Reverie answers with the pure pixel mosaic in the iconic 'squares of monochrome blue', reducing the scene not to a face but to the digitizing grid itself. The same artist and machine (Triple-I's FR-80) as yesterday's wireframe X-wing.",
+    "condensedReason": "Pure pixel mosaic (~3,600 rectangles) in monochrome blue — Westworld's robot vision, Whitney Jr./Triple-I; the image as a grid of numerical values."
   }
 ]

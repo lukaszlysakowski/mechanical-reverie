@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "concepts": [
     {
       "id": "bell-labs",
@@ -708,6 +708,10 @@
         {
           "gen": 127,
           "why": "John Whitney Jr. & Gary Demos (Triple-I), 1981 — a Star Wars X-wing digitized from Lucasfilm blueprints and rendered as a shaded CGI test for The Empire Strikes Back: the birth of photorealistic computer animation for film. MR answered with the phosphor wireframe, the encoded 3D geometry set to be projected in motion."
+        },
+        {
+          "gen": 128,
+          "why": "Westworld (1973) — the gunslinger's 'electronic eyes', the first digital image processing in a feature film: John Whitney Jr. (on Triple-I's FR-80) scanned footage frame by frame into a mosaic of 3,600 colour rectangles, each a numerical value. MR answered with the pure pixel mosaic in the iconic monochrome blue — the moving image reduced to the digitizing grid itself."
         }
       ]
     },
