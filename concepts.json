@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "concepts": [
     {
       "id": "bell-labs",
@@ -140,6 +140,10 @@
         {
           "gen": 130,
           "why": "Vera Molnár's 'Hommage à Dürer' — the grande dame of algorithmic art, still executing and still doubting on film in 1990: 'does the beauty come from this magic square? I'm not so sure.'"
+        },
+        {
+          "gen": 131,
+          "why": "Joan Truckenbrod, 'Phase Transitions' (1981) & her SIGGRAPH-1982 words ('I do all my own programming... computer imagery as like mind imaging... we're all pioneers'). A pioneer who built art from natural force fields; MR answered with the pure flow field — her method, invisible forces made linear."
         }
       ]
     },

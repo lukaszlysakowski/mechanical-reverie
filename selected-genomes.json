@@ -9018,5 +9018,94 @@
     "keyDetails": "Vera Molnár, 'Hommage à Dürer' (c. 1981–94), from a 1990 clip — the 4×4 magic square of Dürer's Melencolia I, varied with controlled deviation. Her doubt: 'does the beauty come from this magic square? I'm not so sure.' Rendered as an ink grid with a few deviations on cream.",
     "description": "A grid of thin ink-outlined squares on cream paper — most obeying the rule, a few breaking it: a rotation, a filled square, a circle, a triangle, one red. Vera Molnár's 'Hommage à Dürer' descends from the magic square in Dürer's 'Melencolia I', and in a 1990 film she wonders whether the beauty comes from that magic square — 'I'm not so sure.' The piece holds her doubt: the ordered system, and the deviations that might be where the beauty actually lives. Rendered in her own grid-and-deviation vocabulary, as an ink-on-paper plotter drawing.",
     "condensedReason": "An ink grid of squares with a few deviations on cream — Molnár's magic-square 'Hommage à Dürer', titled with her doubt about whether beauty comes from the order."
+  },
+  {
+    "day": 126,
+    "date": "2026-09-25",
+    "title": "Mind Imaging",
+    "filename": "mechanical-reverie-day-126-mind-imaging-2026-09-25.png",
+    "fitness": 6.77,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "1602fda9d85709984f1d67eaabdb9799ab46895e411a065ad8d2844cbc14cfcc",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 49186,
+      "noiseSeed": 4471
+    },
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 7,
+      "cellPadding": 0.14298010415422738,
+      "rotation": 5.8629978998242995,
+      "globalRotation": 0.10862530849561983,
+      "paletteIndex": 10,
+      "bgDarkness": 0.85,
+      "gearDensity": 0.9704360956319604,
+      "gearComplexity": 18,
+      "chainFrequency": 0.711693549009136,
+      "pixelDensity": 0.25191089996401017,
+      "pixelSize": 7,
+      "flowScale": 0.01,
+      "flowStrength": 2.2,
+      "particleCount": 1600,
+      "clockSpeed": 0,
+      "oscillation": 2.5327993048312427,
+      "wMechanical": 0.12,
+      "wPixel": 0.1,
+      "wFlow": 0.95,
+      "wGeometric": 0.11,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 3.019590661934245,
+      "hatchSpacing": 15.501816774258948,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 4471,
+      "renderSeed": 49186,
+      "disorder": null,
+      "disorderMode": "radial",
+      "disorderAngle": 2.4614739264961294,
+      "paletteColors": [
+        "#6E86D8",
+        "#9A8FD0",
+        "#C79BC8",
+        "#E6A6B8",
+        "#F0C49A",
+        "#232A52",
+        "#B0C0F0",
+        "#EFD9C0"
+      ],
+      "stereo": false,
+      "vignetteStrength": 0
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "NB, 09-25 (the substantive post behind more Dalí/anteater follow-up chatter — found via from: search). Joan Truckenbrod, a SIGGRAPH-1982 interview (by Louise Ledeen) around her weaving 'Phase Transitions' (1981): 'this idea of synthesizing the sort of linear, rational quality — I do all my own programming... I'm beginning to think of computer imagery as like mind imaging'; 'I think we're all pioneers.' Truckenbrod's practice = ALGORITHMIC FORCE/FLOW FIELDS (wind, electromagnetic, thermal patterns translated into flowing linear compositions); 'Phase Transitions' is a woven field of small directional delta-marks over a blue→pink gradient (a phase change made visual). ONE core signature = the FLOW FIELD itself — the 'transit' flow character (a dense field of luminous streamlines following a coherent vector field), run PURE (wFlow 0.95, others ≤ 0.12 — pure-single-character credit). This is the engine's answer to Truckenbrod's METHOD (invisible forces made linear), not a copy of the tapestry's triangles. Palette from 'Phase Transitions': periwinkle/lavender/rose/coral streamlines on deep blue — the blue→pink phase range. DELIBERATELY chose FLOW (not another geometric-disorder grid, which the previous two pieces — Threshold & Molnár — already were): distinct signature + true to her flow-field practice. Also distinct from Emshwiller's 'vortex' (gestural chaos) — 'transit' is coherent, streamlined. Fitness 6.77, cert 1602fda9… 12/12 hard-canonical, v3.8.0. Title = her phrase 'computer imagery as mind imaging' (the flowing field reads as a field of thought). Joined Women Pioneers.",
+      "condensedReason": "Joan Truckenbrod ('Phase Transitions', 1981) reduced to the pure FLOW FIELD ('transit' streamlines) — her algorithmic force-field method — in the tapestry's blue→pink palette; titled with her phrase 'computer imagery as mind imaging'."
+    },
+    "tweetSummary": "NB, 2026-09-25: Joan Truckenbrod (SIGGRAPH 1982, on 'Phase Transitions', 1981) — 'I do all my own programming... computer imagery as like mind imaging... we're all pioneers.' Algorithmic force-field art.",
+    "keyArtists": [
+      {
+        "name": "Joan Truckenbrod",
+        "role": "pioneer of algorithmic art from natural force fields (wind/EM/thermal); 'Phase Transitions' (1981); 'computer imagery as mind imaging'",
+        "relevance": "primary — the flow-field method is her signature; Women Pioneers"
+      }
+    ],
+    "themes": [
+      "algorithmic force / flow fields",
+      "computer imagery as 'mind imaging'",
+      "phase transition (a field changing state)",
+      "the linear rational, synthesized",
+      "women pioneers of computer art"
+    ],
+    "keyDetails": "Joan Truckenbrod, 'Phase Transitions' (1981), from a SIGGRAPH 1982 interview: 'I do all my own programming... computer imagery as like mind imaging.' Her practice translates invisible force fields into flowing linear compositions. Reduced to the pure flow field ('transit' streamlines) in her blue→pink palette.",
+    "description": "A dense field of luminous streamlines — periwinkle, lavender and coral — flowing across deep blue, an invisible force field made visible. Joan Truckenbrod built algorithmic art from natural forces (wind, magnetism) and called computer imagery 'like mind imaging'; her weaving 'Phase Transitions' (1981) scattered directional marks over a blue-to-pink gradient. Mechanical Reverie answers not with her triangles but with her method: the flow field itself, the linear and rational synthesized into a single streaming thought.",
+    "condensedReason": "Pure flow field ('transit' streamlines) in a blue→pink palette — Truckenbrod's algorithmic force-field method; 'computer imagery as mind imaging'."
   }
 ]
