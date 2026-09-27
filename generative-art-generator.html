@@ -233,7 +233,7 @@ let W = canvas.width, H = canvas.height;
 // to the palette's max-contrast colour. The guard triggers ONLY in that degenerate case; every existing
 // convergence piece (gens 92, 110, 117) keeps its exact ink → renders bit-identical (verified, checksums
 // unchanged). pickInk is used ONLY by convergence, so no other character is affected.
-const ENGINE_VERSION = 'v3.9.0';
+const ENGINE_VERSION = 'v3.10.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -253,6 +253,8 @@ let renderRng = mulberry32(1); // re-seeded at the top of every render()
 // uniform: d = disorder everywhere (Molnár's constant 1% — or a constant 90%).
 // linear:  d ramps 0 → disorder along disorderAngle (vertical = literal Schotter).
 // radial:  d = 0 at center, → disorder at the corners (composition fraying at its edges).
+// step:    a SHARP edge (v3.10.0) — d = 0 on one side, `disorder` on the other, across a narrow band
+//          perpendicular to disorderAngle: a phase-transition boundary, not a gradient.
 function disorderAt(x, y, g) {
   if (g.disorder == null) return null;
   const D = clamp(g.disorder, 0, 1);
@@ -263,6 +265,13 @@ function disorderAt(x, y, g) {
   }
   if (g.disorderMode === 'radial') {
     return D * clamp(Math.hypot(x / W - 0.5, y / H - 0.5) / 0.7071, 0, 1);
+  }
+  if (g.disorderMode === 'step') {
+    const ang = g.disorderAngle || 0;
+    const t = (x / W - 0.5) * Math.cos(ang) + (y / H - 0.5) * Math.sin(ang) + 0.5;
+    const w = 0.03;                                    // narrow transition band → a sharp edge, not a ramp
+    const s = clamp((t - (0.5 - w)) / (2 * w), 0, 1);
+    return D * (s * s * (3 - 2 * s));                  // order → sharp edge → noise (smoothstep, anti-aliased)
   }
   return D; // uniform
 }
