@@ -233,7 +233,7 @@ let W = canvas.width, H = canvas.height;
 // to the palette's max-contrast colour. The guard triggers ONLY in that degenerate case; every existing
 // convergence piece (gens 92, 110, 117) keeps its exact ink → renders bit-identical (verified, checksums
 // unchanged). pickInk is used ONLY by convergence, so no other character is affected.
-const ENGINE_VERSION = 'v3.8.0';
+const ENGINE_VERSION = 'v3.9.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1344,6 +1344,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'plotter') { drawPlotterArm(g, pal, t);    return; }
   if (ch === 'led')     { drawLedMatrix(g, pal, t);     return; }
   if (ch === 'vectors') { drawVectorField(g, pal, t);   return; }
+  if (ch === 'contour') { drawContourStack(g, pal, t);  return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1509,6 +1510,83 @@ function drawVectorField(g, pal, t) {
     ctx.lineWidth = 0.7 + (i % 3) * 0.45;
     ctx.globalAlpha = 0.9;
     ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+}
+
+// CONTOUR: nested / stacked closed curves — a form implied by its cross-sections. Opt-in (v3.9.0,
+// 2026-09-27; Robert Mallary's TRAN2 'Quad' stacked sections, Molnár's rotated quadrilaterals, and
+// topographic relief). N contours, each scaled by a `profile`, rotated by `contourRotStep`, and
+// translated along the stack vector (contourStackX/Y): stack vector 0 → concentric rosette / relief;
+// nonzero → an axial stacked SOLID, with `contourForeshorten` squashing each section in depth.
+// Deterministic — silhouette/rotation from genome params, organic 'loop' wobble from noise(noiseSeed);
+// no Math.random. Additive: only reached when mechanicalCharacter === 'contour'.
+function drawContourStack(g, pal, t) {
+  const N       = Math.max(3, Math.min(64, Math.round(g.contourCount ?? 28)));
+  const base    = Math.min(W, H) * clamp(g.contourBaseSize ?? 0.30, 0.05, 0.6);
+  const shape   = g.contourShape || 'ellipse';
+  const sides   = Math.max(3, Math.min(12, Math.round(g.contourSides ?? 4)));
+  const prof    = g.contourScaleProfile || 'taper';
+  const rotStep = g.contourRotStep ?? 0.06;
+  const sx      = (g.contourStackX ?? 0) * W;
+  const sy      = (g.contourStackY ?? 0) * H;
+  const fore    = clamp(g.contourForeshorten ?? 1.0, 0.05, 1.0);
+  const filled  = !!g.contourFilled;
+  const colorMode = g.contourColorMode || 'depth';
+  const cx = W / 2 - sx / 2, cy = H / 2 - sy / 2;      // centre the whole stack
+  const twist = t * (g.clockSpeed || 0) * 0.4;          // animation only — canonical still is t=0 → 0
+
+  const profile = (u) => {
+    switch (prof) {
+      case 'linear': return 1 - 0.85 * u;
+      case 'bulb':   return 0.16 + 0.90 * Math.pow(u, 2.6);
+      case 'waist':  return 0.30 + 0.70 * Math.abs(Math.sin(u * Math.PI));
+      case 'flare':  return 0.20 + 0.85 * Math.exp(-u * 3.2);
+      case 'taper':
+      default:       return 1 - 0.92 * u;
+    }
+  };
+
+  ctx.lineCap = 'round';
+  for (let i = 0; i < N; i++) {
+    const u   = N > 1 ? i / (N - 1) : 0;
+    const s   = Math.max(1.5, base * profile(u));
+    const rot = i * rotStep + twist;
+    const x   = cx + sx * u;
+    const y   = cy + sy * u;
+    const ci  = colorMode === 'cycle' ? i : Math.floor(u * pal.length);
+    ctx.strokeStyle = pal[ci % pal.length];
+    ctx.fillStyle   = pal[ci % pal.length];
+    ctx.lineWidth   = 0.7 + (i % 3) * 0.35;
+    ctx.globalAlpha = filled ? 0.5 : 0.9;
+
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.beginPath();
+    if (shape === 'ellipse') {
+      ctx.ellipse(0, 0, s, s * fore, 0, 0, Math.PI * 2);
+    } else if (shape === 'square') {
+      ctx.rect(-s, -s * fore, 2 * s, 2 * s * fore);
+    } else if (shape === 'polygon') {
+      for (let k = 0; k <= sides; k++) {
+        const a = (k / sides) * Math.PI * 2;
+        const px = Math.cos(a) * s, py = Math.sin(a) * s * fore;
+        k ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      }
+    } else { // 'loop' — noise-wobbled closed curve (organic relief)
+      const M = 40;
+      for (let k = 0; k <= M; k++) {
+        const a = (k / M) * Math.PI * 2;
+        const wob = 1 + 0.14 * noise.noise2D(Math.cos(a) * 1.3 + i * 0.15 + g.noiseSeed * 0.001,
+                                             Math.sin(a) * 1.3 + i * 0.15);
+        const px = Math.cos(a) * s * wob, py = Math.sin(a) * s * fore * wob;
+        k ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      }
+    }
+    ctx.closePath();
+    filled ? ctx.fill() : ctx.stroke();
+    ctx.restore();
   }
   ctx.globalAlpha = 1;
 }
