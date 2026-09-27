@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-25",
+  "updated": "2026-09-27",
   "concepts": [
     {
       "id": "bell-labs",
@@ -743,6 +743,29 @@
         {
           "gen": 126,
           "why": "'Lake Placid ’80' (1980) — Winter-Olympics footage fragmented, accelerated and colorized into 'a frenzy of synthesized energy' (Lori Zippay / EAI). MR answered with the colorized dot-matrix video wall: the display itself as glowing colored light."
+        }
+      ]
+    },
+    {
+      "id": "the-program",
+      "title": "The Program",
+      "thesis": "Change the program, not the drawing — the archive's own first principle, found in the artists it reads. Here the form is not drawn by hand but COMPUTED: determined by the parameters of a program the artist wrote. A. Michael Noll fills a cube with N straight lines and projects them; Robert Mallary lets TRAN2 decide the exact shape of each 'Quad', 'determined by the specific parameters of the programming language'; Joan Truckenbrod insists 'I do all my own programming' and calls the result mind imaging; and the X-wing of 'Encoded' exists only because a physical model was digitized and re-computed. The hand chooses the rules; the machine draws the consequence. Authorship moves upstream — from the mark to the method.",
+      "members": [
+        {
+          "gen": 124,
+          "why": "A. Michael Noll's 'Computer Composition with Lines' — N straight segments thrown at random into a cube and projected; the drawing is whatever the program returns. MR ran the same INSTRUCTION (exactly 50 lines) rather than copying the result."
+        },
+        {
+          "gen": 127,
+          "why": "The Star Wars X-wing 'digitalized and encoded in the computer' (Whitney Jr. / Triple-I) — a physical form re-authored as data the program renders. MR answered with the phosphor wireframe: geometry as the program's output."
+        },
+        {
+          "gen": 131,
+          "why": "Joan Truckenbrod, SIGGRAPH 1982: 'I do all my own programming... computer imagery as like mind imaging.' The force field is written, not drawn — the linear, rational quality synthesized by code."
+        },
+        {
+          "gen": 132,
+          "why": "Robert Mallary's TRAN2 computed each 'Quad' — 'the shape... determined by the specific parameters of the programming language.' MR reduced it to the stacked laminations the program sliced: the solid as the program's output."
         }
       ]
     }
