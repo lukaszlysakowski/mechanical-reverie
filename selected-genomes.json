@@ -9107,5 +9107,94 @@
     "keyDetails": "Joan Truckenbrod, 'Phase Transitions' (1981), from a SIGGRAPH 1982 interview: 'I do all my own programming... computer imagery as like mind imaging.' Her practice translates invisible force fields into flowing linear compositions. Reduced to the pure flow field ('transit' streamlines) in her blue→pink palette.",
     "description": "A dense field of luminous streamlines — periwinkle, lavender and coral — flowing across deep blue, an invisible force field made visible. Joan Truckenbrod built algorithmic art from natural forces (wind, magnetism) and called computer imagery 'like mind imaging'; her weaving 'Phase Transitions' (1981) scattered directional marks over a blue-to-pink gradient. Mechanical Reverie answers not with her triangles but with her method: the flow field itself, the linear and rational synthesized into a single streaming thought.",
     "condensedReason": "Pure flow field ('transit' streamlines) in a blue→pink palette — Truckenbrod's algorithmic force-field method; 'computer imagery as mind imaging'."
+  },
+  {
+    "day": 127,
+    "date": "2026-09-27",
+    "title": "TRAN2",
+    "filename": "mechanical-reverie-day-127-tran2-2026-09-27.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.8.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "ecdf3ccf297e8b3d0e5ff64df36171a6b56746a1aba4e4b6df248d34e4b93750",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.8.0",
+      "renderSeed": 97806,
+      "noiseSeed": 8891
+    },
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 12,
+      "cellPadding": 0.10929062923242233,
+      "rotation": 6.062417921027676,
+      "globalRotation": -0.041111999984022665,
+      "paletteIndex": 10,
+      "bgDarkness": 0.06,
+      "gearDensity": 0.10478202182442731,
+      "gearComplexity": 16,
+      "chainFrequency": 0.008307520095865328,
+      "pixelDensity": 0.95,
+      "pixelSize": 6,
+      "flowScale": 0.02,
+      "flowStrength": 0.8092293616799684,
+      "particleCount": 1160,
+      "clockSpeed": 0,
+      "oscillation": 0.9207884959418038,
+      "wMechanical": 0.12,
+      "wPixel": 0.1,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.95,
+      "hatchAngle": 0,
+      "hatchSpacing": 5,
+      "pixelCharacter": "grain",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 8891,
+      "renderSeed": 97806,
+      "disorder": null,
+      "disorderMode": "radial",
+      "disorderAngle": 3.1288817543780887,
+      "paletteColors": [
+        "#8A5A2E",
+        "#B77B3E",
+        "#D9A55C",
+        "#6E4423",
+        "#EAD4A8",
+        "#F1E7D2",
+        "#A66A34",
+        "#5A3A1E"
+      ],
+      "stereo": false,
+      "vignetteStrength": 0
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Covers a two-day Noah thread (09-26 + 09-27) — the substantive artwork behind the Centre Pompidou 'Computer Worlds' (West Bund, Shanghai) exhibition news + Dalí/anteater chatter. Robert MALLARY, pioneer of COMPUTER SCULPTURE, and his 'Quad' series made with his program TRAN2 (c. 1968–70). Tate: 'The Quad series was the first body of work that Mallary produced using TRAN2… the shape of each individual sculpture is completely unique, and is determined by the specific parameters of the programming language the artist used to create it.' 09-27 continued it: 'One day I will find the ‘lost’ Quad IV…' (the Mallary archivist, styrofoam maquette → marble at Yale). The Quads (e.g. Quad III) are tall twisting columns built from STACKED HORIZONTAL LAMINATIONS — TRAN2 computed the cross-sections; the sculpture is their lamination. ONE core signature = those stacked contour STRATA: the engine's horizontal HATCH (hatchAngle 0, noise-modulated bands), run PURE (wHatch 0.95, others ≤ 0.12 — pure-single-character credit), tuned (seed 8891) so the laminations CLUSTER into distinct sections (like the Quad's bulge / waist / base). Warm laminated-WOOD palette (ambers/browns on pale cream, vignetteStrength 0 = flat). Did NOT draw the twisting column (anchor) — reduced it to the material logic: a solid built of stacked, computed cross-sections. First computer-SCULPTURE source in the archive (a new medium — mostly 2D until now) and first HATCH hero this run — distinct from all recent pieces. Fitness 6.57, cert ecdf3ccf… 12/12 hard-canonical, v3.8.0. Title = his program: the form's shape IS the program's output (MR's 'change the program' ethos).",
+      "condensedReason": "Robert Mallary's 'Quad' (computer sculpture via his program TRAN2) reduced to its stacked lamination STRATA — pure horizontal hatch clustering into sections, in warm wood; the form as the program's output."
+    },
+    "tweetSummary": "NB, 2026-09-26/27: Robert Mallary's 'Quad' series — the first computer sculptures made with his program TRAN2; the shape 'determined by the parameters of the programming language.' Plus the hunt for the lost Quad IV. (Alongside the Pompidou 'Computer Worlds' show.)",
+    "keyArtists": [
+      {
+        "name": "Robert Mallary",
+        "role": "pioneer of computer sculpture; wrote TRAN2 to compute the 'Quad' series of laminated twisting forms",
+        "relevance": "primary — first computer-sculpture source in the archive"
+      }
+    ],
+    "themes": [
+      "computer sculpture",
+      "stacked cross-sections / laminations",
+      "form determined by the program (TRAN2)",
+      "the computed solid",
+      "warm laminated wood"
+    ],
+    "keyDetails": "Robert Mallary, 'Quad' series (c. 1968–70) via his program TRAN2 — the first computer sculptures; twisting laminated columns whose shape is 'determined by the parameters of the programming language.' Reduced to the stacked lamination strata (pure horizontal hatch) in warm wood. Two-day thread + the 'lost Quad IV'.",
+    "description": "Stacked horizontal laminations in warm wood — amber and brown strata grouping into distinct sections on pale cream, the growth-rings of a computed solid. Robert Mallary was a pioneer of computer sculpture: his program TRAN2 computed the cross-sections of the twisting 'Quad' columns, and the sculpture is their lamination — 'the shape… determined by the parameters of the programming language.' Mechanical Reverie answers not with the twisting column but with its logic: a form built layer by layer from stacked, computed slices.",
+    "condensedReason": "Pure horizontal hatch clustered into sections, warm wood — Mallary's 'Quad' (TRAN2 computer sculpture) as its stacked lamination strata; the form as the program's output."
   }
 ]
