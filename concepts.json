@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-27",
+  "updated": "2026-09-29",
   "concepts": [
     {
       "id": "bell-labs",
@@ -766,6 +766,10 @@
         {
           "gen": 132,
           "why": "Robert Mallary's TRAN2 computed each 'Quad' — 'the shape... determined by the specific parameters of the programming language.' MR reduced it to the stacked laminations the program sliced: the solid as the program's output."
+        },
+        {
+          "gen": 133,
+          "why": "NASA's VIEW program (Alfred N. Lunde, 1968) 'show[ed] visually what you could see out of the optics' — the shape is the program's output. During Apollo 13 it computed where the sun would sit in Lovell's telescope; at the exact second it appeared centred, he confirmed: 'By God, there it is.' The program's render, verified against the real sky — The Program room's clearest case of authorship-by-code checked against the world."
         }
       ]
     }

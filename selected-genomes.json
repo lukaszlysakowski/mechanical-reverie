@@ -9205,5 +9205,109 @@
     "keyDetails": "Robert Mallary, 'Quad' series (c. 1968–70) via his program TRAN2 — the first computer sculptures; twisting laminated columns whose shape is 'determined by the parameters of the programming language.' Reduced to the stacked lamination strata (pure horizontal hatch) in warm wood. Two-day thread + the 'lost Quad IV'.",
     "description": "A slender twisting column with a bulbous head, built from 56 stacked elliptical cross-sections in warm laminated wood on cream — a computed 3D solid implied purely by its sections. Robert Mallary pioneered computer sculpture: his program TRAN2 computed the cross-sections of the 'Quad' forms, 'the shape… determined by the parameters of the programming language,' and the sculpture is their lamination. Mechanical Reverie answers with its own stacked-contour primitive — the first work on engine v3.9.0, built for exactly this: a form assembled layer by layer from computed slices.",
     "condensedReason": "Stacked-contour twisting solid (v3.9.0 'contour' debut) — Mallary's 'Quad' / TRAN2 computer sculpture as a form built from computed cross-sections."
+  },
+  {
+    "day": 128,
+    "date": "2026-09-29",
+    "title": "By God, There It Is",
+    "filename": "mechanical-reverie-day-128-by-god-there-it-is-2026-09-29.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.10.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "c099051d3257d5ca1fbc6a1793a0b6cbf860a0f581a859172d43ebe806da77a9",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 41320,
+      "noiseSeed": 1970
+    },
+    "genome": {
+      "gridCols": 18,
+      "gridRows": 6,
+      "cellPadding": 0.15633128197692328,
+      "rotation": 2.112137739842119,
+      "globalRotation": -0.11676928936288852,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.9095113845321297,
+      "gearComplexity": 7,
+      "chainFrequency": 0.6186459917204168,
+      "pixelDensity": 0.7738917274227348,
+      "pixelSize": 6,
+      "flowScale": 0.009254547828438837,
+      "flowStrength": 1.5693218120375025,
+      "particleCount": 833,
+      "clockSpeed": 0,
+      "oscillation": 2.410375356611108,
+      "wMechanical": 0.95,
+      "wPixel": 0.1,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 0.85687015430798,
+      "hatchSpacing": 12.616637561588194,
+      "pixelCharacter": "shard",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "contour",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 1970,
+      "renderSeed": 41320,
+      "disorder": null,
+      "disorderMode": "linear",
+      "disorderAngle": 3.780415716903302,
+      "paletteColors": [
+        "#1A0F06",
+        "#4A2E12",
+        "#8A5A22",
+        "#C88A34",
+        "#F0C060",
+        "#05070C",
+        "#FBE9B0",
+        "#FFFFFF"
+      ],
+      "stereo": false,
+      "contourShape": "ellipse",
+      "contourColorMode": "depth",
+      "contourStackX": 0,
+      "contourStackY": 0,
+      "contourForeshorten": 1,
+      "contourScaleProfile": "taper",
+      "contourRotStep": 0,
+      "contourBaseSize": 0.42,
+      "contourCount": 30,
+      "contourFilled": false,
+      "vignetteStrength": 0.3
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "NB, 09-29 (yesterday 09-28 was a rest day). 'How NASA's VIEW Program Saved Apollo 13' — a computer program by Norwegian-born engineer Alfred N. Lunde (1968) that 'show[ed] visually what you could see out of the optics at any point in the mission.' After the explosion, with the windows fogged by debris, the crew had to navigate by SIGHTING the sun through the spacecraft telescope. Lunde 'put the spacecraft's velocity, time and position into the computer and came up with a picture of where the sun and moon would be in Lovell's telescope for him to be in position.' Duke walked Lovell through it; at the exact moment the sun should appear centered, Lovell called back: 'By God, there it is.' ONE core signature = the COMPUTED SIGHTING — the optics reticle with the sun aligned in it: concentric rings (the new v3.10.0 'contour' character in CONCENTRIC mode — contourStackY 0, ellipse, rotStep 0, colour-by-depth) fading from a white-hot nucleus (the sun, centred) through gold to deep space, framed by a vignette eyepiece. Pure single-character (wMechanical 0.95). Did NOT draw the spacecraft/astronaut (anchor) — rendered the picture the PROGRAM produced. The regular, computed rings = the instrument's precision. Fitness 6.57, cert c099051d… 12/12 hard-canonical, engine v3.10.0 — the FIRST new artwork built with the contour primitive. Title = Lovell's words the instant the computed view matched the real sky: a life-or-death VERIFICATION that the program's picture was correct (the archive's own canonical-verification ethos, at 200,000 miles). Joined The Program.",
+      "condensedReason": "NASA's VIEW program (Lunde, Apollo 13) — the sun sighted in the telescope optics, rendered as concentric 'contour' rings glowing from a white-hot centre. The computed view, verified against the real sky."
+    },
+    "tweetSummary": "NB, 2026-09-29: 'How NASA's VIEW Program Saved Apollo 13' — Alfred N. Lunde's 1968 computer program rendered what the crew would see through the telescope; it positioned the sun for Lovell's manual burn. 'By God, there it is.'",
+    "keyArtists": [
+      {
+        "name": "Alfred N. Lunde",
+        "role": "Norwegian-born NASA engineer; wrote the VIEW program (1968) to render the optics sighting view; enabled the Apollo 13 course-correction",
+        "relevance": "primary — the program that computed the picture"
+      },
+      {
+        "name": "NASA / Apollo 13",
+        "role": "the 1970 mission saved in part by VIEW's computed sighting",
+        "relevance": "context"
+      }
+    ],
+    "themes": [
+      "computed navigation / the optics sighting",
+      "the program's output verified against reality",
+      "VIEW (Alfred N. Lunde, 1968)",
+      "Apollo 13",
+      "concentric optics reticle"
+    ],
+    "keyDetails": "NASA's VIEW program — Alfred N. Lunde (1968) — rendered 'what you could see out of the optics'; during Apollo 13 it positioned the sun in Lovell's telescope for a manual burn. Lovell: 'By God, there it is.' Rendered as concentric contour rings (the optics reticle) with a white-hot sun centred.",
+    "description": "Concentric rings of gold and amber fade outward from a white-hot nucleus on deep space — the sun sighted, centred, in the reticle of a spacecraft telescope. NASA's VIEW program, written by Alfred N. Lunde in 1968, rendered what the crew would see through the optics; during Apollo 13, with the windows fogged, it computed exactly where the sun should appear for Lovell's life-saving manual burn. At the precise second, he called back: 'By God, there it is.' Mechanical Reverie answers not with the spacecraft but with the computed picture itself — built with the engine's new nested-contour primitive — the render proven correct against the real sky.",
+    "condensedReason": "Concentric 'contour' rings glowing from a white-hot centre — the sun sighted in the optics, NASA's VIEW program (Lunde, Apollo 13); the computed view verified against reality."
   }
 ]
