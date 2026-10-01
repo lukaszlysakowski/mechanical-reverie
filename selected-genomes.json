@@ -9309,5 +9309,96 @@
     "keyDetails": "NASA's VIEW program — Alfred N. Lunde (1968) — rendered 'what you could see out of the optics'; during Apollo 13 it positioned the sun in Lovell's telescope for a manual burn. Lovell: 'By God, there it is.' Rendered as concentric contour rings (the optics reticle) with a white-hot sun centred.",
     "description": "Concentric rings of gold and amber fade outward from a white-hot nucleus on deep space — the sun sighted, centred, in the reticle of a spacecraft telescope. NASA's VIEW program, written by Alfred N. Lunde in 1968, rendered what the crew would see through the optics; during Apollo 13, with the windows fogged, it computed exactly where the sun should appear for Lovell's life-saving manual burn. At the precise second, he called back: 'By God, there it is.' Mechanical Reverie answers not with the spacecraft but with the computed picture itself — built with the engine's new nested-contour primitive — the render proven correct against the real sky.",
     "condensedReason": "Concentric 'contour' rings glowing from a white-hot centre — the sun sighted in the optics, NASA's VIEW program (Lunde, Apollo 13); the computed view verified against reality."
+  },
+  {
+    "day": 129,
+    "date": "2026-09-30",
+    "title": "An Intelligent Instrument",
+    "filename": "mechanical-reverie-day-129-an-intelligent-instrument-2026-09-30.png",
+    "fitness": 6.444,
+    "engineVersion": "v3.10.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "36313cedc825d81ca994279488683f1fdc68153ad8c36212bf18a6f25b330af7",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 14304,
+      "noiseSeed": 2043
+    },
+    "genome": {
+      "gridCols": 14,
+      "gridRows": 11,
+      "cellPadding": 0.12,
+      "rotation": 0,
+      "globalRotation": -0.08589057490810262,
+      "paletteIndex": 10,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.7663542304417854,
+      "gearComplexity": 17,
+      "chainFrequency": 0.5367643443320312,
+      "pixelDensity": 0.16057084915044378,
+      "pixelSize": 4,
+      "flowScale": 0.013,
+      "flowStrength": 2.4,
+      "particleCount": 110,
+      "clockSpeed": 0,
+      "oscillation": 1.4543709444526411,
+      "wMechanical": 0.12,
+      "wPixel": 0.1,
+      "wFlow": 0.62,
+      "wGeometric": 0.5,
+      "wOrganic": 0.12,
+      "wHatch": 0.1,
+      "hatchAngle": 0.7497027929385722,
+      "hatchSpacing": 16.049125622823432,
+      "pixelCharacter": "shard",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 2043,
+      "renderSeed": 14304,
+      "disorder": 0,
+      "disorderMode": "uniform",
+      "disorderAngle": 1.5730632954024562,
+      "paletteColors": [
+        "#E85AA0",
+        "#F0A848",
+        "#5AD0E8",
+        "#2A3A5A",
+        "#3E5478",
+        "#0A0E1A",
+        "#F2F2F8",
+        "#7A6AD0"
+      ],
+      "stereo": false,
+      "vignetteStrength": 0.15,
+      "baseColorIndex": 4,
+      "baseShape": 1
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "NB, 09-30: video of Laurie Spiegel demonstrating MUSIC MOUSE (1986) — 'one of several works of notice curated for Radical Computing at Melbourne's National Communication Museum' (curated by Mel Huang Buntine; pioneers Spiegel, Dan Sandin, Thiel). Music Mouse, subtitled 'An Intelligent Instrument', is Spiegel's algorithmic-music software: moving the mouse across a pitch LATTICE generates up to four VOICES in constrained, intelligent harmony — real-time generative counterpoint. Laurie Spiegel = a NEW artist in the archive, and computer MUSIC (The Sonic Dimension). ONE core signature = the voices threading the harmonic lattice: a DUET of a quiet geometric GRID (the pitch lattice / the instrument's field; ordered stroke-squares, disorder 0, steel-blue) + a handful of flowing 'transit' VOICE-lines in distinct colours (magenta/amber/cyan/white = the separate voices), on a deep-indigo music-screen ground. wFlow 0.62 dom + wGeometric 0.50 (duet credit). Few, clean lines (particleCount 110) = legible counterpoint, deliberately distinct from Truckenbrod's dense gridless flow field (Mind Imaging). Did NOT draw the Mac/Spiegel (anchor) — rendered the music the instrument makes. Fitness 6.444, cert 36313ced… 12/12 hard-canonical, v3.10.0. Title = Music Mouse's own subtitle (and it rhymes with today's other Noah thread — Molnár 1981: 'not a sacred monster, but an intelligent woman'). Joined The Sonic Dimension, Women Pioneers, The Program.",
+      "condensedReason": "Laurie Spiegel's Music Mouse ('An Intelligent Instrument') — generative voices (coloured 'transit' lines) threading a pitch lattice (quiet grid), on a music-screen ground. New pioneer; the sonic dimension."
+    },
+    "tweetSummary": "NB, 2026-09-30: Laurie Spiegel demonstrating Music Mouse (1986), her 'Intelligent Instrument' — move the mouse across a pitch lattice, it generates four voices in constrained harmony. From NCM Melbourne's 'Radical Computing'.",
+    "keyArtists": [
+      {
+        "name": "Laurie Spiegel",
+        "role": "pioneer of computer/algorithmic music; created Music Mouse — An Intelligent Instrument (1986), real-time generative composition software",
+        "relevance": "primary — new artist; computer music / The Sonic Dimension / Women Pioneers"
+      }
+    ],
+    "themes": [
+      "computer / algorithmic music",
+      "generative counterpoint (constrained harmony)",
+      "the pitch lattice / intelligent instrument",
+      "voices as flowing lines",
+      "women pioneers"
+    ],
+    "keyDetails": "Laurie Spiegel, Music Mouse — 'An Intelligent Instrument' (1986): mouse moves across a pitch lattice generating up to four voices in intelligent harmony. From NCM Melbourne's 'Radical Computing' (2026). Rendered as coloured voice-lines threading a quiet grid.",
+    "description": "A quiet lattice of steel-blue cells — the pitch field of an instrument — with a handful of flowing lines in magenta, amber, cyan and white threading through it: generative voices in counterpoint, on a deep music-screen ground. Laurie Spiegel's Music Mouse (1986), 'An Intelligent Instrument', turned a moving mouse into real-time harmony across a grid of pitches. Mechanical Reverie answers not with the computer on her desk but with the music it made — a few intelligent voices, threading the lattice.",
+    "condensedReason": "Coloured 'transit' voice-lines threading a quiet pitch grid — Laurie Spiegel's Music Mouse ('An Intelligent Instrument'); generative counterpoint, the sonic dimension."
   }
 ]

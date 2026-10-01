@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "concepts": [
     {
       "id": "bell-labs",
@@ -144,6 +144,10 @@
         {
           "gen": 131,
           "why": "Joan Truckenbrod, 'Phase Transitions' (1981) & her SIGGRAPH-1982 words ('I do all my own programming... computer imagery as like mind imaging... we're all pioneers'). A pioneer who built art from natural force fields; MR answered with the pure flow field — her method, invisible forces made linear."
+        },
+        {
+          "gen": 134,
+          "why": "Laurie Spiegel, pioneer of computer/algorithmic music; her Music Mouse (1986) made real-time generative composition approachable. A new pioneer in the archive, from NCM Melbourne's 'Radical Computing'."
         }
       ]
     },
@@ -475,6 +479,10 @@
         {
           "gen": 123,
           "why": "Global Groove is a music-and-dance collage ('music is a language; dance is a language too') by Paik the Fluxus composer, rendered here in the oscilloscope waveform — the archive's sonic character."
+        },
+        {
+          "gen": 134,
+          "why": "Laurie Spiegel's Music Mouse — 'An Intelligent Instrument' (1986): a moving mouse generates up to four voices in constrained harmony across a pitch lattice. MR rendered the voices as coloured lines threading a quiet grid — generative counterpoint made visible."
         }
       ]
     },
@@ -770,6 +778,10 @@
         {
           "gen": 133,
           "why": "NASA's VIEW program (Alfred N. Lunde, 1968) 'show[ed] visually what you could see out of the optics' — the shape is the program's output. During Apollo 13 it computed where the sun would sit in Lovell's telescope; at the exact second it appeared centred, he confirmed: 'By God, there it is.' The program's render, verified against the real sky — The Program room's clearest case of authorship-by-code checked against the world."
+        },
+        {
+          "gen": 134,
+          "why": "Music Mouse — 'An Intelligent Instrument' — is software that COMPOSES: the harmony is the program's output, authored by code constrained to be musical. Spiegel delegated the note-to-note choices to an instrument she wrote, the way this room's artists delegate the form."
         }
       ]
     }
