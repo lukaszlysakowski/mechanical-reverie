@@ -9400,5 +9400,109 @@
     "keyDetails": "Laurie Spiegel, Music Mouse — 'An Intelligent Instrument' (1986): mouse moves across a pitch lattice generating up to four voices in intelligent harmony. From NCM Melbourne's 'Radical Computing' (2026). Rendered as coloured voice-lines threading a quiet grid.",
     "description": "A quiet lattice of steel-blue cells — the pitch field of an instrument — with a handful of flowing lines in magenta, amber, cyan and white threading through it: generative voices in counterpoint, on a deep music-screen ground. Laurie Spiegel's Music Mouse (1986), 'An Intelligent Instrument', turned a moving mouse into real-time harmony across a grid of pitches. Mechanical Reverie answers not with the computer on her desk but with the music it made — a few intelligent voices, threading the lattice.",
     "condensedReason": "Coloured 'transit' voice-lines threading a quiet pitch grid — Laurie Spiegel's Music Mouse ('An Intelligent Instrument'); generative counterpoint, the sonic dimension."
+  },
+  {
+    "day": 130,
+    "date": "2026-10-01",
+    "title": "Already Begun",
+    "filename": "mechanical-reverie-day-130-already-begun-2026-10-01.png",
+    "fitness": 6.57,
+    "engineVersion": "v3.10.0",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "9774cddc3a730d89e1eead57eed84c71b097f20ef1b6928d7e890fff4edf3f10",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 41,
+      "noiseSeed": 1985
+    },
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 9,
+      "cellPadding": 0.09843609564907448,
+      "rotation": 4.815082166489213,
+      "globalRotation": -0.05181376576347986,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.8728122544565047,
+      "gearComplexity": 10,
+      "chainFrequency": 0.01258022487384347,
+      "pixelDensity": 0.5533449781789659,
+      "pixelSize": 2,
+      "flowScale": 0.01320468689356014,
+      "flowStrength": 1.179641676276562,
+      "particleCount": 355,
+      "clockSpeed": 0,
+      "oscillation": 2.7129443990687614,
+      "wMechanical": 0.95,
+      "wPixel": 0.1,
+      "wFlow": 0.11,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.1,
+      "hatchAngle": 2.076049005060576,
+      "hatchSpacing": 9.197479198973594,
+      "pixelCharacter": "grain",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "contour",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 1985,
+      "renderSeed": 41,
+      "disorder": null,
+      "disorderMode": "linear",
+      "disorderAngle": 2.8417420613764355,
+      "paletteColors": [
+        "#0F3D1A",
+        "#1E6B2E",
+        "#2E9A44",
+        "#49C86A",
+        "#8CF0A8",
+        "#04080A",
+        "#1A5226",
+        "#C8FFD8"
+      ],
+      "stereo": false,
+      "contourColorMode": "depth",
+      "contourFilled": false,
+      "vignetteStrength": 0.25,
+      "contourShape": "square",
+      "contourStackX": 0.62,
+      "contourStackY": -0.1,
+      "contourForeshorten": 0.5,
+      "contourScaleProfile": "taper",
+      "contourRotStep": 0.04,
+      "contourCount": 44,
+      "contourBaseSize": 0.24
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "NB, 10-01 (otherwise a chatter day). A continuation of the Alfred Lunde thread (the VIEW/Apollo 13 engineer, Day 128): a 1985 NRK clip (Et stort regnestykke) where Lunde shows 'a drawing of the large space station. And planning for it has already begun. David [Homan] here has done a lot of work simulating this station.' Mid-80s NASA space-station (Freedom-era) computer graphics / simulation. (No clean frame of the actual drawing was available — only his hands at the keyboard — so built from the concept.) Deliberately the COUNTERPART to 'By God, There It Is': that was Lunde's contour-CONCENTRIC optics sighting; this is contour-AXIAL — a long modular structure (station spine/truss) of square cross-sections stacked along a horizontal axis (contourStackX 0.62), foreshortened (0.5) and tapering (perspective recession) with a slight twist (rotStep 0.04), the far modules bright white receding to a point. Phosphor-green CAD-screen palette on black (the '85 vector-display look). Pure single-character (wMechanical 0.95). Did NOT model a literal station (anchor) — a computed modular structure extending into the distance. Fitness 6.57, cert 9774cddc… 12/12 hard-canonical, v3.10.0 — showcases the 'contour' primitive's AXIAL mode (third distinct contour use: concentric rings / vertical solid / horizontal truss). Title = Lunde's words; the structure reaches into the distance like something under way. Builds the Lunde perspective (2 pieces: 133, 135).",
+      "condensedReason": "Alfred Lunde's 1985 computer drawing of the large space station — a long modular truss receding in phosphor-green CAD wireframe (contour AXIAL mode); the Lunde counterpart to the VIEW optics piece."
+    },
+    "tweetSummary": "NB, 2026-10-01: Alfred Lunde in 1985 — 'a drawing of the large space station... planning for it has already begun. David [Homan] has done a lot of work simulating this station.' The VIEW engineer's later computer-graphics work.",
+    "keyArtists": [
+      {
+        "name": "Alfred N. Lunde",
+        "role": "NASA engineer; VIEW program (1968) and mid-80s space-station simulation graphics",
+        "relevance": "primary — 2nd Lunde piece; building a Lunde perspective across the archive"
+      },
+      {
+        "name": "David Homan",
+        "role": "simulated the space station (per Lunde's 1985 interview)",
+        "relevance": "named collaborator"
+      }
+    ],
+    "themes": [
+      "computer drawing / CAD of a space station",
+      "the modular structure in perspective",
+      "Alfred Lunde / NASA space graphics",
+      "phosphor vector-display (mid-80s)",
+      "a structure reaching into the distance"
+    ],
+    "keyDetails": "Alfred Lunde, 1985 (NRK 'Et stort regnestykke') — 'a drawing of the large space station... planning has already begun... David Homan simulating this station.' The VIEW engineer's space-station computer graphics. Rendered as a long modular truss receding in phosphor-green (contour axial mode).",
+    "description": "A long modular structure of square cross-sections twists and recedes into the black of space, phosphor-green with its far modules burning white as they shrink toward a point — a computer drawing of a large space station, reaching into the distance. Alfred Lunde, who wrote the VIEW program that helped save Apollo 13, showed such a drawing in 1985: 'planning for it has already begun.' Mechanical Reverie answers not with a literal station but with the computed structure itself, built with the engine's contour primitive in its axial mode — the counterpart to the optics sighting of 'By God, There It Is.'",
+    "condensedReason": "A long modular truss receding in phosphor-green CAD wireframe (contour axial) — Lunde's 1985 space-station drawing; counterpart to the VIEW optics piece."
   }
 ]
