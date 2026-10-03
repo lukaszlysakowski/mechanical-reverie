@@ -9504,5 +9504,85 @@
     "keyDetails": "Alfred Lunde, 1985 (NRK 'Et stort regnestykke') — 'a drawing of the large space station... planning has already begun... David Homan simulating this station.' The VIEW engineer's space-station computer graphics. Rendered as a long modular truss receding in phosphor-green (contour axial mode).",
     "description": "A long modular structure of square cross-sections twists and recedes into the black of space, phosphor-green with its far modules burning white as they shrink toward a point — a computer drawing of a large space station, reaching into the distance. Alfred Lunde, who wrote the VIEW program that helped save Apollo 13, showed such a drawing in 1985: 'planning for it has already begun.' Mechanical Reverie answers not with a literal station but with the computed structure itself, built with the engine's contour primitive in its axial mode — the counterpart to the optics sighting of 'By God, There It Is.'",
     "condensedReason": "A long modular truss receding in phosphor-green CAD wireframe (contour axial) — Lunde's 1985 space-station drawing; counterpart to the VIEW optics piece."
+  },
+  {
+    "day": 131,
+    "date": "2026-10-02",
+    "title": "One of Its Secrets",
+    "filename": "mechanical-reverie-day-131-one-of-its-secrets-2026-10-02.png",
+    "fitness": 6.6,
+    "genome": {
+      "gridCols": 6,
+      "gridRows": 12,
+      "cellPadding": 0.1781108080979293,
+      "rotation": 6.063710174442013,
+      "globalRotation": 0.015929265349876376,
+      "paletteIndex": 10,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.3768250265826323,
+      "gearComplexity": 21,
+      "chainFrequency": 0.9743365197783193,
+      "pixelDensity": 0.44,
+      "pixelSize": 20,
+      "flowScale": 0.0085,
+      "flowStrength": 1.0562585022819109,
+      "particleCount": 1044,
+      "clockSpeed": 0,
+      "oscillation": 1.2553963801428405,
+      "wMechanical": 0.08,
+      "wPixel": 0.92,
+      "wFlow": 0.04,
+      "wGeometric": 0.06,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 0.04252462186678008,
+      "hatchSpacing": 10.04101687116452,
+      "pixelCharacter": "data",
+      "flowCharacter": "oscilloscope",
+      "mechanicalCharacter": "mosaic",
+      "symmetry": 0.1,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 7322.827877349393,
+      "renderSeed": 772072199,
+      "disorder": 0.6264367898186393,
+      "disorderMode": "uniform",
+      "disorderAngle": 1.4316797580640461,
+      "palette": 10,
+      "paletteColors": [
+        "#ffffff",
+        "#e8e8e8",
+        "#9a9a9a",
+        "#5a5a5a",
+        "#2a2a2a",
+        "#000000",
+        "#121212",
+        "#f4f4f4"
+      ],
+      "vignetteStrength": 0
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "155587ecbe48c901238f55e3548c5ee76f9bd014dfe8e08939dd23528de7da24",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 772072199,
+      "noiseSeed": 7322.827877349393,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "John C. Mott-Smith's 1968-69 threshold-processed portraits ('Computers and Art', The Arithmetic Teacher 1969). Reduced to ONE signature: hard binary quantization — a form resolving from black into light. pixelCharacter 'data' (on/off cells, darkest/lightest pair, no gradients) on a near-black ground (bgDarkness 0.92, flat vignette), large clumps (flowScale 0.0085, pixelSize 20) giving figure-ground: light masses and black voids like a half-emerged face in one threshold panel. Grayscale custom palette (idx10). Pure-single-character (wPixel 0.92, all others <=0.08).",
+      "condensedReason": "Mott-Smith threshold portraits → hard binary quantization: a form emerging from black in sampled on/off cells."
+    },
+    "tweetSummary": "Noah quoted John C. Mott-Smith's 1969 'Computers and Art': the machine 'exhibited another dimension... as if I had learned one of its secrets.' Images: Mott-Smith at a PDP-1 round CRT (1968) and a 16-panel wall of threshold-stepped portraits emerging from black.",
+    "keyArtists": [
+      "John C. Mott-Smith"
+    ],
+    "themes": [
+      "threshold emergence",
+      "quantization as revelation",
+      "early CRT / PDP-1 imaging",
+      "accidental art"
+    ]
   }
 ]
