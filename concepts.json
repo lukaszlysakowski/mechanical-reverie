@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-30",
+  "updated": "2026-10-04",
   "concepts": [
     {
       "id": "bell-labs",
@@ -709,6 +709,10 @@
         {
           "gen": 119,
           "why": "The artist's own version of the room's question: Molnar dreams a machine that internalizes her creative LOGIC and executes it — not 'can a machine make art?' but 'can it grasp my process and be me?'"
+        },
+        {
+          "gen": 136,
+          "why": "John Mott-Smith, 1969: the computer 'exhibited another dimension... as if I had learned one of its secrets.' A researcher who found his thresholded images hung in an art show — the machine appearing creative before anyone decided it was."
         }
       ]
     },
@@ -782,6 +786,21 @@
         {
           "gen": 134,
           "why": "Music Mouse — 'An Intelligent Instrument' — is software that COMPOSES: the harmony is the program's output, authored by code constrained to be musical. Spiegel delegated the note-to-note choices to an instrument she wrote, the way this room's artists delegate the form."
+        }
+      ]
+    },
+    {
+      "id": "another-dimension",
+      "title": "Another Dimension",
+      "thesis": "The room of the surprised operator — the instant someone looks at what the machine made and recognizes something they did not put there by hand. Where the-program moves authorship upstream to the method, and thinking-machine worries whether the work is creative at all, this room holds the EVENT both circle: the output exceeding its intent. John Mott-Smith set a computer to a research task and someone hung the results in an art show — 'it was as if I had learned one of its secrets, or perhaps as if it had exhibited another dimension.' Aboard Apollo 13, Jim Lovell sighted the sun through fogged optics exactly where Alfred Lunde's VIEW program said it would be, and said only: 'By God, there it is' — the machine's computed world confirmed against the real one. Art arrives unbidden; truth is recognized at a glance. The maker sets the process running and is, in the end, its first audience — Mechanical Reverie's own criteria-partnership at the source: the human eye meeting the machine's output and finding more than it asked for.",
+      "members": [
+        {
+          "gen": 136,
+          "why": "Mott-Smith set a computer to a research task; the thresholded portraits became art no one asked for — 'it had exhibited another dimension.' The purest case of the machine exceeding its operator's intent."
+        },
+        {
+          "gen": 133,
+          "why": "Lovell sighted the sun exactly where Lunde's VIEW program predicted — 'By God, there it is.' The machine's computed world recognized as true against the real sky: revelation by verification."
         }
       ]
     }
