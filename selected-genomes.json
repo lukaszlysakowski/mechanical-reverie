@@ -9584,5 +9584,97 @@
       "early CRT / PDP-1 imaging",
       "accidental art"
     ]
+  },
+  {
+    "day": 132,
+    "date": "2026-10-04",
+    "title": "Tricks the Eye",
+    "filename": "mechanical-reverie-day-132-tricks-the-eye-2026-10-04.png",
+    "fitness": 6.675,
+    "genome": {
+      "gridCols": 11,
+      "gridRows": 8,
+      "cellPadding": 0.09358286669480469,
+      "rotation": 4.888453733565496,
+      "globalRotation": 0.0005291516689034659,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.8258463096013445,
+      "gearComplexity": 23,
+      "chainFrequency": 0.09834795343188696,
+      "pixelDensity": 0.8400158119312241,
+      "pixelSize": 2,
+      "flowScale": 0.012816346250276497,
+      "flowStrength": 3.3322263261198053,
+      "particleCount": 1044,
+      "clockSpeed": 0,
+      "oscillation": 1.0656697378156392,
+      "wMechanical": 0.95,
+      "wPixel": 0.05,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 2.4047186195237344,
+      "hatchSpacing": 7.882387327856216,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "contour",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 9198.597754472008,
+      "renderSeed": 2065517029,
+      "disorder": 0.41105775006828515,
+      "disorderMode": "uniform",
+      "disorderAngle": 3.28231052724558,
+      "palette": 10,
+      "paletteColors": [
+        "#ffffff",
+        "#ffffff",
+        "#f2f2f2",
+        "#ffffff",
+        "#f6f6f6",
+        "#060606",
+        "#0e0e0e",
+        "#ffffff"
+      ],
+      "contourShape": "loop",
+      "contourCount": 16,
+      "contourBaseSize": 0.46,
+      "contourScaleProfile": "linear",
+      "contourRotStep": 0.05,
+      "contourStackX": 0.07,
+      "contourStackY": 0,
+      "contourForeshorten": 1,
+      "contourColorMode": "cycle",
+      "contourFilled": false,
+      "vignetteStrength": 0
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "df653f6e368387cff8364925a8851f6164c9d8224651f8c7c695bf879bb4e918",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 2065517029,
+      "noiseSeed": 9198.597754472008,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "Stan VanDerBeek's U of Toronto remote-control computer film (c.1971-72, Leslie Mezei's SAMPLART system). ONE signature = his warped nested line-contour membrane (vdb frame 2) rendered via the 'contour' primitive's NEW 'loop' shape (noise-wobbled closed curves): 16 bold uniform-white loops, slight sideways drift (contourStackX 0.07), flat black ground. The flat nested line reads as a 3D funnel/membrane — 'computer animation tricks the eye to believe space and 3D' — and the loop-wobble stands in for the computer imprecision Zvilna & Rowan kept as 'serendipitous aberrations'. Pure single-character (wMechanical 0.95). Did NOT draw the morphing profiles (anchor). First use of contour 'loop' shape (organic wobble) vs prior geometric ellipse/square solids.",
+      "condensedReason": "VanDerBeek's morphing line film → a warped nested-contour membrane (new 'loop' shape): flat line tricked into 3D; the wobble = the kept aberration."
+    },
+    "tweetSummary": "Noah on the University of Toronto's early computer-graphics facility (Leslie Mezei's SAMPLART system, 1971-72), opened to artists. Stan VanDerBeek made a computer film 'by remote control' (mailing programming cards to Toronto) — 'computer animation tricks the eye to believe space and 3D.' Rowan & Zvilna kept the 'serendipity of visual accidents from errors' as aberrations.",
+    "keyArtists": [
+      "Stan VanDerBeek",
+      "Leslie Mezei",
+      "Julian Rowan & Jekabs Zvilna"
+    ],
+    "themes": [
+      "line animation / morphing contour",
+      "illusion of 3D from flat line",
+      "serendipity of the error",
+      "remote-control filmmaking"
+    ]
   }
 ]
