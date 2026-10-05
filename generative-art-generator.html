@@ -172,6 +172,7 @@
   <button onclick="exportArt(1)">Save 1×</button>
   <button onclick="exportArt(2)">Save 2×</button>
   <button onclick="exportArt(4)">Save 4×</button>
+  <button onclick="savePlotterSVG()" title="Export a plotter-optimised SVG — stroke-only vector paths, single pen, real mm units, pen-travel ordered (contour pieces)">✎ Save SVG</button>
   <button onclick="saveVideo(this)" id="videoBtn" title="Record a 10-second video of the animation — MP4 where the browser supports it (share-ready), else WebM">🎬 Save MP4</button>
   <button class="dev-only" onclick="resetLineage()">New Lineage</button>
   <button class="dev-only" onclick="loadTweetThemes()" id="syncBtn">Sync Tweets</button>
@@ -1598,6 +1599,130 @@ function drawContourStack(g, pal, t) {
     ctx.restore();
   }
   ctx.globalAlpha = 1;
+}
+
+// ── Plotter SVG export (additive; does NOT touch render() → canonical checksums unchanged) ──
+// Reconstructs the EXACT contour geometry as stroke-only vector paths for a pen plotter.
+// Pure function of the genome (same noise + math as drawContourStack), computed at the
+// canonical 780×580 so the SVG matches the certified render proportionally.
+function contourGeometry(g, Wc, Hc) {
+  const N       = Math.max(3, Math.min(64, Math.round(g.contourCount ?? 28)));
+  const base    = Math.min(Wc, Hc) * clamp(g.contourBaseSize ?? 0.30, 0.05, 0.6);
+  const shape   = g.contourShape || 'ellipse';
+  const sides   = Math.max(3, Math.min(12, Math.round(g.contourSides ?? 4)));
+  const prof    = g.contourScaleProfile || 'taper';
+  const rotStep = g.contourRotStep ?? 0.06;
+  const sx      = (g.contourStackX ?? 0) * Wc;
+  const sy      = (g.contourStackY ?? 0) * Hc;
+  const fore    = clamp(g.contourForeshorten ?? 1.0, 0.05, 1.0);
+  const cx = Wc / 2 - sx / 2, cy = Hc / 2 - sy / 2;
+  const profile = (u) => {
+    switch (prof) {
+      case 'linear': return 1 - 0.85 * u;
+      case 'bulb':   return 0.16 + 0.90 * Math.pow(u, 2.6);
+      case 'waist':  return 0.30 + 0.70 * Math.abs(Math.sin(u * Math.PI));
+      case 'flare':  return 0.20 + 0.85 * Math.exp(-u * 3.2);
+      case 'taper':
+      default:       return 1 - 0.92 * u;
+    }
+  };
+  const loops = [];
+  for (let i = 0; i < N; i++) {
+    const u   = N > 1 ? i / (N - 1) : 0;
+    const s   = Math.max(1.5, base * profile(u));
+    const rot = i * rotStep;                 // t=0 (canonical still)
+    const x   = cx + sx * u, y = cy + sy * u;
+    const cosr = Math.cos(rot), sinr = Math.sin(rot);
+    const pts = [];
+    const emit = (lx, ly) => pts.push([x + lx * cosr - ly * sinr, y + lx * sinr + ly * cosr]);
+    if (shape === 'ellipse') {
+      const M = 72; for (let k = 0; k < M; k++) { const a = k / M * Math.PI * 2; emit(Math.cos(a) * s, Math.sin(a) * s * fore); }
+    } else if (shape === 'square') {
+      emit(-s, -s * fore); emit(s, -s * fore); emit(s, s * fore); emit(-s, s * fore);
+    } else if (shape === 'polygon') {
+      for (let k = 0; k < sides; k++) { const a = k / sides * Math.PI * 2; emit(Math.cos(a) * s, Math.sin(a) * s * fore); }
+    } else { // loop — noise-wobbled closed curve (matches drawContourStack exactly)
+      const M = 40; for (let k = 0; k < M; k++) {
+        const a = k / M * Math.PI * 2;
+        const wob = 1 + 0.14 * noise.noise2D(Math.cos(a) * 1.3 + i * 0.15 + g.noiseSeed * 0.001,
+                                             Math.sin(a) * 1.3 + i * 0.15);
+        emit(Math.cos(a) * s * wob, Math.sin(a) * s * fore * wob);
+      }
+    }
+    loops.push(pts);
+  }
+  return loops;
+}
+
+// Greedy nearest-neighbour ordering of closed loops to minimise pen-up travel (deterministic).
+function orderForPlotter(loops) {
+  if (loops.length <= 2) return loops.slice();
+  const used = new Array(loops.length).fill(false);
+  const order = [loops[0]]; used[0] = true;
+  for (let n = 1; n < loops.length; n++) {
+    const c = order[order.length - 1][0];
+    let best = -1, bd = Infinity;
+    for (let j = 0; j < loops.length; j++) {
+      if (used[j]) continue;
+      const s = loops[j][0], d = (s[0] - c[0]) ** 2 + (s[1] - c[1]) ** 2;
+      if (d < bd) { bd = d; best = j; }
+    }
+    used[best] = true; order.push(loops[best]);
+  }
+  return order;
+}
+
+// Build a plotter-optimised SVG string for a contour genome: stroke-only, single pen,
+// real mm units, one Inkscape layer, pen-travel ordered. Paper is white; the lines are the ink
+// (the canonical PNG's white-on-black inverts naturally to dark-on-paper for plotting).
+function exportPlotterSVG(g, opts = {}) {
+  const Wc = 780, Hc = 580;
+  const marginMM      = opts.marginMM ?? 15;
+  const longEdgeMM    = opts.longEdgeMM ?? 250;      // drawing's long edge (fits A4/A3)
+  const stroke        = opts.stroke ?? '#111111';
+  const strokeWidthMM = opts.strokeWidthMM ?? 0.3;   // ~fineliner; cosmetic — the pen sets true width
+  const aspect = Wc / Hc;
+  const drawWmm = aspect >= 1 ? longEdgeMM : longEdgeMM * aspect;
+  const drawHmm = aspect >= 1 ? longEdgeMM / aspect : longEdgeMM;
+  const pageWmm = +(drawWmm + 2 * marginMM).toFixed(2);
+  const pageHmm = +(drawHmm + 2 * marginMM).toFixed(2);
+  const sc = drawWmm / Wc;
+  const toMM = (p) => [ +(marginMM + p[0] * sc).toFixed(3), +(marginMM + p[1] * sc).toFixed(3) ];
+
+  let loops = contourGeometry(g, Wc, Hc);
+  if (opts.optimizeTravel !== false) loops = orderForPlotter(loops);
+
+  const paths = loops.map(pts => {
+    const d = pts.map((p, idx) => { const [x, y] = toMM(p); return (idx ? 'L' : 'M') + x + ' ' + y; }).join(' ') + ' Z';
+    return `    <path d="${d}"/>`;
+  }).join('\n');
+
+  const title = (opts.title || 'mechanical-reverie').replace(/[<&]/g, '');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
+  <title>${title} — plotter</title>
+  <!-- Mechanical Reverie plotter export · character: contour · ${loops.length} closed paths · stroke-only · single pen · mm units -->
+  <g inkscape:groupmode="layer" inkscape:label="pen1"
+     fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
+${paths}
+  </g>
+</svg>
+`;
+}
+
+// UI handler: download a plotter SVG for the current genome (contour pieces).
+function savePlotterSVG() {
+  const g = genome;
+  if ((g.mechanicalCharacter || '') !== 'contour') {
+    alert('Plotter SVG export currently supports contour-character pieces (pure closed-line geometry). This genome is not a contour piece.');
+    return;
+  }
+  const svg = exportPlotterSVG(g, { title: `mechanical-reverie-gen${generation}` });
+  const link = document.createElement('a');
+  link.download = `mechanical-reverie-gen${generation}-plotter.svg`;
+  link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  link.click();
 }
 
 // LED: Regular grid of lit/unlit circles — early display / HUMAN ONE aesthetic
