@@ -1602,98 +1602,148 @@ function drawContourStack(g, pal, t) {
 }
 
 // ── Plotter SVG export (additive; does NOT touch render() → canonical checksums unchanged) ──
-// Reconstructs the EXACT contour geometry as stroke-only vector paths for a pen plotter.
-// Pure function of the genome (same noise + math as drawContourStack), computed at the
-// canonical 780×580 so the SVG matches the certified render proportionally.
-function contourGeometry(g, Wc, Hc) {
-  const N       = Math.max(3, Math.min(64, Math.round(g.contourCount ?? 28)));
-  const base    = Math.min(Wc, Hc) * clamp(g.contourBaseSize ?? 0.30, 0.05, 0.6);
-  const shape   = g.contourShape || 'ellipse';
-  const sides   = Math.max(3, Math.min(12, Math.round(g.contourSides ?? 4)));
-  const prof    = g.contourScaleProfile || 'taper';
-  const rotStep = g.contourRotStep ?? 0.06;
-  const sx      = (g.contourStackX ?? 0) * Wc;
-  const sy      = (g.contourStackY ?? 0) * Hc;
-  const fore    = clamp(g.contourForeshorten ?? 1.0, 0.05, 1.0);
-  const cx = Wc / 2 - sx / 2, cy = Hc / 2 - sy / 2;
-  const profile = (u) => {
-    switch (prof) {
-      case 'linear': return 1 - 0.85 * u;
-      case 'bulb':   return 0.16 + 0.90 * Math.pow(u, 2.6);
-      case 'waist':  return 0.30 + 0.70 * Math.abs(Math.sin(u * Math.PI));
-      case 'flare':  return 0.20 + 0.85 * Math.exp(-u * 3.2);
-      case 'taper':
-      default:       return 1 - 0.92 * u;
+// General canvas-recorder: runs the REAL render(g, 0) against a capturing 2D context (at the
+// canonical 780×580) and serialises every STROKED path to a plotter SVG. Because it IS the real
+// render, geometry is exact for every line character — contour, vectors, plotter, hatch,
+// convergence, oscilloscope — including renderRng-based vectors and the global rotation. Fills
+// (background scatter, vignette, filled shapes, LED/mosaic/pixel dots) are ignored: a plotter draws
+// lines, not fills. Low-weight layers are skipped by render() itself (the w > 0.15 gate), so a pure
+// single-character piece yields only that character's line work.
+
+function _m2mul(m, n) { // 2x3 affine, canvas order [a,b,c,d,e,f]: x'=a*x+c*y+e, y'=b*x+d*y+f
+  return [
+    m[0]*n[0] + m[2]*n[1],        m[1]*n[0] + m[3]*n[1],
+    m[0]*n[2] + m[2]*n[3],        m[1]*n[2] + m[3]*n[3],
+    m[0]*n[4] + m[2]*n[5] + m[4],  m[1]*n[4] + m[3]*n[5] + m[5]
+  ];
+}
+function _m2apply(m, x, y) { return [ m[0]*x + m[2]*y + m[4], m[1]*x + m[3]*y + m[5] ]; }
+
+// A minimal recording 2D context: captures stroked subpaths (device coords) with the CTM applied.
+function makeCaptureCtx(Wc, Hc) {
+  let ctm = [1,0,0,1,0,0];
+  const stack = [];
+  let cur = [];       // current subpath (device coords)
+  let subs = [];      // completed subpaths of the current path
+  const strokes = []; // [{pts:[[x,y]...], closed:bool}] in draw order
+
+  const pushCur = () => { if (cur.length > 1) subs.push({ pts: cur, closed: false }); cur = []; };
+  const sampleArc = (cx, cy, rx, ry, rot, a0, a1, ccw, minStep) => {
+    let s = a0, e = a1;
+    if (!ccw) { while (e < s) e += Math.PI*2; } else { while (s < e) s += Math.PI*2; }
+    const sweep = Math.abs(e - s);
+    const steps = Math.max(8, Math.ceil(sweep / (minStep || 0.1)));
+    const cr = Math.cos(rot), sr = Math.sin(rot);
+    for (let k = 0; k <= steps; k++) {
+      const a = s + (e - s) * (k / steps);
+      const ex = Math.cos(a) * rx, ey = Math.sin(a) * ry;
+      cur.push(_m2apply(ctm, cx + ex*cr - ey*sr, cy + ex*sr + ey*cr));
     }
   };
-  const loops = [];
-  for (let i = 0; i < N; i++) {
-    const u   = N > 1 ? i / (N - 1) : 0;
-    const s   = Math.max(1.5, base * profile(u));
-    const rot = i * rotStep;                 // t=0 (canonical still)
-    const x   = cx + sx * u, y = cy + sy * u;
-    const cosr = Math.cos(rot), sinr = Math.sin(rot);
-    const pts = [];
-    const emit = (lx, ly) => pts.push([x + lx * cosr - ly * sinr, y + lx * sinr + ly * cosr]);
-    if (shape === 'ellipse') {
-      const M = 72; for (let k = 0; k < M; k++) { const a = k / M * Math.PI * 2; emit(Math.cos(a) * s, Math.sin(a) * s * fore); }
-    } else if (shape === 'square') {
-      emit(-s, -s * fore); emit(s, -s * fore); emit(s, s * fore); emit(-s, s * fore);
-    } else if (shape === 'polygon') {
-      for (let k = 0; k < sides; k++) { const a = k / sides * Math.PI * 2; emit(Math.cos(a) * s, Math.sin(a) * s * fore); }
-    } else { // loop — noise-wobbled closed curve (matches drawContourStack exactly)
-      const M = 40; for (let k = 0; k < M; k++) {
-        const a = k / M * Math.PI * 2;
-        const wob = 1 + 0.14 * noise.noise2D(Math.cos(a) * 1.3 + i * 0.15 + g.noiseSeed * 0.001,
-                                             Math.sin(a) * 1.3 + i * 0.15);
-        emit(Math.cos(a) * s * wob, Math.sin(a) * s * fore * wob);
-      }
-    }
-    loops.push(pts);
-  }
-  return loops;
+
+  const rec = {
+    canvas: { width: Wc, height: Hc }, _strokes: strokes,
+    strokeStyle:'#000', fillStyle:'#000', lineWidth:1, globalAlpha:1,
+    lineCap:'butt', lineJoin:'miter', font:'', textAlign:'', textBaseline:'',
+    shadowBlur:0, shadowColor:'', miterLimit:10, globalCompositeOperation:'source-over',
+    save() { stack.push(ctm.slice()); },
+    restore() { if (stack.length) ctm = stack.pop(); },
+    translate(x,y) { ctm = _m2mul(ctm, [1,0,0,1,x,y]); },
+    rotate(a) { const c=Math.cos(a), s=Math.sin(a); ctm = _m2mul(ctm, [c,s,-s,c,0,0]); },
+    scale(x,y) { ctm = _m2mul(ctm, [x,0,0,y,0,0]); },
+    transform(a,b,c,d,e,f) { ctm = _m2mul(ctm, [a,b,c,d,e,f]); },
+    setTransform(a,b,c,d,e,f) { ctm = [a,b,c,d,e,f]; },
+    resetTransform() { ctm = [1,0,0,1,0,0]; },
+    beginPath() { subs = []; cur = []; },
+    closePath() { if (cur.length) { subs.push({ pts: cur, closed: true }); cur = []; } },
+    moveTo(x,y) { pushCur(); cur = [ _m2apply(ctm, x, y) ]; },
+    lineTo(x,y) { cur.push(_m2apply(ctm, x, y)); },
+    arc(cx,cy,r,a0,a1,ccw=false) { sampleArc(cx,cy,r,r,0,a0,a1,ccw,0.12); },
+    ellipse(cx,cy,rx,ry,rot,a0,a1,ccw=false) { sampleArc(cx,cy,rx,ry,rot,a0,a1,ccw,0.1); },
+    rect(x,y,w,h) { pushCur();
+      subs.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true }); },
+    bezierCurveTo(c1x,c1y,c2x,c2y,x,y) {
+      if (!cur.length) { cur = [ _m2apply(ctm,x,y) ]; return; }
+      const p0=cur[cur.length-1], p1=_m2apply(ctm,c1x,c1y), p2=_m2apply(ctm,c2x,c2y), p3=_m2apply(ctm,x,y);
+      for (let k=1;k<=16;k++){ const u=k/16, m=1-u;
+        cur.push([ m*m*m*p0[0]+3*m*m*u*p1[0]+3*m*u*u*p2[0]+u*u*u*p3[0],
+                   m*m*m*p0[1]+3*m*m*u*p1[1]+3*m*u*u*p2[1]+u*u*u*p3[1] ]); } },
+    quadraticCurveTo(cx,cy,x,y) {
+      if (!cur.length) { cur = [ _m2apply(ctm,x,y) ]; return; }
+      const p0=cur[cur.length-1], p1=_m2apply(ctm,cx,cy), p2=_m2apply(ctm,x,y);
+      for (let k=1;k<=12;k++){ const u=k/12, m=1-u;
+        cur.push([ m*m*p0[0]+2*m*u*p1[0]+u*u*p2[0], m*m*p0[1]+2*m*u*p1[1]+u*u*p2[1] ]); } },
+    arcTo(x1,y1,x2,y2) { this.lineTo(x1,y1); this.lineTo(x2,y2); },
+    stroke() {
+      const all = subs.slice(); if (cur.length > 1) all.push({ pts: cur.slice(), closed:false });
+      for (const sp of all) if (sp.pts.length > 1) strokes.push({ pts: sp.pts.map(p=>p.slice()), closed: sp.closed });
+    },
+    fill() {}, fillRect() {}, clearRect() {},
+    strokeRect(x,y,w,h) { strokes.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true }); },
+    clip() {}, setLineDash() {}, getLineDash() { return []; },
+    createLinearGradient() { return { addColorStop() {} }; },
+    createRadialGradient() { return { addColorStop() {} }; },
+    createPattern() { return null; },
+    drawImage() {}, putImageData() {}, getImageData() { return { data: new Uint8ClampedArray(4), width:1, height:1 }; },
+    fillText() {}, strokeText() {}, measureText() { return { width: 0 }; },
+  };
+  return new Proxy(rec, {
+    get(t, p) { if (p in t) return t[p]; return typeof p === 'symbol' ? undefined : (() => {}); },
+    set(t, p, v) { t[p] = v; return true; }
+  });
 }
 
-// Greedy nearest-neighbour ordering of closed loops to minimise pen-up travel (deterministic).
-function orderForPlotter(loops) {
-  if (loops.length <= 2) return loops.slice();
-  const used = new Array(loops.length).fill(false);
-  const order = [loops[0]]; used[0] = true;
-  for (let n = 1; n < loops.length; n++) {
-    const c = order[order.length - 1][0];
+// Greedy nearest-neighbour ordering of subpaths by start point → minimise pen-up travel (deterministic).
+function orderForPlotter(strokes) {
+  if (strokes.length <= 2) return strokes.slice();
+  const used = new Array(strokes.length).fill(false);
+  const order = [strokes[0]]; used[0] = true;
+  for (let n = 1; n < strokes.length; n++) {
+    const c = order[order.length-1].pts[0];
     let best = -1, bd = Infinity;
-    for (let j = 0; j < loops.length; j++) {
+    for (let j = 0; j < strokes.length; j++) {
       if (used[j]) continue;
-      const s = loops[j][0], d = (s[0] - c[0]) ** 2 + (s[1] - c[1]) ** 2;
+      const s = strokes[j].pts[0], d = (s[0]-c[0])**2 + (s[1]-c[1])**2;
       if (d < bd) { bd = d; best = j; }
     }
-    used[best] = true; order.push(loops[best]);
+    used[best] = true; order.push(strokes[best]);
   }
   return order;
 }
 
-// Build a plotter-optimised SVG string for a contour genome: stroke-only, single pen,
-// real mm units, one Inkscape layer, pen-travel ordered. Paper is white; the lines are the ink
-// (the canonical PNG's white-on-black inverts naturally to dark-on-paper for plotting).
+// Run the real render against a recording context and return its stroked subpaths (canonical 780×580).
+function capturePlotterStrokes(g) {
+  const Wc = 780, Hc = 580;
+  const prevCtx = ctx, prevW = W, prevH = H;
+  const cap = makeCaptureCtx(Wc, Hc);
+  try { ctx = cap; W = Wc; H = Hc; render(g, 0); }
+  finally { ctx = prevCtx; W = prevW; H = prevH; }
+  return cap._strokes;
+}
+
+// Build a plotter-optimised SVG for the current genome: stroke-only, single pen, real mm units,
+// one Inkscape layer, pen-travel ordered. Works for every line character (contour, vectors, plotter,
+// hatch, convergence, oscilloscope); fills/dots are excluded.
 function exportPlotterSVG(g, opts = {}) {
   const Wc = 780, Hc = 580;
   const marginMM      = opts.marginMM ?? 15;
-  const longEdgeMM    = opts.longEdgeMM ?? 250;      // drawing's long edge (fits A4/A3)
+  const longEdgeMM    = opts.longEdgeMM ?? 250;
   const stroke        = opts.stroke ?? '#111111';
-  const strokeWidthMM = opts.strokeWidthMM ?? 0.3;   // ~fineliner; cosmetic — the pen sets true width
+  const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
   const aspect = Wc / Hc;
   const drawWmm = aspect >= 1 ? longEdgeMM : longEdgeMM * aspect;
   const drawHmm = aspect >= 1 ? longEdgeMM / aspect : longEdgeMM;
-  const pageWmm = +(drawWmm + 2 * marginMM).toFixed(2);
-  const pageHmm = +(drawHmm + 2 * marginMM).toFixed(2);
+  const pageWmm = +(drawWmm + 2*marginMM).toFixed(2);
+  const pageHmm = +(drawHmm + 2*marginMM).toFixed(2);
   const sc = drawWmm / Wc;
-  const toMM = (p) => [ +(marginMM + p[0] * sc).toFixed(3), +(marginMM + p[1] * sc).toFixed(3) ];
+  const toMM = (p) => [ +(marginMM + p[0]*sc).toFixed(3), +(marginMM + p[1]*sc).toFixed(3) ];
 
-  let loops = contourGeometry(g, Wc, Hc);
-  if (opts.optimizeTravel !== false) loops = orderForPlotter(loops);
+  let strokes = capturePlotterStrokes(g).filter(s => s.pts.length > 1);
+  if (opts.optimizeTravel !== false) strokes = orderForPlotter(strokes);
 
-  const paths = loops.map(pts => {
-    const d = pts.map((p, idx) => { const [x, y] = toMM(p); return (idx ? 'L' : 'M') + x + ' ' + y; }).join(' ') + ' Z';
+  const paths = strokes.map(s => {
+    let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
+    if (s.closed) d += ' Z';
     return `    <path d="${d}"/>`;
   }).join('\n');
 
@@ -1702,7 +1752,7 @@ function exportPlotterSVG(g, opts = {}) {
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
   <title>${title} — plotter</title>
-  <!-- Mechanical Reverie plotter export · character: contour · ${loops.length} closed paths · stroke-only · single pen · mm units -->
+  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · mm units -->
   <g inkscape:groupmode="layer" inkscape:label="pen1"
      fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
 ${paths}
@@ -1711,14 +1761,13 @@ ${paths}
 `;
 }
 
-// UI handler: download a plotter SVG for the current genome (contour pieces).
+// UI handler: download a plotter SVG for the current genome (any line-character piece).
 function savePlotterSVG() {
-  const g = genome;
-  if ((g.mechanicalCharacter || '') !== 'contour') {
-    alert('Plotter SVG export currently supports contour-character pieces (pure closed-line geometry). This genome is not a contour piece.');
+  const svg = exportPlotterSVG(genome, { title: `mechanical-reverie-gen${generation}` });
+  if ((svg.match(/<path /g) || []).length === 0) {
+    alert('No plottable line geometry here — the plotter export captures STROKED lines (contour, vectors, plotter, hatch, convergence, oscilloscope), not filled dots/blocks (led, mosaic, pixel). Try a line-dominant genome.');
     return;
   }
-  const svg = exportPlotterSVG(g, { title: `mechanical-reverie-gen${generation}` });
   const link = document.createElement('a');
   link.download = `mechanical-reverie-gen${generation}-plotter.svg`;
   link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
