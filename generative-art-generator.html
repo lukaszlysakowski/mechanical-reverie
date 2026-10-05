@@ -1725,37 +1725,55 @@ function capturePlotterStrokes(g) {
 // one Inkscape layer, pen-travel ordered. Works for every line character (contour, vectors, plotter,
 // hatch, convergence, oscilloscope); fills/dots are excluded.
 function exportPlotterSVG(g, opts = {}) {
-  const Wc = 780, Hc = 580;
+  const Wc = 780, Hc = 580;                         // art lives in canonical 780×580 px
   const marginMM      = opts.marginMM ?? 15;
-  const longEdgeMM    = opts.longEdgeMM ?? 250;
+  const longEdgeMM    = opts.longEdgeMM ?? 250;     // the drawing's width
   const stroke        = opts.stroke ?? '#111111';
   const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
-  const aspect = Wc / Hc;
-  const drawWmm = aspect >= 1 ? longEdgeMM : longEdgeMM * aspect;
-  const drawHmm = aspect >= 1 ? longEdgeMM / aspect : longEdgeMM;
-  const pageWmm = +(drawWmm + 2*marginMM).toFixed(2);
-  const pageHmm = +(drawHmm + 2*marginMM).toFixed(2);
-  const sc = drawWmm / Wc;
+  const sc = longEdgeMM / Wc;                        // mm per canonical px
   const toMM = (p) => [ +(marginMM + p[0]*sc).toFixed(3), +(marginMM + p[1]*sc).toFixed(3) ];
+
+  // ── caption: title, then "date · author", small monospace, ~captionGapPx below the art ──
+  const captionGapPx = opts.captionGapPx ?? 200;
+  const titleText  = opts.title  || `mechanical-reverie-gen${generation}`;
+  const dateText   = opts.date   || new Date().toISOString().slice(0, 10);
+  const authorText = opts.author || 'lukaszgraphz & Claude';
+  const titleFontPx = 17, metaFontPx = 13;
+  const titleYpx   = Hc + captionGapPx;              // baseline ~200px below the art
+  const metaYpx    = titleYpx + 28;
+  const contentHpx = metaYpx + 18;                   // bottom padding
+
+  const pageWmm = +(longEdgeMM + 2*marginMM).toFixed(2);
+  const pageHmm = +(contentHpx*sc + 2*marginMM).toFixed(2);
 
   let strokes = capturePlotterStrokes(g).filter(s => s.pts.length > 1);
   if (opts.optimizeTravel !== false) strokes = orderForPlotter(strokes);
-
   const paths = strokes.map(s => {
     let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
     if (s.closed) d += ' Z';
     return `    <path d="${d}"/>`;
   }).join('\n');
 
-  const title = (opts.title || 'mechanical-reverie').replace(/[<&]/g, '');
+  const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const cxMM      = +(marginMM + (Wc/2)*sc).toFixed(3);
+  const titleYMM  = +(marginMM + titleYpx*sc).toFixed(3);
+  const metaYMM   = +(marginMM + metaYpx*sc).toFixed(3);
+  const titleSzMM = +(titleFontPx*sc).toFixed(2);
+  const metaSzMM  = +(metaFontPx*sc).toFixed(2);
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
-  <title>${title} — plotter</title>
+  <title>${esc(titleText)} — plotter</title>
   <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · mm units -->
   <g inkscape:groupmode="layer" inkscape:label="pen1"
      fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
 ${paths}
+  </g>
+  <g inkscape:groupmode="layer" inkscape:label="caption"
+     font-family="'Courier New', Courier, monospace" fill="${stroke}" text-anchor="middle">
+    <text x="${cxMM}" y="${titleYMM}" font-size="${titleSzMM}">${esc(titleText)}</text>
+    <text x="${cxMM}" y="${metaYMM}" font-size="${metaSzMM}">${esc(dateText)} · ${esc(authorText)}</text>
   </g>
 </svg>
 `;
@@ -1763,7 +1781,10 @@ ${paths}
 
 // UI handler: download a plotter SVG for the current genome (any line-character piece).
 function savePlotterSVG() {
-  const svg = exportPlotterSVG(genome, { title: `mechanical-reverie-gen${generation}` });
+  const def = `mechanical-reverie-gen${generation}`;
+  let title = def;
+  try { const t = prompt('Caption title for the plot:', def); if (t != null && t.trim()) title = t.trim(); } catch (e) {}
+  const svg = exportPlotterSVG(genome, { title });
   if ((svg.match(/<path /g) || []).length === 0) {
     alert('No plottable line geometry here — the plotter export captures STROKED lines (contour, vectors, plotter, hatch, convergence, oscilloscope), not filled dots/blocks (led, mosaic, pixel). Try a line-dominant genome.');
     return;
