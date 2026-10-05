@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="280mm" height="294.74mm" viewBox="0 0 280 294.74">
+     width="280mm" height="302.44mm" viewBox="0 0 280 302.44">
   <title>Tricks the Eye — plotter</title>
   <!-- Mechanical Reverie plotter export · 16 paths · stroke-only · single pen · mm units -->
   <g inkscape:groupmode="layer" inkscape:label="pen1"
@@ -26,5 +26,6 @@
      font-family="'Courier New', Courier, monospace" fill="#111111" text-anchor="middle">
     <text x="140" y="265" font-size="5.45">Tricks the Eye</text>
     <text x="140" y="273.974" font-size="4.17">2026-10-04 · lukaszgraphz &amp; Claude</text>
+    <text x="140" y="281.667" font-size="4.17">Mechanical Reverie</text>
   </g>
 </svg>

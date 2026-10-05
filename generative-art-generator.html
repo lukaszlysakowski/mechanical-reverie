@@ -1741,7 +1741,8 @@ function exportPlotterSVG(g, opts = {}) {
   const titleFontPx = 17, metaFontPx = 13;
   const titleYpx   = Hc + captionGapPx;              // baseline ~200px below the art
   const metaYpx    = titleYpx + 28;
-  const contentHpx = metaYpx + 18;                   // bottom padding
+  const coreYpx    = metaYpx + 24;                   // 3rd line: the project / engine name
+  const contentHpx = coreYpx + 18;                   // bottom padding
 
   const pageWmm = +(longEdgeMM + 2*marginMM).toFixed(2);
   const pageHmm = +(contentHpx*sc + 2*marginMM).toFixed(2);
@@ -1758,6 +1759,7 @@ function exportPlotterSVG(g, opts = {}) {
   const cxMM      = +(marginMM + (Wc/2)*sc).toFixed(3);
   const titleYMM  = +(marginMM + titleYpx*sc).toFixed(3);
   const metaYMM   = +(marginMM + metaYpx*sc).toFixed(3);
+  const coreYMM   = +(marginMM + coreYpx*sc).toFixed(3);
   const titleSzMM = +(titleFontPx*sc).toFixed(2);
   const metaSzMM  = +(metaFontPx*sc).toFixed(2);
 
@@ -1774,6 +1776,7 @@ ${paths}
      font-family="'Courier New', Courier, monospace" fill="${stroke}" text-anchor="middle">
     <text x="${cxMM}" y="${titleYMM}" font-size="${titleSzMM}">${esc(titleText)}</text>
     <text x="${cxMM}" y="${metaYMM}" font-size="${metaSzMM}">${esc(dateText)} · ${esc(authorText)}</text>
+    <text x="${cxMM}" y="${coreYMM}" font-size="${metaSzMM}">Mechanical Reverie</text>
   </g>
 </svg>
 `;
