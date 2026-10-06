@@ -9676,5 +9676,88 @@
       "serendipity of the error",
       "remote-control filmmaking"
     ]
+  },
+  {
+    "day": 133,
+    "date": "2026-10-05",
+    "title": "Various Transformations",
+    "filename": "mechanical-reverie-day-133-various-transformations-2026-10-05.png",
+    "fitness": 6.53,
+    "genome": {
+      "gridCols": 18,
+      "gridRows": 13,
+      "cellPadding": 0.08016448650547765,
+      "rotation": 3.1,
+      "globalRotation": -0.015303240269680576,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.8084108440465504,
+      "gearComplexity": 20,
+      "chainFrequency": 0.3879256221905035,
+      "pixelDensity": 0.922519201025365,
+      "pixelSize": 3,
+      "flowScale": 0.006406741982666488,
+      "flowStrength": 3.1490687464525267,
+      "particleCount": 589,
+      "clockSpeed": 0,
+      "oscillation": 1.5913121391943614,
+      "wMechanical": 0.08,
+      "wPixel": 0.08,
+      "wFlow": 0.08,
+      "wGeometric": 0.95,
+      "wOrganic": 0.08,
+      "wHatch": 0.08,
+      "hatchAngle": 1.7882355812270339,
+      "hatchSpacing": 21.71119770591423,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 1215.937655793946,
+      "renderSeed": 1530183000,
+      "disorder": 0.88,
+      "disorderMode": "linear",
+      "disorderAngle": 0,
+      "palette": 10,
+      "paletteColors": [
+        "#ffffff",
+        "#f0f0f0",
+        "#e4e4e4",
+        "#d4d4d4",
+        "#c6c6c6",
+        "#060606",
+        "#111111",
+        "#fafafa"
+      ],
+      "vignetteStrength": 0,
+      "lockShape": true,
+      "baseShape": 1
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "3f0731c0adebbfa6ba0666e02a3c91df56579ff77a143aa1ffe9d4ec92acca26",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 1530183000,
+      "noiseSeed": 1215.937655793946,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "Leslie Mezei's 'Various Transformations of a Girl' (1967, IBM 7094 / CALCOMP 565 / his SPARTA language) — a 3x3 grid of a line figure progressively displaced & fragmented. ONE signature = computed TRANSFORMATION as a displacement sweep: geometric character with lockShape+baseShape=square (true Nees Schotter — one form, only rotation/displacement/fill vary) under disorderMode 'linear' (horizontal ramp, disorderAngle 0, disorder 0.88): ruled aligned squares on the LEFT progressively rotating (rot proportional d^2), displacing (d^1.5) and filling into scattered solids on the RIGHT. White-line-on-black CALCOMP palette (idx10), vignetteStrength 0. Pure single-character (wGeometric 0.95). Did NOT draw the girl (anchor). First use of disorderMode 'linear' in production + first lockShape square-Schotter.",
+      "condensedReason": "Mezei's 'Various Transformations' → a locked-square Schotter under a linear disorder ramp: one form, order→fragmentation, CALCOMP white-on-black."
+    },
+    "tweetSummary": "Noah's 5-tweet Leslie Mezei thread (continuing the U of Toronto day): his 1968 Met Museum paper 'Applications of Computer Graphics in Museums', the CALCOMP 565 plotter + SPARTA language, 'Various Transformations of a Girl' (1967), and the question 'In what way is a Picasso drawing different from a Durer drawing?' Plus Sue C. Wynn's Apollo 16 computed terrain panorama (NASA 1972).",
+    "keyArtists": [
+      "Leslie Mezei",
+      "Sue C. Wynn"
+    ],
+    "themes": [
+      "computed transformation / displacement",
+      "order to fragmentation",
+      "stylistic analysis (Picasso vs Durer)",
+      "CALCOMP pen plotter"
+    ]
   }
 ]
