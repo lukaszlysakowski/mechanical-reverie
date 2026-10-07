@@ -863,7 +863,9 @@ function renderStrip() {
     if (genome.extinct) lineageText += ' †';
 
     const keyDetailsText = genome.keyDetails || '';
-    const reasonText = genome.description || genome.condensedReason || '';
+    const reasonText = genome.description || genome.condensedReason
+      || (genome.curatorial && genome.curatorial.condensedReason)
+      || (genome.curatorial && genome.curatorial.notes) || '';
     const genNum = genome._gen;
     const titleText = titleFromFilename(genome.filename, genome);
     const rooms = roomsByGen[genNum] || [];
