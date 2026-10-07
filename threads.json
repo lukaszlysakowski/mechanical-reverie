@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updated": "2026-10-06",
+  "threads": [
+    {
+      "id": "beyls",
+      "title": "Peter Beyls",
+      "status": "watching",
+      "note": "A new pioneer, opened 2026-10-06. For more than fifty years Beyls has moved between electronic music, computer drawing, artificial intelligence, instrument building, robotics and painting — the machines changed radically, the questions stayed remarkably persistent. A thread held open to build a Beyls perspective: his span touches the Thinking Machine, the Sonic Dimension, and Another Dimension, and his 1968-onward practice poses Mechanical Reverie's own criteria-partnership question — what does the machine value, and who decides.",
+      "members": [
+        { "gen": 139, "why": "'Flora' — his generative stroke-field: a dense swarm of short directional colored marks accumulating into a vibrating field. The first Beyls piece, and the archive's return to saturated colour on white." }
+      ]
+    },
+    {
+      "id": "computed-space",
+      "title": "Computed Space & Instrument Imaging",
+      "status": "watching",
+      "note": "NASA and aerospace graphics that render what an instrument or a trajectory would see — the computed view, checked against the real sky or the real terrain. Held at two, both Alfred Lunde's. A third appeared on 2026-10-05 (Sue C. Wynn's Apollo 16 traverse-briefing panorama — 'full panoramas of what they will see standing on the surface') but was not made. Graduates to a room if the computed view recurs.",
+      "members": [
+        { "gen": 133, "why": "'By God, There It Is' — NASA's VIEW program (Lunde, 1968) computing the sun's sighting through Apollo 13's fogged optics; the render verified against the real sky." },
+        { "gen": 135, "why": "'Already Begun' — Lunde's 1985 computer drawing of the large space station, the same engineer's imaging carried into architecture." }
+      ]
+    },
+    {
+      "id": "image-processing",
+      "title": "Image Processing & Threshold",
+      "status": "watching",
+      "note": "The computer as image-transformer — thresholding, quantization, and the deeper question of stylistic analysis. Opened with Mott-Smith's 1-bit threshold portraits; its north star is Leslie Mezei's 1968 question, 'In what way is a Picasso drawing different from a Dürer drawing?' — a machine asked to tell styles apart, which is the fitness function, out loud.",
+      "members": [
+        { "gen": 136, "why": "'One of Its Secrets' — John Mott-Smith's 1968-69 threshold portraits reduced to hard 1-bit quantization: a form resolving from black into light." }
+      ]
+    }
+  ]
+}
