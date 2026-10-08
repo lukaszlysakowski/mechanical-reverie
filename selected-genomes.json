@@ -9844,5 +9844,88 @@
       "saturated colour on white"
     ],
     "description": "Thousands of short directional strokes — green, blue, pink and teal — swarm into a dense, vibrating field on white paper, a drawing made of accumulated marks. Peter Beyls has moved for fifty years between electronic music, computer drawing, artificial intelligence, robotics and painting; the machines changed radically, he says, but the questions stayed persistent, and “the computer is never an invisible appliance.” His ‘Flora’ series grows generative stroke-fields like this one. Mechanical Reverie answers with its own accumulating swarm — the archive’s return to saturated colour — a computed hand drawing, restlessly, in the margin between order and life."
+  },
+  {
+    "day": 135,
+    "date": "2026-10-07",
+    "title": "Arteônica",
+    "filename": "mechanical-reverie-day-135-arteonica-2026-10-07.png",
+    "fitness": 6.6,
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 6,
+      "cellPadding": 0.06838548079781985,
+      "rotation": 0.5315582572801193,
+      "globalRotation": 0.08661023494254125,
+      "paletteIndex": 10,
+      "bgDarkness": 0.08,
+      "gearDensity": 0.5059725083215272,
+      "gearComplexity": 23,
+      "chainFrequency": 0.5657802117244819,
+      "pixelDensity": 0.46,
+      "pixelSize": 6,
+      "flowScale": 0.0042,
+      "flowStrength": 3.304927751323752,
+      "particleCount": 1720,
+      "clockSpeed": 0,
+      "oscillation": 1.2887835877675609,
+      "wMechanical": 0.08,
+      "wPixel": 0.92,
+      "wFlow": 0.08,
+      "wGeometric": 0.08,
+      "wOrganic": 0.08,
+      "wHatch": 0.08,
+      "hatchAngle": 2.489511801059969,
+      "hatchSpacing": 8.973173843664952,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "led",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 6800.677819387646,
+      "renderSeed": 10639396,
+      "disorder": 0.266457033151518,
+      "disorderMode": "uniform",
+      "disorderAngle": 3.037041367887532,
+      "palette": 10,
+      "paletteColors": [
+        "#1a1a1a",
+        "#2e2e2e",
+        "#111111",
+        "#3a3a3a",
+        "#222222",
+        "#efece0",
+        "#0d0d0d",
+        "#444444"
+      ],
+      "vignetteStrength": 0
+    },
+    "description": "Large masses of character-density halftone — dense black cores fading through a fine dot-grid to the cream of the paper — spread like a continuous image dissolved into the printer’s tonal cells. Waldemar Cordeiro, the Brazilian concrete artist who coined ‘Arteônica’ for art joined to electronics and cybernetics, ran photographs through an IBM System 360 in 1971–72 so the line printer would rebuild them from overstruck symbols; his ‘A mulher que não é B.B.’ is a woman’s face made entirely of characters, each one a unit of tone. Mechanical Reverie answers not with a face but with the method itself: the halftone grid, a picture reduced to the density of its marks on fanfold paper.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5703443884304768060217d1a581035485808644f23ee3e5bb0b5544a6ab68c5",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 10639396,
+      "noiseSeed": 6800.677819387646,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "Waldemar Cordeiro (NEW pioneer - Brazilian concrete->computer art founder; coined 'Arteonica' 1971). From Noah's IBM System 360 art selection. ONE signature = his CHARACTER-DENSITY HALFTONE ('A mulher que nao e B.B.' 1971, 'Gente Ampli*2' 1972): a photograph digitized into a tonal grid of line-printer marks. pixelCharacter 'halftone' (tonal density cells, fill ~ darkness - distinct from Mott-Smith's hard 1-bit 'data'), wPixel 0.92, pixelSize 6, pixelDensity 0.46, flowScale 0.0042 (large coherent tonal masses). Line-printer palette: dark inks on CREAM ground (idx10, pal[5]=#efece0), bgDarkness 0.08, vignetteStrength 0. Pure single-character. Did NOT draw the woman (anchor) - the density-grid method itself. Title = Cordeiro's own coined term. Chose Cordeiro over Marquette's striking red/blue IBM-360 tile-grid (held/noted) - Cordeiro is the major pioneer and feeds the Image Processing watch-thread.",
+      "condensedReason": "Cordeiro's IBM-360 character-density halftones -> the halftone tonal grid: a continuous image dissolved into the density of printed marks, line-printer dark-on-cream."
+    },
+    "tweetSummary": "Noah posted a selection of IBM System 360 computer art: Waldemar Cordeiro's 'A mulher que nao e B.B.' (1971) and 'Gente Ampli*2' (1972) - character-density halftones - and Jean-Claude Marquette's red/blue 'Hommage a Khlebnikov' tile-grid (1973), plus a 1968 NFB clip of the 360/65 'at a speed human hands could never match.' Also a 1983 Vera Molnar FR3 documentary clip (held).",
+    "keyArtists": [
+      "Waldemar Cordeiro",
+      "Jean-Claude Marquette",
+      "Vera Molnar"
+    ],
+    "themes": [
+      "character-density halftone",
+      "image processing / Arteonica",
+      "the figure as density field",
+      "line-printer on paper"
+    ]
   }
 ]
