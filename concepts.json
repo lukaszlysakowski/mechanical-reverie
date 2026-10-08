@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-04",
+  "updated": "2026-10-07",
   "concepts": [
     {
       "id": "bell-labs",
@@ -805,6 +805,25 @@
         {
           "gen": 133,
           "why": "Lovell sighted the sun exactly where Lunde's VIEW program predicted — 'By God, there it is.' The machine's computed world recognized as true against the real sky: revelation by verification."
+        }
+      ]
+    },
+    {
+      "id": "reading-the-image",
+      "title": "Reading the Image",
+      "thesis": "Give the machine a photograph and it cannot see it; it can only read it — sample it, measure it, re-render it as marks. John Mott-Smith thresholded a portrait to pure black and white and found the result hung in an art show, 'as if it had exhibited another dimension.' Waldemar Cordeiro ran photographs through an IBM 360 so the line printer would rebuild them from characters, each symbol a unit of tone; his 'A mulher que não é B.B.' is a face made entirely of density. And Leslie Mezei, transforming a figure through his plotter language SPARTA, asked the question the room reaches toward — 'In what way is a Picasso drawing different from a Dürer drawing?' — a machine asked to read not just tone but style. Here the picture becomes data: thresholded, measured, transformed, and, one day, understood. It is the fitness function's own ancestor, the problem of teaching a machine to see.",
+      "members": [
+        {
+          "gen": 136,
+          "why": "'One of Its Secrets' — Mott-Smith's 1968-69 threshold portraits reduced to hard 1-bit quantization: the image read as pure on/off, a form resolving from black."
+        },
+        {
+          "gen": 138,
+          "why": "'Various Transformations' — Mezei's SPARTA displacing a line figure stage by stage; his 1968 question 'how is a Picasso different from a Dürer?' is the room's ceiling — reading style, not just tone."
+        },
+        {
+          "gen": 140,
+          "why": "'Arteônica' — Cordeiro's IBM-360 character-density halftones: a continuous image dissolved into the density of printed marks, tone measured and re-struck on paper."
         }
       ]
     }

@@ -29,22 +29,6 @@
           "why": "'Already Begun' — Lunde's 1985 computer drawing of the large space station, the same engineer's imaging carried into architecture."
         }
       ]
-    },
-    {
-      "id": "image-processing",
-      "title": "Image Processing & Threshold",
-      "status": "watching",
-      "note": "The computer as image-transformer — thresholding, quantization, and the deeper question of stylistic analysis. Opened with Mott-Smith's 1-bit threshold portraits; its north star is Leslie Mezei's 1968 question, 'In what way is a Picasso drawing different from a Dürer drawing?' — a machine asked to tell styles apart, which is the fitness function, out loud.",
-      "members": [
-        {
-          "gen": 136,
-          "why": "'One of Its Secrets' — John Mott-Smith's 1968-69 threshold portraits reduced to hard 1-bit quantization: a form resolving from black into light."
-        },
-        {
-          "gen": 140,
-          "why": "'Arteonica' — Waldemar Cordeiro's IBM-360 character-density halftones reduced to the halftone tonal grid: a continuous image dissolved into the density of printed marks. Grows the thread from threshold (hard 1-bit) to tone (proportional density)."
-        }
-      ]
     }
   ]
 }
