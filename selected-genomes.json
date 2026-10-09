@@ -9927,5 +9927,85 @@
       "the figure as density field",
       "line-printer on paper"
     ]
+  },
+  {
+    "day": 136,
+    "date": "2026-10-08",
+    "title": "Randomness with Control",
+    "filename": "mechanical-reverie-day-136-randomness-with-control-2026-10-08.png",
+    "fitness": 6.83,
+    "genome": {
+      "gridCols": 16,
+      "gridRows": 5,
+      "cellPadding": 0.11126608625587096,
+      "rotation": 0.2260519309171642,
+      "globalRotation": -0.016295677110103463,
+      "paletteIndex": 10,
+      "bgDarkness": 0.95,
+      "gearDensity": 0.32162224462342015,
+      "gearComplexity": 22,
+      "chainFrequency": 0.4455321203467788,
+      "pixelDensity": 0.4703172619158589,
+      "pixelSize": 7,
+      "flowScale": 0.016,
+      "flowStrength": 1.6,
+      "particleCount": 4000,
+      "clockSpeed": 0,
+      "oscillation": 2.8497247067593063,
+      "wMechanical": 0.08,
+      "wPixel": 0.08,
+      "wFlow": 0.95,
+      "wGeometric": 0.08,
+      "wOrganic": 0.08,
+      "wHatch": 0.08,
+      "hatchAngle": 1.5252629259617088,
+      "hatchSpacing": 12.581633677016324,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 3363.8431352605935,
+      "renderSeed": 253113230,
+      "disorder": 0.6406186108782032,
+      "disorderMode": "radial",
+      "disorderAngle": 3.2387252903232304,
+      "palette": 10,
+      "paletteColors": [
+        "#ffffff",
+        "#e8e8e8",
+        "#cfcfcf",
+        "#b0b0b0",
+        "#f4f4f4",
+        "#060606",
+        "#141414",
+        "#fafafa"
+      ],
+      "vignetteStrength": 0
+    },
+    "description": "A dense field of white points and short lines scattered helter-skelter across pure black — a controlled chaos, random yet composed. In 1971 Leslie Mezei filmed ‘Samplart’ and narrated the paradox at the heart of computer art: ‘though a tool, performing as ordered creates programmed disorder… moving points and lines by random numbers, helter-skelter. Randomness with control.’ Mechanical Reverie answers not with his film but with the paradox itself — the engine’s granular flow scattering thousands of marks by seeded random numbers, abandon and order in the same breath. It is the disorder dial’s purest statement: noise held, barely, as form.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5c27507d2513cc97f4e8f338e9b1bffe8d4315c3f885056e1ed0193a9e1c2b5a",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 253113230,
+      "noiseSeed": 3363.8431352605935,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "B+",
+      "notes": "Leslie Mezei 'Samplart' (1971, U of Toronto). The RANDOMNESS pole (vs Day 133 'Various Transformations' = ordered grid breaking into disorder). ONE signature = controlled random scatter: flowCharacter 'mathematical' (granular points traced into short lines, wFlow 0.95, particleCount 4000, flowScale 0.016, flowStrength 1.6) - 'moving points and lines by random numbers, helter-skelter.' Stark white-on-black (idx10, pal[5]=#060606), bgDarkness 0.95, vignetteStrength 0. Pure single-character. ENGINE LIMIT noted: couldn't make Samplart's bold amorphous filled blobs (organic caps at ~10 thin outlines; grain clusters in a corner) - math granular scatter was the best faithful 'points+lines by random numbers.' Distinct from Day 134 Flora (that=color biological swarm; this=stark B&W mathematical). User chose to cook (3rd Mezei; manifesto quote central to MR's disorder dial). Title = Mezei's own phrase. Fits Order & Disorder room (held - propose).",
+      "condensedReason": "Mezei's 'Samplart' manifesto (randomness with control) -> a dense granular scatter of white points & lines on black: seeded random numbers held as composed disorder."
+    },
+    "tweetSummary": "Noah posted one substantive update: Leslie Mezei's 'Samplart' (1971) with the manifesto quote 'performing as ordered creates programmed disorder. Moving points and lines by random numbers, helter-skelter. Randomness with control... Electronic music. And the new forms of art.' (Yesterday 10-07 confirmed complete.)",
+    "keyArtists": [
+      "Leslie Mezei"
+    ],
+    "themes": [
+      "controlled randomness / programmed disorder",
+      "scatter as composition",
+      "the computer as generator of the new"
+    ]
   }
 ]
