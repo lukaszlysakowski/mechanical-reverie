@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "concepts": [
     {
       "id": "bell-labs",
@@ -278,6 +278,10 @@
         {
           "gen": 130,
           "why": "A grid of ink squares mostly obeying the rule, a few deviating (a rotation, a fill, a circle, a red triangle): Molnár's controlled '1% disorder' on Dürer's magic square. The room's thesis in her own hand — and her open question of whether beauty lives in the order or its exceptions."
+        },
+        {
+          "gen": 141,
+          "why": "'Randomness with Control' — Mezei's 'Samplart' manifesto (1971) rendered as the randomness pole: points and lines scattered helter-skelter by seeded random numbers, yet composed. The disorder dial at full, held barely as form."
         }
       ]
     },
