@@ -10007,5 +10007,85 @@
       "scatter as composition",
       "the computer as generator of the new"
     ]
+  },
+  {
+    "day": 137,
+    "date": "2026-10-10",
+    "title": "Hommage à Khlebnikov",
+    "filename": "mechanical-reverie-day-137-hommage-a-khlebnikov-2026-10-10.png",
+    "fitness": 6.64,
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 5,
+      "cellPadding": 0.1141176607111234,
+      "rotation": 5.319800378604792,
+      "globalRotation": 0.1272524449334216,
+      "paletteIndex": 10,
+      "bgDarkness": 0,
+      "gearDensity": 0.362621651653495,
+      "gearComplexity": 7,
+      "chainFrequency": 0.8553234578411439,
+      "pixelDensity": 0.5,
+      "pixelSize": 15,
+      "flowScale": 0.02,
+      "flowStrength": 3.9184927229032454,
+      "particleCount": 433,
+      "clockSpeed": 0,
+      "oscillation": 1.5262278133889566,
+      "wMechanical": 0.06,
+      "wPixel": 0.93,
+      "wFlow": 0.06,
+      "wGeometric": 0.06,
+      "wOrganic": 0.06,
+      "wHatch": 0.06,
+      "hatchAngle": 0.7732800266638167,
+      "hatchSpacing": 21.620214652798428,
+      "pixelCharacter": "data",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 3194.957850377296,
+      "renderSeed": 3848763655,
+      "disorder": 0.3712050904547408,
+      "disorderMode": "uniform",
+      "disorderAngle": 5.1000873925463,
+      "palette": 10,
+      "paletteColors": [
+        "#e4121f",
+        "#e4121f",
+        "#e4121f",
+        "#e4121f",
+        "#e4121f",
+        "#2f6fd0",
+        "#2f6fd0",
+        "#e4121f"
+      ],
+      "vignetteStrength": 0
+    },
+    "description": "A fine interlocking grid of flat vermilion and cobalt rectangles — red and blue in near-equal measure, varying from single cells to stacked blocks — a two-colour composition placed by computer. Jean-Claude Marquette made ‘Hommage à Khlebnikov — Monades’ on an IBM 360/25 in 1973, a tribute to the Russian Futurist poet Velimir Khlebnikov rendered as binary colour tiling. Mechanical Reverie answers with its own computed tiling: the ‘data’ character reduced to two colours, every cell red or blue, the grid alive with interlocking blocks. Held from Noah’s IBM 360 selection and rendered on a quiet day — concrete art as pure, flat, algorithmic colour.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "fe2c1866d5d47d742552a85c1f22cffd9442882b04734b02f59a958168f6f699",
+      "engineVersion": "v3.10.0",
+      "renderSeed": 3848763655,
+      "noiseSeed": 3194.957850377296,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A-",
+      "notes": "BACKLOG RENDER on a quiet day (2026-10-09 REST; 2026-10-10 one minor reply, no fresh art content). Jean-Claude Marquette 'Hommage a Khlebnikov - Monades [13-32, 7-36]' (1973, IBM 360/25), held from Noah's 2026-10-07 IBM 360 selection; user chose to render it. ONE signature = binary two-colour TILING: pixelCharacter 'data' with a clever palette trick - pal[0]=pal[1]=RED (every DRAWN cell red) + ground pal[5]=BLUE (every SKIPPED cell blue) so data's ~50/50 draw/skip becomes a balanced red/blue binary grid (fixes data's ground-colour imbalance). pixelSize 15, pixelDensity 0.5, flowScale 0.02 (interlocking varied-size blocks). Flat vermilion #e4121f + cobalt #2f6fd0, bgDarkness 0, vignetteStrength 0. Pure single-character. VOCABULARY ROTATION (vivid colour + binary tiling) after the Days 134/136 flow-swarms; also a COLOUR reprise of the 'data' character (prev used 1-bit B&W on Mott-Smith). Title = Marquette's own. Could join Reading the Image? No - this is concrete COMPOSITION, not image-processing; fits a concrete/constructivist thread if one forms.",
+      "condensedReason": "Marquette's IBM-360 'Hommage a Khlebnikov' -> a binary red/blue interlocking tile-grid: the 'data' character as two flat colours (pal trick: red draw / blue ground), concrete algorithmic tiling. Backlog render on a quiet day."
+    },
+    "tweetSummary": "Quiet day (2026-10-09 rest; 2026-10-10 one minor Anadol reply, no art content). Rendered the pre-approved backlog piece: Jean-Claude Marquette's 'Hommage a Khlebnikov - Monades' (1973, IBM 360/25), a red/blue tile-mosaic from Noah's 2026-10-07 IBM System 360 selection.",
+    "keyArtists": [
+      "Jean-Claude Marquette"
+    ],
+    "themes": [
+      "binary two-colour tiling",
+      "concrete / constructivist computation",
+      "IBM 360 colour output"
+    ]
   }
 ]
