@@ -210,8 +210,9 @@ fetch('claude-track.json?t=' + Date.now())
           </div>
         </div>
         <div class="work-body">
-          <div class="idx">${esc(w.id)} · engine ${esc(w.engineVersion || '')}</div>
+          <div class="idx">${esc(w.id)} · engine ${esc(w.engineVersion || '')}${w.series ? ` · series “${esc(w.series)}”` : ''}</div>
           <h2>${esc(w.title)}</h2>
+          ${w.seriesRole ? `<div class="field"><div class="label">In the series</div><div class="val">${esc(w.seriesRole)}</div></div>` : ''}
           ${w.question ? `<div class="field question"><div class="label">Question</div><div class="val">${esc(w.question)}</div></div>` : ''}
           ${w.criterion ? `<div class="field criterion"><div class="label">Criterion</div><div class="val">${esc(w.criterion)}</div></div>` : ''}
           ${w.form ? `<div class="field"><div class="label">Form</div><div class="val">${esc(w.form)}</div></div>` : ''}
