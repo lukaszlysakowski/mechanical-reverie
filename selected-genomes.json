@@ -6910,11 +6910,12 @@
     "engineVersion": "v3.6.0",
     "certificate": {
       "deterministic": true,
-      "checksum": "ae1902113bdb99e106173ff625191c9e59fdece004c18bec8764abb1577b0c49",
-      "checksumStability": "14/14 identical — hard-canonical",
-      "engineVersion": "v3.6.0",
+      "checksum": "01ae9c54dc648b327f6b498982ea8a499ba2ca091b2e23774b6840640e2ed096",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.12.1",
       "renderSeed": 736216807.5100038,
-      "noiseSeed": 777
+      "noiseSeed": 777,
+      "checksumRefreshed": "2026-10-11: re-certified under v3.12.1. Prior checksum (ae190211…, recorded v3.6.0) predated the paletteColors-resolution fix, which corrected paletteIndex 12 to render this piece's own 8-colour paletteColors instead of falling back to palette 0 (gold Pompadour ground). Pixels are now the intended palette; checksum updated to match. Render is deterministic and unrelated to the v3.12.1 region-mode fix."
     },
     "genome": {
       "gridCols": 17,
