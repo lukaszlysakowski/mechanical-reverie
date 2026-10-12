@@ -204,6 +204,31 @@ if (_urlScale > 1) {
 }
 let W = canvas.width, H = canvas.height;
 
+// ══════════════════════════════════════════════════════════════════════════════════════════════
+// MECHANICAL REVERIE — THE CORE
+// One algorithmic piece a day, answering @Noahbolanowski's record of the moments computation first
+// met art. The work is never the pixels; it is the engine, the genome, the fitness function — the
+// rules that stand in for an eye the machine does not have.
+//
+// THE ANCHOR.  Change the program, not the drawing. CONNECT, don't illustrate. Reduce each source to
+//   its ONE core visual signature and render THAT, in the engine's own vocabulary — never a copy,
+//   never everything at once. Restraint is the method: one signature per piece, the dominant
+//   character leading with every other layer near zero. What you leave out is the work.
+//
+// THREE PILLARS.
+//   1. COHEN (AARON).  "I write programs. Programs make drawings." The limit on a system's creativity
+//      is its ability to modify its own CRITERIA, not its code. Here the criteria live in the fitness
+//      function; an artist designs meaning GENERATORS, not meaning communicators.
+//   2. WIENER (cybernetics).  The feedback loop is the fitness function; "a pattern is a message" is
+//      the canonical seed; entropy is the disorder dial; "what man makes of it" is authorship.
+//   3. CONSTRAINT (after Lialina & Manovich).  Constraint is where authorship lives, and a generative
+//      system's pull is toward the statistical mean — so the artist must RE-IMPOSE it. Speak in the
+//      medium's own language; resist the average. (docs/constraint-doctrine.md)
+//
+// The horizon: the engine reconsidering its own criteria — Noah teaches, the curator's taste judges,
+// the engine translates — a three-way partnership, the fitness function becoming its own author.
+// ══════════════════════════════════════════════════════════════════════════════════════════════
+
 // ── Canonical seeds doctrine (Phase 1, Jul 2026) ──
 // The artwork is the SCORE: genome + noiseSeed + renderSeed + paletteColors + ENGINE_VERSION.
 // Any PNG is a performance of that score. render() must be a pure function of those inputs:
@@ -234,6 +259,20 @@ let W = canvas.width, H = canvas.height;
 // to the palette's max-contrast colour. The guard triggers ONLY in that degenerate case; every existing
 // convergence piece (gens 92, 110, 117) keeps its exact ink → renders bit-identical (verified, checksums
 // unchanged). pickInk is used ONLY by convergence, so no other character is affected.
+// v3.9.0 — additive, opt-in (Day 127, Robert Mallary's TRAN2 'Quad' computer sculpture): mechanicalCharacter
+// 'contour' — N nested/stacked closed curves (ellipse/square/polygon/loop), each scaled by a profile,
+// rotated, and translated along a stack vector: stackvector 0 → concentric rosette/relief; nonzero →
+// an axial stacked SOLID with foreshortening. Shapes: geometric solids, or 'loop' = a noise-wobbled
+// organic membrane. Not in MECH_CHARS → no existing genome reaches it. Deterministic. (spec:
+// docs/contour-primitive-spec.md; C2 regression verified bit-safe.)
+// v3.10.0 — additive: disorderMode 'step' — a SHARP order↔noise phase boundary (narrow anti-aliased
+// smoothstep across disorderAngle), closing the monotonic-dial limit. Disorder modes: uniform · linear
+// · radial · step. Only reached by genomes that set it; all prior disorder pieces bit-identical.
+// v3.11.0 — additive, opt-in (Day 138, Vera Molnár's 'My Mother's Letters', 1991): mechanicalCharacter
+// 'script' — rows of a baseline traversed as short jittering strokes whose tremble AMPLITUDE grows down
+// the page (legible → illegible) with pen-lift word-gaps: a computed simulation of degenerative
+// handwriting / visual decay. Deterministic (noise + genome, no Math.random). Not in MECH_CHARS → no
+// existing genome reaches it; C2 regression GREEN (archive checksums unchanged).
 const ENGINE_VERSION = 'v3.11.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
