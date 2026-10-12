@@ -273,7 +273,13 @@ let W = canvas.width, H = canvas.height;
 // the page (legible → illegible) with pen-lift word-gaps: a computed simulation of degenerative
 // handwriting / visual decay. Deterministic (noise + genome, no Math.random). Not in MECH_CHARS → no
 // existing genome reaches it; C2 regression GREEN (archive checksums unchanged).
-const ENGINE_VERSION = 'v3.11.0';
+// v3.12.0 — additive, opt-in (Day 134 flag, Peter Beyls 'Flora'): flowColorMode 'region' — a flow
+// particle's colour is chosen by its POSITION through a low-frequency noise field (flowColorScale),
+// so the swarm forms emergent COLOUR REGIONS instead of per-particle confetti. Applies to the six
+// particle characters (transit/biological/vortex/mathematical/dispersal/oscilloscope) via flowInk();
+// DEFAULT (no flowColorMode) returns pal[i % pal.length] bit-identically → no existing genome changes.
+// Deterministic. C2 regression GREEN.
+const ENGINE_VERSION = 'v3.12.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2175,6 +2181,22 @@ function drawPixelLayer(g, pal, t) {
   ctx.globalAlpha = 1;
 }
 
+// flowInk (v3.12.0, additive): colour for a flow particle. DEFAULT is the exact prior behaviour
+// pal[i % pal.length] (per-particle cycling) → bit-identical for every existing genome. Opt-in
+// g.flowColorMode === 'region' instead picks colour by the particle's POSITION through a low-frequency
+// noise field, so neighbouring particles share a colour and the swarm forms emergent COLOUR REGIONS
+// (a green zone, a pink zone) rather than interleaved confetti — the capability flagged on Day 134
+// (Beyls 'Flora'). g.flowColorScale (default 0.0032) sets region size: lower = larger fields.
+// Deterministic (noise + genome, no Math.random).
+function flowInk(g, pal, i, x, y) {
+  if (g.flowColorMode === 'region') {
+    const s = g.flowColorScale ?? 0.0032;
+    const n = (noise.noise2D(x * s + 41.7, y * s + 13.3) + 1) / 2;   // 0..1 by position
+    return pal[Math.floor(n * pal.length) % pal.length];
+  }
+  return pal[i % pal.length];
+}
+
 function drawFlowField(g, pal, t) {
   const char = g.flowCharacter || 'transit';
 
@@ -2185,7 +2207,7 @@ function drawFlowField(g, pal, t) {
     for (let i = 0; i < g.particleCount; i++) {
       let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
       let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, x, y);
       ctx.lineWidth = 0.2 + noise.noise2D(i, i) * 0.5;
       ctx.beginPath(); ctx.moveTo(x, y);
       for (let s = 0; s < 48; s++) { // Longer paths — sustained movement
@@ -2204,7 +2226,7 @@ function drawFlowField(g, pal, t) {
     for (let i = 0; i < g.particleCount; i++) {
       let x = (noise.noise2D(i * 0.07, g.noiseSeed * 0.0003) * W + W) % W;
       let y = (noise.noise2D(g.noiseSeed * 0.0003, i * 0.07) * H + H) % H;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, x, y);
       ctx.lineWidth = 0.4 + Math.abs(noise.noise2D(i * 2, i)) * 1.8; // Thicker, variable
       ctx.beginPath(); ctx.moveTo(x, y);
       for (let s = 0; s < 16; s++) { // Short paths → blob clusters, not sweeps
@@ -2225,7 +2247,7 @@ function drawFlowField(g, pal, t) {
     for (let i = 0; i < g.particleCount; i++) {
       let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
       let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, x, y);
       ctx.lineWidth = 0.25 + noise.noise2D(i, i) * 0.6;
       ctx.beginPath(); ctx.moveTo(x, y);
       for (let s = 0; s < 32; s++) {
@@ -2250,7 +2272,7 @@ function drawFlowField(g, pal, t) {
     for (let i = 0; i < g.particleCount; i++) {
       let x = (noise.noise2D(i * 0.1, 0) * W + W) % W;
       let y = (noise.noise2D(0, i * 0.1) * H + H) % H;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, x, y);
       ctx.lineWidth = 0.18 + Math.abs(noise.noise2D(i, 0)) * 0.38;
       ctx.beginPath(); ctx.moveTo(x, y);
       for (let s = 0; s < 28; s++) {
@@ -2277,7 +2299,7 @@ function drawFlowField(g, pal, t) {
       const startAngle = noise.noise2D(i * 0.3, g.noiseSeed * 0.005) * Math.PI * 2;
       let x = cx + Math.cos(startAngle) * startR;
       let y = cy + Math.sin(startAngle) * startR;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, x, y);
       ctx.lineWidth = 0.3 + Math.abs(noise.noise2D(i * 2.1, g.noiseSeed * 0.002)) * 1.1;
       ctx.beginPath(); ctx.moveTo(x, y);
       for (let s = 0; s < 30; s++) {
@@ -2310,7 +2332,7 @@ function drawFlowField(g, pal, t) {
       const cx    = W * (0.15 + Math.abs(noise.noise2D(i * 3.1, g.noiseSeed * 0.04)) * 0.70);
       const cy    = H * (0.15 + Math.abs(noise.noise2D(i * 4.7, g.noiseSeed * 0.05)) * 0.70);
       const steps = 320;
-      ctx.strokeStyle = pal[i % pal.length];
+      ctx.strokeStyle = flowInk(g, pal, i, cx, cy);
       ctx.lineWidth   = 0.4 + Math.abs(noise.noise2D(i, 0)) * 0.9;
       ctx.globalAlpha = 0.35 + Math.abs(noise.noise2D(i * 0.3, 0)) * 0.55;
       ctx.beginPath();
