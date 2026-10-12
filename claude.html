@@ -206,7 +206,10 @@ fetch('claude-track.json?t=' + Date.now())
           <img src="${ART_PATH}${esc(w.filename)}" alt="${esc(w.title)}" loading="lazy">
           <div class="cap">
             <span>${esc(w.date || '')}</span>
-            <a href="${ART_PATH}${esc(w.filename)}" download="${esc(w.filename)}">download ▾</a>
+            <span style="display:flex; gap:14px;">
+              <a href="generative-art-generator.html?claude=${esc(w.id)}" target="_blank" rel="noopener" title="Open the render page — live view with Save 1×/2×/4×, SVG and MP4 options">view render ↗</a>
+              <a href="${ART_PATH}${esc(w.filename)}" download="${esc(w.filename)}">download ▾</a>
+            </span>
           </div>
         </div>
         <div class="work-body">

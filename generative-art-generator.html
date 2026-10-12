@@ -3067,6 +3067,51 @@ async function loadArchiveDay(genNum) {
   return true;
 }
 
+// ── Load a Claude's Own track piece (linked from claude.html via ?claude=<id>) ──
+// Reads claude-track.json (the self-originated strand, NOT the daily archive) and renders
+// that piece view-only, so each result opens as a render page with the generator's own
+// download options (Save 1×/2×/4×, SVG, MP4). Mirrors loadArchiveDay's reproduction path.
+async function loadClaudeTrack(id) {
+  let works = [];
+  try {
+    const data = await fetch('./claude-track.json?' + Date.now()).then(r => r.ok ? r.json() : null);
+    works = (data && data.works) || [];
+  } catch (e) { return false; }
+  const w = works.find(x => x.id === id);
+  if (!w || !w.genome) return false;
+
+  // These pieces always carry their exact colours in paletteColors (idx 9); restore them so
+  // pal[5] (the background) and every region-colour bucket reproduce faithfully.
+  if (Array.isArray(w.genome.paletteColors) && w.genome.paletteColors.length >= 6) {
+    setPalette(w.genome.paletteIndex, w.genome.paletteColors);
+  }
+
+  genome = Object.assign(generateGenome(), w.genome);
+  if (w.genome.disorder == null) {
+    delete genome.disorder; delete genome.disorderMode; delete genome.disorderAngle;
+  }
+  render(genome, 0);
+
+  const sub = document.querySelector('.subtitle');
+  if (sub) {
+    sub.textContent = `Claude's Own · ${w.id} — "${w.title}" (${w.date || ''})`;
+    sub.style.color = '#d4af37';
+  }
+  const chars = [genome.flowCharacter, genome.mechanicalCharacter, genome.pixelCharacter].filter(Boolean).join(' · ');
+  showPieceWeights(genome);
+  const statusEl = document.getElementById('tweetStatus');
+  if (statusEl) {
+    statusEl.textContent = `Claude's Own · ${w.id} · ${w.date || ''} · ${chars}`;
+    statusEl.className = 'tweet-status';
+  }
+  const genEl = document.getElementById('gen'); if (genEl) genEl.textContent = w.id;
+  const fitEl = document.getElementById('fitness');
+  if (fitEl && typeof w.fitness === 'number') fitEl.textContent = w.fitness.toFixed(2);
+
+  document.body.classList.add('view-only');
+  return true;
+}
+
 // Populate the weight-badge bar (#themeBar) from a genome's ACTUAL character weights, so an
 // archive/atlas view shows what the piece is made of rather than the last-synced day's theme scores.
 function showPieceWeights(g) {
@@ -3275,6 +3320,17 @@ Promise.all([loadTweetThemes(), loadSelectedGenomes(), loadVisualThemes()]).then
     const ok = await loadAtlasCell(cellParam);
     if (ok) return;
     // fall through to normal init if the cell is missing/empty
+  }
+
+  const claudeParam = params.get('claude');
+  if (claudeParam) {
+    const ok = await loadClaudeTrack(claudeParam);
+    if (ok) {
+      const autoScale = parseInt(params.get('scale'), 10);
+      if (params.get('autoexport') === '1' && autoScale > 1) exportArt(autoScale);
+      return;
+    }
+    // fall through to normal init if the id is missing
   }
 
   if (!isNaN(genParam)) {
