@@ -279,7 +279,13 @@ let W = canvas.width, H = canvas.height;
 // particle characters (transit/biological/vortex/mathematical/dispersal/oscilloscope) via flowInk();
 // DEFAULT (no flowColorMode) returns pal[i % pal.length] bit-identically → no existing genome changes.
 // Deterministic. C2 regression GREEN.
-const ENGINE_VERSION = 'v3.12.0';
+// v3.12.1 — bug fix (region mode only): this engine's noise.noise2D returns 0..1 (mean ~0.5), but the
+// v3.12.0 region branch did (n+1)/2, compressing the field to 0.5..1 so floor(n·len) could only ever
+// reach the UPPER HALF of the palette — the first ceil(len/2) colours were silently unreachable. Now
+// samples the noise directly. Touches ONLY the flowColorMode==='region' branch; no shipped genome uses
+// region mode, and the default branch is untouched, so every archive checksum is unchanged (C2: Days 136
+// & 138, both flow pieces, bit-identical). Surfaced building claude-003 'Debatable Lands'.
+const ENGINE_VERSION = 'v3.12.1';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2191,7 +2197,10 @@ function drawPixelLayer(g, pal, t) {
 function flowInk(g, pal, i, x, y) {
   if (g.flowColorMode === 'region') {
     const s = g.flowColorScale ?? 0.0032;
-    const n = (noise.noise2D(x * s + 41.7, y * s + 13.3) + 1) / 2;   // 0..1 by position
+    // v3.12.1 fix: this engine's noise.noise2D already returns 0..1 (mean ~0.5), so the old
+    // (n+1)/2 compressed the field into 0.5..1 and only ever reached the UPPER HALF of the
+    // palette — the first ceil(pal.length/2) colours were unreachable. Use the sample directly.
+    const n = noise.noise2D(x * s + 41.7, y * s + 13.3);             // 0..1 by position
     return pal[Math.floor(n * pal.length) % pal.length];
   }
   return pal[i % pal.length];
