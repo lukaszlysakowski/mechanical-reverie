@@ -10086,6 +10086,94 @@
       "binary two-colour tiling",
       "concrete / constructivist computation",
       "IBM 360 colour output"
+    ],
+    "keyDetails": "Jean-Claude Marquette, Hommage à Khlebnikov — Monades [13-32, 7-36], 1973 (IBM 360/25). Backlog render from NB's 2026-10-07 IBM System 360 selection."
+  },
+  {
+    "day": 138,
+    "date": "2026-10-11",
+    "title": "My Mother’s Letters",
+    "filename": "mechanical-reverie-day-138-my-mothers-letters-2026-10-11.png",
+    "fitness": 6.66,
+    "genome": {
+      "gridCols": 16,
+      "gridRows": 3,
+      "cellPadding": 0.12087784677644837,
+      "rotation": 3.183029177493831,
+      "globalRotation": 0.008492449079899711,
+      "paletteIndex": 10,
+      "bgDarkness": 0.06,
+      "gearDensity": 0.6398273156683156,
+      "gearComplexity": 15,
+      "chainFrequency": 0.32584450236996854,
+      "pixelDensity": 0.04661844984157537,
+      "pixelSize": 5,
+      "flowScale": 0.012295703925942043,
+      "flowStrength": 2.694133480392976,
+      "particleCount": 116,
+      "clockSpeed": 0,
+      "oscillation": 1.3976700503949435,
+      "wMechanical": 0.95,
+      "wPixel": 0.06,
+      "wFlow": 0.06,
+      "wGeometric": 0.06,
+      "wOrganic": 0.06,
+      "wHatch": 0.06,
+      "hatchAngle": 0.3497788756547484,
+      "hatchSpacing": 5.394648287757148,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "script",
+      "symmetry": 0.08,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 7478.47057722282,
+      "renderSeed": 3711578297,
+      "disorder": 0.7257759508911785,
+      "disorderMode": "uniform",
+      "disorderAngle": 4.211408738745237,
+      "palette": 10,
+      "paletteColors": [
+        "#1b1b1b",
+        "#262626",
+        "#141414",
+        "#2e2e2e",
+        "#1a1a1a",
+        "#efe8d8",
+        "#3a3a3a",
+        "#222222"
+      ],
+      "vignetteStrength": 0,
+      "scriptRows": 20,
+      "scriptAmp": 0.52,
+      "scriptDecay": 0.7,
+      "scriptStep": 6,
+      "scriptBreak": 0.17,
+      "scriptSlant": 0,
+      "scriptColorMode": "single"
+    },
+    "description": "Rows of handwriting waver gently at the top of the page and deteriorate, line by line, into frantic trembling scribble at the bottom — a hand losing its steadiness, rendered in code. In 1991 Vera Molnár took her mother’s letters, whose script grew more agitated as she aged, and ‘attempted to simulate its visual deterioration computationally’; the output, she said, ‘remarkably mirrors her degenerative handwriting.’ Mechanical Reverie answers with a new primitive built for exactly this — a nervous line whose tremble grows as it descends — ink on cream, the first work on engine v3.11.0. Not her mother’s words, but the shape of their undoing.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "0213cfc1623ad1a16ad4c97cb5f33c021d32fefb733ebcf312d3dd96630c35a1",
+      "engineVersion": "v3.11.0",
+      "renderSeed": 3711578297,
+      "noiseSeed": 7478.47057722282,
+      "runs": "12/12 identical — hard-canonical"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Vera Molnar 'Lettres de ma mere / My Mother's Letters' (1991) - a DISTINCT facet (NOT her grids): she simulated the visual deterioration of her mother's degenerative handwriting. Engine lacked any nervous/handwriting line (hatch=strata, vortex=flow, vectors=Noll scatter all failed), so BUILT A NEW CAPABILITY: opt-in mechanicalCharacter 'script' (engine v3.11.0) - rows of a baseline traversed as short jittering strokes whose tremble AMPLITUDE grows down the page (legible top -> illegible bottom) + pen-lift word-gaps; deterministic (noise+genome). scriptRows 20, scriptAmp 0.52, scriptDecay 0.7 (deterioration ramp), scriptStep 6, scriptBreak 0.17. Ink-on-CREAM (idx10, pal[5]=#efe8d8), bgDarkness 0.06, vignetteStrength 0. Pure single-character (wMechanical 0.95). Additive-safe: C2 regression GREEN (archive checksums unchanged). Title = the work's English title (Noah's quote). A wholly new look in the archive; the 'ease off Molnar' note is satisfied since this is a new aesthetic, not another grid.",
+      "condensedReason": "Molnar's 'My Mother's Letters' (1991) -> the NEW 'script' character: rows of handwriting trembling worse as they descend the page - a computed simulation of degenerative script, ink on cream. First work on engine v3.11.0."
+    },
+    "tweetSummary": "Noah, 2026-10-11: Vera Molnar in 1991 on 'My Mother's Letters' - 'an excursion into an entirely different aesthetic realm... I attempted to simulate its visual deterioration computationally... the output remarkably mirrors her degenerative handwriting.' (Also: an A. Michael Noll Bell Labs anecdote - no new artwork; and Jakob Kudsk Steensen's contemporary 'Wetland' at MoMA, an announcement.)",
+    "keyArtists": [
+      "Vera Molnar"
+    ],
+    "themes": [
+      "deteriorating handwriting / nervous line",
+      "algorithmic simulation of decay",
+      "order into illegibility"
     ]
   }
 ]

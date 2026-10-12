@@ -234,7 +234,7 @@ let W = canvas.width, H = canvas.height;
 // to the palette's max-contrast colour. The guard triggers ONLY in that degenerate case; every existing
 // convergence piece (gens 92, 110, 117) keeps its exact ink → renders bit-identical (verified, checksums
 // unchanged). pickInk is used ONLY by convergence, so no other character is affected.
-const ENGINE_VERSION = 'v3.10.0';
+const ENGINE_VERSION = 'v3.11.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1355,6 +1355,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'led')     { drawLedMatrix(g, pal, t);     return; }
   if (ch === 'vectors') { drawVectorField(g, pal, t);   return; }
   if (ch === 'contour') { drawContourStack(g, pal, t);  return; }
+  if (ch === 'script')  { drawScript(g, pal, t);        return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1597,6 +1598,67 @@ function drawContourStack(g, pal, t) {
     ctx.closePath();
     filled ? ctx.fill() : ctx.stroke();
     ctx.restore();
+  }
+  ctx.globalAlpha = 1;
+}
+
+// SCRIPT: nervous / deteriorating handwriting (v3.11.0, 2026-10-11). Opt-in mechanicalCharacter
+// 'script' (NOT in MECH_CHARS; dispatched only when explicitly set — like 'contour'/'vectors', so
+// no existing genome ever reaches it). Rows of a baseline traversed left→right as short jittering
+// strokes, with the tremble AMPLITUDE growing down the page (legible at top → illegible at the
+// bottom) and pen-lifts opening word-gaps — a computational simulation of degenerative script
+// (Vera Molnár, 'Lettres de ma mère', 1991). Deterministic: jitter/breaks/wander from noise.noise2D
+// + genome, never Math.random. Reads these genome fields with defaults (absent → defaults never run
+// for existing genomes, since the character isn't selected):
+//   scriptRows 4–40 (writing lines) · scriptAmp 0–1 (base tremble, ×rowHeight) ·
+//   scriptDecay 0–1 (how much tremble grows downward = the deterioration) · scriptStep px (stroke
+//   sampling; smaller = finer scribble) · scriptBreak 0–0.6 (pen-lift probability = word gaps) ·
+//   scriptSlant (baseline slant) · scriptColorMode depth|single.
+function drawScript(g, pal, t) {
+  const rows  = Math.max(4, Math.min(40, Math.round(g.scriptRows ?? 16)));
+  const amp   = clamp(g.scriptAmp ?? 0.42, 0, 1);
+  const decay = clamp(g.scriptDecay ?? 0.75, 0, 1);
+  const step  = Math.max(3, g.scriptStep ?? 7);
+  const brk   = clamp(g.scriptBreak ?? 0.12, 0, 0.6);
+  const slant = g.scriptSlant ?? 0.0;
+  const colorMode = g.scriptColorMode || 'single';
+  const ns = (g.noiseSeed || 1) * 0.001;
+  const mX = W * 0.07, mTop = H * 0.08, mBot = H * 0.08;
+  const rowH = (H - mTop - mBot) / rows;
+  const drift = t * (g.clockSpeed || 0) * 6;     // animation only; canonical still t=0 → 0
+
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  for (let i = 0; i < rows; i++) {
+    const u = rows > 1 ? i / (rows - 1) : 0;       // 0 top → 1 bottom
+    const baseY = mTop + (i + 0.5) * rowH;
+    // deterioration: tremble grows down the page (uniform when decay = 0)
+    const jit = amp * rowH * ((1 - decay) + decay * (0.12 + u * 1.25));
+    const ci = colorMode === 'depth' ? Math.floor(u * pal.length) : 0;
+    ctx.strokeStyle = pal[ci % pal.length];
+    ctx.globalAlpha = 0.9;
+
+    let x = mX, pen = false, started = false;
+    ctx.beginPath();
+    while (x < W - mX) {
+      // slow baseline wander (the whole line wavers) + fast nervous jitter on top
+      const wander = jit * 0.35 * noise.noise2D(x * 0.012 + i * 0.5, i * 1.3 + ns);
+      const tremble = jit * noise.noise2D(x * 0.07 + i * 3.1 + drift + ns, i * 0.7);
+      const y = baseY + wander + tremble;
+      const px = x + slant * (y - baseY);
+      // pen-lift → word gaps; gaps widen slightly with deterioration
+      const b = (noise.noise2D(x * 0.045 + i * 2.3, 11 + i * 0.9) + 1) / 2;
+      if (b < brk * (0.7 + 0.6 * u)) {
+        pen = false;
+      } else {
+        if (!pen) { ctx.moveTo(px, y); pen = true; started = true; }
+        else ctx.lineTo(px, y);
+        ctx.lineWidth = 0.7 + Math.abs(tremble) / Math.max(1, rowH) * 1.6;
+      }
+      // variable step → nervous rhythm
+      x += step * (0.6 + 0.5 * Math.abs(noise.noise2D(x * 0.05 + i, 5 + ns)));
+    }
+    if (started) ctx.stroke();
   }
   ctx.globalAlpha = 1;
 }
