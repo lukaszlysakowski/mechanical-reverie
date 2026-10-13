@@ -285,7 +285,14 @@ let W = canvas.width, H = canvas.height;
 // samples the noise directly. Touches ONLY the flowColorMode==='region' branch; no shipped genome uses
 // region mode, and the default branch is untouched, so every archive checksum is unchanged (C2: Days 136
 // & 138, both flow pieces, bit-identical). Surfaced building claude-003 'Debatable Lands'.
-const ENGINE_VERSION = 'v3.12.1';
+// v3.13.0 — additive, opt-in (Day 139, Roy Lichtenstein 'Three Landscapes', 1970–71): pixelCharacter
+// 'benday' — ROUND offset-litho dots whose RADIUS tracks tone (not square halftone cells), with two
+// tone sources: 'noise' (all-over dot screen, "the interest is in the medium itself") and 'horizon' (a
+// vertical sky/sea gradient split at g.horizonY, with an optional crisp horizon line) — the engine's
+// first HORIZON-divided composition, a Lichtenstein seascape in its own dot vocabulary. NOT in
+// PIXEL_CHARS and not reachable by mutation → no existing genome uses it; drawPixelLayer only gains a
+// new else-if, so every archive checksum is unchanged. Deterministic. C2 regression GREEN.
+const ENGINE_VERSION = 'v3.13.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2181,6 +2188,52 @@ function drawPixelLayer(g, pal, t) {
         ctx.globalAlpha = clamp(0.62 + b * 0.38, 0.5, 1.0);
         ctx.fillRect(c * size, r * size, size - 1, size - 1); // 1px gap → digitized grid reads
       }
+    }
+
+  } else if (char === 'benday') {
+    // BEN-DAY — ROUND dots on a regular screen, dot RADIUS proportional to tone (true offset-litho
+    // dots, not square cells). Two tone sources: 'noise' = an all-over dot field ("the interest is in
+    // the medium itself" — Lichtenstein, 1971); 'horizon' = a vertical gradient split at g.horizonY so
+    // a SKY of sparse light dots meets a SEA of dense dark dots at a clean horizon (his seascapes; the
+    // "first looping GIF" Three Landscapes, 1970–71, LACMA Art & Technology Program). Radius AND colour
+    // both track tone through the palette (pal[0] lightest → pal[len-1] darkest); pal[5] is the ground.
+    // Opt-in (not in PIXEL_CHARS / not reachable by mutation) → no existing genome uses it; additive /
+    // C2-safe. Deterministic (noise + genome, noise.noise2D ∈ 0..1).
+    const size = Math.max(g.pixelSize, 4);
+    const cols = Math.floor(W / size), rows = Math.floor(H / size);
+    const mode = g.bendayTone || 'noise';
+    const horizonY = clamp(g.horizonY ?? 0.5, 0.04, 0.96);
+    const jitter = g.bendayJitter ?? 0.16;
+    const floorT = (1 - g.pixelDensity) * 0.9;
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        let tone;
+        if (mode === 'horizon') {
+          const v = (r + 0.5) / rows;                              // 0 top → 1 bottom
+          tone = v < horizonY
+            ? (v / horizonY) * 0.45                                 // SKY: 0 → 0.45 hazing toward horizon
+            : 0.55 + ((v - horizonY) / (1 - horizonY)) * 0.45;      // SEA: 0.55 → 1.0 deepening downward
+          tone += (noise.noise2D(c * g.flowScale * 10 + t * g.clockSpeed, r * g.flowScale * 10) - 0.5) * jitter;
+          tone = clamp(tone, 0, 1);
+        } else {
+          tone = noise.noise2D(c * g.flowScale * 12 + t * g.clockSpeed * 0.3, r * g.flowScale * 12);
+        }
+        if (tone < floorT) continue;
+        const radius = (size / 2) * clamp(0.16 + tone * 0.9, 0.1, 1.0);
+        const colIdx = clamp(Math.floor(tone * (pal.length - 1)), 0, pal.length - 1);
+        ctx.fillStyle = pal[colIdx];
+        ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.55, 1.0);
+        ctx.beginPath();
+        ctx.arc(c * size + size / 2, r * size + size / 2, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    // Optional crisp horizon line — the one drawn line between sky and sea.
+    if (mode === 'horizon' && g.horizonLine) {
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = pal[clamp(g.horizonLineColor ?? (pal.length - 1), 0, pal.length - 1)];
+      const lw = g.horizonLineWidth ?? 2;
+      ctx.fillRect(0, horizonY * H - lw / 2, W, lw);
     }
   }
 

@@ -10176,5 +10176,94 @@
       "algorithmic simulation of decay",
       "order into illegibility"
     ]
+  },
+  {
+    "day": 139,
+    "date": "2026-10-12",
+    "title": "The Medium Itself",
+    "filename": "mechanical-reverie-day-139-the-medium-itself-2026-10-12.png",
+    "fitness": 6.75,
+    "description": "Roy Lichtenstein, 1971: “the interest… is in the medium itself.” So the piece is reduced to exactly that — the medium. Three Landscapes (1970–71), made through LACMA’s Art and Technology Program with Universal Studios, set a Ben-Day seascape moving: what Noah calls the first looping GIF. Here the loop goes still and the dots stay — a pale sky of sparse points fading to white, a sea of round dots deepening to navy, split by one crisp horizon. It needed a new engine primitive: ‘benday’ round dots (radius by tone) and the engine’s first horizon-divided field, rather than fake the screen with squares. The dot is the subject; the horizon is the only drawn line.",
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 9,
+      "cellPadding": 0.09207067096758909,
+      "rotation": 1.7665895888860859,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.04,
+      "gearDensity": 0.36651764117904495,
+      "gearComplexity": 15,
+      "chainFrequency": 0.4143359795663378,
+      "pixelDensity": 0.84,
+      "pixelSize": 9,
+      "flowScale": 0.01,
+      "flowStrength": 2.013044065672437,
+      "particleCount": 1418,
+      "clockSpeed": 0,
+      "oscillation": 0.9338245274574839,
+      "wMechanical": 0,
+      "wPixel": 0.95,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 2.3149240674634406,
+      "hatchSpacing": 8.805584246629241,
+      "pixelCharacter": "benday",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "gear",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 1870,
+      "renderSeed": 1971,
+      "disorder": 0.3952936140599075,
+      "disorderMode": "linear",
+      "disorderAngle": 2.641254363773254,
+      "palette": 9,
+      "paletteColors": [
+        "#dfeef7",
+        "#a9d2ec",
+        "#5fa3d8",
+        "#2f79bd",
+        "#15426f",
+        "#f4f8fb"
+      ],
+      "bendayTone": "horizon",
+      "horizonY": 0.4,
+      "bendayJitter": 0.16,
+      "horizonLine": true,
+      "horizonLineColor": 4,
+      "horizonLineWidth": 2,
+      "vignetteStrength": 0
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New engine capability (benday round-dot screen + horizon mode, v3.13.0, opt-in/C2-green) built to render Lichtenstein faithfully rather than approximate with square halftone cells. Pure single-character (wPixel 0.95).",
+      "condensedReason": "Lichtenstein's Ben-Day seascape reduced to its medium: round dots + one horizon, in the engine's new dot vocabulary."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "cbe8f3ed1166a472262fa14318a087713bdc9a1aabb1bacaf275a1e016c7f73e",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.13.0",
+      "renderSeed": 1971,
+      "noiseSeed": 1870
+    },
+    "tweetSummary": "Lichtenstein's Three Landscapes (1970–71) — a Ben-Day seascape set moving through LACMA's Art & Technology Program, 'the first looping GIF'; anchored by his 1971 'the interest is in the medium itself.' Secondary overnight pioneer-quote clips (Molnár, A. Michael Noll).",
+    "keyArtists": [
+      "Roy Lichtenstein",
+      "Joel Freedman",
+      "Vera Molnár",
+      "A. Michael Noll"
+    ],
+    "themes": [
+      "Ben-Day dots",
+      "the medium itself",
+      "seascape / horizon",
+      "the moving image / loop",
+      "LACMA Art & Technology Program"
+    ]
   }
 ]
