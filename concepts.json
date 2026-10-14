@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "concepts": [
     {
       "id": "bell-labs",
@@ -282,6 +282,10 @@
         {
           "gen": 141,
           "why": "'Randomness with Control' — Mezei's 'Samplart' manifesto (1971) rendered as the randomness pole: points and lines scattered helter-skelter by seeded random numbers, yet composed. The disorder dial at full, held barely as form."
+        },
+        {
+          "gen": 145,
+          "why": "Molnár on controlled randomness in her own words ('not anything can be art; on the contrary') — a linear Schotter gradient where rigid order resolves into measured deviation, and the disorder is where colour is 'found'. The dial's thesis stated by its author."
         }
       ]
     },
@@ -379,6 +383,10 @@
         {
           "gen": 130,
           "why": "'Hommage à Dürer' (c. 1981–94), from a 1990 film of Molnár executing the work: the magic square of Dürer's Melencolia I, varied with her controlled deviation. Her doubt — 'does the beauty come from this magic square? I'm not so sure' — titles the piece."
+        },
+        {
+          "gen": 145,
+          "why": "The archive's Molnár conscience, quoted directly in 2019 on why she uses chance — randomness as a search for the imagined, not chaos. Rendered as a cool-palette Schotter distinct from her warm plotter days: her method turned on her own statement of it."
         }
       ]
     },
