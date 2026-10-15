@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "concepts": [
     {
       "id": "bell-labs",
@@ -662,6 +662,10 @@
         {
           "gen": 106,
           "why": "Cartographer-mode: charted the first LINEAR-disorder cell in the archive — a diamond lattice dissolving left-to-right, order becoming disorder along a line. The map's own emptiness led the engine to a mode it had never performed."
+        },
+        {
+          "gen": 146,
+          "why": "Frontier F-07 (cross × radial × light): registration crosses holding at the centre and drifting out of true toward the edges — the engine charting an empty geometric cell on a rest day."
         }
       ]
     },
