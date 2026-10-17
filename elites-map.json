@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-10-15T04:17:37Z",
+  "updated": "2026-10-17T03:10:58Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -3149,46 +3149,6 @@
     {
       "ts": "2026-08-03T03:08:46Z",
       "cell": "geo|diamond|linear|light",
-      "challengerFitness": 6.7643,
-      "incumbentFitness": 6.84,
-      "result": "held",
-      "source": "Frontier F-005"
-    },
-    {
-      "ts": "2026-08-03T03:08:46Z",
-      "cell": "geo|diamond|linear|light",
-      "challengerFitness": 6.7601,
-      "incumbentFitness": 6.84,
-      "result": "held",
-      "source": "Frontier F-005"
-    },
-    {
-      "ts": "2026-08-03T03:08:46Z",
-      "cell": "geo|diamond|linear|light",
-      "challengerFitness": 6.7556,
-      "incumbentFitness": 6.84,
-      "result": "held",
-      "source": "Frontier F-005"
-    },
-    {
-      "ts": "2026-08-03T03:08:46Z",
-      "cell": "geo|diamond|linear|light",
-      "challengerFitness": 6.7467,
-      "incumbentFitness": 6.84,
-      "result": "held",
-      "source": "Frontier F-005"
-    },
-    {
-      "ts": "2026-08-03T03:08:46Z",
-      "cell": "geo|diamond|linear|light",
-      "challengerFitness": 6.7455,
-      "incumbentFitness": 6.84,
-      "result": "held",
-      "source": "Frontier F-005"
-    },
-    {
-      "ts": "2026-08-03T03:08:46Z",
-      "cell": "geo|diamond|linear|light",
       "challengerFitness": 6.7454,
       "incumbentFitness": 6.84,
       "result": "held",
@@ -5545,6 +5505,46 @@
       "incumbentFitness": 6.87,
       "result": "held",
       "source": "Frontier F-07"
+    },
+    {
+      "ts": "2026-10-17T03:10:58Z",
+      "cell": "transit|circuit|light",
+      "challengerFitness": 5.6242,
+      "incumbentFitness": 6.7425,
+      "result": "held",
+      "source": "Day 141 candidates"
+    },
+    {
+      "ts": "2026-10-17T03:10:58Z",
+      "cell": "mathematical|circuit|dark",
+      "challengerFitness": 5.1299,
+      "incumbentFitness": 6.4078,
+      "result": "held",
+      "source": "Day 141 candidates"
+    },
+    {
+      "ts": "2026-10-17T03:10:58Z",
+      "cell": "transit|circuit|light",
+      "challengerFitness": 5.5828,
+      "incumbentFitness": 6.7425,
+      "result": "held",
+      "source": "Day 141 candidates"
+    },
+    {
+      "ts": "2026-10-17T03:10:58Z",
+      "cell": "transit|circuit|light",
+      "challengerFitness": 5.6163,
+      "incumbentFitness": 6.7425,
+      "result": "held",
+      "source": "Day 141 candidates"
+    },
+    {
+      "ts": "2026-10-17T03:10:58Z",
+      "cell": "oscilloscope|circuit|light",
+      "challengerFitness": 5.1498,
+      "incumbentFitness": 6.6215,
+      "result": "held",
+      "source": "Day 141 candidates"
     }
   ],
   "frontierState": {

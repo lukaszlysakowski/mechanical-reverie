@@ -10436,5 +10436,88 @@
     "keyDetails": "Frontier F-07 — geometric Atlas cell: cross × radial disorder × light ground. Charts an empty coordinate (rest day, no source feed).",
     "description": "On a rest day the engine does not sleep — it charts its own possibility space instead of the feed. This frontier piece fills an empty cell of the Atlas's geometric space: baseShape CROSS × RADIAL disorder × LIGHT ground, a coordinate no performed piece had yet claimed. A grid of registration crosses holds true at the centre and drifts out of true toward the edges — radial disorder puts d=0 at the core and ramps it to the corners, so the central marks stay upright and seated while the peripheral ones rotate toward ×, slip off their seats, and a few break the graphite monochrome into grey and near-white. lockShape keeps every mark a cross (the Nees/Molnár fidelity — the shape never changes, only its discipline does); geometric-dominant (wGeometric 0.95, flow & mech both ≤0.12) so the grid is the whole subject; newsprint ground. The piece answers the map, not a tweet: it is the engine's own record of what a cross looks like under radial erosion on paper — a cell filled so the Atlas knows the edge of its own range.",
     "condensedReason": "On a rest day the engine does not sleep — it charts its own possibility space instead of the feed. This frontier piece fills an empty cell of the Atlas's geometric space: baseShape CROSS × RADIAL disorder × LIGHT ground, a coordinate no performed piece had yet claimed. A grid of registration crosses holds true at the centre and drifts out of true toward the edges — radial disorder puts d=0 at the core and ramps it to the corners, so the central marks stay upright and seated while the peripheral ones rotate toward ×, slip off their seats, and a few break the graphite monochrome into grey and near-white. lockShape keeps every mark a cross (the Nees/Molnár fidelity — the shape never changes, only its discipline does); geometric-dominant (wGeometric 0.95, flow & mech both ≤0.12) so the grid is the whole subject; newsprint ground. The piece answers the map, not a tweet: it is the engine's own record of what a cross looks like under radial erosion on paper — a cell filled so the Atlas knows the edge of its own range."
+  },
+  {
+    "day": 141,
+    "date": "2026-10-15",
+    "title": "More Power Than the Brush",
+    "filename": "mechanical-reverie-day-141-more-power-than-the-brush-2026-10-15.png",
+    "fitness": 6.9,
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 11,
+      "cellPadding": 0.06584590761317194,
+      "rotation": 4.554449564024902,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.9,
+      "gearDensity": 0.7016547996087537,
+      "gearComplexity": 11,
+      "chainFrequency": 0.6464106037201406,
+      "pixelDensity": 0.732769495250624,
+      "pixelSize": 7,
+      "flowScale": 0.014,
+      "flowStrength": 1,
+      "particleCount": 5200,
+      "clockSpeed": 0,
+      "oscillation": 2.7097277794601693,
+      "wMechanical": 0,
+      "wPixel": 0,
+      "wFlow": 1,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 0.4531412549083087,
+      "hatchSpacing": 8.715800720288726,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 1346,
+      "renderSeed": 19680526,
+      "disorder": 0.8138091982082921,
+      "disorderMode": "radial",
+      "disorderAngle": 2.215706994513575,
+      "paletteColors": [
+        "#efe9da",
+        "#e8e0cf",
+        "#d4c8ad",
+        "#c2b48f",
+        "#a89878",
+        "#14120e",
+        "#b8a67e",
+        "#9a8a6a"
+      ],
+      "palette": 9,
+      "vignetteStrength": 0
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Pure flow (transit, wFlow 1.0 → pure-character credit, fitness 6.9). Reduced Mezei's white-on-black plotter line-portrait to overlapping pale continuous contours on near-black; dark ground chosen to match the actual artwork panels AND to stand apart from the week's light-ground pieces (Day 140 Schotter, F-07 crosses, Day 139 benday). The realism→expressionism 'change the program' thesis is embodied in the process (flowScale/flowStrength as the dial), not a disorder gradient (flow can't take one). NOT rendered on newsprint palette 8 — deliberately the artwork register, not the clipping substrate.",
+      "condensedReason": "In 'It's Computer Art' (The Minneapolis Tribune, 26 May 1968), Prof. Leslie Mezei of the University of Toronto showed plotter portraits drawn by an IBM System 360 — faces built from overlapping continuous contours that, 'merely by altering the computer program,' range from realism to expressionism while staying the same basic picture. His line, which NB posts: “the computer will not usurp the creativity or originality of the artist, but give him another tool to work with — one with more power, versatility and challenge than the brush.” It is, almost verbatim, this project's own rule: change the program, not the drawing. The render takes Mezei's actual signature — the white-on-black plotter line-portrait — and pushes it toward the expressionist end the article names: 5,200 continuous ink paths (flowCharacter transit) in pale aged-bone tones overlapping on a near-black ground, gathering into a loose central form the way his contours assemble a head, then dissolving at the edges. It is one performance; the program — flowScale, flowStrength — is the dial that ranges it from coherent to distorted, the 1968 thesis made literal. Pale-on-black nods to the clipping's warmth while standing apart from the week's run of light grounds."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "d2875f1138398af86fa02213916002b6d597302f49c34624dcdbb683a2811ef3",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.13.0",
+      "renderSeed": 19680526,
+      "noiseSeed": 1346
+    },
+    "tweetSummary": "Leslie Mezei (1968), 'It's Computer Art', Minneapolis Tribune: plotter line-portraits on an IBM 360 that range realism→expressionism by altering the program; the computer as a tool 'with more power, versatility and challenge than the brush' that will not usurp the artist. (10-16's lone Molnar quote treated as minor per the saturation rule.)",
+    "keyArtists": [
+      "Leslie Mezei"
+    ],
+    "themes": [
+      "the computer as tool / partnership",
+      "plotter line-drawing",
+      "change the program (realism ↔ expressionism)",
+      "Leslie Mezei"
+    ],
+    "keyDetails": "Leslie Mezei, 1968 — the computer as 'another tool, more power/versatility/challenge than the brush', from 'It's Computer Art,' Minneapolis Tribune. NB original + 1968 clipping (2 images).",
+    "description": "In 'It's Computer Art' (The Minneapolis Tribune, 26 May 1968), Prof. Leslie Mezei of the University of Toronto showed plotter portraits drawn by an IBM System 360 — faces built from overlapping continuous contours that, 'merely by altering the computer program,' range from realism to expressionism while staying the same basic picture. His line, which NB posts: “the computer will not usurp the creativity or originality of the artist, but give him another tool to work with — one with more power, versatility and challenge than the brush.” It is, almost verbatim, this project's own rule: change the program, not the drawing. The render takes Mezei's actual signature — the white-on-black plotter line-portrait — and pushes it toward the expressionist end the article names: 5,200 continuous ink paths (flowCharacter transit) in pale aged-bone tones overlapping on a near-black ground, gathering into a loose central form the way his contours assemble a head, then dissolving at the edges. It is one performance; the program — flowScale, flowStrength — is the dial that ranges it from coherent to distorted, the 1968 thesis made literal. Pale-on-black nods to the clipping's warmth while standing apart from the week's run of light grounds.",
+    "condensedReason": "In 'It's Computer Art' (The Minneapolis Tribune, 26 May 1968), Prof. Leslie Mezei of the University of Toronto showed plotter portraits drawn by an IBM System 360 — faces built from overlapping continuous contours that, 'merely by altering the computer program,' range from realism to expressionism while staying the same basic picture. His line, which NB posts: “the computer will not usurp the creativity or originality of the artist, but give him another tool to work with — one with more power, versatility and challenge than the brush.” It is, almost verbatim, this project's own rule: change the program, not the drawing. The render takes Mezei's actual signature — the white-on-black plotter line-portrait — and pushes it toward the expressionist end the article names: 5,200 continuous ink paths (flowCharacter transit) in pale aged-bone tones overlapping on a near-black ground, gathering into a loose central form the way his contours assemble a head, then dissolving at the edges. It is one performance; the program — flowScale, flowStrength — is the dial that ranges it from coherent to distorted, the 1968 thesis made literal. Pale-on-black nods to the clipping's warmth while standing apart from the week's run of light grounds."
   }
 ]
