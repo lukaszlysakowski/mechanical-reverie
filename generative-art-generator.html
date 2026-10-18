@@ -227,6 +227,21 @@ let W = canvas.width, H = canvas.height;
 //
 // The horizon: the engine reconsidering its own criteria — Noah teaches, the curator's taste judges,
 // the engine translates — a three-way partnership, the fitness function becoming its own author.
+//
+// THE OPERATING GRAMMAR (named in the 2026-10-18 weekly review, after a week that converged on it).
+//   A piece = a MARK + a FIELD-DIAL. Reduce the source to its one elemental MARK — the dot (benday),
+//   the line (transit on dark ground = plotter line-work), the stroke (script), the deviating square
+//   (geometric/Schotter) — then let a SPATIAL FIELD f(x,y)∈[0,1] drive how that mark varies across the
+//   canvas. This IS Mezei 1968 / Cohen: "alter the program and the same basic picture ranges from
+//   realism to expressionism." The field is the program as a dial made visible.
+//   The engine already speaks three field families; treat them as ONE idea, reusable and extensible:
+//     • disorderMode (geometric): uniform · linear · radial · step  — drives deviation from order.
+//     • bendayTone   (benday):    noise · horizon · sphere          — drives dot radius + colour layer.
+//     • flowColorMode (flow):     region                            — drives colour by ORIGIN position.
+//   Future moves this frames (log, don't force): a field-dial for the FLOW layer (turbulence/density by
+//   position → a flow that ranges coherent→tangled across the frame — the realism→expressionism gradient
+//   flow still cannot do); shared field functions across characters; a 'wave'/interference bendayTone.
+//   Rule unchanged: ONE mark, ONE field, per piece. The dial is the authorship; the mean is the enemy.
 // ══════════════════════════════════════════════════════════════════════════════════════════════
 
 // ── Canonical seeds doctrine (Phase 1, Jul 2026) ──
@@ -299,7 +314,7 @@ let W = canvas.width, H = canvas.height;
 // translucent colour… the illusion of the third dimension"). Only reached when bendayTone==='sphere'
 // (default 'noise'); benday itself is opt-in, so no existing genome — Day 139's 'horizon' included —
 // changes. Deterministic. C2 regression GREEN.
-const ENGINE_VERSION = 'v3.14.0';
+const ENGINE_VERSION = 'v3.14.1';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2212,6 +2227,13 @@ function drawPixelLayer(g, pal, t) {
     const horizonY = clamp(g.horizonY ?? 0.5, 0.04, 0.96);
     const jitter = g.bendayJitter ?? 0.16;
     const floorT = (1 - g.pixelDensity) * 0.9;
+    // v3.14.1: by default tone maps across the whole palette — which means pal[5] (the ground fill,
+    // render() line ~1153) ALSO shows up as a dot colour at tone≈0.72, printing the ground colour as
+    // an interrupting ring inside every horizon/sphere piece (worked around on Days 139 & 142 with
+    // palette tricks). Opt-in g.bendayRamp decouples the two: tone maps across THIS array of colours
+    // while the ground stays pal[5], so a clean N-layer ramp never collides with the ground. Absent →
+    // exact prior behaviour (bit-identical for Days 139 & 142). Additive / C2-safe.
+    const ramp = (Array.isArray(g.bendayRamp) && g.bendayRamp.length >= 2) ? g.bendayRamp : pal;
     for (let c = 0; c < cols; c++) {
       for (let r = 0; r < rows; r++) {
         let tone;
@@ -2240,8 +2262,8 @@ function drawPixelLayer(g, pal, t) {
         }
         if (tone < floorT) continue;
         const radius = (size / 2) * clamp(0.16 + tone * 0.9, 0.1, 1.0);
-        const colIdx = clamp(Math.floor(tone * (pal.length - 1)), 0, pal.length - 1);
-        ctx.fillStyle = pal[colIdx];
+        const colIdx = clamp(Math.floor(tone * (ramp.length - 1)), 0, ramp.length - 1);
+        ctx.fillStyle = ramp[colIdx];
         ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.55, 1.0);
         ctx.beginPath();
         ctx.arc(c * size + size / 2, r * size + size / 2, radius, 0, Math.PI * 2);
