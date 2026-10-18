@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-16",
+  "updated": "2026-10-18",
   "concepts": [
     {
       "id": "bell-labs",
@@ -698,6 +698,10 @@
         {
           "gen": 144,
           "why": "Lichtenstein's Ben-Day seascape is this principle in the pop register — a coarse field of dots the eye completes into sky, sea and a horizon none of the dots literally contain. Where Harmon degraded Lincoln until the brain rebuilt him, Lichtenstein took the commercial dot screen and trusted the same optical fusion to assemble a whole seascape; the engine's new 'benday' round-dot field (v3.13.0) makes the invitation literal — his 1971 line, 'the interest is in the medium itself,' is the room's thesis from the other side. Recognition's first landscape, and its first pop artist."
+        },
+        {
+          "gen": 148,
+          "why": "Dalí's optical dots, completed by the eye into DEPTH rather than a face: a flat screen of microscopic dots the viewer reads as a bulging third dimension the field does not literally contain. Recognition broadened from the face (Harmon/Dalí-Lincoln) to the illusion of a solid — the op-art cousin of the same perceptual trick."
         }
       ]
     },

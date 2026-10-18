@@ -292,7 +292,14 @@ let W = canvas.width, H = canvas.height;
 // first HORIZON-divided composition, a Lichtenstein seascape in its own dot vocabulary. NOT in
 // PIXEL_CHARS and not reachable by mutation → no existing genome uses it; drawPixelLayer only gains a
 // new else-if, so every archive checksum is unchanged. Deterministic. C2 regression GREEN.
-const ENGINE_VERSION = 'v3.13.0';
+// v3.14.0 — additive (Day 142, Salvador Dalí's 1965 stereoscopic/optical manifesto): benday gains a third
+// tone mode 'sphere' — dot radius follows a hemisphere depth field (sphereCX/CY/Radius), big at the centre
+// and foreshortened to the rim, so the dot screen bulges into an illusory THIRD DIMENSION; colour tracks
+// tone so a graded palette reads as concentric translucent LAYERS ("microscopic dots in layers of
+// translucent colour… the illusion of the third dimension"). Only reached when bendayTone==='sphere'
+// (default 'noise'); benday itself is opt-in, so no existing genome — Day 139's 'horizon' included —
+// changes. Deterministic. C2 regression GREEN.
+const ENGINE_VERSION = 'v3.14.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2201,7 +2208,7 @@ function drawPixelLayer(g, pal, t) {
     // C2-safe. Deterministic (noise + genome, noise.noise2D ∈ 0..1).
     const size = Math.max(g.pixelSize, 4);
     const cols = Math.floor(W / size), rows = Math.floor(H / size);
-    const mode = g.bendayTone || 'noise';
+    const mode = g.bendayTone || 'noise';   // 'noise' | 'horizon' | 'sphere' (v3.14.0, op-art 3D orb)
     const horizonY = clamp(g.horizonY ?? 0.5, 0.04, 0.96);
     const jitter = g.bendayJitter ?? 0.16;
     const floorT = (1 - g.pixelDensity) * 0.9;
@@ -2214,6 +2221,19 @@ function drawPixelLayer(g, pal, t) {
             ? (v / horizonY) * 0.45                                 // SKY: 0 → 0.45 hazing toward horizon
             : 0.55 + ((v - horizonY) / (1 - horizonY)) * 0.45;      // SEA: 0.55 → 1.0 deepening downward
           tone += (noise.noise2D(c * g.flowScale * 10 + t * g.clockSpeed, r * g.flowScale * 10) - 0.5) * jitter;
+          tone = clamp(tone, 0, 1);
+        } else if (mode === 'sphere') {
+          // SPHERE (v3.14.0) — dot RADIUS follows a hemisphere depth field centred on (sphereCX,sphereCY):
+          // big/dense at the centre, foreshortened to nothing at the rim, so the screen bulges into an
+          // illusory THIRD DIMENSION; colour tracks tone, so with a graded palette the orb reads as
+          // concentric translucent LAYERS. After Dalí's optical dots ("microscopic dots in layers of
+          // translucent colour… the illusion of the third dimension", 1965) and the Vasarely Vega sphere.
+          const scx = (g.sphereCX ?? 0.5) * W, scy = (g.sphereCY ?? 0.5) * H;
+          const sr  = (g.sphereRadius ?? 0.46) * Math.min(W, H);
+          const px = c * size + size / 2, py = r * size + size / 2;
+          const dn = Math.hypot(px - scx, py - scy) / sr;          // 0 centre → 1 rim
+          tone = dn < 1 ? Math.sqrt(1 - dn * dn) : 0;              // hemisphere bulge
+          tone += (noise.noise2D(c * g.flowScale * 10, r * g.flowScale * 10) - 0.5) * jitter;
           tone = clamp(tone, 0, 1);
         } else {
           tone = noise.noise2D(c * g.flowScale * 12 + t * g.clockSpeed * 0.3, r * g.flowScale * 12);
