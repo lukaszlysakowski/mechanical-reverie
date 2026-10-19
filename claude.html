@@ -105,8 +105,16 @@
     font-size: 26px;
     letter-spacing: 1px;
     color: #c4a265;
-    margin: 4px 0 18px;
+    margin: 4px 0 14px;
     font-weight: normal;
+  }
+  .work-dek {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: #d8c9a0;
+    margin: 0 0 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2a2218;
   }
   .field { margin-bottom: 16px; }
   .field .label {
@@ -215,6 +223,7 @@ fetch('claude-track.json?t=' + Date.now())
         <div class="work-body">
           <div class="idx">${esc(w.id)} · engine ${esc(w.engineVersion || '')}${w.series ? ` · series “${esc(w.series)}”` : ''}</div>
           <h2>${esc(w.title)}</h2>
+          ${w.description ? `<div class="work-dek">${esc(w.description)}</div>` : ''}
           ${w.seriesRole ? `<div class="field"><div class="label">In the series</div><div class="val">${esc(w.seriesRole)}</div></div>` : ''}
           ${w.question ? `<div class="field question"><div class="label">Question</div><div class="val">${esc(w.question)}</div></div>` : ''}
           ${w.criterion ? `<div class="field criterion"><div class="label">Criterion</div><div class="val">${esc(w.criterion)}</div></div>` : ''}
