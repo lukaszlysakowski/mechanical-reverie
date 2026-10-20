@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-18",
+  "updated": "2026-10-19",
   "concepts": [
     {
       "id": "bell-labs",
@@ -66,6 +66,10 @@
         {
           "gen": 124,
           "why": "A. Michael Noll's 'Computer Composition with Lines' (1964) and Paik's Etude I (1967) — both made at Bell Labs, where Noll taught Paik FORTRAN on the IBM 7094. The wing's origin artist: art as the durable output of a signals lab. MR answers with its 'vectors' character (built as its Noll vocabulary) run pure at Noll's own line count of 50."
+        },
+        {
+          "gen": 149,
+          "why": "A. Michael Noll's foundational random-line fields (Patterns by 7090 / Random Lines) and his 1967 'creative medium' manifesto — the Bell Labs origin of intentional computer art, in his own black-on-white plotter register."
         }
       ]
     },
@@ -822,6 +826,10 @@
         {
           "gen": 147,
           "why": "Mezei states the room's thesis in 1968: 'merely by altering the computer program, an artist may produce pictures ranging from realism to expressionism — and still be working with the same basic picture.' Change the program, not the drawing — found verbatim in the artist the archive reads."
+        },
+        {
+          "gen": 149,
+          "why": "Noll's method IS the room's thesis: author the probability field (rules + statistical limits), let the machine fix the arrangement; his copyright win argued 'the program, not the machine, made it' — change the program, not the drawing, stated in 1962–67."
         }
       ]
     },

@@ -10611,5 +10611,91 @@
     "keyDetails": "Salvador Dalí, 1965 — 'I have achieved the illusion of the third dimension... Dalí always is in advance', and optical dots 'in layers of translucent colour'. NB thread (2 originals + video).",
     "description": "Salvador Dalí, 1965, in two threads from one press cycle: his stereoscopic-art manifesto — “I have achieved the illusion of the third dimension… many painters will follow me… Dalí always is in advance” (beside him painting Perpignan Railway Station) — and his optical method, “Dalí has trapped microscopic dots in layers and layers of translucent colour to achieve his optical effect… far in advance of the current op art fad.” The stereoscopic/anaglyph route was already taken (Day 107, Noll's line-cube found in Dalí's Sleeping Smoker), so this reduces the OTHER thread: optical dots achieving a 3-D illusion without red/cyan. It needed a new primitive — benday's 'sphere' tone mode (v3.14.0): dot radius follows a hemisphere depth field, big and dense at the centre and foreshortened to the rim, so a flat screen of microscopic dots bulges into an illusory third dimension; colour tracks the same field, so a twelve-step ramp reads as concentric translucent layers — a cream-white convex core radiating through gold and orange to a magenta-violet rim, trapped on deep indigo. The dots are the method; the bulge is the claim. In advance of the op art fad.",
     "condensedReason": "Salvador Dalí, 1965, in two threads from one press cycle: his stereoscopic-art manifesto — “I have achieved the illusion of the third dimension… many painters will follow me… Dalí always is in advance” (beside him painting Perpignan Railway Station) — and his optical method, “Dalí has trapped microscopic dots in layers and layers of translucent colour to achieve his optical effect… far in advance of the current op art fad.” The stereoscopic/anaglyph route was already taken (Day 107, Noll's line-cube found in Dalí's Sleeping Smoker), so this reduces the OTHER thread: optical dots achieving a 3-D illusion without red/cyan. It needed a new primitive — benday's 'sphere' tone mode (v3.14.0): dot radius follows a hemisphere depth field, big and dense at the centre and foreshortened to the rim, so a flat screen of microscopic dots bulges into an illusory third dimension; colour tracks the same field, so a twelve-step ramp reads as concentric translucent layers — a cream-white convex core radiating through gold and orange to a magenta-violet rim, trapped on deep indigo. The dots are the method; the bulge is the claim. In advance of the op art fad."
+  },
+  {
+    "day": 143,
+    "date": "2026-10-19",
+    "title": "A Creative Partner",
+    "filename": "mechanical-reverie-day-143-a-creative-partner-2026-10-19.png",
+    "fitness": 6.75,
+    "genome": {
+      "gridCols": 15,
+      "gridRows": 12,
+      "cellPadding": 0.1571409039006451,
+      "rotation": 1.01942442346912,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.03,
+      "gearDensity": 0.8,
+      "gearComplexity": 13,
+      "chainFrequency": 0.3830682656634594,
+      "pixelDensity": 0.6914125213308786,
+      "pixelSize": 4,
+      "flowScale": 0.0047422623791970875,
+      "flowStrength": 3.122333612950551,
+      "particleCount": 1463,
+      "clockSpeed": 0,
+      "oscillation": 2.860312533551811,
+      "wMechanical": 0.95,
+      "wPixel": 0,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 0.9828539188918963,
+      "hatchSpacing": 6.945428764225808,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 1967,
+      "renderSeed": 19671001,
+      "disorder": 0.4449777554858359,
+      "disorderMode": "uniform",
+      "disorderAngle": 0.8529491113940436,
+      "paletteColors": [
+        "#111111",
+        "#141414",
+        "#1a1a1a",
+        "#0d0d0d",
+        "#222222",
+        "#f6f5f2",
+        "#171717",
+        "#101010"
+      ],
+      "palette": 9,
+      "stereo": false,
+      "vignetteStrength": 0,
+      "plotterAzimuth": 0.5,
+      "plotterElevation": 0.42
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "'vectors' (Noll's random lines in a cube) rendered 2-D, stark black on warm white, NO stereo — his 1962 SC-4020 plotter register, deliberately distinct from Day 107's 3-D red/cyan anaglyph (fidelity-over-forced-variety: same character, wholly different work & treatment). pal[5]=white ground (a few i%8==5 lines drop out, negligible in a tangle). Informed by the new docs/references/noll.md fact sheet (filed 2026-10-18 from NB's Ragnar essay).",
+      "condensedReason": "A. Michael Noll — Bell Labs, maker of the first intentional computer art — in 'The Digital Computer as a Creative Medium' (IEEE Spectrum, Oct 1967): “In the computer, man has created not just an inanimate tool but an intellectual and active creative partner that, when fully exploited, could be used to produce wholly new art forms and possibly new aesthetic experiences.” It is this project's own criteria-partnership north star, stated at the birth of the medium. The render reduces his foundational vocabulary — the random straight-line fields of Patterns by 7090 (1962) and Random Lines (c.1964), drawn on the Stromberg-Carlson SC-4020 plotter — in his 2-D black-on-white register: ~86 segments with uniform-pseudorandom endpoints (the 'vectors' character, which IS his 'N lines in a cube'), stark ink on warm plotter-white. Deliberately NOT the red/cyan 3-D anaglyph (Day 107 already took Noll's stereoscopy). The method is the message: Noll authored the probability FIELD — rules and statistical limits — and let the machine fix the exact arrangement, exactly the canonical-seeds doctrine this engine runs on. The partner draws; the artist writes the odds."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "d74f46b6f25a0b4de2a6b37293c012803272fd65890c9948b1cb0a968c4a1277",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.14.1",
+      "renderSeed": 19671001,
+      "noiseSeed": 1967
+    },
+    "tweetSummary": "A. Michael Noll (1967), 'The Digital Computer as a Creative Medium' (IEEE Spectrum): the computer as 'an intellectual and active creative PARTNER' making 'wholly new art forms' — the project's criteria-partnership north star at the origin. Images: Kinetic Sculpture, Patterns by 7090 (1962), Random Lines, 3D stereo pairs. (Also: Computer Worlds, West Bund Museum Shanghai.)",
+    "keyArtists": [
+      "A. Michael Noll"
+    ],
+    "themes": [
+      "the computer as creative partner",
+      "author the probability field",
+      "random lines / Patterns by 7090",
+      "A. Michael Noll"
+    ],
+    "keyDetails": "A. Michael Noll, 1967 — the computer as 'an intellectual and active creative partner' making 'wholly new art forms' ('The Digital Computer as a Creative Medium', IEEE Spectrum). NB original + 4 work images.",
+    "description": "A. Michael Noll — Bell Labs, maker of the first intentional computer art — in 'The Digital Computer as a Creative Medium' (IEEE Spectrum, Oct 1967): “In the computer, man has created not just an inanimate tool but an intellectual and active creative partner that, when fully exploited, could be used to produce wholly new art forms and possibly new aesthetic experiences.” It is this project's own criteria-partnership north star, stated at the birth of the medium. The render reduces his foundational vocabulary — the random straight-line fields of Patterns by 7090 (1962) and Random Lines (c.1964), drawn on the Stromberg-Carlson SC-4020 plotter — in his 2-D black-on-white register: ~86 segments with uniform-pseudorandom endpoints (the 'vectors' character, which IS his 'N lines in a cube'), stark ink on warm plotter-white. Deliberately NOT the red/cyan 3-D anaglyph (Day 107 already took Noll's stereoscopy). The method is the message: Noll authored the probability FIELD — rules and statistical limits — and let the machine fix the exact arrangement, exactly the canonical-seeds doctrine this engine runs on. The partner draws; the artist writes the odds.",
+    "condensedReason": "A. Michael Noll — Bell Labs, maker of the first intentional computer art — in 'The Digital Computer as a Creative Medium' (IEEE Spectrum, Oct 1967): “In the computer, man has created not just an inanimate tool but an intellectual and active creative partner that, when fully exploited, could be used to produce wholly new art forms and possibly new aesthetic experiences.” It is this project's own criteria-partnership north star, stated at the birth of the medium. The render reduces his foundational vocabulary — the random straight-line fields of Patterns by 7090 (1962) and Random Lines (c.1964), drawn on the Stromberg-Carlson SC-4020 plotter — in his 2-D black-on-white register: ~86 segments with uniform-pseudorandom endpoints (the 'vectors' character, which IS his 'N lines in a cube'), stark ink on warm plotter-white. Deliberately NOT the red/cyan 3-D anaglyph (Day 107 already took Noll's stereoscopy). The method is the message: Noll authored the probability FIELD — rules and statistical limits — and let the machine fix the exact arrangement, exactly the canonical-seeds doctrine this engine runs on. The partner draws; the artist writes the odds."
   }
 ]
