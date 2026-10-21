@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "concepts": [
     {
       "id": "bell-labs",
@@ -290,6 +290,10 @@
         {
           "gen": 145,
           "why": "Molnár on controlled randomness in her own words ('not anything can be art; on the contrary') — a linear Schotter gradient where rigid order resolves into measured deviation, and the disorder is where colour is 'found'. The dial's thesis stated by its author."
+        },
+        {
+          "gen": 150,
+          "why": "Cornwell's thesis literally: 'the order emerging from randomness gives a continual feast for the visual gourmet.' The dragon curve is pure deterministic ORDER that reads as organic chaos — the dial's paradox, a fractal fold of 8192 right-angle turns."
         }
       ]
     },
@@ -830,6 +834,10 @@
         {
           "gen": 149,
           "why": "Noll's method IS the room's thesis: author the probability field (rules + statistical limits), let the machine fix the arrangement; his copyright win argued 'the program, not the machine, made it' — change the program, not the drawing, stated in 1962–67."
+        },
+        {
+          "gen": 150,
+          "why": "A FRACTAL: the form is not drawn but GROWN by a recursive rule (fold right, fold right, again) — change-the-program made literal; the archive's first recursive/L-system form (engine 'dragon', v3.15.0)."
         }
       ]
     },

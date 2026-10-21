@@ -314,7 +314,15 @@ let W = canvas.width, H = canvas.height;
 // translucent colour… the illusion of the third dimension"). Only reached when bendayTone==='sphere'
 // (default 'noise'); benday itself is opt-in, so no existing genome — Day 139's 'horizon' included —
 // changes. Deterministic. C2 regression GREEN.
-const ENGINE_VERSION = 'v3.14.1';
+// v3.14.1 — additive refinement (benday): opt-in g.bendayRamp decouples the tone ramp from pal[5] (the ground
+// fill), so a clean N-layer dot gradient never collides with the ground colour. Default unchanged (bit-identical).
+// v3.15.0 — additive, opt-in (Day 144, Bruce & Katherine Cornwell's 'Dragon Fold', 1978): mechanicalCharacter
+// 'dragon' — the Heighway DRAGON CURVE, a space-filling fractal fold grown by iterated right-angle turns,
+// rendered as dots along the curve coloured by position (g.dragonRamp, else pal). The engine's first FRACTAL /
+// recursive form (opens L-systems & space-filling curves, a vein the archive wholly lacked). NOT in MECH_CHARS /
+// not mutation-reachable → no existing genome uses it; drawMechanical only gains a dispatch line, so every
+// archive checksum is unchanged. Deterministic (optional dragonJitter is seeded noise). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.15.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1436,6 +1444,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'vectors') { drawVectorField(g, pal, t);   return; }
   if (ch === 'contour') { drawContourStack(g, pal, t);  return; }
   if (ch === 'script')  { drawScript(g, pal, t);        return; }
+  if (ch === 'dragon')  { drawDragon(g, pal, t);        return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1459,6 +1468,51 @@ function drawMechanical(g, pal, t) {
 }
 
 // ── Mechanical sub-renderers ──
+
+// DRAGON: the Heighway dragon curve — a space-filling FRACTAL FOLD grown by iterated right-angle turns
+// (turn i is L/R per the classic bit rule), rendered as DOTS along the curve coloured by position through
+// a warm ramp. After Bruce & Katherine Cornwell's "Dragon Fold" (1978, Tektronix 4051 + Oxberry optical
+// printer): "the order emerging from randomness gives a continual feast for the visual gourmet." The fold
+// is deterministic ORDER that looks organic; optional dragonJitter adds a seeded wobble so the order
+// appears to surface from a scattered field. Opt-in (NOT in MECH_CHARS / not mutation-reachable), additive,
+// C2-safe. Deterministic (noise + genome, no Math.random). The ramp is g.dragonRamp (else pal); ground pal[5].
+function drawDragon(g, pal, t) {
+  const order = clamp(Math.round(g.dragonOrder ?? 12), 4, 15);
+  const nSeg = Math.pow(2, order);
+  const dx = [1, 0, -1, 0], dy = [0, 1, 0, -1];   // E, N, W, S on the integer lattice
+  let x = 0, y = 0, dir = 0;
+  const pts = [[0, 0]];
+  let minX = 0, maxX = 0, minY = 0, maxY = 0;
+  for (let i = 1; i <= nSeg; i++) {
+    x += dx[dir]; y += dy[dir];
+    pts.push([x, y]);
+    if (x < minX) minX = x; else if (x > maxX) maxX = x;
+    if (y < minY) minY = y; else if (y > maxY) maxY = y;
+    // Heighway turn: left when (((i & -i) << 1) & i) === 0, else right
+    dir = ((((i & -i) << 1) & i) === 0 ? dir + 1 : dir + 3) % 4;
+  }
+  const bw = (maxX - minX) || 1, bh = (maxY - minY) || 1;
+  const margin = clamp(g.dragonMargin ?? 0.14, 0, 0.4);
+  const scale = Math.min(W * (1 - 2 * margin) / bw, H * (1 - 2 * margin) / bh);
+  const ox = (W - bw * scale) / 2 - minX * scale;
+  const oy = (H - bh * scale) / 2 - minY * scale;
+  const dotR = g.dragonDot ?? 2.2;
+  const jit = g.dragonJitter ?? 0;
+  const ramp = (Array.isArray(g.dragonRamp) && g.dragonRamp.length >= 2) ? g.dragonRamp : pal;
+  const last = pts.length - 1;
+  for (let i = 0; i <= last; i++) {
+    let sx = ox + pts[i][0] * scale, sy = oy + pts[i][1] * scale;
+    if (jit) {
+      sx += (noise.noise2D(i * 0.013, g.noiseSeed * 0.001) - 0.5) * jit * scale;
+      sy += (noise.noise2D(g.noiseSeed * 0.001, i * 0.013) - 0.5) * jit * scale;
+    }
+    const tc = i / last;                                  // 0..1 along the curve
+    ctx.fillStyle = ramp[clamp(Math.floor(tc * (ramp.length - 1)), 0, ramp.length - 1)];
+    ctx.globalAlpha = 0.92;
+    ctx.beginPath(); ctx.arc(sx, sy, dotR, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+}
 
 // CIRCUIT: PCB trace network — horizontal/vertical traces, solder pads, vias
 function drawCircuitTraces(g, pal, t) {

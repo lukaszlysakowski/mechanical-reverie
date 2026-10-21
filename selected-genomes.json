@@ -10697,5 +10697,102 @@
     "keyDetails": "A. Michael Noll, 1967 — the computer as 'an intellectual and active creative partner' making 'wholly new art forms' ('The Digital Computer as a Creative Medium', IEEE Spectrum). NB original + 4 work images.",
     "description": "A. Michael Noll — Bell Labs, maker of the first intentional computer art — in 'The Digital Computer as a Creative Medium' (IEEE Spectrum, Oct 1967): “In the computer, man has created not just an inanimate tool but an intellectual and active creative partner that, when fully exploited, could be used to produce wholly new art forms and possibly new aesthetic experiences.” It is this project's own criteria-partnership north star, stated at the birth of the medium. The render reduces his foundational vocabulary — the random straight-line fields of Patterns by 7090 (1962) and Random Lines (c.1964), drawn on the Stromberg-Carlson SC-4020 plotter — in his 2-D black-on-white register: ~86 segments with uniform-pseudorandom endpoints (the 'vectors' character, which IS his 'N lines in a cube'), stark ink on warm plotter-white. Deliberately NOT the red/cyan 3-D anaglyph (Day 107 already took Noll's stereoscopy). The method is the message: Noll authored the probability FIELD — rules and statistical limits — and let the machine fix the exact arrangement, exactly the canonical-seeds doctrine this engine runs on. The partner draws; the artist writes the odds.",
     "condensedReason": "A. Michael Noll — Bell Labs, maker of the first intentional computer art — in 'The Digital Computer as a Creative Medium' (IEEE Spectrum, Oct 1967): “In the computer, man has created not just an inanimate tool but an intellectual and active creative partner that, when fully exploited, could be used to produce wholly new art forms and possibly new aesthetic experiences.” It is this project's own criteria-partnership north star, stated at the birth of the medium. The render reduces his foundational vocabulary — the random straight-line fields of Patterns by 7090 (1962) and Random Lines (c.1964), drawn on the Stromberg-Carlson SC-4020 plotter — in his 2-D black-on-white register: ~86 segments with uniform-pseudorandom endpoints (the 'vectors' character, which IS his 'N lines in a cube'), stark ink on warm plotter-white. Deliberately NOT the red/cyan 3-D anaglyph (Day 107 already took Noll's stereoscopy). The method is the message: Noll authored the probability FIELD — rules and statistical limits — and let the machine fix the exact arrangement, exactly the canonical-seeds doctrine this engine runs on. The partner draws; the artist writes the odds."
+  },
+  {
+    "day": 144,
+    "date": "2026-10-20",
+    "title": "Dragon Fold",
+    "filename": "mechanical-reverie-day-144-dragon-fold-2026-10-20.png",
+    "fitness": 6.75,
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 5,
+      "cellPadding": 0.1466323519338548,
+      "rotation": 1.3992244028277443,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.04,
+      "gearDensity": 0.8932661818683881,
+      "gearComplexity": 15,
+      "chainFrequency": 0.6083256598490431,
+      "pixelDensity": 0.9808029485953362,
+      "pixelSize": 7,
+      "flowScale": 0.013533467107586425,
+      "flowStrength": 1.2022148415520775,
+      "particleCount": 1215,
+      "clockSpeed": 0,
+      "oscillation": 2.5957993986044507,
+      "wMechanical": 0.95,
+      "wPixel": 0,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 0.9763286522225059,
+      "hatchSpacing": 19.318405001505372,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "dragon",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 1978,
+      "renderSeed": 19780,
+      "disorder": 0.5488259724035566,
+      "disorderMode": "radial",
+      "disorderAngle": 4.4936684338344675,
+      "paletteColors": [
+        "#0e0e12",
+        "#141418",
+        "#0a0a0d",
+        "#101014",
+        "#0c0c10",
+        "#0a0a0d",
+        "#121216",
+        "#0e0e12"
+      ],
+      "palette": 9,
+      "dragonRamp": [
+        "#f7e96a",
+        "#f3cf3e",
+        "#f1a62c",
+        "#ef7f2a",
+        "#eb5a2c",
+        "#e5392e",
+        "#d63079",
+        "#c73aa0"
+      ],
+      "dragonOrder": 13,
+      "dragonDot": 1.9,
+      "dragonJitter": 0,
+      "stereo": false,
+      "vignetteStrength": 0
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Built mechanicalCharacter 'dragon' (v3.15.0, additive/opt-in, C2 GREEN — Day 143 vectors bit-identical) — the Heighway dragon curve as dotted fractal, the engine's first fractal/recursive form (opens L-systems). Order 13 (8192 folds), warm dragonRamp (yellow->magenta) on black. Faithful to Cornwell's Dragon Fold; distinct from everything in the archive.",
+      "condensedReason": "Bruce Cornwell, in 'Role of Man and Computer' (John Halas, ed., Computer Animation, 1974): “Computers love to generate random numbers… the randomness of the computer will serve, and with endless fascination… the order emerging from randomness gives a continual feast for the visual gourmet.” Beside it, his and Katherine Cornwell's Dragon Fold (1978, a Tektronix 4051 driving an Oxberry optical printer): the Heighway DRAGON CURVE — a space-filling fractal grown by folding a line at right angles, over and over — as a field of dots in a lush yellow-to-magenta gradient on black. The render is that, in the engine's own new hand: the archive's FIRST fractal, a 'dragon' character built today (v3.15.0) that walks the fold's 8,192 right-angle turns and dots each one, the warm ramp sweeping along the curve. The paradox is the point — the dragon is pure deterministic ORDER, yet it looks like something that grew; order emerging from apparent chaos. A feast for the visual gourmet, and the first of a vein (L-systems, space-filling curves) the archive had never touched."
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "2fb50f2291395faa6cfb4c0602520422d1e88d2ee31a52c0394fa4746513d7c7",
+      "checksumStability": "12/12 identical — hard-canonical",
+      "engineVersion": "v3.15.0",
+      "renderSeed": 19780,
+      "noiseSeed": 1978
+    },
+    "tweetSummary": "Bruce & Katherine Cornwell, 'Dragon Fold' (1978, Tektronix 4051 + Oxberry optical printer) + Bruce Cornwell's 1974 'the order emerging from randomness gives a continual feast for the visual gourmet.' A dragon-curve fractal — the archive's first. (Also: Shelley Lake 'Artificial Intelligence' 1980 MIT Arch Machine Group; Paik Good Morning Mr Orwell alt clip.)",
+    "keyArtists": [
+      "Bruce & Katherine Cornwell"
+    ],
+    "themes": [
+      "order emerging from randomness",
+      "the dragon curve / fractal fold",
+      "computer animation",
+      "Bruce & Katherine Cornwell"
+    ],
+    "keyDetails": "Bruce & Katherine Cornwell, 'Dragon Fold' (1978, Tektronix 4051 + Oxberry optical printer) — a dragon-curve fractal; quote from 'Role of Man and Computer' (Computer Animation, 1974). NB original + video.",
+    "description": "Bruce Cornwell, in 'Role of Man and Computer' (John Halas, ed., Computer Animation, 1974): “Computers love to generate random numbers… the randomness of the computer will serve, and with endless fascination… the order emerging from randomness gives a continual feast for the visual gourmet.” Beside it, his and Katherine Cornwell's Dragon Fold (1978, a Tektronix 4051 driving an Oxberry optical printer): the Heighway DRAGON CURVE — a space-filling fractal grown by folding a line at right angles, over and over — as a field of dots in a lush yellow-to-magenta gradient on black. The render is that, in the engine's own new hand: the archive's FIRST fractal, a 'dragon' character built today (v3.15.0) that walks the fold's 8,192 right-angle turns and dots each one, the warm ramp sweeping along the curve. The paradox is the point — the dragon is pure deterministic ORDER, yet it looks like something that grew; order emerging from apparent chaos. A feast for the visual gourmet, and the first of a vein (L-systems, space-filling curves) the archive had never touched.",
+    "condensedReason": "Bruce Cornwell, in 'Role of Man and Computer' (John Halas, ed., Computer Animation, 1974): “Computers love to generate random numbers… the randomness of the computer will serve, and with endless fascination… the order emerging from randomness gives a continual feast for the visual gourmet.” Beside it, his and Katherine Cornwell's Dragon Fold (1978, a Tektronix 4051 driving an Oxberry optical printer): the Heighway DRAGON CURVE — a space-filling fractal grown by folding a line at right angles, over and over — as a field of dots in a lush yellow-to-magenta gradient on black. The render is that, in the engine's own new hand: the archive's FIRST fractal, a 'dragon' character built today (v3.15.0) that walks the fold's 8,192 right-angle turns and dots each one, the warm ramp sweeping along the curve. The paradox is the point — the dragon is pure deterministic ORDER, yet it looks like something that grew; order emerging from apparent chaos. A feast for the visual gourmet, and the first of a vein (L-systems, space-filling curves) the archive had never touched."
   }
 ]
