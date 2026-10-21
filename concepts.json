@@ -152,6 +152,10 @@
         {
           "gen": 134,
           "why": "Laurie Spiegel, pioneer of computer/algorithmic music; her Music Mouse (1986) made real-time generative composition approachable. A new pioneer in the archive, from NCM Melbourne's 'Radical Computing'."
+        },
+        {
+          "gen": 151,
+          "why": "Shelley Lake — experimental computer video at MIT's Architecture Machine Group (1980); 'Artificial Intelligence' made with Pat Hearn, the first attempt to make the Votrax synth SING. A new woman pioneer in the lineage."
         }
       ]
     },
@@ -325,6 +329,10 @@
         {
           "gen": 122,
           "why": "An exhibition, not an individual: 'Arte y Cibernetica' (1971), IBM Peru + CAyC Buenos Aires + Computer Technique Group Japan — the network that carried computer art across the Americas and the Pacific."
+        },
+        {
+          "gen": 151,
+          "why": "The MIT Architecture Machine Group (→ Media Lab, 1985) enters the archive — the lab as crucible, alongside Cybernetic Serendipity and New Tendencies; Lake & Hearn's 1980 'Artificial Intelligence' is its first appearance."
         }
       ]
     },
@@ -503,6 +511,10 @@
         {
           "gen": 134,
           "why": "Laurie Spiegel's Music Mouse — 'An Intelligent Instrument' (1986): a moving mouse generates up to four voices in constrained harmony across a pitch lattice. MR rendered the voices as coloured lines threading a quiet grid — generative counterpoint made visible."
+        },
+        {
+          "gen": 151,
+          "why": "Sound made VISIBLE: Shelley Lake taught a speech synthesizer (the Votrax) to SING and rendered it as raster — the picture the sound draws, in horizontal scanlines of colour and scan-text ('Artificial Intelligence', 1980)."
         }
       ]
     },

@@ -322,7 +322,12 @@ let W = canvas.width, H = canvas.height;
 // recursive form (opens L-systems & space-filling curves, a vein the archive wholly lacked). NOT in MECH_CHARS /
 // not mutation-reachable → no existing genome uses it; drawMechanical only gains a dispatch line, so every
 // archive checksum is unchanged. Deterministic (optional dragonJitter is seeded noise). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.15.0';
+// v3.16.0 — additive, opt-in (Day 145, Shelley Lake & Pat Hearn's 'Artificial Intelligence', 1980, MIT
+// Architecture Machine Group): pixelCharacter 'scanline' — a CRT/raster field of horizontal rows, saturated
+// colour BANDS interleaved with rows of fine scan-text marks (sound/the Votrax made visible as raster). NOT
+// in PIXEL_CHARS / not mutation-reachable → no existing genome uses it; drawPixelLayer only gains an else-if,
+// so every archive checksum is unchanged. Deterministic (noise + genome). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.16.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2331,6 +2336,45 @@ function drawPixelLayer(g, pal, t) {
       const lw = g.horizonLineWidth ?? 2;
       ctx.fillRect(0, horizonY * H - lw / 2, W, lw);
     }
+
+  } else if (char === 'scanline') {
+    // SCANLINE — a CRT / raster field of horizontal rows: saturated COLOUR BANDS interleaved with rows of
+    // fine scan-text marks (characters / waveform samples). After early video-synth raster displays —
+    // Shelley Lake & Pat Hearn's "Artificial Intelligence" (1980, MIT Architecture Machine Group), sound
+    // (the Votrax) made visible as raster. Params: scanRamp (band colours, else pal) · scanBandDensity ·
+    // pixelSize=row height · scanMark=mark width · scanBase/scanInk/scanBaseAlpha (the scan-text rows).
+    // Opt-in (not in PIXEL_CHARS / not mutation-reachable), additive / C2-safe. Deterministic (noise ∈ 0..1).
+    const rowH = Math.max(g.pixelSize, 5);
+    const nRows = Math.ceil(H / rowH);
+    const ramp = (Array.isArray(g.scanRamp) && g.scanRamp.length >= 2) ? g.scanRamp : pal;
+    const markW = Math.max(2, Math.round(g.scanMark ?? 4));
+    const bandDensity = clamp(g.scanBandDensity ?? 0.22, 0, 1);
+    const scanBase = g.scanBase ?? '#cfcfc6';
+    const scanInk  = g.scanInk  ?? '#141418';
+    const baseAlpha = g.scanBaseAlpha ?? 0.6;
+    const nCols = Math.floor(W / markW);
+    for (let r = 0; r < nRows; r++) {
+      const y = r * rowH;
+      if (noise.noise2D(r * 0.23 + 11.3, g.noiseSeed * 0.001) > 1 - bandDensity) {
+        const ci = clamp(Math.floor(noise.noise2D(r * 0.5 + 3.1, g.noiseSeed * 0.002) * ramp.length), 0, ramp.length - 1);
+        ctx.fillStyle = ramp[ci];
+        ctx.globalAlpha = clamp(0.62 + noise.noise2D(r * 1.7, 0) * 0.38, 0.62, 1);
+        ctx.fillRect(0, y, W, rowH - 1);
+      } else {
+        ctx.globalAlpha = baseAlpha;
+        ctx.fillStyle = scanBase;
+        ctx.fillRect(0, y, W, rowH - 1);
+        ctx.globalAlpha = 0.92;
+        ctx.fillStyle = scanInk;
+        for (let c = 0; c < nCols; c++) {
+          if (noise.noise2D(c * 0.7 + r * 3.1, g.noiseSeed * 0.003) > 0.56) {
+            const mh = 1 + Math.floor(noise.noise2D(c * 1.3 + 5, r * 1.7) * (rowH - 2));
+            ctx.fillRect(c * markW, y + (rowH - mh) / 2, Math.max(1, markW - 1), Math.max(1, mh));
+          }
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
   }
 
   ctx.globalAlpha = 1;
