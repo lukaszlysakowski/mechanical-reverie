@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "concepts": [
     {
       "id": "bell-labs",
@@ -686,6 +686,10 @@
         {
           "gen": 146,
           "why": "Frontier F-07 (cross × radial × light): registration crosses holding at the centre and drifting out of true toward the edges — the engine charting an empty geometric cell on a rest day."
+        },
+        {
+          "gen": 152,
+          "why": "Frontier F-08 (transit × led × light): LED dot-matrix blocks threaded by transit streamlines — a departure board in flux. A challenger to one of the map's oldest incumbents (Amiga Debbie, since July); reached 6.496, held just short."
         }
       ]
     },
