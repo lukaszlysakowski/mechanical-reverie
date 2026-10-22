@@ -2803,7 +2803,9 @@ function calculateFitness(g) {
   const active = weights.filter(w => w > 0.3).length;
   score += active * 0.5; // Reward variety
   score += (1 - Math.abs(g.wMechanical - g.wFlow)) * 0.3; // Reward balance
-  score += g.layerCount * 0.2;
+  score += Math.min(g.layerCount, 6) * 0.2; // cap at 6 — render() only ever draws 6 layers, so rewarding
+                                             // layerCount>6 was a pure metric cheat (user, 2026-10-21: "6 is plenty").
+                                             // Metric-only change: render path & all checksums are untouched.
   score += (g.gearDensity > 0.3 && g.gearDensity < 0.8) ? 0.5 : 0;
   score += g.gridCols > 4 && g.gridCols < 14 ? 0.3 : 0;
 
