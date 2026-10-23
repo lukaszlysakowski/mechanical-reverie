@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-21",
+  "updated": "2026-10-23T03:49:21.751183+00:00",
   "concepts": [
     {
       "id": "bell-labs",
@@ -298,6 +298,10 @@
         {
           "gen": 150,
           "why": "Cornwell's thesis literally: 'the order emerging from randomness gives a continual feast for the visual gourmet.' The dragon curve is pure deterministic ORDER that reads as organic chaos — the dial's paradox, a fractal fold of 8192 right-angle turns."
+        },
+        {
+          "gen": 153,
+          "why": "Day 146 — the engine's SECOND fractal (after the dragon fold): 'subdivide', a recursive quadtree of pure deterministic ORDER that halves and halves, smaller and denser, coloured by depth. Dietrich's 'smaller and smaller, more powerful' as structured order."
         }
       ]
     },
@@ -333,6 +337,10 @@
         {
           "gen": 151,
           "why": "The MIT Architecture Machine Group (→ Media Lab, 1985) enters the archive — the lab as crucible, alongside Cybernetic Serendipity and New Tendencies; Lake & Hearn's 1980 'Artificial Intelligence' is its first appearance."
+        },
+        {
+          "gen": 153,
+          "why": "Day 146 — the SIGGRAPH 1982 Art Exhibition Artist Interviews (Frank Dietrich & Zsuzsa Molnar). SIGGRAPH joins Cybernetic Serendipity, New Tendencies and the MIT Architecture Machine Group as a founding institution of the field."
         }
       ]
     },
@@ -854,6 +862,10 @@
         {
           "gen": 150,
           "why": "A FRACTAL: the form is not drawn but GROWN by a recursive rule (fold right, fold right, again) — change-the-program made literal; the archive's first recursive/L-system form (engine 'dragon', v3.15.0)."
+        },
+        {
+          "gen": 153,
+          "why": "Day 146 — Frank Dietrich, SIGGRAPH 1982: 'machines which became smaller and smaller—and at the same time, more powerful. And that is, somehow, the reward.' The trajectory of the medium itself, drawn as a recursive quadtree (coarse early machine → fine dense power)."
         }
       ]
     },

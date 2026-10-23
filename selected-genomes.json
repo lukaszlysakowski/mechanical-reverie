@@ -10964,5 +10964,87 @@
     "keyDetails": "Frontier F-08 — Atlas cell transit × led × light (challenger; incumbent Amiga Debbie 6.624). LED dot-matrix blocks + transit streamlines on navy. Rest day, no source feed.",
     "description": "On a rest day the engine charts its own possibility space instead of the feed. This frontier piece CHALLENGES one of the Atlas's oldest incumbents — the transit × led × light cell, held since July by 'Amiga Debbie' (gen 47) at fitness 6.624. The render: LED-matrix dot blocks (the Amiga-ProPaint signal palette — orange, red, blue) laid over a field of transit streamlines on a deep navy ground — a departure board in flux, the dot-matrix display (led) crossed by the flow of passage (transit). It reaches 6.496, short of the 6.624 needed to dethrone, so the cell HOLDS; the challenger is logged as the engine's record of how hard this corner of the map can be pushed. The two coordinates are the picture: regular dot grids (structure) threaded by streamlines (movement).",
     "condensedReason": "On a rest day the engine charts its own possibility space instead of the feed. This frontier piece CHALLENGES one of the Atlas's oldest incumbents — the transit × led × light cell, held since July by 'Amiga Debbie' (gen 47) at fitness 6.624. The render: LED-matrix dot blocks (the Amiga-ProPaint signal palette — orange, red, blue) laid over a field of transit streamlines on a deep navy ground — a departure board in flux, the dot-matrix display (led) crossed by the flow of passage (transit). It reaches 6.496, short of the 6.624 needed to dethrone, so the cell HOLDS; the challenger is logged as the engine's record of how hard this corner of the map can be pushed. The two coordinates are the picture: regular dot grids (structure) threaded by streamlines (movement)."
+  },
+  {
+    "day": 146,
+    "date": "2026-10-22",
+    "title": "The Reward",
+    "filename": "mechanical-reverie-day-146-the-reward-2026-10-22.png",
+    "fitness": 6.7,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 4,
+      "cellPadding": 0.11909457321051099,
+      "rotation": 0.1069387888120535,
+      "globalRotation": 0.014851181317884515,
+      "paletteIndex": 12,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.5,
+      "gearComplexity": 8,
+      "chainFrequency": 0.9734578675132819,
+      "pixelDensity": 0.6378739934223935,
+      "pixelSize": 8,
+      "flowScale": 0.011905034918245842,
+      "flowStrength": 3.80202988946645,
+      "particleCount": 1267,
+      "clockSpeed": 0.01619349263615148,
+      "oscillation": 1.8444930233398702,
+      "wMechanical": 0.9,
+      "wPixel": 0,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 1.1809846564111357,
+      "hatchSpacing": 8.587300966563179,
+      "pixelCharacter": "grain",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "subdivide",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 146146,
+      "renderSeed": 20261022,
+      "disorder": 0.16902637092925712,
+      "disorderMode": "linear",
+      "disorderAngle": 1.061910408358284,
+      "paletteColors": [
+        "#33414d",
+        "#3f8aa0",
+        "#e6a93a",
+        "#e8632a",
+        "#cf2f63",
+        "#14161b"
+      ],
+      "subdivRamp": [
+        "#33414d",
+        "#3f8aa0",
+        "#e6a93a",
+        "#e8632a",
+        "#cf2f63"
+      ],
+      "subdivDepth": 7,
+      "subdivBias": 0.62,
+      "subdivGap": 0.07,
+      "subdivFill": 0.68,
+      "subdivMargin": 0.08,
+      "checksum": "59b036b59d68f4ab51e4c94e88a06b8d00cb3250be8debc58322e7b56fdc7cbb",
+      "engineVersion": "v3.17.0"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Engine's SECOND fractal/recursive form: 'subdivide' (v3.17.0), a recursive quadtree that halves and halves — smaller AND denser, coloured by depth through a cool→hot ramp. Directional bias makes it coarse left / fine right, so the single image IS Frank Dietrich's trajectory ('machines… smaller and smaller—and more powerful. And that is, somehow, the reward'). Polarized layers (subdivide alone) for clean single-signature clarity.",
+      "condensedReason": "Dietrich's 'smaller and smaller, more powerful' as a recursive quadtree: coarse slate origin → fine magenta apex. Clean, one signature."
+    },
+    "tweetSummary": "Frank Dietrich, SIGGRAPH 1982 Artist Interviews — 'machines which became smaller and smaller—and at the same time, more powerful. And that is, somehow, the reward.' Backdrop: Dietrich letting go of a 50-year collection.",
+    "keyArtists": [
+      "Frank Dietrich",
+      "Zsuzsa Molnar"
+    ],
+    "themes": [
+      "miniaturization + rising power",
+      "the long arc / the reward",
+      "SIGGRAPH 1982"
+    ]
   }
 ]

@@ -327,7 +327,15 @@ let W = canvas.width, H = canvas.height;
 // colour BANDS interleaved with rows of fine scan-text marks (sound/the Votrax made visible as raster). NOT
 // in PIXEL_CHARS / not mutation-reachable → no existing genome uses it; drawPixelLayer only gains an else-if,
 // so every archive checksum is unchanged. Deterministic (noise + genome). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.16.0';
+// v3.17.0 — additive, opt-in (Day 146, Frank Dietrich, SIGGRAPH 1982: "machines which became smaller and
+// smaller—and at the same time, more powerful. And that is, somehow, the reward"): mechanicalCharacter
+// 'subdivide' — a recursive QUADTREE that halves and halves, each generation smaller AND denser, coloured by
+// depth through a ramp (deeper = more powerful). A directional bias (g.subdivBias) makes the field coarse on
+// one side and finely subdivided on the other, so the picture IS Dietrich's trajectory: the arc from the big
+// early machines to today's fine dense power. The engine's second FRACTAL/recursive form (after 'dragon').
+// NOT in MECH_CHARS / not mutation-reachable → no existing genome uses it; drawMechanical only gains a dispatch
+// line, so every archive checksum is unchanged. Deterministic (noise + genome, no Math.random). C2 GREEN.
+const ENGINE_VERSION = 'v3.17.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1450,6 +1458,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'contour') { drawContourStack(g, pal, t);  return; }
   if (ch === 'script')  { drawScript(g, pal, t);        return; }
   if (ch === 'dragon')  { drawDragon(g, pal, t);        return; }
+  if (ch === 'subdivide') { drawSubdivide(g, pal, t);   return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1516,6 +1525,56 @@ function drawDragon(g, pal, t) {
     ctx.globalAlpha = 0.92;
     ctx.beginPath(); ctx.arc(sx, sy, dotR, 0, Math.PI * 2); ctx.fill();
   }
+  ctx.globalAlpha = 1;
+}
+
+// SUBDIVIDE: a recursive QUADTREE — the canvas rectangle splits into four, and each quadrant may split
+// again, smaller and smaller, each generation coloured deeper through a ramp ("more powerful"). A directional
+// bias (subdivBias) raises the split chance toward one side, so the field is coarse on the left and finely
+// subdivided on the right — Frank Dietrich's trajectory ("machines… smaller and smaller—and more powerful")
+// drawn as one image: the arc from the big early machines to today's fine dense power. The engine's second
+// FRACTAL / recursive form after 'dragon'. Opt-in (NOT in MECH_CHARS, not mutation-reachable), additive,
+// C2-safe. Deterministic (noise + genome, no Math.random). Ramp is g.subdivRamp (else pal); lattice = pal[5].
+function drawSubdivide(g, pal, t) {
+  const maxDepth = clamp(Math.round(g.subdivDepth ?? 6), 2, 9);
+  const bias  = clamp(g.subdivBias ?? 0.6, 0, 1);        // left→right coarse→fine trajectory strength
+  const gap   = clamp(g.subdivGap ?? 0.06, 0, 0.3);       // inset fraction per cell (the clean lattice)
+  const fillA = clamp(g.subdivFill ?? 0.55, 0, 1);
+  const margin = clamp(g.subdivMargin ?? 0.08, 0, 0.4);
+  const ramp = (Array.isArray(g.subdivRamp) && g.subdivRamp.length >= 2) ? g.subdivRamp : pal;
+  const ground = pal[5] || pal[pal.length - 1];
+  const ns = g.noiseSeed * 0.01;
+  const x0 = W * margin, y0 = H * margin, w0 = W * (1 - 2 * margin), h0 = H * (1 - 2 * margin);
+
+  function leaf(x, y, w, h, depth) {
+    const gx = w * gap * 0.5, gy = h * gap * 0.5;
+    const rx = x + gx, ry = y + gy, rw = Math.max(1, w - 2 * gx), rh = Math.max(1, h - 2 * gy);
+    const ci = clamp(Math.floor(depth / maxDepth * (ramp.length - 1)), 0, ramp.length - 1);
+    ctx.globalAlpha = fillA;
+    ctx.fillStyle = ramp[ci];
+    ctx.fillRect(rx, ry, rw, rh);
+    ctx.globalAlpha = 0.9;
+    ctx.strokeStyle = ground;
+    ctx.lineWidth = Math.max(0.5, 1.4 - depth * 0.12);
+    ctx.strokeRect(rx, ry, rw, rh);
+  }
+
+  function recurse(x, y, w, h, depth) {
+    const cx = (x + w / 2) / W;                                     // 0..1 across the canvas (the trajectory axis)
+    const n = noise.noise2D((x + w / 2) * 0.004, (y + h / 2) * 0.004 + ns);  // seeded [0,1]
+    const p = bias * cx + (1 - bias) * n;                           // split pressure: rises to the right + noise
+    const splitThresh = 0.32 + depth * 0.085;                       // deeper → harder to split → natural taper
+    if (depth < maxDepth && p > splitThresh) {
+      const hw = w / 2, hh = h / 2;
+      recurse(x,      y,      hw, hh, depth + 1);
+      recurse(x + hw, y,      hw, hh, depth + 1);
+      recurse(x,      y + hh, hw, hh, depth + 1);
+      recurse(x + hw, y + hh, hw, hh, depth + 1);
+    } else {
+      leaf(x, y, w, h, depth);
+    }
+  }
+  recurse(x0, y0, w0, h0, 0);
   ctx.globalAlpha = 1;
 }
 
