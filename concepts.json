@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-23T03:49:21.751183+00:00",
+  "updated": "2026-10-24T15:45:07.073463+00:00",
   "concepts": [
     {
       "id": "bell-labs",
@@ -302,6 +302,10 @@
         {
           "gen": 153,
           "why": "Day 146 — the engine's SECOND fractal (after the dragon fold): 'subdivide', a recursive quadtree of pure deterministic ORDER that halves and halves, smaller and denser, coloured by depth. Dietrich's 'smaller and smaller, more powerful' as structured order."
+        },
+        {
+          "gen": 154,
+          "why": "Day 147 — Frederick Hammersley's 'CO-ED #38' (1969) as the engine's first TEXT form 'lineprinter': hard-edge nested rectangular tonal regions built from overstruck ASCII glyphs (space‹-‹I‹#‹▓‹█). Pure deterministic geometric order rendered in the line printer's own character set."
         }
       ]
     },
@@ -341,6 +345,10 @@
         {
           "gen": 153,
           "why": "Day 146 — the SIGGRAPH 1982 Art Exhibition Artist Interviews (Frank Dietrich & Zsuzsa Molnar). SIGGRAPH joins Cybernetic Serendipity, New Tendencies and the MIT Architecture Machine Group as a founding institution of the field."
+        },
+        {
+          "gen": 154,
+          "why": "Day 147 — LACMA's landmark gift of 200+ digital artworks ('a major moment for digital art'). LACMA joins Cybernetic Serendipity, New Tendencies and the MIT Architecture Machine Group as a canon-forming institution; the source for Hammersley's CO-ED entering the archive."
         }
       ]
     },

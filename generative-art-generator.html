@@ -335,7 +335,15 @@ let W = canvas.width, H = canvas.height;
 // early machines to today's fine dense power. The engine's second FRACTAL/recursive form (after 'dragon').
 // NOT in MECH_CHARS / not mutation-reachable → no existing genome uses it; drawMechanical only gains a dispatch
 // line, so every archive checksum is unchanged. Deterministic (noise + genome, no Math.random). C2 GREEN.
-const ENGINE_VERSION = 'v3.17.0';
+// v3.18.0 — additive, opt-in (Day 147, Frederick Hammersley's 'CO-ED, #38', 1969, entering LACMA in its 200+
+// work digital-art gift alongside Noll, the Bangerts & Molnár): pixelCharacter 'lineprinter' — the engine's
+// first TEXT/TYPOGRAPHIC form. A monospace grid of ASCII glyphs chosen from an ink-density RAMP (space ‹ - ‹ I
+// ‹ # ‹ ▓ ‹ █) by a tone field, so the line printer's character set IS the tonal palette. Tone is built from
+// stacked nested-RECTANGLE fields (hard-edge concentric bands), the register of Hammersley the hard-edge
+// painter who found geometric tone in overstruck type. Opens the line-printer / concrete-poetry / ASCII-art
+// vein the archive wholly lacked. NOT in PIXEL_CHARS / not mutation-reachable → no existing genome uses it;
+// drawPixelLayer only gains an else-if, so every archive checksum is unchanged. Deterministic. C2 GREEN.
+const ENGINE_VERSION = 'v3.18.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2329,6 +2337,65 @@ function drawPixelLayer(g, pal, t) {
         ctx.fillRect(c * size, r * size, size - 1, size - 1); // 1px gap → digitized grid reads
       }
     }
+
+  } else if (char === 'lineprinter') {
+    // LINEPRINTER — the engine's first TEXT form: a monospace grid of ASCII glyphs chosen from an ink-density
+    // RAMP by a tone field, so the line printer's character set IS the tonal palette. Evokes Frederick
+    // Hammersley's 'CO-ED, #38' (1969) — a hard-edge painter composing geometric tone from overstruck type.
+    // Tone = stacked nested-RECTANGLE fields (hard-edge concentric bands); each cell prints the glyph whose
+    // ink-density matches its tone. Opt-in (not in PIXEL_CHARS / not mutation-reachable), additive, C2-safe.
+    // Deterministic (noise + genome, no Math.random). Ink = g.lpInk (else pal[0]); paper ground = pal[5].
+    const glyphs = (Array.isArray(g.lpGlyphs) && g.lpGlyphs.length >= 2)
+      ? g.lpGlyphs : [' ', '-', 'I', '#', '▓', '█'];
+    const cols = clamp(Math.round(g.lpCols || 72), 16, 180);
+    const cw = W / cols;
+    const fontSize = cw / 0.6;                 // monospace advance ≈ 0.6·em → glyphs fill the cell width
+    const rh = fontSize * (g.lpRowH || 0.98);
+    const rows = Math.ceil(H / rh);
+    const ink = g.lpInk || pal[0] || '#1b2a4a';
+    const baseT = clamp(g.lpBaseTone ?? 0.14, 0, 1);  // faint dash-ruled ground everywhere a block reaches
+    const ns = g.noiseSeed * 0.01;
+    // stacked nested-rectangle tone centres (deterministic from the seed)
+    const nBlocks = clamp(Math.round(g.lpBlocks ?? 3), 1, 6);
+    const blocks = [];
+    for (let b = 0; b < nBlocks; b++) {
+      blocks.push({
+        cx: (0.22 + 0.56 * (noise.noise2D(b * 2.3 + 1, ns) )) ,
+        cy: (0.18 + 0.64 * (noise.noise2D(ns, b * 2.3 + 1)) ),
+        hw: 0.14 + 0.24 * Math.abs(noise.noise2D(b * 1.7 + 5, ns)),
+        hh: 0.10 + 0.22 * Math.abs(noise.noise2D(ns, b * 1.7 + 5)),
+        floor: 0.30 + 0.5 * Math.abs(noise.noise2D(b * 3.1 + 9, ns)),  // how dark this block's ground is
+        rings: 2 + Math.floor(Math.abs(noise.noise2D(b * 4.3 + 2, ns)) * 3) // nested hard-edge rectangle count
+      });
+    }
+    const steps = glyphs.length;
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'left';
+    ctx.font = fontSize.toFixed(2) + 'px "Courier New", monospace';
+    ctx.fillStyle = ink;
+    for (let r = 0; r < rows; r++) {
+      const fy = (r + 0.5) / rows;
+      for (let c = 0; c < cols; c++) {
+        const fx = (c + 0.5) / cols;
+        let tone = 0;
+        for (const bl of blocks) {
+          const d = Math.max(Math.abs(fx - bl.cx) / bl.hw, Math.abs(fy - bl.cy) / bl.hh); // 0 centre → 1 edge (rect)
+          if (d <= 1) {
+            const stepped = Math.ceil((1 - d) * bl.rings) / bl.rings;  // hard-edge nested rectangle bands
+            tone = Math.max(tone, baseT + (bl.floor - baseT) * stepped);
+          }
+        }
+        // light per-cell jitter so the bands read as overstruck type, not flat fills — but keep edges crisp
+        tone += (noise.noise2D(c * 0.5 + 13, r * 0.5 + 7) - 0.5) * 0.07;
+        tone = clamp(tone, 0, 1);
+        const gi = clamp(Math.floor(tone * steps), 0, steps - 1);
+        const ch2 = glyphs[gi];
+        if (ch2 === ' ') continue;
+        ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
+        ctx.fillText(ch2, c * cw, r * rh);
+      }
+    }
+    ctx.globalAlpha = 1;
 
   } else if (char === 'benday') {
     // BEN-DAY — ROUND dots on a regular screen, dot RADIUS proportional to tone (true offset-litho

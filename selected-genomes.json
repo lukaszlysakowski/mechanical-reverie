@@ -11046,5 +11046,90 @@
       "the long arc / the reward",
       "SIGGRAPH 1982"
     ]
+  },
+  {
+    "day": 147,
+    "date": "2026-10-23",
+    "title": "Overstruck",
+    "filename": "mechanical-reverie-day-147-overstruck-2026-10-23.png",
+    "fitness": 6.72,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 7,
+      "cellPadding": 0.10331179094652115,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 12,
+      "bgDarkness": 0.06,
+      "gearDensity": 0.7330561255152475,
+      "gearComplexity": 12,
+      "chainFrequency": 0.3943021477016876,
+      "pixelDensity": 0.7,
+      "pixelSize": 8,
+      "flowScale": 0.01639379277786121,
+      "flowStrength": 2.9084237255955347,
+      "particleCount": 746,
+      "clockSpeed": 0.012810403509418448,
+      "oscillation": 1.8571159028808755,
+      "wMechanical": 0,
+      "wPixel": 0.92,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 1.1998664749847583,
+      "hatchSpacing": 10.426141512745922,
+      "pixelCharacter": "lineprinter",
+      "flowCharacter": "mathematical",
+      "mechanicalCharacter": "subdivide",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 147420,
+      "renderSeed": 20261023,
+      "disorder": 0.14619097018862012,
+      "disorderMode": "uniform",
+      "disorderAngle": 2.10431380878686,
+      "paletteColors": [
+        "#20305a",
+        "#2f4a80",
+        "#52607f",
+        "#8a8ea0",
+        "#c9c3ad",
+        "#efe9d8"
+      ],
+      "lpInk": "#20305a",
+      "lpCols": 80,
+      "lpBlocks": 5,
+      "lpBaseTone": 0.15,
+      "lpRowH": 0.98,
+      "lpGlyphs": [
+        " ",
+        "-",
+        "I",
+        "#",
+        "▓",
+        "█"
+      ],
+      "checksum": "7ddf2b3ddd0d36bbcfe31a63b69a7c063f8cec1193f4e9641841082a9bac7b52",
+      "engineVersion": "v3.18.0"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Engine's FIRST text/typographic form: 'lineprinter' (v3.18.0) — a monospace grid of ASCII glyphs chosen from an ink-density ramp (space‹-‹I‹#‹▓‹█) by a stacked nested-RECTANGLE tone field, so the line printer's character set IS the tonal palette. Reduces Frederick Hammersley's CO-ED #38 (1969, entering LACMA's 200+ work gift) to its core signature: hard-edge geometric tone built from overstruck type. Navy ink on cream, polarized (lineprinter alone) for clarity.",
+      "condensedReason": "Hammersley's line-printer character-tone: hard-edge nested rectangles made of overstruck ASCII glyphs, navy on cream. The charset as a tonal palette."
+    },
+    "tweetSummary": "LACMA announces a landmark gift of 200+ digital artworks; Noah spotlights four pioneer pieces (Noll, Hammersley, the Bangerts, Molnár). Reduced the freshest — Hammersley's CO-ED #38 line-printer drawing.",
+    "keyArtists": [
+      "Frederick Hammersley",
+      "Colette & Charles Bangert",
+      "A. Michael Noll",
+      "Vera Molnár"
+    ],
+    "themes": [
+      "line-printer character tone",
+      "pioneers entering the canon (LACMA)",
+      "hard-edge abstraction via the machine"
+    ]
   }
 ]
