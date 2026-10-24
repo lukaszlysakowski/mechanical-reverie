@@ -349,7 +349,12 @@ let W = canvas.width, H = canvas.height;
 // literal pen strokes and ink density tracks tone. The on-screen RASTER path is byte-identical (the branch
 // keys on ctx._strokes, present only on the recording context) → every checksum, Day 147 included, unchanged.
 // orderForPlotter is skipped past 4000 strokes (a text plot's natural row-major order is already plotter-ideal).
-const ENGINE_VERSION = 'v3.18.1';
+// v3.18.2 — additive, EXPORT-ONLY: lineprinter plotter fills gain a hatch-spacing knob (opts.hatchSpacingMM,
+// default 0.5mm; the "Save SVG" button prompts for it on lineprinter pieces). plotGlyph now sets the ▓/█ hatch
+// line-count from fill-height ÷ pen pitch (█ at the pitch → even solid ink; ▓ at 2× → stays lighter), so the
+// solids can be tuned to any pen width. Raster path still byte-identical (plotGlyph runs only in capture mode)
+// → all checksums, Day 147 included, unchanged.
+const ENGINE_VERSION = 'v3.18.2';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1986,10 +1991,13 @@ function orderForPlotter(strokes) {
 }
 
 // Run the real render against a recording context and return its stroked subpaths (canonical 780×580).
-function capturePlotterStrokes(g) {
+function capturePlotterStrokes(g, capOpts = {}) {
   const Wc = 780, Hc = 580;
   const prevCtx = ctx, prevW = W, prevH = H;
   const cap = makeCaptureCtx(Wc, Hc);
+  // hand the lineprinter hatch-fill knob (mm) and the mm-per-px scale to plotGlyph via the capture context
+  if (capOpts.hatchMM)  cap._hatchMM  = capOpts.hatchMM;
+  if (capOpts.mmPerPx)  cap._mmPerPx  = capOpts.mmPerPx;
   try { ctx = cap; W = Wc; H = Hc; render(g, 0); }
   finally { ctx = prevCtx; W = prevW; H = prevH; }
   return cap._strokes;
@@ -2006,6 +2014,7 @@ function exportPlotterSVG(g, opts = {}) {
   const stroke        = opts.stroke ?? '#111111';
   const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
   const sc = longEdgeMM / Wc;                        // mm per canonical px
+  const hatchSpacingMM = opts.hatchSpacingMM ?? 0.5; // lineprinter solid-fill (▓/█) hatch pitch — tune to pen
   const toMM = (p) => [ +(marginMM + p[0]*sc).toFixed(3), +(marginMM + p[1]*sc).toFixed(3) ];
 
   // ── caption: title, then "date · author", small monospace, ~captionGapPx below the art ──
@@ -2022,7 +2031,7 @@ function exportPlotterSVG(g, opts = {}) {
   const pageWmm = +(longEdgeMM + 2*marginMM).toFixed(2);
   const pageHmm = +(contentHpx*sc + 2*marginMM).toFixed(2);
 
-  let strokes = capturePlotterStrokes(g).filter(s => s.pts.length > 1);
+  let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc }).filter(s => s.pts.length > 1);
   // orderForPlotter is O(n²); a text plot (lineprinter) emits thousands of tiny strokes already laid down
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
@@ -2045,7 +2054,7 @@ function exportPlotterSVG(g, opts = {}) {
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
   <title>${esc(titleText)} — plotter</title>
-  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · mm units -->
+  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · mm units · hatch ${hatchSpacingMM}mm -->
   <g inkscape:groupmode="layer" inkscape:label="pen1"
      fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
 ${paths}
@@ -2065,7 +2074,15 @@ function savePlotterSVG() {
   const def = `mechanical-reverie-gen${generation}`;
   let title = def;
   try { const t = prompt('Caption title for the plot:', def); if (t != null && t.trim()) title = t.trim(); } catch (e) {}
-  const svg = exportPlotterSVG(genome, { title });
+  const exOpts = { title };
+  // lineprinter pieces have solid (▓/█) fills — let the user tune the hatch pitch (mm) to their pen
+  if ((genome.pixelCharacter === 'lineprinter') && (genome.wPixel ?? 0) > 0.3) {
+    try {
+      const h = prompt('Solid-fill hatch spacing in mm (smaller = denser ink; ≈ your pen width for solid):', String(genome.lpHatchMM ?? 0.5));
+      if (h != null && h.trim() && isFinite(+h) && +h > 0) exOpts.hatchSpacingMM = +h;
+    } catch (e) {}
+  }
+  const svg = exportPlotterSVG(genome, exOpts);
   if ((svg.match(/<path /g) || []).length === 0) {
     alert('No plottable line geometry here — the plotter export captures STROKED lines (contour, vectors, plotter, hatch, convergence, oscilloscope) and lineprinter (glyphs → pen strokes), not filled dots/blocks (led, mosaic, benday, scanline, brightmap). Try a line-dominant or lineprinter genome.');
     return;
@@ -2088,12 +2105,18 @@ function plotGlyph(ch, gi, steps, x, y, w, h) {
   const H1 = (yy) => { ctx.moveTo(ix, yy); ctx.lineTo(ix + iw, yy); };   // horizontal stroke at height yy
   const V1 = (xx) => { ctx.moveTo(xx, iy); ctx.lineTo(xx, iy + ih); };   // vertical stroke at x = xx
   const hatch = (n) => { for (let k = 0; k < n; k++) H1(iy + ih * (k + 0.5) / n); };
+  // Hatch-fill line count from the pen-spacing knob (mm), when the export set one on the capture context:
+  // lines = fill-height(mm) / (spacing·densityDiv). █ fills at the pen spacing (even solid ink); ▓ at 2×
+  // (half density → stays lighter). No knob set → the original fixed counts (keeps Day 147's plot identical).
+  const hatchMM = ctx._hatchMM, mmPerPx = ctx._mmPerPx;
+  const lines = (fallback, densityDiv) =>
+    (hatchMM && mmPerPx) ? Math.max(1, Math.round(ih * mmPerPx / (hatchMM * densityDiv))) : fallback;
   ctx.beginPath();
   if      (ch === '-') H1(cy);
   else if (ch === 'I' || ch === '|') V1(cx);
   else if (ch === '#') { H1(y + h * 0.38); H1(y + h * 0.62); V1(x + w * 0.38); V1(x + w * 0.62); }
-  else if (ch === '▓') hatch(5);
-  else if (ch === '█') hatch(8);
+  else if (ch === '▓') hatch(lines(5, 2));
+  else if (ch === '█') hatch(lines(8, 1));
   else hatch(1 + Math.round((steps > 1 ? gi / (steps - 1) : 0) * 7));   // generic: density by ramp position
   ctx.stroke();
 }
