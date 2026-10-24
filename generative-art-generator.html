@@ -354,7 +354,12 @@ let W = canvas.width, H = canvas.height;
 // line-count from fill-height ÷ pen pitch (█ at the pitch → even solid ink; ▓ at 2× → stays lighter), so the
 // solids can be tuned to any pen width. Raster path still byte-identical (plotGlyph runs only in capture mode)
 // → all checksums, Day 147 included, unchanged.
-const ENGINE_VERSION = 'v3.18.2';
+// v3.18.3 — additive, EXPORT-ONLY (user plots on an AxiDraw, 11×17 landscape): exportPlotterSVG gains BED-FIT
+// (opts.pageWmm/pageHmm → page is the physical sheet, art scaled to fit & centred, mm 1:1 for AxiDraw) and a
+// caption TOGGLE (opts.caption:false → stroke-only file, since AxiDraw won't plot a font caption). Legacy
+// content-sized export (longEdgeMM) unchanged when no page size is given. Raster path still untouched; all
+// checksums, Day 147 included, unchanged.
+const ENGINE_VERSION = 'v3.18.3';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2010,26 +2015,57 @@ function capturePlotterStrokes(g, capOpts = {}) {
 function exportPlotterSVG(g, opts = {}) {
   const Wc = 780, Hc = 580;                         // art lives in canonical 780×580 px
   const marginMM      = opts.marginMM ?? 15;
-  const longEdgeMM    = opts.longEdgeMM ?? 250;     // the drawing's width
   const stroke        = opts.stroke ?? '#111111';
   const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
-  const sc = longEdgeMM / Wc;                        // mm per canonical px
   const hatchSpacingMM = opts.hatchSpacingMM ?? 0.5; // lineprinter solid-fill (▓/█) hatch pitch — tune to pen
-  const toMM = (p) => [ +(marginMM + p[0]*sc).toFixed(3), +(marginMM + p[1]*sc).toFixed(3) ];
+  const showCaption = opts.caption !== false;        // false → stroke-only file (AxiDraw won't plot a font caption)
 
-  // ── caption: title, then "date · author", small monospace, ~captionGapPx below the art ──
+  // ── caption metrics (px, in canonical space below the art): title, "date · author", project name ──
   const captionGapPx = opts.captionGapPx ?? 200;
   const titleText  = opts.title  || `mechanical-reverie-gen${generation}`;
   const dateText   = opts.date   || new Date().toISOString().slice(0, 10);
   const authorText = opts.author || 'lukaszgraphz & Claude';
   const titleFontPx = 17, metaFontPx = 13;
-  const titleYpx   = Hc + captionGapPx;              // baseline ~200px below the art
+  const titleYpx   = Hc + captionGapPx;
   const metaYpx    = titleYpx + 28;
-  const coreYpx    = metaYpx + 24;                   // 3rd line: the project / engine name
-  const contentHpx = coreYpx + 18;                   // bottom padding
+  const coreYpx    = metaYpx + 24;
+  const contentHpx = showCaption ? (coreYpx + 18) : Hc;   // bounding box height in canonical px
 
-  const pageWmm = +(longEdgeMM + 2*marginMM).toFixed(2);
-  const pageHmm = +(contentHpx*sc + 2*marginMM).toFixed(2);
+  // ── page + placement: a fixed physical sheet (bed-fit, scaled to fit & centred) when pageWmm/pageHmm are
+  //    given — e.g. an AxiDraw 11×17 bed; otherwise the legacy content-sized page from longEdgeMM. ──
+  let sc, offX, offY, pageWmm, pageHmm;
+  if (opts.pageWmm && opts.pageHmm) {
+    pageWmm = +opts.pageWmm; pageHmm = +opts.pageHmm;
+    const avW = pageWmm - 2*marginMM, avH = pageHmm - 2*marginMM;
+    // Centre on the INK bounding box (not the canvas) when there's no caption, so a composition with its own
+    // negative space — like "Overstruck" — lands in the middle of the sheet and fills it. Needs a provisional
+    // capture to measure the ink; the main capture below then re-runs at the final scale for correct hatch pitch.
+    const centerInk = opts.centerInk !== false && !showCaption;
+    if (centerInk) {
+      const prov = Math.min(avW / Wc, avH / Hc);
+      const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov }).filter(s => s.pts.length > 1);
+      let minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
+      for (const s of s0) for (const p of s.pts) {
+        if (p[0] < minx) minx = p[0]; if (p[0] > maxx) maxx = p[0];
+        if (p[1] < miny) miny = p[1]; if (p[1] > maxy) maxy = p[1];
+      }
+      const iw = Math.max(1, maxx - minx), ih = Math.max(1, maxy - miny);
+      sc   = Math.min(avW / iw, avH / ih);
+      offX = (pageWmm - iw*sc) / 2 - minx*sc;
+      offY = (pageHmm - ih*sc) / 2 - miny*sc;
+    } else {
+      sc   = Math.min(avW / Wc, avH / contentHpx);    // fit whole content (art + caption) inside the margins
+      offX = (pageWmm - Wc*sc) / 2;                    // centre the canvas on the sheet
+      offY = (pageHmm - contentHpx*sc) / 2;
+    }
+  } else {
+    const longEdgeMM = opts.longEdgeMM ?? 250;
+    sc = longEdgeMM / Wc; offX = marginMM; offY = marginMM;
+    pageWmm = longEdgeMM + 2*marginMM;
+    pageHmm = contentHpx*sc + 2*marginMM;
+  }
+  pageWmm = +pageWmm.toFixed(2); pageHmm = +pageHmm.toFixed(2);
+  const toMM = (p) => [ +(offX + p[0]*sc).toFixed(3), +(offY + p[1]*sc).toFixed(3) ];
 
   let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc }).filter(s => s.pts.length > 1);
   // orderForPlotter is O(n²); a text plot (lineprinter) emits thousands of tiny strokes already laid down
@@ -2043,29 +2079,33 @@ function exportPlotterSVG(g, opts = {}) {
   }).join('\n');
 
   const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const cxMM      = +(marginMM + (Wc/2)*sc).toFixed(3);
-  const titleYMM  = +(marginMM + titleYpx*sc).toFixed(3);
-  const metaYMM   = +(marginMM + metaYpx*sc).toFixed(3);
-  const coreYMM   = +(marginMM + coreYpx*sc).toFixed(3);
-  const titleSzMM = +(titleFontPx*sc).toFixed(2);
-  const metaSzMM  = +(metaFontPx*sc).toFixed(2);
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
-  <title>${esc(titleText)} — plotter</title>
-  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · mm units · hatch ${hatchSpacingMM}mm -->
-  <g inkscape:groupmode="layer" inkscape:label="pen1"
-     fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
-${paths}
-  </g>
-  <g inkscape:groupmode="layer" inkscape:label="caption"
+  let captionSvg = '';
+  if (showCaption) {
+    const cxMM      = +(offX + (Wc/2)*sc).toFixed(3);
+    const titleYMM  = +(offY + titleYpx*sc).toFixed(3);
+    const metaYMM   = +(offY + metaYpx*sc).toFixed(3);
+    const coreYMM   = +(offY + coreYpx*sc).toFixed(3);
+    const titleSzMM = +(titleFontPx*sc).toFixed(2);
+    const metaSzMM  = +(metaFontPx*sc).toFixed(2);
+    captionSvg = `  <g inkscape:groupmode="layer" inkscape:label="caption"
      font-family="'Courier New', Courier, monospace" fill="${stroke}" text-anchor="middle">
     <text x="${cxMM}" y="${titleYMM}" font-size="${titleSzMM}">${esc(titleText)}</text>
     <text x="${cxMM}" y="${metaYMM}" font-size="${metaSzMM}">${esc(dateText)} · ${esc(authorText)}</text>
     <text x="${cxMM}" y="${coreYMM}" font-size="${metaSzMM}">Mechanical Reverie</text>
   </g>
-</svg>
+`;
+  }
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
+  <title>${esc(titleText)} — plotter</title>
+  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · ${pageWmm}×${pageHmm}mm · hatch ${hatchSpacingMM}mm · stroke ${strokeWidthMM}mm${showCaption ? '' : ' · no caption'} -->
+  <g inkscape:groupmode="layer" inkscape:label="pen1"
+     fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
+${paths}
+  </g>
+${captionSvg}</svg>
 `;
 }
 
