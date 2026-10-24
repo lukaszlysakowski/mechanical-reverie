@@ -343,7 +343,13 @@ let W = canvas.width, H = canvas.height;
 // painter who found geometric tone in overstruck type. Opens the line-printer / concrete-poetry / ASCII-art
 // vein the archive wholly lacked. NOT in PIXEL_CHARS / not mutation-reachable → no existing genome uses it;
 // drawPixelLayer only gains an else-if, so every archive checksum is unchanged. Deterministic. C2 GREEN.
-const ENGINE_VERSION = 'v3.18.0';
+// v3.18.1 — additive, EXPORT-ONLY (user: "this piece is also a strong plotter piece"): the plotter SVG export
+// now handles 'lineprinter'. In plotter-capture mode each glyph is emitted as PEN STROKES (plotGlyph: dash →
+// horizontal, I → vertical, # → crosshatch, ▓/█ → dense hatch-fill), so the line printer's marks become
+// literal pen strokes and ink density tracks tone. The on-screen RASTER path is byte-identical (the branch
+// keys on ctx._strokes, present only on the recording context) → every checksum, Day 147 included, unchanged.
+// orderForPlotter is skipped past 4000 strokes (a text plot's natural row-major order is already plotter-ideal).
+const ENGINE_VERSION = 'v3.18.1';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1991,7 +1997,8 @@ function capturePlotterStrokes(g) {
 
 // Build a plotter-optimised SVG for the current genome: stroke-only, single pen, real mm units,
 // one Inkscape layer, pen-travel ordered. Works for every line character (contour, vectors, plotter,
-// hatch, convergence, oscilloscope); fills/dots are excluded.
+// hatch, convergence, oscilloscope) and for 'lineprinter' (each glyph → pen strokes); filled dots/blocks
+// (led, mosaic, benday, scanline, brightmap) are excluded.
 function exportPlotterSVG(g, opts = {}) {
   const Wc = 780, Hc = 580;                         // art lives in canonical 780×580 px
   const marginMM      = opts.marginMM ?? 15;
@@ -2016,7 +2023,10 @@ function exportPlotterSVG(g, opts = {}) {
   const pageHmm = +(contentHpx*sc + 2*marginMM).toFixed(2);
 
   let strokes = capturePlotterStrokes(g).filter(s => s.pts.length > 1);
-  if (opts.optimizeTravel !== false) strokes = orderForPlotter(strokes);
+  // orderForPlotter is O(n²); a text plot (lineprinter) emits thousands of tiny strokes already laid down
+  // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
+  // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
+  if (opts.optimizeTravel !== false && strokes.length <= 4000) strokes = orderForPlotter(strokes);
   const paths = strokes.map(s => {
     let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
     if (s.closed) d += ' Z';
@@ -2057,13 +2067,35 @@ function savePlotterSVG() {
   try { const t = prompt('Caption title for the plot:', def); if (t != null && t.trim()) title = t.trim(); } catch (e) {}
   const svg = exportPlotterSVG(genome, { title });
   if ((svg.match(/<path /g) || []).length === 0) {
-    alert('No plottable line geometry here — the plotter export captures STROKED lines (contour, vectors, plotter, hatch, convergence, oscilloscope), not filled dots/blocks (led, mosaic, pixel). Try a line-dominant genome.');
+    alert('No plottable line geometry here — the plotter export captures STROKED lines (contour, vectors, plotter, hatch, convergence, oscilloscope) and lineprinter (glyphs → pen strokes), not filled dots/blocks (led, mosaic, benday, scanline, brightmap). Try a line-dominant or lineprinter genome.');
     return;
   }
   const link = document.createElement('a');
   link.download = `mechanical-reverie-gen${generation}-plotter.svg`;
   link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   link.click();
+}
+
+// PLOTGLYPH — draw one line-printer glyph as PEN STROKES into the current (capture) context, so the
+// 'lineprinter' character becomes plottable: the printer's marks turn into literal pen strokes and ink
+// density tracks tone. Known Hammersley glyphs map to their own strokes (dash → horizontal, I → vertical,
+// # → crosshatch, ▓/█ → increasingly dense horizontal hatch-fill); any other glyph falls back to hatch
+// lines whose count grows with its ramp position (gi/steps). Only ever called in plotter-capture mode.
+function plotGlyph(ch, gi, steps, x, y, w, h) {
+  const ix = x + w * 0.12, iw = w * 0.76;         // small inset so adjacent cells read as separate marks
+  const iy = y + h * 0.12, ih = h * 0.76;
+  const cx = x + w * 0.5, cy = y + h * 0.5;
+  const H1 = (yy) => { ctx.moveTo(ix, yy); ctx.lineTo(ix + iw, yy); };   // horizontal stroke at height yy
+  const V1 = (xx) => { ctx.moveTo(xx, iy); ctx.lineTo(xx, iy + ih); };   // vertical stroke at x = xx
+  const hatch = (n) => { for (let k = 0; k < n; k++) H1(iy + ih * (k + 0.5) / n); };
+  ctx.beginPath();
+  if      (ch === '-') H1(cy);
+  else if (ch === 'I' || ch === '|') V1(cx);
+  else if (ch === '#') { H1(y + h * 0.38); H1(y + h * 0.62); V1(x + w * 0.38); V1(x + w * 0.62); }
+  else if (ch === '▓') hatch(5);
+  else if (ch === '█') hatch(8);
+  else hatch(1 + Math.round((steps > 1 ? gi / (steps - 1) : 0) * 7));   // generic: density by ramp position
+  ctx.stroke();
 }
 
 // LED: Regular grid of lit/unlit circles — early display / HUMAN ONE aesthetic
@@ -2369,10 +2401,17 @@ function drawPixelLayer(g, pal, t) {
       });
     }
     const steps = glyphs.length;
-    ctx.textBaseline = 'top';
-    ctx.textAlign = 'left';
-    ctx.font = fontSize.toFixed(2) + 'px "Courier New", monospace';
-    ctx.fillStyle = ink;
+    // Plotter capture: the recording context (ctx._strokes) has no fillText, so emit each glyph as PEN
+    // STROKES (plotGlyph) instead — the line printer's characters become literal pen marks, ink density
+    // tracking tone. The on-screen raster path below is byte-identical to before (C2-safe), so the capture
+    // branch only changes what the plotter export sees, never the pixels.
+    const plotter = !!ctx._strokes;
+    if (!plotter) {
+      ctx.textBaseline = 'top';
+      ctx.textAlign = 'left';
+      ctx.font = fontSize.toFixed(2) + 'px "Courier New", monospace';
+      ctx.fillStyle = ink;
+    }
     for (let r = 0; r < rows; r++) {
       const fy = (r + 0.5) / rows;
       for (let c = 0; c < cols; c++) {
@@ -2391,8 +2430,12 @@ function drawPixelLayer(g, pal, t) {
         const gi = clamp(Math.floor(tone * steps), 0, steps - 1);
         const ch2 = glyphs[gi];
         if (ch2 === ' ') continue;
-        ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
-        ctx.fillText(ch2, c * cw, r * rh);
+        if (plotter) {
+          plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
+        } else {
+          ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
+          ctx.fillText(ch2, c * cw, r * rh);
+        }
       }
     }
     ctx.globalAlpha = 1;
