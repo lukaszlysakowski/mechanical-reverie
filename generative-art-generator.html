@@ -359,7 +359,11 @@ let W = canvas.width, H = canvas.height;
 // caption TOGGLE (opts.caption:false → stroke-only file, since AxiDraw won't plot a font caption). Legacy
 // content-sized export (longEdgeMM) unchanged when no page size is given. Raster path still untouched; all
 // checksums, Day 147 included, unchanged.
-const ENGINE_VERSION = 'v3.18.3';
+// v3.18.4 — additive, EXPORT-ONLY: a single-stroke (Hershey-style) PLOTTER FONT + opts.captionMode:'stroke' so
+// a plot can carry a caption the pen actually draws (AxiDraw skips/mis-fills a <text> font). In bed-fit mode the
+// caption is reserved as a 3-line block below the ink and emitted as pen paths in the pen layer (uppercase,
+// centred). Default captionMode 'text' keeps the old <text> caption. Raster untouched; all checksums unchanged.
+const ENGINE_VERSION = 'v3.18.4';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2008,17 +2012,72 @@ function capturePlotterStrokes(g, capOpts = {}) {
   return cap._strokes;
 }
 
+// ── Single-stroke (Hershey-style) PLOTTER FONT — so a plot can carry a caption the pen actually draws
+// (AxiDraw / any plotter skips or mis-fills a normal <text> font). Uppercase set + digits + punctuation on a
+// grid x:0–4, y:0 (baseline) … 6 (cap). Each glyph = "advance:stroke|stroke", a stroke = concatenated "xy"
+// points. Parsed once into PLOT_FONT. Rendered via plotText* which returns polylines already in mm.
+const PLOT_FONT_RAW = {
+  ' ':'4:', '-':'5:1333', '·':'3:2324', '.':'3:2021', ':':'3:2122|2425', '/':'5:0046',
+  '&':'6:404405162635340201102042',
+  'A':'5:002640|1232', 'B':'5:0006|063645443303|033342413000', 'C':'5:4536160501103041',
+  'D':'5:0006|06364541413000', 'E':'5:46060040|0333', 'F':'5:460600|0333',
+  'G':'5:45361605011030414323', 'H':'5:0006|4046|0343', 'I':'3:1610',
+  'J':'5:3631201001', 'K':'5:0006|4603|0340', 'L':'5:060040', 'M':'5:0006234640',
+  'N':'5:00064046', 'O':'5:100105163645413010', 'P':'5:00063645443303',
+  'Q':'5:100105163645413010|3140', 'R':'5:00063645443303|2340',
+  'S':'5:453616050413334241301001', 'T':'5:0646|2620', 'U':'5:060110304146',
+  'V':'5:062046', 'W':'5:0610243046', 'X':'5:0046|0640', 'Y':'5:062346|2320', 'Z':'5:06460040',
+  '0':'5:100105163645413010', '1':'5:152620|1030', '2':'5:05163645440040',
+  '3':'5:064623|23334241301001', '4':'5:3036|360242', '5':'5:460603334241301001',
+  '6':'5:4536160501103041423303', '7':'5:064610',
+  '8':'5:130405163645443313|1302011030414233', '9':'5:0110304145361605041343'
+};
+let _PLOT_FONT = null;
+function plotFont() {
+  if (_PLOT_FONT) return _PLOT_FONT;
+  _PLOT_FONT = {};
+  for (const k in PLOT_FONT_RAW) {
+    const [w, rest] = PLOT_FONT_RAW[k].split(':');
+    const strokes = (rest || '').split('|').filter(Boolean).map(s => {
+      const p = []; for (let i = 0; i < s.length; i += 2) p.push([+s[i], +s[i + 1]]); return p;
+    });
+    _PLOT_FONT[k] = [+w, strokes];
+  }
+  return _PLOT_FONT;
+}
+function plotTextMeasure(text, capMM) {
+  const f = plotFont(), u = capMM / 6; let w = 0;
+  for (const ch of text.toUpperCase()) w += (f[ch] ? f[ch][0] : 4) * u;
+  return w;
+}
+// Return the text as polylines in mm, left edge at leftXmm, sitting on baselineYmm, cap height capMM.
+function plotTextPolylines(text, leftXmm, baselineYmm, capMM) {
+  const f = plotFont(), u = capMM / 6; let x = leftXmm; const out = [];
+  for (const ch of text.toUpperCase()) {
+    const g = f[ch] || [4, []];
+    for (const st of g[1]) out.push(st.map(([gx, gy]) => [ +(x + gx * u).toFixed(3), +(baselineYmm - gy * u).toFixed(3) ]));
+    x += g[0] * u;
+  }
+  return out;
+}
+
 // Build a plotter-optimised SVG for the current genome: stroke-only, single pen, real mm units,
 // one Inkscape layer, pen-travel ordered. Works for every line character (contour, vectors, plotter,
 // hatch, convergence, oscilloscope) and for 'lineprinter' (each glyph → pen strokes); filled dots/blocks
-// (led, mosaic, benday, scanline, brightmap) are excluded.
+// (led, mosaic, benday, scanline, brightmap) are excluded. opts.captionMode:'stroke' draws the caption as
+// single-stroke pen paths (plottable) instead of a <text> font.
 function exportPlotterSVG(g, opts = {}) {
   const Wc = 780, Hc = 580;                         // art lives in canonical 780×580 px
   const marginMM      = opts.marginMM ?? 15;
   const stroke        = opts.stroke ?? '#111111';
   const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
   const hatchSpacingMM = opts.hatchSpacingMM ?? 0.5; // lineprinter solid-fill (▓/█) hatch pitch — tune to pen
-  const showCaption = opts.caption !== false;        // false → stroke-only file (AxiDraw won't plot a font caption)
+  const showCaption = opts.caption !== false;        // false → no caption at all
+  const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
+  const strokeCap   = showCaption && captionMode === 'stroke';
+  // stroke-caption block metrics (mm; bed-fit only): 3 lines reserved below the art
+  const capTitleMM = opts.capTitleMM ?? 5.5, capMetaMM = opts.capMetaMM ?? 3.8, capLineGap = 2.2, capArtGap = 7;
+  const capBlockMM = strokeCap ? (capTitleMM + capLineGap + capMetaMM + capLineGap + capMetaMM) : 0;
 
   // ── caption metrics (px, in canonical space below the art): title, "date · author", project name ──
   const captionGapPx = opts.captionGapPx ?? 200;
@@ -2033,15 +2092,17 @@ function exportPlotterSVG(g, opts = {}) {
 
   // ── page + placement: a fixed physical sheet (bed-fit, scaled to fit & centred) when pageWmm/pageHmm are
   //    given — e.g. an AxiDraw 11×17 bed; otherwise the legacy content-sized page from longEdgeMM. ──
-  let sc, offX, offY, pageWmm, pageHmm;
+  let sc, offX, offY, pageWmm, pageHmm, capLayout = null;
   if (opts.pageWmm && opts.pageHmm) {
     pageWmm = +opts.pageWmm; pageHmm = +opts.pageHmm;
     const avW = pageWmm - 2*marginMM, avH = pageHmm - 2*marginMM;
-    // Centre on the INK bounding box (not the canvas) when there's no caption, so a composition with its own
-    // negative space — like "Overstruck" — lands in the middle of the sheet and fills it. Needs a provisional
-    // capture to measure the ink; the main capture below then re-runs at the final scale for correct hatch pitch.
-    const centerInk = opts.centerInk !== false && !showCaption;
+    // Centre on the INK bounding box (not the canvas) so a composition with its own negative space — like
+    // "Overstruck" — lands in the middle of the sheet and fills it. A stroke caption reserves a block below
+    // the art. (A legacy <text> caption keeps the old canvas-centred layout.) Needs a provisional capture to
+    // measure the ink; the main capture below then re-runs at the final scale for correct hatch pitch.
+    const centerInk = opts.centerInk !== false && (!showCaption || strokeCap);
     if (centerInk) {
+      const reserve = strokeCap ? (capArtGap + capBlockMM) : 0;
       const prov = Math.min(avW / Wc, avH / Hc);
       const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov }).filter(s => s.pts.length > 1);
       let minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
@@ -2050,9 +2111,11 @@ function exportPlotterSVG(g, opts = {}) {
         if (p[1] < miny) miny = p[1]; if (p[1] > maxy) maxy = p[1];
       }
       const iw = Math.max(1, maxx - minx), ih = Math.max(1, maxy - miny);
-      sc   = Math.min(avW / iw, avH / ih);
-      offX = (pageWmm - iw*sc) / 2 - minx*sc;
-      offY = (pageHmm - ih*sc) / 2 - miny*sc;
+      sc   = Math.min(avW / iw, (avH - reserve) / ih);
+      const artWmm = iw*sc, artHmm = ih*sc, top = (pageHmm - (artHmm + reserve)) / 2;
+      offX = (pageWmm - artWmm) / 2 - minx*sc;
+      offY = top - miny*sc;
+      if (strokeCap) capLayout = { cx: pageWmm/2, top: top + artHmm + capArtGap };
     } else {
       sc   = Math.min(avW / Wc, avH / contentHpx);    // fit whole content (art + caption) inside the margins
       offX = (pageWmm - Wc*sc) / 2;                    // centre the canvas on the sheet
@@ -2072,15 +2135,30 @@ function exportPlotterSVG(g, opts = {}) {
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
   if (opts.optimizeTravel !== false && strokes.length <= 4000) strokes = orderForPlotter(strokes);
-  const paths = strokes.map(s => {
+  let paths = strokes.map(s => {
     let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
     if (s.closed) d += ' Z';
     return `    <path d="${d}"/>`;
   }).join('\n');
 
+  // Stroke caption: draw the three lines as single-stroke pen paths (already in mm), centred, into the pen layer.
+  if (strokeCap && capLayout) {
+    let y = capLayout.top;
+    const lines = [[titleText, capTitleMM], [`${dateText} · ${authorText}`, capMetaMM], ['Mechanical Reverie', capMetaMM]];
+    const capPolys = [];
+    for (const [txt, cap] of lines) {
+      y += cap;                                                   // advance to this line's baseline
+      const left = capLayout.cx - plotTextMeasure(txt, cap) / 2;  // centre horizontally
+      capPolys.push(...plotTextPolylines(txt, left, y, cap));
+      y += capLineGap;
+    }
+    const capStr = capPolys.map(pl => `    <path d="${pl.map((p, i) => (i ? 'L' : 'M') + p[0] + ' ' + p[1]).join(' ')}"/>`).join('\n');
+    if (capStr) paths += (paths ? '\n' : '') + capStr;
+  }
+
   const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   let captionSvg = '';
-  if (showCaption) {
+  if (showCaption && !strokeCap) {
     const cxMM      = +(offX + (Wc/2)*sc).toFixed(3);
     const titleYMM  = +(offY + titleYpx*sc).toFixed(3);
     const metaYMM   = +(offY + metaYpx*sc).toFixed(3);
@@ -2100,7 +2178,7 @@ function exportPlotterSVG(g, opts = {}) {
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
   <title>${esc(titleText)} — plotter</title>
-  <!-- Mechanical Reverie plotter export · ${strokes.length} paths · stroke-only · single pen · ${pageWmm}×${pageHmm}mm · hatch ${hatchSpacingMM}mm · stroke ${strokeWidthMM}mm${showCaption ? '' : ' · no caption'} -->
+  <!-- Mechanical Reverie plotter export · ${strokes.length} art paths · stroke-only · single pen · ${pageWmm}×${pageHmm}mm · hatch ${hatchSpacingMM}mm · stroke ${strokeWidthMM}mm · caption: ${!showCaption ? 'none' : strokeCap ? 'pen strokes' : 'text'} -->
   <g inkscape:groupmode="layer" inkscape:label="pen1"
      fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
 ${paths}
