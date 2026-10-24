@@ -365,7 +365,10 @@ let W = canvas.width, H = canvas.height;
 // Default captionMode 'text' keeps the old <text> caption. Raster untouched; all checksums unchanged.
 // v3.18.5 — additive, EXPORT-ONLY: stroke caption lines are configurable via opts.captionLines ([text,'t'|'m'][])
 // so a plot can credit its source (e.g. the curatorial handle @Noahbolanowski); added '@' to the plotter font.
-const ENGINE_VERSION = 'v3.18.5';
+// v3.18.6 — additive, EXPORT-ONLY: captions now credit the curatorial source BY DEFAULT — a "via @Noahbolanowski"
+// line in both stroke and <text> modes (every daily piece renders from Noah's feed). opts.source changes the
+// handle; opts.source:false omits it (for Claude's Own / Frontier pieces, which are not Noah-sourced).
+const ENGINE_VERSION = 'v3.18.6';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2085,11 +2088,16 @@ function exportPlotterSVG(g, opts = {}) {
   const titleText  = opts.title  || `mechanical-reverie-gen${generation}`;
   const dateText   = opts.date   || new Date().toISOString().slice(0, 10);
   const authorText = opts.author || 'lukaszgraphz & Claude';
-  // Stroke-caption lines, each [text, 't'|'m'] (title or meta size). Override with opts.captionLines to add a
-  // source credit, e.g. @Noahbolanowski. Default: title, date·author, project name.
-  const capLinesDef = (opts.captionLines && opts.captionLines.length) ? opts.captionLines : [
-    [titleText, 't'], [`${dateText} · ${authorText}`, 'm'], ['Mechanical Reverie', 'm']
-  ];
+  // Curatorial source credit — defaults to @Noahbolanowski (every daily piece renders from Noah's feed).
+  // Pass opts.source to change the handle, or opts.source:false to omit it (Claude's Own / Frontier pieces,
+  // which are NOT Noah-sourced, should pass source:false).
+  const sourceHandle = opts.source === undefined ? '@Noahbolanowski' : opts.source;
+  // Caption lines, each [text, 't'|'m'] (title or meta size). Default: title · date·makers · via @source ·
+  // project name. Fully overridable with opts.captionLines.
+  const defaultCapLines = [[titleText, 't'], [`${dateText} · ${authorText}`, 'm']];
+  if (sourceHandle) defaultCapLines.push([`via ${sourceHandle}`, 'm']);
+  defaultCapLines.push(['Mechanical Reverie', 'm']);
+  const capLinesDef = (opts.captionLines && opts.captionLines.length) ? opts.captionLines : defaultCapLines;
   const capLineH = (t) => (t === 't' ? capTitleMM : capMetaMM);
   const capBlockMM = strokeCap
     ? capLinesDef.reduce((a, l) => a + capLineH(l[1]), 0) + capLineGap * Math.max(0, capLinesDef.length - 1)
@@ -2097,7 +2105,8 @@ function exportPlotterSVG(g, opts = {}) {
   const titleFontPx = 17, metaFontPx = 13;
   const titleYpx   = Hc + captionGapPx;
   const metaYpx    = titleYpx + 28;
-  const coreYpx    = metaYpx + 24;
+  const viaYpx     = metaYpx + 24;                                 // optional source-credit line
+  const coreYpx    = (sourceHandle ? viaYpx : metaYpx) + 24;
   const contentHpx = showCaption ? (coreYpx + 18) : Hc;   // bounding box height in canonical px
 
   // ── page + placement: a fixed physical sheet (bed-fit, scaled to fit & centred) when pageWmm/pageHmm are
@@ -2151,7 +2160,7 @@ function exportPlotterSVG(g, opts = {}) {
     return `    <path d="${d}"/>`;
   }).join('\n');
 
-  // Stroke caption: draw the three lines as single-stroke pen paths (already in mm), centred, into the pen layer.
+  // Stroke caption: draw each line as single-stroke pen paths (already in mm), centred, into the pen layer.
   if (strokeCap && capLayout) {
     let y = capLayout.top;
     const capPolys = [];
@@ -2172,13 +2181,15 @@ function exportPlotterSVG(g, opts = {}) {
     const cxMM      = +(offX + (Wc/2)*sc).toFixed(3);
     const titleYMM  = +(offY + titleYpx*sc).toFixed(3);
     const metaYMM   = +(offY + metaYpx*sc).toFixed(3);
+    const viaYMM    = +(offY + viaYpx*sc).toFixed(3);
     const coreYMM   = +(offY + coreYpx*sc).toFixed(3);
     const titleSzMM = +(titleFontPx*sc).toFixed(2);
     const metaSzMM  = +(metaFontPx*sc).toFixed(2);
+    const viaLine = sourceHandle ? `\n    <text x="${cxMM}" y="${viaYMM}" font-size="${metaSzMM}">via ${esc(sourceHandle)}</text>` : '';
     captionSvg = `  <g inkscape:groupmode="layer" inkscape:label="caption"
      font-family="'Courier New', Courier, monospace" fill="${stroke}" text-anchor="middle">
     <text x="${cxMM}" y="${titleYMM}" font-size="${titleSzMM}">${esc(titleText)}</text>
-    <text x="${cxMM}" y="${metaYMM}" font-size="${metaSzMM}">${esc(dateText)} · ${esc(authorText)}</text>
+    <text x="${cxMM}" y="${metaYMM}" font-size="${metaSzMM}">${esc(dateText)} · ${esc(authorText)}</text>${viaLine}
     <text x="${cxMM}" y="${coreYMM}" font-size="${metaSzMM}">Mechanical Reverie</text>
   </g>
 `;
