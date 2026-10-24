@@ -361,9 +361,11 @@ let W = canvas.width, H = canvas.height;
 // checksums, Day 147 included, unchanged.
 // v3.18.4 — additive, EXPORT-ONLY: a single-stroke (Hershey-style) PLOTTER FONT + opts.captionMode:'stroke' so
 // a plot can carry a caption the pen actually draws (AxiDraw skips/mis-fills a <text> font). In bed-fit mode the
-// caption is reserved as a 3-line block below the ink and emitted as pen paths in the pen layer (uppercase,
-// centred). Default captionMode 'text' keeps the old <text> caption. Raster untouched; all checksums unchanged.
-const ENGINE_VERSION = 'v3.18.4';
+// caption is reserved as a block below the ink and emitted as pen paths in the pen layer (uppercase, centred).
+// Default captionMode 'text' keeps the old <text> caption. Raster untouched; all checksums unchanged.
+// v3.18.5 — additive, EXPORT-ONLY: stroke caption lines are configurable via opts.captionLines ([text,'t'|'m'][])
+// so a plot can credit its source (e.g. the curatorial handle @Noahbolanowski); added '@' to the plotter font.
+const ENGINE_VERSION = 'v3.18.5';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2018,7 +2020,7 @@ function capturePlotterStrokes(g, capOpts = {}) {
 // points. Parsed once into PLOT_FONT. Rendered via plotText* which returns polylines already in mm.
 const PLOT_FONT_RAW = {
   ' ':'4:', '-':'5:1333', '·':'3:2324', '.':'3:2021', ':':'3:2122|2425', '/':'5:0046',
-  '&':'6:404405162635340201102042',
+  '&':'6:404405162635340201102042', '@':'6:4244351504021131|3222243431',
   'A':'5:002640|1232', 'B':'5:0006|063645443303|033342413000', 'C':'5:4536160501103041',
   'D':'5:0006|06364541413000', 'E':'5:46060040|0333', 'F':'5:460600|0333',
   'G':'5:45361605011030414323', 'H':'5:0006|4046|0343', 'I':'3:1610',
@@ -2075,15 +2077,23 @@ function exportPlotterSVG(g, opts = {}) {
   const showCaption = opts.caption !== false;        // false → no caption at all
   const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
   const strokeCap   = showCaption && captionMode === 'stroke';
-  // stroke-caption block metrics (mm; bed-fit only): 3 lines reserved below the art
+  // stroke-caption per-line sizes (mm; bed-fit only)
   const capTitleMM = opts.capTitleMM ?? 5.5, capMetaMM = opts.capMetaMM ?? 3.8, capLineGap = 2.2, capArtGap = 7;
-  const capBlockMM = strokeCap ? (capTitleMM + capLineGap + capMetaMM + capLineGap + capMetaMM) : 0;
 
   // ── caption metrics (px, in canonical space below the art): title, "date · author", project name ──
   const captionGapPx = opts.captionGapPx ?? 200;
   const titleText  = opts.title  || `mechanical-reverie-gen${generation}`;
   const dateText   = opts.date   || new Date().toISOString().slice(0, 10);
   const authorText = opts.author || 'lukaszgraphz & Claude';
+  // Stroke-caption lines, each [text, 't'|'m'] (title or meta size). Override with opts.captionLines to add a
+  // source credit, e.g. @Noahbolanowski. Default: title, date·author, project name.
+  const capLinesDef = (opts.captionLines && opts.captionLines.length) ? opts.captionLines : [
+    [titleText, 't'], [`${dateText} · ${authorText}`, 'm'], ['Mechanical Reverie', 'm']
+  ];
+  const capLineH = (t) => (t === 't' ? capTitleMM : capMetaMM);
+  const capBlockMM = strokeCap
+    ? capLinesDef.reduce((a, l) => a + capLineH(l[1]), 0) + capLineGap * Math.max(0, capLinesDef.length - 1)
+    : 0;
   const titleFontPx = 17, metaFontPx = 13;
   const titleYpx   = Hc + captionGapPx;
   const metaYpx    = titleYpx + 28;
@@ -2144,9 +2154,9 @@ function exportPlotterSVG(g, opts = {}) {
   // Stroke caption: draw the three lines as single-stroke pen paths (already in mm), centred, into the pen layer.
   if (strokeCap && capLayout) {
     let y = capLayout.top;
-    const lines = [[titleText, capTitleMM], [`${dateText} · ${authorText}`, capMetaMM], ['Mechanical Reverie', capMetaMM]];
     const capPolys = [];
-    for (const [txt, cap] of lines) {
+    for (const [txt, kind] of capLinesDef) {
+      const cap = capLineH(kind);
       y += cap;                                                   // advance to this line's baseline
       const left = capLayout.cx - plotTextMeasure(txt, cap) / 2;  // centre horizontally
       capPolys.push(...plotTextPolylines(txt, left, y, cap));
