@@ -17,7 +17,7 @@ cp "$SRC/selected-genomes.json" "$DST/selected-genomes.json"
 echo "→ Syncing site files (pages + data)..."
 # These live only in the working dir and used to require manual copying — the source of
 # stale-site drift. Sync them every publish so the deployed site never lags the working copy.
-for f in index.html timeline.html atlas.html concepts.html threads.html claude.html csuri.html generative-art-generator.html concepts.json threads.json elites-map.json claude-track.json; do
+for f in index.html timeline.html atlas.html concepts.html threads.html claude.html csuri.html generative-art-generator.html concepts.json threads.json elites-map.json claude-track.json plotter-track.json; do
   if [ -f "$SRC/$f" ]; then
     if ! cmp -s "$SRC/$f" "$DST/$f"; then
       cp "$SRC/$f" "$DST/$f"
@@ -77,6 +77,32 @@ if os.path.exists(p):
 else:
     print('  (no claude-track.json)')
 PYEOF2
+
+echo "→ Syncing Plotter Studies track files..."
+python3 - <<'PYEOF3'
+import json, shutil, os
+base = os.path.dirname(os.path.abspath(__file__))
+src = '/Users/lukasz/claude/mechanical-reverie/generative-art-output/art'
+dst = os.path.join(base, 'art')
+p = os.path.join(base, 'plotter-track.json')
+if os.path.exists(p):
+    d = json.load(open(p))
+    files = []
+    for r in d.get('renditions', []):
+        if r.get('filename'): files.append(r['filename'])
+    for s in d.get('studies', []):
+        if s.get('filename'): files.append(s['filename'])
+        files += [f for f in s.get('files', []) if f]
+    files += [f for f in d.get('supersededRenditions', []) if f]
+    n = 0
+    for fn in files:
+        s = os.path.join(src, fn)
+        if os.path.exists(s):
+            shutil.copy2(s, os.path.join(dst, fn)); print('  ~ ' + fn); n += 1
+    print('  (no plotter art)' if n == 0 else f'  Synced {n} plotter file(s)')
+else:
+    print('  (no plotter-track.json)')
+PYEOF3
 
 # Build commit message
 if [ -n "$1" ]; then

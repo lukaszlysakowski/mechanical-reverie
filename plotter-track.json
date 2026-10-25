@@ -1,0 +1,73 @@
+{
+  "track": "Plotter Studies: Overstruck",
+  "premise": "A plotter exploration forked from the daily archive piece 'Overstruck' (Day 147). The daily track asks what a Noah source reduces to in the engine's own vocabulary; this strand asks what the line-printer piece becomes when a PEN — not a screen — makes its marks. The parent's canonical raster is never altered. Everything here is either a faithful translation of that parent to pen (a rendition) or a study that deliberately leaves it behind.",
+  "started": "2026-10-25",
+  "updated": "2026-10-25",
+  "forkRule": {
+    "line": "Fidelity. A plot is a faithful EXPORT while it still reproduces the parent's checksum; it becomes a STUDY the moment a decision changes what is DRAWN, not just how it is output.",
+    "stillAnExport": ["page size / bed-fit / centering", "hatch pitch", "stroke width", "pen & paper", "caption on/off, signature, credit"],
+    "forkTriggers": [
+      "a different glyph vocabulary, or a re-seeded / re-composed layout",
+      "tone remapped to exploit ink/pen behaviour (would no longer match the raster)",
+      "multi-pen / colour separation — more than one pen layer with intent",
+      "an engine capability built for pen aesthetics rather than to reduce a Noah source",
+      "a series: a 2nd/3rd variation kept as an artwork in its own right"
+    ],
+    "tell": "When the pen stops reproducing the piece and starts making decisions the screen never made."
+  },
+  "parent": {
+    "source": "daily-archive",
+    "day": 147,
+    "title": "Overstruck",
+    "date": "2026-10-23",
+    "after": "Frederick Hammersley, 'CO-ED #38' (1969)",
+    "via": "@Noahbolanowski — LACMA's 200+ work digital-art gift",
+    "pixelCharacter": "lineprinter",
+    "engineVersion": "v3.18.0",
+    "checksum": "7ddf2b3ddd0d36bbcfe31a63b69a7c063f8cec1193f4e9641841082a9bac7b52",
+    "noiseSeed": 147420,
+    "renderSeed": 20261023,
+    "rasterFilename": "mechanical-reverie-day-147-overstruck-2026-10-23.png",
+    "note": "Canonical seed lives in selected-genomes.json (day 147) and is NEVER changed by this track. Full genome is the single source of truth there."
+  },
+  "setup": {
+    "plotter": "AxiDraw (A3 / SE)",
+    "sheet": "11×17 landscape — 431.8 × 279.4 mm (within ~430 × 297 mm travel)",
+    "pen": "0.5 mm fibre-tip",
+    "hatchPitchMM": "under calibration (swatch spans 0.40–0.60 mm; solid threshold TBD on paper)",
+    "exporter": "exportPlotterSVG — stroke-only, single pen, real mm units, bed-fit + ink-centred, single-stroke plotter-font caption (v3.18.1–.6, all export-only, raster untouched)"
+  },
+  "renditions": [
+    {
+      "kind": "faithful-export",
+      "faithful": true,
+      "filename": "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg",
+      "page": "431.8 × 279.4 mm",
+      "pen": "0.5 mm",
+      "hatchMM": 0.5,
+      "caption": "pen strokes (title · date·makers · via @Noahbolanowski · Mechanical Reverie)",
+      "paths": 2393,
+      "note": "Primary faithful translation of the parent to pen. Ink-centred, signed, credits Noah. Supersedes the earlier -signed / un-signed / content-sized iterations (kept on disk)."
+    },
+    {
+      "kind": "calibration",
+      "faithful": true,
+      "filename": "mechanical-reverie-plot-test-solidfill-0.5mm-pen.svg",
+      "page": "182 × 88 mm",
+      "note": "Solid-fill pitch calibration strip (0.40 / 0.45 / 0.50 / 0.55 / 0.60 mm) for the 0.5 mm pen. Pick the widest pitch that still reads solid on paper, then re-export the parent at that pitch."
+    }
+  ],
+  "supersededRenditions": [
+    "mechanical-reverie-day-147-overstruck-2026-10-23-plotter.svg",
+    "mechanical-reverie-day-147-overstruck-2026-10-23-plotter-pen0.5mm.svg",
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm.svg",
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed.svg"
+  ],
+  "studies": [],
+  "openDirections": [
+    "Multi-pen colour separation — the first likely true fork (the raster has no colour-layer equivalent).",
+    "A plotter-native glyph vocabulary (beyond the lineprinter ink-density set).",
+    "Re-seeded layout variations plotted as a series.",
+    "Overprint / layered passes exploiting ink build-up."
+  ]
+}
