@@ -42,7 +42,8 @@
     "pen": "Sakura Pigma Micron 05 — archival pigment ink (~0.45 mm nib)",
     "hatchPitchMM": 0.45,
     "exporter": "exportPlotterSVG — stroke-only, single pen, real mm units, bed-fit + ink-centred, single-stroke plotter-font caption (v3.18.1–.6, all export-only, raster untouched)",
-    "calibration": "Solid-fill swatch plotted 2026-10-25 on light-gray stock: 0.40 solid, 0.45 solid (widest that still reads solid), 0.50 visibly lined. Pitch = nib width (0.45) gives edge-to-edge solid; 0.50 > nib opens gaps. Picked 0.45 mm (0.40 is the denser fallback)."
+    "calibration": "Solid-fill swatch plotted 2026-10-25 on light-gray stock: 0.40 solid, 0.45 solid (widest that still reads solid), 0.50 visibly lined. Pitch = nib width (0.45) gives edge-to-edge solid; 0.50 > nib opens gaps. Picked 0.45 mm (0.40 is the denser fallback).",
+    "pens_on_hand": "black Sakura Micron 05 (~0.45mm) + a very thin red (fine nib) — weight contrast is intentional"
   },
   "renditions": [
     {
@@ -94,7 +95,9 @@
       "strokeMM": 0.45,
       "paths": 2495,
       "layers": 2,
-      "note": "2 Inkscape layers (pen1 black, pen2 red) + black caption. Plot pen1, swap to red, plot pen2. Parent seed untouched."
+      "note": "2 Inkscape layers (pen1 black, pen2 red) + black caption. Plot pen1, swap to red, plot pen2. Parent seed untouched.",
+      "plotted": "2026-10-25 — AxiDraw, black Micron 05 + a VERY THIN red pen. First two-colour plot of the track.",
+      "plotFinding": "The thin red lays a lighter/finer line than the black, so the two pens differ in WEIGHT as well as hue: red nested zones RECEDE (a faint underlayer), black columns/#-blocks/solid ADVANCE. The concentric nested structure gains real depth (foreground/background), reading almost atmospheric — far richer than an equal-weight 2-colour plot. Pen-WEIGHT difference is now a deliberate lever for the track (pair a bold dark pen with a fine light one)."
     },
     {
       "id": "study-02",
