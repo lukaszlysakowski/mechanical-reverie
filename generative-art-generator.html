@@ -368,7 +368,10 @@ let W = canvas.width, H = canvas.height;
 // v3.18.6 — additive, EXPORT-ONLY: captions now credit the curatorial source BY DEFAULT — a "via @Noahbolanowski"
 // line in both stroke and <text> modes (every daily piece renders from Noah's feed). opts.source changes the
 // handle; opts.source:false omits it (for Claude's Own / Frontier pieces, which are not Noah-sourced).
-const ENGINE_VERSION = 'v3.18.6';
+// v3.18.7 — additive, EXPORT-ONLY: caption line sizes/gaps are now tunable (opts.capTitleMM/capMetaMM/
+// capLineGap/capArtGap) so the signature can be a discreet footer instead of competing with the art. A smaller
+// caption reserves less space, so the art scales up. Raster untouched; all checksums unchanged.
+const ENGINE_VERSION = 'v3.18.7';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2081,7 +2084,8 @@ function exportPlotterSVG(g, opts = {}) {
   const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
   const strokeCap   = showCaption && captionMode === 'stroke';
   // stroke-caption per-line sizes (mm; bed-fit only)
-  const capTitleMM = opts.capTitleMM ?? 5.5, capMetaMM = opts.capMetaMM ?? 3.8, capLineGap = 2.2, capArtGap = 7;
+  const capTitleMM = opts.capTitleMM ?? 5.5, capMetaMM = opts.capMetaMM ?? 3.8;
+  const capLineGap = opts.capLineGap ?? 2.2, capArtGap = opts.capArtGap ?? 7;
 
   // ── caption metrics (px, in canonical space below the art): title, "date · author", project name ──
   const captionGapPx = opts.captionGapPx ?? 200;

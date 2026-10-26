@@ -48,14 +48,14 @@
     {
       "kind": "faithful-export",
       "faithful": true,
-      "filename": "mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah.svg",
+      "filename": "mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah-smallsig.svg",
       "page": "431.8 × 279.4 mm",
       "pen": "Sakura Pigma Micron 05 (~0.45 mm)",
       "hatchMM": 0.45,
       "strokeMM": 0.45,
-      "caption": "pen strokes (title · date·makers · via @Noahbolanowski · Mechanical Reverie)",
+      "caption": "pen strokes, discreet footer (title 3.2 / meta 2.3 mm) so the art dominates — title · date·makers · via @Noahbolanowski · Mechanical Reverie",
       "paths": 2393,
-      "note": "CALIBRATED faithful translation — hatch pitch & stroke set to the pen (0.45 mm) after the swatch test. The primary plot-ready sheet. (At Overstruck's small glyph cells 0.45 vs 0.50 round to the same line count, so it reads like the 0.5 sheet, but pitch now matches the pen.)"
+      "note": "PRIMARY plot-ready sheet. Calibrated to the pen (0.45 mm) and with a small signature so it sits as a quiet footer rather than competing with the fine line-printer marks."
     },
     {
       "kind": "calibration",
@@ -70,7 +70,8 @@
     "mechanical-reverie-day-147-overstruck-2026-10-23-plotter-pen0.5mm.svg",
     "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm.svg",
     "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed.svg",
-    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg"
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg",
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah.svg"
   ],
   "studies": [],
   "openDirections": [
