@@ -389,7 +389,10 @@ let W = canvas.width, H = canvas.height;
 // the SCREEN. lineprinter gains `lpColorMode` ('figure' / 'nested') + `lpInk2`, colouring glyphs in a second ink
 // on the raster — the classic red/black typewriter/teletype RIBBON, now a native daily-renderable text register
 // (not only a plot). Default 'mono' = single ink → byte-identical; Day 147 still `7ddf2b3d`. Opt-in, C2-safe.
-const ENGINE_VERSION = 'v3.20.0';
+// v3.20.1 — additive, EXPORT-ONLY: opts.subdivHatch hatch-fills a subdivide PLOT by each cell's tone darkness
+// (coarse/dark = dense hatch, fine/pale = empty) → the tonal "drain" rendered in single-pen ink. Capture-only
+// (ctx._subdivHatch); the raster fillRect no-ops on the capture ctx, so all checksums are unchanged.
+const ENGINE_VERSION = 'v3.20.1';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1604,6 +1607,23 @@ function drawSubdivide(g, pal, t) {
     const gx = w * gap * 0.5, gy = h * gap * 0.5;
     const rx = x + gx, ry = y + gy, rw = Math.max(1, w - 2 * gx), rh = Math.max(1, h - 2 * gy);
     const ci = clamp(Math.floor(depth / maxDepth * (ramp.length - 1)), 0, ramp.length - 1);
+    // PLOTTER hatch-fill (opt-in, capture-only via ctx._subdivHatch): hatch each cell with ink density ∝ its
+    // tone DARKNESS, so the fill drains as cells refine — the "diminishing returns" argument rendered in ink.
+    // The raster path below is untouched (fillRect no-ops on the capture ctx) → every checksum unchanged.
+    if (ctx._strokes && ctx._subdivHatch) {
+      const col = ramp[ci] || '#000';
+      const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(col);
+      let dark = 0.5;
+      if (m) dark = 1 - (0.299 * parseInt(m[1], 16) + 0.587 * parseInt(m[2], 16) + 0.114 * parseInt(m[3], 16)) / 255;
+      if (dark > 0.06) {
+        const pitchPx = (ctx._hatchMM && ctx._mmPerPx) ? (ctx._hatchMM / ctx._mmPerPx) : Math.max(3, rh / 10);
+        const maxLines = Math.max(1, Math.floor(rh / pitchPx));
+        const nLines = Math.max(1, Math.round(maxLines * dark));   // darker → more lines (tighter spacing)
+        ctx.beginPath();
+        for (let k = 0; k < nLines; k++) { const yy = ry + rh * (k + 0.5) / nLines; ctx.moveTo(rx, yy); ctx.lineTo(rx + rw, yy); }
+        ctx.stroke();
+      }
+    }
     ctx.globalAlpha = fillA;
     ctx.fillStyle = ramp[ci];
     ctx.fillRect(rx, ry, rw, rh);
@@ -2035,8 +2055,9 @@ function capturePlotterStrokes(g, capOpts = {}) {
   // hand the lineprinter hatch-fill knob (mm) and the mm-per-px scale to plotGlyph via the capture context
   if (capOpts.hatchMM)   cap._hatchMM   = capOpts.hatchMM;
   if (capOpts.mmPerPx)   cap._mmPerPx   = capOpts.mmPerPx;
-  if (capOpts.penSplit)  cap._penSplit  = capOpts.penSplit;   // Study 01: 'nested' → 2-colour by nested ring
-  if (capOpts.tonalFill) cap._tonalFill = capOpts.tonalFill;  // Study 02: true solid-black darks
+  if (capOpts.penSplit)   cap._penSplit   = capOpts.penSplit;   // Study 01: 'nested' → 2-colour by nested ring
+  if (capOpts.tonalFill)  cap._tonalFill  = capOpts.tonalFill;  // Study 02: true solid-black darks
+  if (capOpts.subdivHatch) cap._subdivHatch = capOpts.subdivHatch; // subdivide: hatch-fill cells by tone (drain)
   try { ctx = cap; W = Wc; H = Hc; render(g, 0); }
   finally { ctx = prevCtx; W = prevW; H = prevH; }
   return cap._strokes;
@@ -2108,6 +2129,7 @@ function exportPlotterSVG(g, opts = {}) {
   const pens      = (Array.isArray(opts.pens) && opts.pens.length) ? opts.pens : [stroke];
   const penWidths = (Array.isArray(opts.penWidths) && opts.penWidths.length) ? opts.penWidths : null; // per-pen mm
   const tonalFill = opts.tonalFill === true;
+  const subdivHatch = opts.subdivHatch === true;   // subdivide: hatch-fill cells by tone (ink drains as cells refine)
   const showCaption = opts.caption !== false;        // false → no caption at all
   const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
   const strokeCap   = showCaption && captionMode === 'stroke';
@@ -2155,7 +2177,7 @@ function exportPlotterSVG(g, opts = {}) {
     if (centerInk) {
       const reserve = strokeCap ? (capArtGap + capBlockMM) : 0;
       const prov = Math.min(avW / Wc, avH / Hc);
-      const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov, penSplit, tonalFill }).filter(s => s.pts.length > 1);
+      const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov, penSplit, tonalFill, subdivHatch }).filter(s => s.pts.length > 1);
       let minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
       for (const s of s0) for (const p of s.pts) {
         if (p[0] < minx) minx = p[0]; if (p[0] > maxx) maxx = p[0];
@@ -2181,7 +2203,7 @@ function exportPlotterSVG(g, opts = {}) {
   pageWmm = +pageWmm.toFixed(2); pageHmm = +pageHmm.toFixed(2);
   const toMM = (p) => [ +(offX + p[0]*sc).toFixed(3), +(offY + p[1]*sc).toFixed(3) ];
 
-  let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc, penSplit, tonalFill }).filter(s => s.pts.length > 1);
+  let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc, penSplit, tonalFill, subdivHatch }).filter(s => s.pts.length > 1);
   // orderForPlotter is O(n²); a text plot (lineprinter) emits thousands of tiny strokes already laid down
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.

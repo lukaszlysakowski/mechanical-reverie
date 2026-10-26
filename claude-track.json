@@ -681,13 +681,23 @@
       },
       "series": null,
       "description": "The same recursion as The Reward, inverted: refinement that drains instead of rewards. The identical subdivide character — proof that a mark's meaning lives in the tuning, not the tool.",
-      "plotVariant": {
-        "filename": "mechanical-reverie-claude-009-diminishing-returns-plot-bw-11x17.svg",
-        "medium": "pen plot — black & white, single pen (AxiDraw 11×17 landscape, 0.45mm)",
-        "note": "subdivide only strokes its lattice, so the plot is the quadtree as pure line art (the tonal drain is a fill a pen can't do). The argument survives STRUCTURALLY: big valuable wholes → a mesh of ever-smaller, ever-more-trivial cells = diminishing returns via cell-size, not tone. Small 3-line signature; no @Noah credit (Claude's Own, not Noah-sourced).",
-        "paths": 1111,
-        "page": "431.8 × 279.4 mm"
-      }
+      "plotVariants": [
+        {
+          "filename": "mechanical-reverie-claude-009-diminishing-returns-plot-bw-11x17.svg",
+          "medium": "pen plot — black & white, single pen (AxiDraw 11×17 landscape, 0.45mm)",
+          "note": "subdivide only strokes its lattice, so the plot is the quadtree as pure line art (the tonal drain is a fill a pen can't do). The argument survives STRUCTURALLY: big valuable wholes → a mesh of ever-smaller, ever-more-trivial cells = diminishing returns via cell-size, not tone. Small 3-line signature; no @Noah credit (Claude's Own, not Noah-sourced).",
+          "paths": 1111,
+          "page": "431.8 × 279.4 mm",
+          "kind": "stroke (line art)"
+        },
+        {
+          "kind": "fill (tonal hatch)",
+          "filename": "mechanical-reverie-claude-009-diminishing-returns-plot-fill-11x17.svg",
+          "medium": "pen plot — black & white, single pen (AxiDraw 11×17 landscape, 0.45mm, hatch 1.2mm)",
+          "note": "subdivHatch (v3.20.1): each cell hatch-filled by its tone darkness → coarse/dark cells densely ruled (heavy, present), fine/pale cells drained to empty outline. The pixel piece's tonal DRAIN rendered in single-pen ink — the ledger filling, then emptying as the returns diminish. 2838 paths.",
+          "page": "431.8 × 279.4 mm"
+        }
+      ]
     }
   ]
 }
