@@ -382,7 +382,10 @@ let W = canvas.width, H = canvas.height;
 // the other → # becomes a woven two-colour weave). 'nested' unchanged. Raster untouched.
 // v3.19.2 — additive, EXPORT-ONLY: opts.penWidths — per-pen stroke weight (mm), so a 2-colour plot can pair a
 // bold dark pen with a fine light one (the pen-WEIGHT-contrast lever: the thin pen's layer recedes). Raster untouched.
-const ENGINE_VERSION = 'v3.19.2';
+// v3.19.3 — additive, EXPORT-ONLY: weave-structure variants of the direction split — 'weave-swap' (warp/weft
+// colours swapped), 'weave-checker' (houndstooth; weave flips every other cell), 'weave-twill' (diagonal 2-cell
+// bands). Strokes now carry their source cell (cr/cc) so the weave can be recoloured per cell. Raster untouched.
+const ENGINE_VERSION = 'v3.19.3';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1984,10 +1987,11 @@ function makeCaptureCtx(Wc, Hc) {
     stroke() {
       const all = subs.slice(); if (cur.length > 1) all.push({ pts: cur.slice(), closed:false });
       const pen = rec._pen || 0;   // plotter pen/layer index (0 unless a study split set it)
-      for (const sp of all) if (sp.pts.length > 1) strokes.push({ pts: sp.pts.map(p=>p.slice()), closed: sp.closed, pen });
+      const cr = rec._cellR | 0, cc = rec._cellC | 0;   // source cell (for per-cell weave patterns)
+      for (const sp of all) if (sp.pts.length > 1) strokes.push({ pts: sp.pts.map(p=>p.slice()), closed: sp.closed, pen, cr, cc });
     },
     fill() {}, fillRect() {}, clearRect() {},
-    strokeRect(x,y,w,h) { strokes.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true, pen: rec._pen || 0 }); },
+    strokeRect(x,y,w,h) { strokes.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true, pen: rec._pen || 0, cr: rec._cellR|0, cc: rec._cellC|0 }); },
     clip() {}, setLineDash() {}, getLineDash() { return []; },
     createLinearGradient() { return { addColorStop() {} }; },
     createRadialGradient() { return { addColorStop() {} }; },
@@ -2178,13 +2182,21 @@ function exportPlotterSVG(g, opts = {}) {
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
   if (opts.optimizeTravel !== false && strokes.length <= 4000) strokes = orderForPlotter(strokes);
-  // 'direction' split: tag each ART stroke by its orientation (horizontal → pen 0, vertical → pen 1), so #
-  // crosshatch becomes a woven two-colour weave. (Caption is added to pen 0 afterwards, so it stays one colour.)
-  if (penSplit === 'direction') {
+  // WEAVE splits: tag each ART stroke by orientation (horizontal vs vertical) so # crosshatch becomes a woven
+  // two-colour cloth. Variants recolour the weave per source cell (cr/cc) for classic textile structures:
+  //   'direction'/'weave' = plain weave (H pen0, V pen1); 'weave-swap' = warp/weft colours swapped;
+  //   'weave-checker' = houndstooth (the weave flips every other cell); 'weave-twill' = diagonal 2-cell bands.
+  // (Caption is added to pen 0 afterwards, so it stays one colour.)
+  if (penSplit === 'direction' || (penSplit && penSplit.indexOf('weave') === 0)) {
     for (const s of strokes) {
       let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
       for (const p of s.pts) { if (p[0] < minx) minx = p[0]; if (p[0] > maxx) maxx = p[0]; if (p[1] < miny) miny = p[1]; if (p[1] > maxy) maxy = p[1]; }
-      s.pen = (maxx - minx) >= (maxy - miny) ? 0 : 1;
+      let pen = (maxx - minx) >= (maxy - miny) ? 0 : 1;   // horizontal → 0, vertical → 1
+      const r = s.cr | 0, c = s.cc | 0;
+      if (penSplit === 'weave-swap')         pen ^= 1;
+      else if (penSplit === 'weave-checker') { if ((r + c) & 1) pen ^= 1; }
+      else if (penSplit === 'weave-twill')   { if (((r + c) >> 1) & 1) pen ^= 1; }
+      s.pen = pen;
     }
   }
   const dOf = (s) => {
@@ -2655,6 +2667,7 @@ function drawPixelLayer(g, pal, t) {
           // handled per-stroke by geometry in the export (mixed-direction glyphs can't be tagged per cell).
           if (ctx._penSplit === 'nested')      ctx._pen = bestRing % 2;
           else if (ctx._penSplit === 'figure') ctx._pen = (gi >= Math.ceil(steps / 2)) ? 1 : 0;
+          ctx._cellR = r; ctx._cellC = c;   // tag source cell for per-cell weave patterns (export reads cr/cc)
           plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
         } else {
           ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
