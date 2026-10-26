@@ -55,7 +55,9 @@
       "strokeMM": 0.45,
       "caption": "pen strokes, discreet footer (title 3.2 / meta 2.3 mm) so the art dominates — title · date·makers · via @Noahbolanowski · Mechanical Reverie",
       "paths": 2393,
-      "note": "PRIMARY plot-ready sheet. Calibrated to the pen (0.45 mm) and with a small signature so it sits as a quiet footer rather than competing with the fine line-printer marks."
+      "note": "PRIMARY plot-ready sheet. Calibrated to the pen (0.45 mm) and with a small signature so it sits as a quiet footer rather than competing with the fine line-printer marks.",
+      "plotted": "2026-10-25 — AxiDraw V3/A3, Micron 05, hatch 0.45mm. First physical realization of a Mechanical Reverie piece.",
+      "plotFinding": "On paper the glyph ramp reads as TEXTURE, not tone: # → crosshatch, ▓/█ → horizontal stripes, so the former solid-black cores read as another pattern rather than black fill (crosshatch # even competes with the hatch blocks for weight). The digital tonal depth becomes textural variety — faithful to Hammersley, but true solid black on paper would need a pen-first fill (a fork)."
     },
     {
       "kind": "calibration",
@@ -75,9 +77,18 @@
   ],
   "studies": [],
   "openDirections": [
+    "Tonal-depth study: a pen-first solid-fill (larger cells or scribble-fill) so █ reads as true black, restoring the digital tonal range on paper (a fork, not an export).",
     "Multi-pen colour separation — the first likely true fork (the raster has no colour-layer equivalent).",
     "A plotter-native glyph vocabulary (beyond the lineprinter ink-density set).",
     "Re-seeded layout variations plotted as a series.",
     "Overprint / layered passes exploiting ink build-up."
+  ],
+  "findings": [
+    {
+      "date": "2026-10-25",
+      "from": "first physical plot of Overstruck",
+      "finding": "Pen translates the lineprinter ink-density ramp (space‹-‹I‹#‹▓‹█) into a TEXTURE vocabulary, not a tonal one. Darkness order is not preserved — crosshatch # reads as heavy as the solid-hatch █. Dash grounds and # grids are the strongest marks; the Micron holds a clean consistent line at 0.45mm.",
+      "implication": "A faithful plot = textural reading (good, Hammersley-true). For genuine tonal DEPTH / true black on paper, redesign the stroke-glyph fill for pen (bigger cells so hatch builds, or a blackout scribble-fill) — that CHANGES what is drawn, so it would be Study 01, not an export."
+    }
   ]
 }
