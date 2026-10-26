@@ -385,7 +385,11 @@ let W = canvas.width, H = canvas.height;
 // v3.19.3 — additive, EXPORT-ONLY: weave-structure variants of the direction split — 'weave-swap' (warp/weft
 // colours swapped), 'weave-checker' (houndstooth; weave flips every other cell), 'weave-twill' (diagonal 2-cell
 // bands). Strokes now carry their source cell (cr/cc) so the weave can be recoloured per cell. Raster untouched.
-const ENGINE_VERSION = 'v3.19.3';
+// v3.20.0 — additive (WEEKLY-REVIEW build, 2026-10-25): the plotter studies' two-tone discovery comes back to
+// the SCREEN. lineprinter gains `lpColorMode` ('figure' / 'nested') + `lpInk2`, colouring glyphs in a second ink
+// on the raster — the classic red/black typewriter/teletype RIBBON, now a native daily-renderable text register
+// (not only a plot). Default 'mono' = single ink → byte-identical; Day 147 still `7ddf2b3d`. Opt-in, C2-safe.
+const ENGINE_VERSION = 'v3.20.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2615,6 +2619,12 @@ function drawPixelLayer(g, pal, t) {
     const rh = fontSize * (g.lpRowH || 0.98);
     const rows = Math.ceil(H / rh);
     const ink = g.lpInk || pal[0] || '#1b2a4a';
+    // Two-colour ribbon (v3.20.0): the plotter studies showed the lineprinter has a latent two-tone structure,
+    // and red/black is the classic typewriter/teletype RIBBON. lpColorMode colours glyphs on screen too —
+    // 'figure' (dense #/▓/█ in the 2nd colour, ground in ink) or 'nested' (alternate by nested ring). Default
+    // 'mono' = single ink (byte-identical to before; Day 147 unchanged). 2nd colour = g.lpInk2 (else a red).
+    const colorMode = g.lpColorMode || 'mono';
+    const ink2 = g.lpInk2 || '#c0392b';
     const baseT = clamp(g.lpBaseTone ?? 0.14, 0, 1);  // faint dash-ruled ground everywhere a block reaches
     const ns = g.noiseSeed * 0.01;
     // stacked nested-rectangle tone centres (deterministic from the seed)
@@ -2670,6 +2680,10 @@ function drawPixelLayer(g, pal, t) {
           ctx._cellR = r; ctx._cellC = c;   // tag source cell for per-cell weave patterns (export reads cr/cc)
           plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
         } else {
+          // Two-colour ribbon on screen: pick the glyph's ink by the same classifiers as the plotter pen-split.
+          // 'mono' leaves fillStyle = ink (set once), so the render is byte-identical to before.
+          if (colorMode === 'figure')      ctx.fillStyle = (gi >= Math.ceil(steps / 2)) ? ink2 : ink;
+          else if (colorMode === 'nested') ctx.fillStyle = (bestRing % 2) ? ink2 : ink;
           ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
           ctx.fillText(ch2, c * cw, r * rh);
         }
