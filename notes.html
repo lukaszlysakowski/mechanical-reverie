@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Notes — Mechanical Reverie</title>
+<meta name="description" content="Weekly syntheses from the Mechanical Reverie engine — what each week taught, conceptually and visually, framed to generate the next work.">
+<meta property="og:title" content="Studio Notes — Mechanical Reverie">
+<meta property="og:description" content="What the engine learned this week — new mark-families, a second substrate, and the ideas they generate.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lukaszlysakowski.github.io/mechanical-reverie/notes.html">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; color: #c9b896; font-family: 'Georgia', serif; line-height: 1.7; overflow-x: hidden; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .topbar { max-width: 760px; margin: 0 auto; padding: 22px 24px 0; font-size: 12px; letter-spacing: 1px; }
+  .topbar a { color: #a89670; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .topbar a:hover { color: #c4a265; }
+
+  .hero { text-align: center; padding: 34px 20px 6px; }
+  .hero h1 { font-size: clamp(24px, 5vw, 38px); letter-spacing: clamp(3px, 1.2vw, 8px); text-transform: uppercase; color: #c4a265; margin-bottom: 10px; }
+  .hero .tagline { font-size: 14px; color: #b0a078; font-style: italic; letter-spacing: 1px; max-width: 600px; margin: 0 auto; }
+
+  .entry { margin: 40px auto 0; border-top: 1px solid #2a2218; padding-top: 30px; }
+  .entry > .eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9c8a68; margin-bottom: 6px; }
+  .entry > h2 { font-size: 24px; color: #c4a265; line-height: 1.25; margin-bottom: 10px; }
+  .entry .lede { font-size: 14px; color: #c9b896; }
+  .entry .lede em { color: #b0a078; }
+  .entry .meta { font-size: 12.5px; color: #a89670; margin-top: 8px; line-height: 1.7; }
+  .entry .oneline { font-size: 15px; color: #c9b896; margin: 20px 0 6px; padding: 14px 18px; border-left: 2px solid #c4a265; background: #0d0d0d; }
+
+  .entry h3 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #c4a265; margin: 34px 0 14px; }
+  ol.learnings { list-style: none; counter-reset: ln; padding: 0; }
+  ol.learnings > li { counter-increment: ln; position: relative; padding: 0 0 18px 40px; font-size: 14px; color: #c9b896; }
+  ol.learnings > li::before { content: counter(ln); position: absolute; left: 0; top: 0; font-family: monospace; font-size: 13px; color: #d4af37; border: 1px solid #3a2e1e; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; }
+  ol.learnings b, .entry b { color: #c4b39e; }
+  ol.learnings em, .entry em { color: #b0a078; }
+  ol.learnings ul { margin: 8px 0 0 0; padding-left: 18px; }
+  ol.learnings ul li { font-size: 13.5px; color: #a89670; margin-bottom: 4px; }
+  code { font-family: monospace; font-size: 0.9em; color: #d4af37; background: #141414; padding: 1px 5px; border: 1px solid #241d12; }
+
+  .buildbox { border: 1px solid #2a2218; background: #0d0d0d; padding: 20px 22px; margin-top: 10px; font-size: 14px; }
+  .nextlist { list-style: none; padding: 0; }
+  .nextlist li { padding: 0 0 10px 18px; position: relative; font-size: 13.5px; color: #c9b896; }
+  .nextlist li::before { content: "→"; position: absolute; left: 0; color: #9c8a68; }
+  .through { font-size: 15px; color: #c9b896; margin-top: 24px; padding-top: 18px; border-top: 1px solid #2a2218; }
+
+  .footer-bottom { text-align: center; padding: 48px 20px 40px; font-size: 11px; color: #9c8a68; letter-spacing: 1px; }
+  .footer-bottom a { color: #a89670; text-decoration: none; }
+  .footer-bottom a:hover { color: #c4a265; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="index.html">← Mechanical Reverie</a></div>
+
+<div class="hero">
+  <h1>Studio Notes</h1>
+  <div class="tagline">What each week taught the engine — conceptually and visually — framed to generate the next work, not to catalogue the last.</div>
+</div>
+
+<div class="wrap">
+  <article class="entry">
+    <div class="eyebrow">Week of 2026-10-19 → 2026-10-25</div>
+    <h2>Three new mark-families, and a second substrate</h2>
+    <p class="lede"><em>The engine stopped being a single vocabulary on a single screen.</em></p>
+    <p class="meta">Engine <b>v3.14.1 → v3.20.0</b> · Day 143 <em>A Creative Partner</em> · Day 144 <em>Dragon Fold</em> (dragon) · Day 145 <em>Artificial Intelligence</em> (scanline) · F-08 <em>Departure Board</em> · Day 146 <em>The Reward</em> (subdivide) · Day 147 <em>Overstruck</em> (lineprinter) — and the entire <b>Plotter Studies</b> track off Day 147.</p>
+
+    <p class="oneline"><b>The week in one line:</b> the engine opened <b>three new mark-families</b> (fractal, raster, text) and then <b>crossed into a second substrate</b> (the pen), where its marks had to be re-learned, not just re-rendered.</p>
+
+    <h3>Conceptual learnings</h3>
+    <ol class="learnings">
+      <li><b>Three veins opened in six days — the archive's biggest blind spots, closed.</b> The engine had <em>zero</em> fractal/recursive forms, <em>zero</em> raster/video register, and <em>zero</em> text. Dragon (recursive <b>path</b>) + subdivide (recursive <b>partition</b>) opened fractals; scanline opened raster; lineprinter opened text. The lesson: when a pioneer's essence is a <em>whole class</em> the engine can't express, that's the signal to <b>change the program</b>, and the payoff is a vein, not a piece. Next absent classes to watch — <b>sound/waveform</b>, <b>network/graph</b>, <b>moving-image loop</b>.</li>
+      <li><b>"Change the program, not the drawing" scales to a new SUBSTRATE.</b> The deepest move wasn't a character — it was re-voicing the same genome <em>in ink</em>. The plotter work is all export-only: the raster never changed (<code>7ddf2b3d</code> held through fifteen engine versions). The program isn't "how the engine draws pixels" — it's "how a canonical seed becomes a mark," and a pen asks different questions of the same seed.</li>
+      <li><b>The FORK RULE — the cleanest criteria-line we've drawn.</b> A translation is a faithful <em>export</em> while it reproduces the parent's checksum (page, pitch, pen, caption are output-only). It becomes a <em>study</em> the moment a decision changes <b>what is drawn</b>. This gave the Plotter Studies track its spine and kept the daily archive's provenance clean.</li>
+      <li><b>A medium teaches by failing.</b> The first physical plot <em>failed</em> instructively: the digital ink-density ramp did <b>not</b> survive as a tonal order on paper — the pen read it as <b>texture</b>, not tone. That finding generated Study 02 (true solid black) directly. Principle: <b>plot early, let the substrate contradict the screen, and treat the contradiction as the brief for the next study.</b></li>
+      <li><b>Restraint lived in the RENDER, not in refusing the capability.</b> Four new characters in five renders could have been creep. It wasn't — each debut was <em>polarized to one signature</em> (the new mark alone, other weights zeroed). The capability was justified by an absent class; the restraint was in the composition.</li>
+      <li><b>The plotter is a DISCOVERY INSTRUMENT that feeds the main engine.</b> Exploring Overstruck in ink surfaced a property the screen never exposed: the lineprinter's tone field has a latent <em>two-tone structure</em>. That discovery came home as a native screen capability (<code>lpColorMode</code>, below). The pen asks a question the pixel didn't → the answer becomes a dial on the main instrument.</li>
+    </ol>
+
+    <h3>Visual learnings</h3>
+    <ol class="learnings" style="counter-reset: ln 6;">
+      <li><b>Each new mark has a distinct, nameable signature — and reads cleanest ALONE.</b>
+        <ul>
+          <li><b>dragon</b> — deterministic order that looks grown (a space-filling fold).</li>
+          <li><b>subdivide</b> — a quadtree whose cells halve and darken; directional bias makes it a <em>trajectory</em> (coarse→fine = a visual argument).</li>
+          <li><b>scanline</b> — saturated horizontal bands interleaved with scan-text; the raster/CRT register.</li>
+          <li><b>lineprinter</b> — the charset AS a tonal palette; hard-edge nested-rectangle tone from overstruck glyphs.</li>
+        </ul>
+        The house pattern for any debut: <b>polarize</b> so the signature reads.</li>
+      <li><b>On paper, the glyph ramp is a TEXTURE vocabulary, not a tonal one.</b> Darkness order is not preserved by the pen — "tone" on screen becomes "pattern" in ink. To restore tonal <b>depth</b> you must change the fill (full-cell merge → true black). The single most important visual fact the plotter taught.</li>
+      <li><b>PEN WEIGHT is a second compositional axis — the week's best new lever.</b> Pairing a bold dark pen with a <em>fine</em> light one makes the two colours differ in <b>weight as well as hue</b>: the thin layer <b>recedes</b>, the bold layer <b>advances</b>. A two-colour plot gains real depth — not two flat layers, but a near-ground and a far-ground.</li>
+      <li><b>Direction + colour = a WEAVE grammar.</b> Splitting marks by orientation turns the <code>#</code> field into woven cloth; recolouring per cell gives textile structures — <b>plain</b>, <b>swap</b> (vertical emphasis), <b>houndstooth</b> (checker), <b>twill</b> (diagonal). The line-printer's crosshatch was <em>always</em> a latent weave; the pen made it literal.</li>
+      <li><b>A solid on paper wants to MERGE, not tile.</b> Per-cell inset hatch reads as stripes; full-cell fill at the pen pitch lets adjacent dark cells merge into true black. Small cores stripe more than large swatches. Rule: <b>remove the inset for the darkest tier so neighbours join.</b></li>
+    </ol>
+
+    <h3>The build — two-colour ribbon (<code>lpColorMode</code>, v3.20.0)</h3>
+    <div class="buildbox">
+      <p>The plotter's two-tone discovery wanted to be <em>native</em> to the screen, because <b>red/black is the classic typewriter / teletype ribbon</b> — a real piece of computer-art material history, not just a plot trick. So <code>lineprinter</code> gained <code>lpColorMode</code> (<code>'figure'</code> = dense glyphs in a 2nd ink; <code>'nested'</code> = alternate by nested ring) + <code>lpInk2</code>. A future daily text source that <em>is</em> two-colour — a red/black ledger, a two-ribbon typewriter poem, teletype with red overprint — now renders as a canonical piece with a real checksum, not only as a plot. Default <code>'mono'</code> is byte-identical (Day 147 still <code>7ddf2b3d</code>). The first capability the <b>plotter studies gave back to the daily engine.</b></p>
+    </div>
+
+    <h3>What this generates next</h3>
+    <ul class="nextlist">
+      <li><b>Remaining absent classes</b> (treat as priority, like fractals were): sound/waveform, network/graph, moving-image loop.</li>
+      <li><b>A Fractals room</b> is overdue (dragon + subdivide live) — and a <b>Text / Line-Printer room</b> becomes defensible on the 2nd text day.</li>
+      <li><b>Plotter Studies</b> open fronts: jet-black solid, a pen-first glyph vocabulary, &gt;2 colours, and the richest — <b>weight-contrast as a design primitive</b> (every two-colour piece now asks "which layer recedes?").</li>
+      <li><b>Next text sources to watch:</b> Knowlton EXPLOR, Houédard typestracts, Alison Knowles <em>House of Dust</em> (1967, first computer poem).</li>
+    </ul>
+
+    <p class="through"><b>The through-line:</b> a mark is not fixed — it changes meaning with the <em>class</em> it belongs to (fractal/raster/text), the <em>substrate</em> it lands on (pixel vs pen), and the <em>weight</em> that draws it. Three new dials on the same instrument.</p>
+  </article>
+</div>
+
+<div class="footer-bottom">
+  Mechanical Reverie · Studio Notes · <a href="index.html">Home</a> · <a href="https://github.com/lukaszlysakowski/mechanical-reverie" target="_blank">GitHub</a>
+</div>
+
+</body>
+</html>
