@@ -685,17 +685,19 @@
         {
           "filename": "mechanical-reverie-claude-009-diminishing-returns-plot-bw-11x17.svg",
           "medium": "pen plot — black & white, single pen (AxiDraw 11×17 landscape, 0.45mm)",
-          "note": "subdivide only strokes its lattice, so the plot is the quadtree as pure line art (the tonal drain is a fill a pen can't do). The argument survives STRUCTURALLY: big valuable wholes → a mesh of ever-smaller, ever-more-trivial cells = diminishing returns via cell-size, not tone. Small 3-line signature; no @Noah credit (Claude's Own, not Noah-sourced).",
+          "note": "subdivide only strokes its lattice, so the plot is the quadtree as pure line art (the tonal drain is a fill a pen can't do). The argument survives STRUCTURALLY: big valuable wholes → a mesh of ever-smaller, ever-more-trivial cells = diminishing returns via cell-size, not tone. Small 3-line signature; no @Noah credit (Claude's Own, not Noah-sourced). PREFERRED (user, 2026-10-25): the more elegant result — the line/outline reduction states the argument with nothing but structure; the fill is louder but does more to say the same. Restraint wins on the pen too.",
           "paths": 1111,
           "page": "431.8 × 279.4 mm",
-          "kind": "stroke (line art)"
+          "kind": "stroke (line art)",
+          "preferred": true
         },
         {
           "kind": "fill (tonal hatch)",
           "filename": "mechanical-reverie-claude-009-diminishing-returns-plot-fill-11x17.svg",
           "medium": "pen plot — black & white, single pen (AxiDraw 11×17 landscape, 0.45mm, hatch 1.2mm)",
           "note": "subdivHatch (v3.20.1): each cell hatch-filled by its tone darkness → coarse/dark cells densely ruled (heavy, present), fine/pale cells drained to empty outline. The pixel piece's tonal DRAIN rendered in single-pen ink — the ledger filling, then emptying as the returns diminish. 2838 paths.",
-          "page": "431.8 × 279.4 mm"
+          "page": "431.8 × 279.4 mm",
+          "preferred": false
         }
       ]
     }
