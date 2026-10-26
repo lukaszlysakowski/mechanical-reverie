@@ -380,7 +380,9 @@ let W = canvas.width, H = canvas.height;
 // v3.19.1 — additive, EXPORT-ONLY: two more penSplit modes to compare for Study 01 — 'figure' (dense glyphs
 // #/▓/█ on one pen, dash-ground + columns on the other) and 'direction' (horizontal marks one pen, vertical
 // the other → # becomes a woven two-colour weave). 'nested' unchanged. Raster untouched.
-const ENGINE_VERSION = 'v3.19.1';
+// v3.19.2 — additive, EXPORT-ONLY: opts.penWidths — per-pen stroke weight (mm), so a 2-colour plot can pair a
+// bold dark pen with a fine light one (the pen-WEIGHT-contrast lever: the thin pen's layer recedes). Raster untouched.
+const ENGINE_VERSION = 'v3.19.2';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2096,6 +2098,7 @@ function exportPlotterSVG(g, opts = {}) {
   // colours (preview; the plotter operator assigns physical pens). opts.tonalFill makes the darks true solid.
   const penSplit  = opts.penSplit || null;
   const pens      = (Array.isArray(opts.pens) && opts.pens.length) ? opts.pens : [stroke];
+  const penWidths = (Array.isArray(opts.penWidths) && opts.penWidths.length) ? opts.penWidths : null; // per-pen mm
   const tonalFill = opts.tonalFill === true;
   const showCaption = opts.caption !== false;        // false → no caption at all
   const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
@@ -2234,8 +2237,9 @@ function exportPlotterSVG(g, opts = {}) {
   penPaths.forEach((arr, i) => {
     if (!arr || !arr.length) return;
     const col = pens[i] || pens[pens.length - 1] || stroke;
+    const sw  = (penWidths && penWidths[i] != null) ? penWidths[i] : strokeWidthMM;  // per-pen line weight
     layersSvg += `  <g inkscape:groupmode="layer" inkscape:label="pen${i + 1}"
-     fill="none" stroke="${col}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
+     fill="none" stroke="${col}" stroke-width="${sw}" stroke-linejoin="round" stroke-linecap="round">
 ${arr.join('\n')}
   </g>
 `;

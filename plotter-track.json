@@ -117,6 +117,30 @@
       "note": "Single black pen. Addresses the 2026-10-25 plot finding (texture-vs-tone): solids now merge to true black.",
       "plotted": "2026-10-25 — AxiDraw, Micron 05, 0.45mm. SUCCESS: the dark cores now read as filled dark blocks, clearly the heaviest marks; # sits back as medium crosshatch; tonal depth restored vs the first plot.",
       "plotFinding": "Solids read as deep CHARCOAL-black, not dead-flat ink — fine horizontal striping is still visible in the smaller cores (Micron lays a hair under 0.45mm, so 0.45 pitch leaves micro-gaps; a large swatch integrates to solid, small cores less so). Hierarchy holds. For JET black: drop the solid-fill pitch (~0.35–0.40mm) or cross-hatch both directions — a one-line tweak (fullHatch)."
+    },
+    {
+      "id": "study-01b",
+      "title": "Overstruck — Weave (Direction, Thin Red)",
+      "date": "2026-10-25",
+      "parentStudy": "study-01",
+      "fork": "Direction split + pen-weight contrast — a true two-layer cloth the screen has no equivalent for.",
+      "idea": "Horizontal marks on a BOLD BLACK pen (0.45mm), vertical marks on a FINE RED pen (0.2mm). The # regions become woven: black horizontals = weft on top, thin red verticals = warp beneath; | columns read as a faint red underlayer, dash grounds + solid █ stay bold black. The overstrike becomes a ghost grid; weight contrast gives depth, not flat plaid.",
+      "filename": "mechanical-reverie-plotter-study01b-overstruck-weave-black-thinred.svg",
+      "engineVersion": "v3.19.2",
+      "page": "431.8 × 279.4 mm",
+      "pens": [
+        "#111111 (black, 0.45mm) — HORIZONTALS",
+        "#c0392b (red, ~0.2mm fine) — VERTICALS"
+      ],
+      "penSplit": "direction",
+      "penWidths": [
+        0.45,
+        0.2
+      ],
+      "hatchMM": 0.45,
+      "paths": 2495,
+      "layers": 2,
+      "note": "Applies the thin-red pen-weight-contrast finding from study-01 to the direction/weave split. Plot pen1 (black, horizontals), swap to the fine red, plot pen2 (verticals). Watch registration — the weave shows any paper shift."
     }
   ],
   "openDirections": [
