@@ -111,7 +111,9 @@
       "strokeMM": 0.45,
       "paths": 2495,
       "layers": 1,
-      "note": "Single black pen. Addresses the 2026-10-25 plot finding (texture-vs-tone): solids now merge to true black."
+      "note": "Single black pen. Addresses the 2026-10-25 plot finding (texture-vs-tone): solids now merge to true black.",
+      "plotted": "2026-10-25 — AxiDraw, Micron 05, 0.45mm. SUCCESS: the dark cores now read as filled dark blocks, clearly the heaviest marks; # sits back as medium crosshatch; tonal depth restored vs the first plot.",
+      "plotFinding": "Solids read as deep CHARCOAL-black, not dead-flat ink — fine horizontal striping is still visible in the smaller cores (Micron lays a hair under 0.45mm, so 0.45 pitch leaves micro-gaps; a large swatch integrates to solid, small cores less so). Hierarchy holds. For JET black: drop the solid-fill pitch (~0.35–0.40mm) or cross-hatch both directions — a one-line tweak (fullHatch)."
     }
   ],
   "openDirections": [
