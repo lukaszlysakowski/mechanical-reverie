@@ -5,7 +5,13 @@
   "updated": "2026-10-25",
   "forkRule": {
     "line": "Fidelity. A plot is a faithful EXPORT while it still reproduces the parent's checksum; it becomes a STUDY the moment a decision changes what is DRAWN, not just how it is output.",
-    "stillAnExport": ["page size / bed-fit / centering", "hatch pitch", "stroke width", "pen & paper", "caption on/off, signature, credit"],
+    "stillAnExport": [
+      "page size / bed-fit / centering",
+      "hatch pitch",
+      "stroke width",
+      "pen & paper",
+      "caption on/off, signature, credit"
+    ],
     "forkTriggers": [
       "a different glyph vocabulary, or a re-seeded / re-composed layout",
       "tone remapped to exploit ink/pen behaviour (would no longer match the raster)",
@@ -31,23 +37,25 @@
     "note": "Canonical seed lives in selected-genomes.json (day 147) and is NEVER changed by this track. Full genome is the single source of truth there."
   },
   "setup": {
-    "plotter": "AxiDraw (A3 / SE)",
+    "plotter": "AxiDraw V3/A3",
     "sheet": "11×17 landscape — 431.8 × 279.4 mm (within ~430 × 297 mm travel)",
-    "pen": "0.5 mm fibre-tip",
-    "hatchPitchMM": "under calibration (swatch spans 0.40–0.60 mm; solid threshold TBD on paper)",
-    "exporter": "exportPlotterSVG — stroke-only, single pen, real mm units, bed-fit + ink-centred, single-stroke plotter-font caption (v3.18.1–.6, all export-only, raster untouched)"
+    "pen": "Sakura Pigma Micron 05 — archival pigment ink (~0.45 mm nib)",
+    "hatchPitchMM": 0.45,
+    "exporter": "exportPlotterSVG — stroke-only, single pen, real mm units, bed-fit + ink-centred, single-stroke plotter-font caption (v3.18.1–.6, all export-only, raster untouched)",
+    "calibration": "Solid-fill swatch plotted 2026-10-25 on light-gray stock: 0.40 solid, 0.45 solid (widest that still reads solid), 0.50 visibly lined. Pitch = nib width (0.45) gives edge-to-edge solid; 0.50 > nib opens gaps. Picked 0.45 mm (0.40 is the denser fallback)."
   },
   "renditions": [
     {
       "kind": "faithful-export",
       "faithful": true,
-      "filename": "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg",
+      "filename": "mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah.svg",
       "page": "431.8 × 279.4 mm",
-      "pen": "0.5 mm",
-      "hatchMM": 0.5,
+      "pen": "Sakura Pigma Micron 05 (~0.45 mm)",
+      "hatchMM": 0.45,
+      "strokeMM": 0.45,
       "caption": "pen strokes (title · date·makers · via @Noahbolanowski · Mechanical Reverie)",
       "paths": 2393,
-      "note": "Primary faithful translation of the parent to pen. Ink-centred, signed, credits Noah. Supersedes the earlier -signed / un-signed / content-sized iterations (kept on disk)."
+      "note": "CALIBRATED faithful translation — hatch pitch & stroke set to the pen (0.45 mm) after the swatch test. The primary plot-ready sheet. (At Overstruck's small glyph cells 0.45 vs 0.50 round to the same line count, so it reads like the 0.5 sheet, but pitch now matches the pen.)"
     },
     {
       "kind": "calibration",
@@ -61,7 +69,8 @@
     "mechanical-reverie-day-147-overstruck-2026-10-23-plotter.svg",
     "mechanical-reverie-day-147-overstruck-2026-10-23-plotter-pen0.5mm.svg",
     "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm.svg",
-    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed.svg"
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed.svg",
+    "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg"
   ],
   "studies": [],
   "openDirections": [
