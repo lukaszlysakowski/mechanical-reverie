@@ -377,7 +377,10 @@ let W = canvas.width, H = canvas.height;
 // makes the dark glyphs (▓/█) fill the full cell at the pen pitch so adjacent darks MERGE into true solid black
 // on paper [Study 02]. Both are gated on capture-context flags, so the on-screen raster is untouched; all
 // checksums, Day 147 included, unchanged.
-const ENGINE_VERSION = 'v3.19.0';
+// v3.19.1 — additive, EXPORT-ONLY: two more penSplit modes to compare for Study 01 — 'figure' (dense glyphs
+// #/▓/█ on one pen, dash-ground + columns on the other) and 'direction' (horizontal marks one pen, vertical
+// the other → # becomes a woven two-colour weave). 'nested' unchanged. Raster untouched.
+const ENGINE_VERSION = 'v3.19.1';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2172,6 +2175,15 @@ function exportPlotterSVG(g, opts = {}) {
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
   if (opts.optimizeTravel !== false && strokes.length <= 4000) strokes = orderForPlotter(strokes);
+  // 'direction' split: tag each ART stroke by its orientation (horizontal → pen 0, vertical → pen 1), so #
+  // crosshatch becomes a woven two-colour weave. (Caption is added to pen 0 afterwards, so it stays one colour.)
+  if (penSplit === 'direction') {
+    for (const s of strokes) {
+      let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+      for (const p of s.pts) { if (p[0] < minx) minx = p[0]; if (p[0] > maxx) maxx = p[0]; if (p[1] < miny) miny = p[1]; if (p[1] > maxy) maxy = p[1]; }
+      s.pen = (maxx - minx) >= (maxy - miny) ? 0 : 1;
+    }
+  }
   const dOf = (s) => {
     let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
     if (s.closed) d += ' Z';
@@ -2634,8 +2646,11 @@ function drawPixelLayer(g, pal, t) {
         const ch2 = glyphs[gi];
         if (ch2 === ' ') continue;
         if (plotter) {
-          // STUDY 01 — nested-region 2-colour: alternate the pen by nested ring depth (concentric colour bands)
-          if (ctx._penSplit === 'nested') ctx._pen = bestRing % 2;
+          // STUDY 01 2-colour pen split: 'nested' alternates by nested ring (concentric bands); 'figure'
+          // puts the dense glyphs (#, ▓, █) on pen 1 and the dash-ground + columns on pen 0; 'direction' is
+          // handled per-stroke by geometry in the export (mixed-direction glyphs can't be tagged per cell).
+          if (ctx._penSplit === 'nested')      ctx._pen = bestRing % 2;
+          else if (ctx._penSplit === 'figure') ctx._pen = (gi >= Math.ceil(steps / 2)) ? 1 : 0;
           plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
         } else {
           ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
