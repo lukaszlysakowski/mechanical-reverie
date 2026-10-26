@@ -371,7 +371,13 @@ let W = canvas.width, H = canvas.height;
 // v3.18.7 — additive, EXPORT-ONLY: caption line sizes/gaps are now tunable (opts.capTitleMM/capMetaMM/
 // capLineGap/capArtGap) so the signature can be a discreet footer instead of competing with the art. A smaller
 // caption reserves less space, so the art scales up. Raster untouched; all checksums unchanged.
-const ENGINE_VERSION = 'v3.18.7';
+// v3.19.0 — additive, EXPORT-ONLY (Plotter Studies forks, first plotter-FIRST engine work): the plotter export
+// gains (1) PEN SPLIT onto multiple Inkscape layers — opts.penSplit 'nested' tags lineprinter cells by nested
+// ring so a 2-colour plot (opts.pens) separates concentric regions [Study 01]; and (2) TONAL FILL — opts.tonalFill
+// makes the dark glyphs (▓/█) fill the full cell at the pen pitch so adjacent darks MERGE into true solid black
+// on paper [Study 02]. Both are gated on capture-context flags, so the on-screen raster is untouched; all
+// checksums, Day 147 included, unchanged.
+const ENGINE_VERSION = 'v3.19.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1972,10 +1978,11 @@ function makeCaptureCtx(Wc, Hc) {
     arcTo(x1,y1,x2,y2) { this.lineTo(x1,y1); this.lineTo(x2,y2); },
     stroke() {
       const all = subs.slice(); if (cur.length > 1) all.push({ pts: cur.slice(), closed:false });
-      for (const sp of all) if (sp.pts.length > 1) strokes.push({ pts: sp.pts.map(p=>p.slice()), closed: sp.closed });
+      const pen = rec._pen || 0;   // plotter pen/layer index (0 unless a study split set it)
+      for (const sp of all) if (sp.pts.length > 1) strokes.push({ pts: sp.pts.map(p=>p.slice()), closed: sp.closed, pen });
     },
     fill() {}, fillRect() {}, clearRect() {},
-    strokeRect(x,y,w,h) { strokes.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true }); },
+    strokeRect(x,y,w,h) { strokes.push({ pts:[ _m2apply(ctm,x,y),_m2apply(ctm,x+w,y),_m2apply(ctm,x+w,y+h),_m2apply(ctm,x,y+h) ], closed:true, pen: rec._pen || 0 }); },
     clip() {}, setLineDash() {}, getLineDash() { return []; },
     createLinearGradient() { return { addColorStop() {} }; },
     createRadialGradient() { return { addColorStop() {} }; },
@@ -2013,8 +2020,10 @@ function capturePlotterStrokes(g, capOpts = {}) {
   const prevCtx = ctx, prevW = W, prevH = H;
   const cap = makeCaptureCtx(Wc, Hc);
   // hand the lineprinter hatch-fill knob (mm) and the mm-per-px scale to plotGlyph via the capture context
-  if (capOpts.hatchMM)  cap._hatchMM  = capOpts.hatchMM;
-  if (capOpts.mmPerPx)  cap._mmPerPx  = capOpts.mmPerPx;
+  if (capOpts.hatchMM)   cap._hatchMM   = capOpts.hatchMM;
+  if (capOpts.mmPerPx)   cap._mmPerPx   = capOpts.mmPerPx;
+  if (capOpts.penSplit)  cap._penSplit  = capOpts.penSplit;   // Study 01: 'nested' → 2-colour by nested ring
+  if (capOpts.tonalFill) cap._tonalFill = capOpts.tonalFill;  // Study 02: true solid-black darks
   try { ctx = cap; W = Wc; H = Hc; render(g, 0); }
   finally { ctx = prevCtx; W = prevW; H = prevH; }
   return cap._strokes;
@@ -2080,6 +2089,11 @@ function exportPlotterSVG(g, opts = {}) {
   const stroke        = opts.stroke ?? '#111111';
   const strokeWidthMM = opts.strokeWidthMM ?? 0.3;
   const hatchSpacingMM = opts.hatchSpacingMM ?? 0.5; // lineprinter solid-fill (▓/█) hatch pitch — tune to pen
+  // Plotter Studies (forks): opts.penSplit ('nested') separates marks onto 2 pens; opts.pens are the layer
+  // colours (preview; the plotter operator assigns physical pens). opts.tonalFill makes the darks true solid.
+  const penSplit  = opts.penSplit || null;
+  const pens      = (Array.isArray(opts.pens) && opts.pens.length) ? opts.pens : [stroke];
+  const tonalFill = opts.tonalFill === true;
   const showCaption = opts.caption !== false;        // false → no caption at all
   const captionMode = opts.captionMode ?? 'text';    // 'stroke' → caption drawn as single-stroke pen paths (plottable)
   const strokeCap   = showCaption && captionMode === 'stroke';
@@ -2127,7 +2141,7 @@ function exportPlotterSVG(g, opts = {}) {
     if (centerInk) {
       const reserve = strokeCap ? (capArtGap + capBlockMM) : 0;
       const prov = Math.min(avW / Wc, avH / Hc);
-      const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov }).filter(s => s.pts.length > 1);
+      const s0 = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: prov, penSplit, tonalFill }).filter(s => s.pts.length > 1);
       let minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
       for (const s of s0) for (const p of s.pts) {
         if (p[0] < minx) minx = p[0]; if (p[0] > maxx) maxx = p[0];
@@ -2153,18 +2167,21 @@ function exportPlotterSVG(g, opts = {}) {
   pageWmm = +pageWmm.toFixed(2); pageHmm = +pageHmm.toFixed(2);
   const toMM = (p) => [ +(offX + p[0]*sc).toFixed(3), +(offY + p[1]*sc).toFixed(3) ];
 
-  let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc }).filter(s => s.pts.length > 1);
+  let strokes = capturePlotterStrokes(g, { hatchMM: hatchSpacingMM, mmPerPx: sc, penSplit, tonalFill }).filter(s => s.pts.length > 1);
   // orderForPlotter is O(n²); a text plot (lineprinter) emits thousands of tiny strokes already laid down
   // in row-major order — which is exactly how a line printer / plotter would raster them — so skip the
   // reordering past a threshold and keep that natural left-to-right, top-to-bottom pen path.
   if (opts.optimizeTravel !== false && strokes.length <= 4000) strokes = orderForPlotter(strokes);
-  let paths = strokes.map(s => {
+  const dOf = (s) => {
     let d = s.pts.map((p, i) => { const [x,y] = toMM(p); return (i ? 'L' : 'M') + x + ' ' + y; }).join(' ');
     if (s.closed) d += ' Z';
     return `    <path d="${d}"/>`;
-  }).join('\n');
+  };
+  // Group paths by pen index → one Inkscape layer per pen (Study 01 splits onto 2 pens; otherwise all pen 0).
+  const penPaths = [];
+  for (const s of strokes) { const pi = s.pen || 0; (penPaths[pi] ||= []).push(dOf(s)); }
 
-  // Stroke caption: draw each line as single-stroke pen paths (already in mm), centred, into the pen layer.
+  // Stroke caption → always pen 0 (one colour), drawn as single-stroke pen paths (already in mm), centred.
   if (strokeCap && capLayout) {
     let y = capLayout.top;
     const capPolys = [];
@@ -2175,9 +2192,10 @@ function exportPlotterSVG(g, opts = {}) {
       capPolys.push(...plotTextPolylines(txt, left, y, cap));
       y += capLineGap;
     }
-    const capStr = capPolys.map(pl => `    <path d="${pl.map((p, i) => (i ? 'L' : 'M') + p[0] + ' ' + p[1]).join(' ')}"/>`).join('\n');
-    if (capStr) paths += (paths ? '\n' : '') + capStr;
+    const capStrs = capPolys.map(pl => `    <path d="${pl.map((p, i) => (i ? 'L' : 'M') + p[0] + ' ' + p[1]).join(' ')}"/>`);
+    if (capStrs.length) (penPaths[0] ||= []).push(...capStrs);
   }
+  const totalPaths = penPaths.reduce((a, arr) => a + (arr ? arr.length : 0), 0);
 
   const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   let captionSvg = '';
@@ -2199,16 +2217,25 @@ function exportPlotterSVG(g, opts = {}) {
 `;
   }
 
+  // One <g> Inkscape layer per used pen, coloured from opts.pens (preview colours; operator loads the real pens).
+  let layersSvg = '';
+  penPaths.forEach((arr, i) => {
+    if (!arr || !arr.length) return;
+    const col = pens[i] || pens[pens.length - 1] || stroke;
+    layersSvg += `  <g inkscape:groupmode="layer" inkscape:label="pen${i + 1}"
+     fill="none" stroke="${col}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
+${arr.join('\n')}
+  </g>
+`;
+  });
+  const penCount = penPaths.filter(a => a && a.length).length;
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
      width="${pageWmm}mm" height="${pageHmm}mm" viewBox="0 0 ${pageWmm} ${pageHmm}">
   <title>${esc(titleText)} — plotter</title>
-  <!-- Mechanical Reverie plotter export · ${strokes.length} art paths · stroke-only · single pen · ${pageWmm}×${pageHmm}mm · hatch ${hatchSpacingMM}mm · stroke ${strokeWidthMM}mm · caption: ${!showCaption ? 'none' : strokeCap ? 'pen strokes' : 'text'} -->
-  <g inkscape:groupmode="layer" inkscape:label="pen1"
-     fill="none" stroke="${stroke}" stroke-width="${strokeWidthMM}" stroke-linejoin="round" stroke-linecap="round">
-${paths}
-  </g>
-${captionSvg}</svg>
+  <!-- Mechanical Reverie plotter export · ${totalPaths} paths · stroke-only · ${penCount} pen${penCount>1?'s':''} · ${pageWmm}×${pageHmm}mm · hatch ${hatchSpacingMM}mm · stroke ${strokeWidthMM}mm${penSplit?` · penSplit ${penSplit}`:''}${tonalFill?' · tonal-fill':''} · caption: ${!showCaption ? 'none' : strokeCap ? 'pen strokes' : 'text'} -->
+${layersSvg}${captionSvg}</svg>
 `;
 }
 
@@ -2254,12 +2281,21 @@ function plotGlyph(ch, gi, steps, x, y, w, h) {
   const hatchMM = ctx._hatchMM, mmPerPx = ctx._mmPerPx;
   const lines = (fallback, densityDiv) =>
     (hatchMM && mmPerPx) ? Math.max(1, Math.round(ih * mmPerPx / (hatchMM * densityDiv))) : fallback;
+  // STUDY 02 — tonal fill: the darks fill the FULL cell (no inset) at the pen pitch, so horizontally- and
+  // vertically-adjacent dark cells MERGE into true solid black on paper (restores tonal depth the per-cell
+  // inset hatch lost). Light/mid glyphs keep their character so the lineprinter identity survives.
+  const tonal = ctx._tonalFill;
+  const fullHatch = (div) => {
+    const pitchPx = (hatchMM && mmPerPx) ? (hatchMM * div) / mmPerPx : (h / 8);
+    const n = Math.max(1, Math.round(h / pitchPx));
+    for (let k = 0; k < n; k++) { const yy = y + h * (k + 0.5) / n; ctx.moveTo(x, yy); ctx.lineTo(x + w, yy); }
+  };
   ctx.beginPath();
   if      (ch === '-') H1(cy);
   else if (ch === 'I' || ch === '|') V1(cx);
   else if (ch === '#') { H1(y + h * 0.38); H1(y + h * 0.62); V1(x + w * 0.38); V1(x + w * 0.62); }
-  else if (ch === '▓') hatch(lines(5, 2));
-  else if (ch === '█') hatch(lines(8, 1));
+  else if (ch === '▓') { tonal ? fullHatch(1.5) : hatch(lines(5, 2)); }
+  else if (ch === '█') { tonal ? fullHatch(1.0) : hatch(lines(8, 1)); }
   else hatch(1 + Math.round((steps > 1 ? gi / (steps - 1) : 0) * 7));   // generic: density by ramp position
   ctx.stroke();
 }
@@ -2582,12 +2618,13 @@ function drawPixelLayer(g, pal, t) {
       const fy = (r + 0.5) / rows;
       for (let c = 0; c < cols; c++) {
         const fx = (c + 0.5) / cols;
-        let tone = 0;
+        let tone = 0, bestRing = 0;
         for (const bl of blocks) {
           const d = Math.max(Math.abs(fx - bl.cx) / bl.hw, Math.abs(fy - bl.cy) / bl.hh); // 0 centre → 1 edge (rect)
           if (d <= 1) {
-            const stepped = Math.ceil((1 - d) * bl.rings) / bl.rings;  // hard-edge nested rectangle bands
-            tone = Math.max(tone, baseT + (bl.floor - baseT) * stepped);
+            const rk = Math.ceil((1 - d) * bl.rings);        // nested ring 1..rings (outer→inner, inner = darker)
+            const t = baseT + (bl.floor - baseT) * (rk / bl.rings);
+            if (t > tone) { tone = t; bestRing = rk; }        // hard-edge nested rectangle bands
           }
         }
         // light per-cell jitter so the bands read as overstruck type, not flat fills — but keep edges crisp
@@ -2597,6 +2634,8 @@ function drawPixelLayer(g, pal, t) {
         const ch2 = glyphs[gi];
         if (ch2 === ' ') continue;
         if (plotter) {
+          // STUDY 01 — nested-region 2-colour: alternate the pen by nested ring depth (concentric colour bands)
+          if (ctx._penSplit === 'nested') ctx._pen = bestRing % 2;
           plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
         } else {
           ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);

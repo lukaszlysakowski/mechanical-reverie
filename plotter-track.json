@@ -75,7 +75,45 @@
     "mechanical-reverie-day-147-overstruck-axidraw-11x17-pen0.5mm-signed-noah.svg",
     "mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah.svg"
   ],
-  "studies": [],
+  "studies": [
+    {
+      "id": "study-01",
+      "title": "Overstruck — Two Colour (Nested Regions)",
+      "date": "2026-10-25",
+      "fork": "Multi-pen colour separation — the raster has no colour-layer equivalent, so this leaves the parent behind (a true study, not an export).",
+      "idea": "Split the marks onto TWO pens by nested-rectangle ring: concentric regions of the lineprinter tone field alternate black / red, so the piece's stacked-rectangle structure becomes chromatic and the overprint reads where the two colours meet.",
+      "filename": "mechanical-reverie-plotter-study01-overstruck-2color-nested-blackred.svg",
+      "engineVersion": "v3.19.0",
+      "page": "431.8 × 279.4 mm",
+      "pens": [
+        "#111111 (black)",
+        "#c0392b (red)"
+      ],
+      "penSplit": "nested",
+      "hatchMM": 0.45,
+      "strokeMM": 0.45,
+      "paths": 2495,
+      "layers": 2,
+      "note": "2 Inkscape layers (pen1 black, pen2 red) + black caption. Plot pen1, swap to red, plot pen2. Parent seed untouched."
+    },
+    {
+      "id": "study-02",
+      "title": "Overstruck — Tonal Depth (Solid Black)",
+      "date": "2026-10-25",
+      "fork": "A pen-first fill that changes what is drawn: the dark glyphs fill the full cell so adjacent darks MERGE into true solid black on paper — restoring the digital tonal range the per-cell hatch lost. Direct answer to the first-plot finding.",
+      "idea": "Keep -, |, # as line-printer character texture, but render ▓/█ as full-cell fills at the pen pitch so they read as true solid black — the darkest cores become unambiguously the darkest, restoring light→dark depth in ink.",
+      "filename": "mechanical-reverie-plotter-study02-overstruck-tonal-solidblack.svg",
+      "engineVersion": "v3.19.0",
+      "page": "431.8 × 279.4 mm",
+      "pen": "Micron 05 black (~0.45 mm)",
+      "tonalFill": true,
+      "hatchMM": 0.45,
+      "strokeMM": 0.45,
+      "paths": 2495,
+      "layers": 1,
+      "note": "Single black pen. Addresses the 2026-10-25 plot finding (texture-vs-tone): solids now merge to true black."
+    }
+  ],
   "openDirections": [
     "Tonal-depth study: a pen-first solid-fill (larger cells or scribble-fill) so █ reads as true black, restoring the digital tonal range on paper (a fork, not an export).",
     "Multi-pen colour separation — the first likely true fork (the raster has no colour-layer equivalent).",
