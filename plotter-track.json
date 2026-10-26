@@ -141,6 +141,78 @@
       "paths": 2495,
       "layers": 2,
       "note": "Applies the thin-red pen-weight-contrast finding from study-01 to the direction/weave split. Plot pen1 (black, horizontals), swap to the fine red, plot pen2 (verticals). Watch registration — the weave shows any paper shift."
+    },
+    {
+      "engineVersion": "v3.19.3",
+      "page": "431.8 × 279.4 mm",
+      "pens": [
+        "#111111 (black, 0.45mm)",
+        "#c0392b (red, ~0.2mm fine)"
+      ],
+      "penWidths": [
+        0.45,
+        0.2
+      ],
+      "hatchMM": 0.45,
+      "paths": 2495,
+      "layers": 2,
+      "parentStudy": "study-01b",
+      "id": "study-01c",
+      "title": "Overstruck — Weave: Swap",
+      "penSplit": "weave-swap",
+      "idea": "Warp/weft colours swapped vs 01b: thin-red HORIZONTALS, bold-black VERTICALS. Flips the piece to a vertical emphasis — the | columns pop black, dash grounds recede to faint red, solid block goes red. The weft-view to 01b's warp-view.",
+      "filename": "mechanical-reverie-plotter-study01c-overstruck-weave-swap-black-thinred.svg",
+      "note": "Plot pen1 (black = verticals), swap to thin red, plot pen2 (horizontals). Forgiving of registration (same as plain).",
+      "date": "2026-10-25",
+      "fork": "Weave-structure variant (direction split + per-cell recolour + pen-weight contrast) — a woven cloth the screen has no equivalent for."
+    },
+    {
+      "engineVersion": "v3.19.3",
+      "page": "431.8 × 279.4 mm",
+      "pens": [
+        "#111111 (black, 0.45mm)",
+        "#c0392b (red, ~0.2mm fine)"
+      ],
+      "penWidths": [
+        0.45,
+        0.2
+      ],
+      "hatchMM": 0.45,
+      "paths": 2495,
+      "layers": 2,
+      "parentStudy": "study-01b",
+      "id": "study-01d",
+      "title": "Overstruck — Weave: Houndstooth",
+      "penSplit": "weave-checker",
+      "idea": "The warp/weft colour flips every other cell, so the # masses fill with a fine black/red checkerboard — reads as real woven houndstooth cloth; weight contrast also alternates bold/fine, doubling the texture. The most textile of the set.",
+      "filename": "mechanical-reverie-plotter-study01d-overstruck-weave-houndstooth-black-thinred.svg",
+      "note": "Black + red sit in ADJACENT cells → registration-sensitive: a paper shift shows as the checker going out of step. Tape well.",
+      "date": "2026-10-25",
+      "fork": "Weave-structure variant (direction split + per-cell recolour + pen-weight contrast) — a woven cloth the screen has no equivalent for."
+    },
+    {
+      "engineVersion": "v3.19.3",
+      "page": "431.8 × 279.4 mm",
+      "pens": [
+        "#111111 (black, 0.45mm)",
+        "#c0392b (red, ~0.2mm fine)"
+      ],
+      "penWidths": [
+        0.45,
+        0.2
+      ],
+      "hatchMM": 0.45,
+      "paths": 2495,
+      "layers": 2,
+      "parentStudy": "study-01b",
+      "id": "study-01e",
+      "title": "Overstruck — Weave: Twill",
+      "penSplit": "weave-twill",
+      "idea": "The weave flips in 2-cell diagonal bands, so colour moves diagonally through the # regions and the solid block shows diagonal striping — a twill's diagonal wale. Subtle at this density.",
+      "filename": "mechanical-reverie-plotter-study01e-overstruck-weave-twill-black-thinred.svg",
+      "note": "Also registration-sensitive (diagonal adjacency). Better on pieces with larger solids.",
+      "date": "2026-10-25",
+      "fork": "Weave-structure variant (direction split + per-cell recolour + pen-weight contrast) — a woven cloth the screen has no equivalent for."
     }
   ],
   "openDirections": [
