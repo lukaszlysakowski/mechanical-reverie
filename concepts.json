@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-24T15:45:07.073463+00:00",
+  "updated": "2026-10-27T03:21:54.900573+00:00",
   "concepts": [
     {
       "id": "bell-labs",
@@ -306,6 +306,10 @@
         {
           "gen": 154,
           "why": "Day 147 — Frederick Hammersley's 'CO-ED #38' (1969) as the engine's first TEXT form 'lineprinter': hard-edge nested rectangular tonal regions built from overstruck ASCII glyphs (space‹-‹I‹#‹▓‹█). Pure deterministic geometric order rendered in the line printer's own character set."
+        },
+        {
+          "gen": 155,
+          "why": "Day 148 — Frieder Nake's '6.1.67 Nr.2' (1967): CONTROLLED RANDOMNESS made visible. A dense statistical grid of warm marks whose colour follows an algorithmic distribution — the disorder-dial's founding ancestor (Nake & Nees), beauty as a computed 'aesthetic measure' (after Max Bense)."
         }
       ]
     },
@@ -874,6 +878,10 @@
         {
           "gen": 153,
           "why": "Day 146 — Frank Dietrich, SIGGRAPH 1982: 'machines which became smaller and smaller—and at the same time, more powerful. And that is, somehow, the reward.' The trajectory of the medium itself, drawn as a recursive quadtree (coarse early machine → fine dense power)."
+        },
+        {
+          "gen": 155,
+          "why": "Day 148 — Frieder Nake, founding computer-art pioneer and Max Bense's student: the artwork as the output of a statistical PROGRAM. '6.1.67 Nr.2' reduced to the engine's native algorithmic-grid — information aesthetics in the engine's own vocabulary."
         }
       ]
     },
