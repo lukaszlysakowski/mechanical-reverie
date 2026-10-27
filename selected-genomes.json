@@ -11203,5 +11203,85 @@
       "warm statistical colour field",
       "canon-forming / collection"
     ]
+  },
+  {
+    "day": 149,
+    "date": "2026-10-26",
+    "title": "The Machine's Alphabet",
+    "filename": "mechanical-reverie-day-149-the-machines-alphabet-2026-10-26.png",
+    "fitness": 6.7,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 5,
+      "cellPadding": 0.11366381157787625,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 5,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.5252670885433506,
+      "gearComplexity": 10,
+      "chainFrequency": 0.4338203364300057,
+      "pixelDensity": 0.47268055309027307,
+      "pixelSize": 6,
+      "flowScale": 0.006231515289348063,
+      "flowStrength": 1.5084854954020643,
+      "particleCount": 1586,
+      "clockSpeed": 0.010703113392273691,
+      "oscillation": 1.588567120949078,
+      "wMechanical": 0.9,
+      "wPixel": 0,
+      "wFlow": 0,
+      "wGeometric": 0,
+      "wOrganic": 0,
+      "wHatch": 0,
+      "hatchAngle": 2.3946002518964296,
+      "hatchSpacing": 10.964861542045544,
+      "pixelCharacter": "mosaic",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "cipher",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 904,
+      "renderSeed": 20261026,
+      "disorder": 0.5143983137866781,
+      "disorderMode": "uniform",
+      "disorderAngle": 2.708653118938301,
+      "paletteColors": [
+        "#f4f3ee",
+        "#e6e5df",
+        "#cfcdc6",
+        "#9a978f",
+        "#5a5852",
+        "#0a0a0c"
+      ],
+      "cipherRamp": [
+        "#f5f4ef",
+        "#eceae3",
+        "#dad8d0"
+      ],
+      "cipherCount": 20,
+      "cipherTremble": 0.15,
+      "cipherMinSize": 28,
+      "cipherMaxSize": 66,
+      "cipherRotate": 0.32,
+      "cipherWeight": 0.1,
+      "checksum": "22b36cdd99b47dde0c7be32e0b20ad944b1557ea6201d656eb9cd5b5abb3c2e2",
+      "engineVersion": "v3.21.0"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Companion SECOND piece for 2026-10-26 (with Day 148 Nake). Leslie Mezei's 'Art from Computers' (1971) — an animation of hand-drawn numerals floating on black — reduced to its ONE signature via the NEW 'cipher' character (v3.21.0): scattered trembling digits 0-9, the computer's native symbols set loose. The engine's TEXT vein in a sparse SCATTER (vs lineprinter's dense grid). 5th Mezei piece, justified by an entirely new register none of the prior four (flow/controlled-randomness/transformations/op-art) touched.",
+      "condensedReason": "Mezei's 'Art from Computers': wobbly numerals 0-9 scattered on black — the machine's own symbols as art. First floating-glyph piece (new 'cipher' character)."
+    },
+    "tweetSummary": "Companion to Day 148. Leslie Mezei 'Art from Computers' (1971, meeting Mezei in Paris) — floating numerals animation, rendered via the new cipher character.",
+    "keyArtists": [
+      "Leslie Mezei"
+    ],
+    "themes": [
+      "the machine's native symbols",
+      "text in sparse scatter",
+      "controlled randomness"
+    ]
   }
 ]

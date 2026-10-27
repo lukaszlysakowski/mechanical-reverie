@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-27T03:21:54.900573+00:00",
+  "updated": "2026-10-27T03:39:39.725157+00:00",
   "concepts": [
     {
       "id": "bell-labs",
@@ -816,6 +816,10 @@
         {
           "gen": 137,
           "why": "Stan VanDerBeek's U of Toronto computer film (c.1971-72) — animation made 'by remote control', mailing programming cards to the machine; 'computer animation tricks the eye to believe space and 3D.' The still (a warped nested line-membrane) is one frame of a form meant to morph — the image living in time."
+        },
+        {
+          "gen": 156,
+          "why": "Day 149 — Leslie Mezei 'Art from Computers' (1971) is an ANIMATION of hand-drawn numerals floating on black; MR's still reduces it to a scattered, trembling constellation of the ten digits."
         }
       ]
     },
@@ -882,6 +886,10 @@
         {
           "gen": 155,
           "why": "Day 148 — Frieder Nake, founding computer-art pioneer and Max Bense's student: the artwork as the output of a statistical PROGRAM. '6.1.67 Nr.2' reduced to the engine's native algorithmic-grid — information aesthetics in the engine's own vocabulary."
+        },
+        {
+          "gen": 156,
+          "why": "Day 149 — Leslie Mezei 'Art from Computers' (1971): the computer making art from its OWN native symbols — digits 0-9 set loose. Rendered via the new 'cipher' character; the machine's base alphabet as the artwork."
         }
       ]
     },
