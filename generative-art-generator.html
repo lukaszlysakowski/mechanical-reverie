@@ -392,7 +392,12 @@ let W = canvas.width, H = canvas.height;
 // v3.20.1 — additive, EXPORT-ONLY: opts.subdivHatch hatch-fills a subdivide PLOT by each cell's tone darkness
 // (coarse/dark = dense hatch, fine/pale = empty) → the tonal "drain" rendered in single-pen ink. Capture-only
 // (ctx._subdivHatch); the raster fillRect no-ops on the capture ctx, so all checksums are unchanged.
-const ENGINE_VERSION = 'v3.20.1';
+// v3.21.0 — additive, opt-in (Leslie Mezei, 'Art from Computers', 1971): mechanicalCharacter 'cipher' — scattered
+// NUMERALS (0-9) with a hand-drawn tremble, the computer's native symbols set loose on black. The TEXT vein in a
+// sparse SCATTER (vs lineprinter's dense grid), reusing the single-stroke plotter font. NOT in MECH_CHARS / not
+// mutation-reachable → no existing genome uses it; drawMechanical gains one dispatch line, so every archive
+// checksum is unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.21.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1516,6 +1521,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'script')  { drawScript(g, pal, t);        return; }
   if (ch === 'dragon')  { drawDragon(g, pal, t);        return; }
   if (ch === 'subdivide') { drawSubdivide(g, pal, t);   return; }
+  if (ch === 'cipher')  { drawCipher(g, pal, t);        return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1592,6 +1598,46 @@ function drawDragon(g, pal, t) {
 // drawn as one image: the arc from the big early machines to today's fine dense power. The engine's second
 // FRACTAL / recursive form after 'dragon'. Opt-in (NOT in MECH_CHARS, not mutation-reachable), additive,
 // C2-safe. Deterministic (noise + genome, no Math.random). Ramp is g.subdivRamp (else pal); lattice = pal[5].
+// CIPHER: scattered NUMERALS (0-9) with a hand-drawn tremble — the computer's native symbols set loose in
+// space. After Leslie Mezei's 'Art from Computers' (1971): wobbly digits floating on black. The engine's TEXT
+// vein in a SPARSE SCATTER (vs lineprinter's dense grid). Reuses the single-stroke plotter font's 0-9 glyphs,
+// each point jittered by seeded noise so the figures tremble like early hand-plotted/CRT type. Opt-in
+// (OPT_IN_MECHS, not mutation-reachable), additive, C2-safe. Deterministic (noise + genome, no Math.random).
+function drawCipher(g, pal, t) {
+  const F = plotFont();
+  const count   = clamp(Math.round(g.cipherCount ?? 16), 3, 90);
+  const ns      = g.noiseSeed * 0.01;
+  const ramp    = (Array.isArray(g.cipherRamp) && g.cipherRamp.length >= 1) ? g.cipherRamp : pal.slice(0, 5);
+  const tremble = clamp(g.cipherTremble ?? 0.14, 0, 0.6);
+  const minS    = g.cipherMinSize ?? 24, maxS = g.cipherMaxSize ?? 70;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  for (let i = 0; i < count; i++) {
+    const px = (0.07 + 0.86 * noise.noise2D(i * 2.7 + 1, ns)) * W;
+    const py = (0.09 + 0.82 * noise.noise2D(ns, i * 2.7 + 1)) * H;
+    const digit = String(clamp(Math.floor(noise.noise2D(i * 3.9 + 5, ns * 2 + 3) * 10), 0, 9));
+    const gl = F[digit] || F['0'];
+    const size = minS + (maxS - minS) * Math.abs(noise.noise2D(i * 1.3 + 9, ns));   // cap height in px
+    const u = size / 6;                                                              // font grid is 6 tall
+    const rot = (noise.noise2D(i * 0.7 + 2, ns * 3) - 0.5) * (g.cipherRotate ?? 0.35);
+    const cr = Math.cos(rot), sr = Math.sin(rot);
+    ctx.strokeStyle = ramp[clamp(Math.floor(Math.abs(noise.noise2D(i * 5.1, ns)) * ramp.length), 0, ramp.length - 1)];
+    ctx.lineWidth = Math.max(1.5, size * (g.cipherWeight ?? 0.1));
+    ctx.globalAlpha = 0.95;
+    for (const st of gl[1]) {
+      ctx.beginPath();
+      st.forEach(([gx, gy], k) => {
+        let lx = (gx - 2) * u, ly = (3 - gy) * u;                                     // centre the glyph
+        lx += (noise.noise2D(i * 10 + k * 1.7, gx + gy + ns) - 0.5) * tremble * size; // per-point tremble
+        ly += (noise.noise2D(gx + gy + ns, i * 10 + k * 1.7) - 0.5) * tremble * size;
+        const X = px + lx * cr - ly * sr, Y = py + lx * sr + ly * cr;
+        k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y);
+      });
+      ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
 function drawSubdivide(g, pal, t) {
   const maxDepth = clamp(Math.round(g.subdivDepth ?? 6), 2, 9);
   const bias  = clamp(g.subdivBias ?? 0.6, 0, 1);        // left→right coarse→fine trajectory strength
