@@ -2,7 +2,7 @@
   "track": "Plotter Studies: Overstruck",
   "premise": "A plotter exploration forked from the daily archive piece 'Overstruck' (Day 147). The daily track asks what a Noah source reduces to in the engine's own vocabulary; this strand asks what the line-printer piece becomes when a PEN — not a screen — makes its marks. The parent's canonical raster is never altered. Everything here is either a faithful translation of that parent to pen (a rendition) or a study that deliberately leaves it behind.",
   "started": "2026-10-25",
-  "updated": "2026-10-25",
+  "updated": "2026-10-27",
   "forkRule": {
     "line": "Fidelity. A plot is a faithful EXPORT while it still reproduces the parent's checksum; it becomes a STUDY the moment a decision changes what is DRAWN, not just how it is output.",
     "stillAnExport": [
@@ -229,5 +229,6 @@
       "finding": "Pen translates the lineprinter ink-density ramp (space‹-‹I‹#‹▓‹█) into a TEXTURE vocabulary, not a tonal one. Darkness order is not preserved — crosshatch # reads as heavy as the solid-hatch █. Dash grounds and # grids are the strongest marks; the Micron holds a clean consistent line at 0.45mm.",
       "implication": "A faithful plot = textural reading (good, Hammersley-true). For genuine tonal DEPTH / true black on paper, redesign the stroke-glyph fill for pen (bigger cells so hatch builds, or a blackout scribble-fill) — that CHANGES what is drawn, so it would be Study 01, not an export."
     }
-  ]
+  ],
+  "partOf": "overstruck-thread.json → branches.plotter (the Overstruck thread, 2026-10-27)"
 }

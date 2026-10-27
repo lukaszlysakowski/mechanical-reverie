@@ -1,0 +1,119 @@
+{
+  "thread": "Overstruck",
+  "premise": "Day 147 'Overstruck' stopped being a day's render — it became a seed-idea (the line printer's charset AS a tonal palette; the overstrike; the two-colour ribbon; the weave). This thread lets that idea grow as its own line of descent. The ROOT is the untouched daily-archive piece; branches descend from it, in pixels and in ink. The root is never rewritten — still 7ddf2b3d.",
+  "started": "2026-10-27",
+  "updated": "2026-10-27",
+  "root": {
+    "source": "daily-archive",
+    "day": 147,
+    "title": "Overstruck",
+    "date": "2026-10-23",
+    "after": "Frederick Hammersley, 'CO-ED #38' (1969)",
+    "via": "@Noahbolanowski — LACMA 200+ work gift",
+    "pixelCharacter": "lineprinter",
+    "engineVersion": "v3.18.0",
+    "checksum": "7ddf2b3ddd0d36bbcfe31a63b69a7c063f8cec1193f4e9641841082a9bac7b52",
+    "noiseSeed": 147420,
+    "renderSeed": 20261023,
+    "rasterFilename": "mechanical-reverie-day-147-overstruck-2026-10-23.png",
+    "note": "Canonical seed lives in selected-genomes.json (day 147), untouched. This thread descends from it; it does not rewrite it."
+  },
+  "forkRule": {
+    "line": "Fidelity. A plot is a faithful EXPORT while it reproduces the root's checksum (output-only); it becomes a STUDY the moment a decision changes what is DRAWN. A screen COMPOSITION is a new piece with its OWN checksum — a branch, not the root.",
+    "tell": "When the work stops reproducing Overstruck and starts making decisions the root never made."
+  },
+  "branches": {
+    "compositions": {
+      "premise": "New SCREEN compositions that evolve the overstrike — not plot-renditions, but the idea going where the navy-on-cream root didn't. Each is its own canonical seed (own checksum).",
+      "works": [
+        {
+          "id": "overstruck-01",
+          "title": "The Red and the Black",
+          "date": "2026-10-27",
+          "filename": "mechanical-reverie-overstruck-01-the-red-and-the-black-2026-10-27.png",
+          "engineVersion": "v3.21.0",
+          "checksum": "26cb3fbb8095581c00528974cbab33b8aee48d88fd7bb98d62a52cbed424c988",
+          "fitness": 6.75,
+          "idea": "Overstruck in its two-colour typewriter/teletype RIBBON form. Using lpColorMode 'nested' (v3.20.0 — itself a gift back from the plotter studies), the nested rings alternate RED (the dash grounds + I-fields, the 'ruling') and BLACK (the dense # cores + solids, the 'writing') on cream. A NEW composition (own seed 271271), not a recolour of Day 147 — the first branch that goes where the navy root didn't: into colour.",
+          "lineage": "root → compositions.overstruck-01. Keeps the root's dense character-tone (what makes it Overstruck) and adds the chromatic dimension the plotter studies discovered.",
+          "certificate": {
+            "deterministic": true,
+            "checksum": "26cb3fbb8095581c00528974cbab33b8aee48d88fd7bb98d62a52cbed424c988",
+            "checksumStability": "12/12 identical — hard-canonical",
+            "engineVersion": "v3.21.0",
+            "renderSeed": 20261027,
+            "noiseSeed": 271271
+          },
+          "genome": {
+            "gridCols": 9,
+            "gridRows": 5,
+            "cellPadding": 0.09277493779908697,
+            "rotation": 0,
+            "globalRotation": 0,
+            "paletteIndex": 8,
+            "bgDarkness": 0.06,
+            "gearDensity": 0.31287674609678756,
+            "gearComplexity": 12,
+            "chainFrequency": 0.013323660275506433,
+            "pixelDensity": 0.7,
+            "pixelSize": 8,
+            "flowScale": 0.017221432734164613,
+            "flowStrength": 1.2736375183661213,
+            "particleCount": 1503,
+            "clockSpeed": 0.010398727950360757,
+            "oscillation": 2.5060200814767737,
+            "wMechanical": 0,
+            "wPixel": 0.95,
+            "wFlow": 0,
+            "wGeometric": 0,
+            "wOrganic": 0,
+            "wHatch": 0,
+            "hatchAngle": 2.2541642025462085,
+            "hatchSpacing": 7.414758945354235,
+            "pixelCharacter": "lineprinter",
+            "flowCharacter": "vortex",
+            "mechanicalCharacter": "gear",
+            "symmetry": 0,
+            "layerCount": 6,
+            "noiseOctaves": 2,
+            "noiseSeed": 271271,
+            "renderSeed": 20261027,
+            "disorder": 0.7282044525261584,
+            "disorderMode": "uniform",
+            "disorderAngle": 3.440430969551514,
+            "paletteColors": [
+              "#1a1a1c",
+              "#2f4a80",
+              "#52607f",
+              "#8a8ea0",
+              "#c9c3ad",
+              "#efe9d8"
+            ],
+            "lpColorMode": "nested",
+            "lpInk": "#1b1b1b",
+            "lpInk2": "#c0392b",
+            "lpGlyphs": [
+              " ",
+              "-",
+              "I",
+              "#",
+              "▓",
+              "█"
+            ],
+            "lpCols": 80,
+            "lpBlocks": 4,
+            "lpBaseTone": 0.15,
+            "lpRowH": 0.98,
+            "checksum": "26cb3fbb8095581c00528974cbab33b8aee48d88fd7bb98d62a52cbed424c988",
+            "engineVersion": "v3.21.0"
+          }
+        }
+      ]
+    },
+    "plotter": {
+      "premise": "The pen takes Overstruck into ink — faithful renditions and studies that leave the root behind (per the fork rule). First physical plots on an AxiDraw.",
+      "ref": "plotter-track.json",
+      "summary": "6 studies (two-colour nested + weave swap/houndstooth/twill; tonal solid-black) + renditions (stroke/fill/signed). See plotter-track.json for the full branch."
+    }
+  }
+}
