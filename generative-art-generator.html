@@ -397,7 +397,13 @@ let W = canvas.width, H = canvas.height;
 // sparse SCATTER (vs lineprinter's dense grid), reusing the single-stroke plotter font. NOT in MECH_CHARS / not
 // mutation-reachable → no existing genome uses it; drawMechanical gains one dispatch line, so every archive
 // checksum is unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.21.0';
+// v3.22.0 — additive, opt-in (A. Michael Noll, 'Gaussian-Quadratic', 1962-64, Bell Labs; via @puttyxputty's red-rod
+// study Noah amplified for its "spatial suggestiveness"): mechanicalCharacter 'gaussquad' — a single open POLYLINE,
+// vertices placed by STATISTICS (Gaussian-random x, quadratic-climbing y) and joined by straight rods that cross to
+// imply volume; seeded pseudo-depth makes a flat line stand up. The engine's first statistical-polyline primitive.
+// NOT in MECH_CHARS / not mutation-reachable; drawMechanical gains one dispatch line → every archive checksum
+// unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.22.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1522,6 +1528,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'dragon')  { drawDragon(g, pal, t);        return; }
   if (ch === 'subdivide') { drawSubdivide(g, pal, t);   return; }
   if (ch === 'cipher')  { drawCipher(g, pal, t);        return; }
+  if (ch === 'gaussquad') { drawGaussquad(g, pal, t);   return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1633,6 +1640,70 @@ function drawCipher(g, pal, t) {
         k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y);
       });
       ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+// GAUSSQUAD: Noll's ur-form. A single open polyline whose vertices are placed by STATISTICS — the horizontal
+// position drawn from a GAUSSIAN (normal) random spread, the vertical position climbing by a QUADRATIC law (so
+// successive steps accelerate upward) — then joined by straight segments that cross one another and so imply
+// volume. After A. Michael Noll's "Gaussian-Quadratic" (1962-64, Bell Labs), one of the first works of computer
+// art: randomness disciplined by one deterministic equation into a single rising gesture. Rendered in the
+// register of @puttyxputty's physical red-rod study (which Noah amplified for its "spatial suggestiveness"):
+// each rod carries a seeded pseudo-depth — nearer rods thicker, warmer, drawn last — so a FLAT statistical line
+// stands up as a structure in space. The engine's first STATISTICAL-POLYLINE primitive (vs field / grid / gear /
+// fractal). Opt-in (OPT_IN_MECHS, not mutation-reachable), additive, C2-safe. Deterministic (noise + genome, no
+// Math.random; the Gaussian is a central-limit sum of seeded noise samples). Ramp = g.gqRamp (else pal); ground pal[5].
+function drawGaussquad(g, pal, t) {
+  const N      = clamp(Math.round(g.gqCount ?? 22), 5, 80);
+  const spread = clamp(g.gqSpread ?? 0.24, 0.03, 0.45);   // Gaussian sigma as a fraction of width
+  const power  = clamp(g.gqPower ?? 2, 1, 3);             // vertical climb exponent (2 = quadratic)
+  const margin = clamp(g.gqMargin ?? 0.12, 0, 0.4);
+  const baseW  = g.gqWeight ?? 10;                        // rod thickness (px)
+  const depth  = clamp(g.gqDepth ?? 0.65, 0, 1);         // how much pseudo-z modulates weight / tone
+  const ramp   = (Array.isArray(g.gqRamp) && g.gqRamp.length >= 2) ? g.gqRamp : pal.slice(0, 5);
+  const joints = g.gqJoints !== false;
+  const ns     = g.noiseSeed * 0.01;
+  const yBot = H * (1 - margin), ySpan = H * (1 - 2 * margin);
+
+  // vertices: x ~ Gaussian (central-limit sum of 3 seeded noise samples), y ~ quadratic climb, z ~ seeded depth
+  const pts = [];
+  for (let i = 0; i < N; i++) {
+    const frac = N > 1 ? i / (N - 1) : 0;
+    // Gaussian x: average two DECORRELATED seeded samples (large strides jump far across the noise field each
+    // vertex → near-independent draws → true Gaussian scatter: occasional same-side runs and wide swings, which
+    // is what makes the straight segments CROSS). A single perlin sample is already bell-ish about 0.5.
+    let gss = 0;
+    gss += (noise.noise2D(i * 37.13 + 0.5,  ns * 2.0 + i * 0.31) - 0.5);
+    gss += (noise.noise2D(i * 61.7 + 101.3, ns * 3.7 + i * 0.57 + 53.3) - 0.5);
+    gss = (gss / 2) * 3.0;                                 // centred, wide spread
+    const x = clamp(0.5 + spread * gss, margin, 1 - margin) * W;
+    const y = yBot - Math.pow(frac, power) * ySpan;        // quadratic: small steps low, large steps high
+    const z = noise.noise2D(i * 0.53 + 3.1, ns * 1.9 + 7); // 0..1 pseudo-depth
+    pts.push({ x, y, z });
+  }
+
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  // draw the N-1 segments back-to-front by depth so nearer rods overlap farther ones
+  const segOrder = [];
+  for (let i = 0; i < N - 1; i++) segOrder.push(i);
+  segOrder.sort((a, b) => (pts[a].z + pts[a + 1].z) - (pts[b].z + pts[b + 1].z));
+  for (const i of segOrder) {
+    const a = pts[i], b = pts[i + 1];
+    const zz = (a.z + b.z) / 2;
+    ctx.strokeStyle = ramp[clamp(Math.floor(zz * ramp.length), 0, ramp.length - 1)];
+    ctx.lineWidth = Math.max(1.5, baseW * (1 - depth * 0.55 + depth * zz));   // near (high z) → thicker rod
+    ctx.globalAlpha = 0.88 + 0.12 * zz;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  // joint caps — the taped joints of the physical study
+  if (joints) {
+    for (let i = 0; i < N; i++) {
+      const p = pts[i];
+      ctx.fillStyle = ramp[clamp(Math.floor(p.z * ramp.length), 0, ramp.length - 1)];
+      ctx.globalAlpha = 0.95;
+      ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(2, baseW * (0.5 + depth * 0.45 * p.z)), 0, Math.PI * 2); ctx.fill();
     }
   }
   ctx.globalAlpha = 1;

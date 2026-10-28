@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-27T03:39:39.725157+00:00",
+  "updated": "2026-10-27",
   "concepts": [
     {
       "id": "bell-labs",
@@ -70,6 +70,10 @@
         {
           "gen": 149,
           "why": "A. Michael Noll's foundational random-line fields (Patterns by 7090 / Random Lines) and his 1967 'creative medium' manifesto — the Bell Labs origin of intentional computer art, in his own black-on-white plotter register."
+        },
+        {
+          "gen": 157,
+          "why": "A. Michael Noll's 'Gaussian-Quadratic' (1962-64) — the Bell Labs ur-form of computer art; the engine's first statistical-polyline primitive renders it."
         }
       ]
     },
@@ -310,6 +314,10 @@
         {
           "gen": 155,
           "why": "Day 148 — Frieder Nake's '6.1.67 Nr.2' (1967): CONTROLLED RANDOMNESS made visible. A dense statistical grid of warm marks whose colour follows an algorithmic distribution — the disorder-dial's founding ancestor (Nake & Nees), beauty as a computed 'aesthetic measure' (after Max Bense)."
+        },
+        {
+          "gen": 157,
+          "why": "Noll's Gaussian randomness disciplined by one quadratic equation — chance tamed by law into a single rising gesture; the 'gaussquad' polyline."
         }
       ]
     },

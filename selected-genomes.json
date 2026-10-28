@@ -11283,5 +11283,109 @@
       "text in sparse scatter",
       "controlled randomness"
     ]
+  },
+  {
+    "day": 150,
+    "date": "2026-10-27",
+    "title": "The Gaussian Climb",
+    "filename": "mechanical-reverie-day-150-the-gaussian-climb-2026-10-27.png",
+    "fitness": 6.52,
+    "genome": {
+      "gridCols": 8,
+      "gridRows": 10,
+      "cellPadding": 0.1146589892514138,
+      "rotation": 5.422936965167329,
+      "globalRotation": -0.019838091312248528,
+      "paletteIndex": 9,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.3646119990621769,
+      "gearComplexity": 11,
+      "chainFrequency": 0.7606066965226456,
+      "pixelDensity": 0.3572721334136017,
+      "pixelSize": 6,
+      "flowScale": 0.014061710029726957,
+      "flowStrength": 2.8543045135070075,
+      "particleCount": 812,
+      "clockSpeed": 0.015654109572162095,
+      "oscillation": 1.575377509333503,
+      "wMechanical": 0.9,
+      "wPixel": 0.1,
+      "wFlow": 0.12,
+      "wGeometric": 0.12,
+      "wOrganic": 0.1,
+      "wHatch": 0.11,
+      "hatchAngle": 0.5800251076466072,
+      "hatchSpacing": 18.221020344687528,
+      "pixelCharacter": "halftone",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "gaussquad",
+      "symmetry": 0.1,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 4110.822302020448,
+      "renderSeed": 1519530729.7972908,
+      "disorder": 0.12,
+      "disorderMode": "uniform",
+      "disorderAngle": 3.6307128701152447,
+      "vignetteStrength": 0.25,
+      "gqCount": 28,
+      "gqSpread": 0.3,
+      "gqPower": 2,
+      "gqWeight": 10,
+      "gqDepth": 0.6,
+      "gqMargin": 0.12,
+      "gqJoints": true,
+      "gqRamp": [
+        "#6e1b10",
+        "#9a2817",
+        "#c0392b",
+        "#d9534f",
+        "#ea7a6b"
+      ],
+      "paletteColors": [
+        "#c0392b",
+        "#d9534f",
+        "#9a2817",
+        "#ea7a6b",
+        "#6e1b10",
+        "#d9d4cb",
+        "#b23021",
+        "#7a1f12"
+      ]
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5cd5c2732d8d57a6079eca85ed5420231d5072e89a28b081d9853acdd58ad530",
+      "engineVersion": "v3.22.0",
+      "renderSeed": 1519530729.7972908,
+      "noiseSeed": 4110.822302020448,
+      "checksumStability": "7/7 identical — hard-canonical (clean single polyline, no alpha-composite GPU noise)"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First statistical-polyline primitive (mechanicalCharacter 'gaussquad'). Pure single-character credit: wMechanical 0.90, all other layers ≤0.12 → clean. Faithful to Noll's algorithm AND puttyxputty's red-rod spatial study that NB amplified. Hard-canonical 7/7.",
+      "condensedReason": "A. Michael Noll made 'Gaussian-Quadratic' at Bell Labs between 1962 and 1964 — among the very first works of computer art. Its construction is pure statistics: a single open line whose horizontal vertex positions are drawn from a Gaussian (normal) random distribution while the vertical positions climb by a quadratic equation, so the steps accelerate upward; joined by straight segments, the figure reads as a jagged ascending gesture early viewers likened to a Cubist figure. Noah reposted @puttyxputty's gm tribute — a physical red-rod sculpture rebuilding that flat plotter line as a standing wireframe 'to tease out the spatial ideas implicit in it' — praising its 'spatial suggestiveness.' This piece answers both. A new engine primitive, mechanicalCharacter 'gaussquad', draws Noll's statistical polyline (Gaussian x, quadratic-climbing y) and renders it as puttyxputty's rods: a red depth ramp (far oxblood → near coral) with seeded pseudo-depth makes nearer segments thicker, warmer and drawn last, so a flat line stands up in space. Held pure — wMechanical 0.90, every other layer gated ≤0.12 — on the pale warm ground of the study rather than Noll's original white-on-black: one rising gesture, randomness disciplined by a single law. Noll is the engine's hidden ancestor; this is its first statistical-polyline form."
+    },
+    "tweetSummary": "NB reposted @puttyxputty's physical red-rod study of A. Michael Noll's 'Gaussian-Quadratic' (1962-64), praising its spatial suggestiveness.",
+    "keyArtists": [
+      {
+        "name": "A. Michael Noll",
+        "role": "Bell Labs computer-art pioneer",
+        "work": "Gaussian-Quadratic (1962-64)"
+      },
+      {
+        "name": "puttyxputty",
+        "role": "contemporary artist",
+        "work": "physical red-rod study of Gaussian-Quadratic (2026)"
+      }
+    ],
+    "themes": [
+      "statistical polyline",
+      "spatial suggestiveness",
+      "randomness disciplined by law"
+    ],
+    "keyDetails": "A. Michael Noll, 'Gaussian-Quadratic' (1962-64, Bell Labs) — one of the first computer artworks. NB repost of @puttyxputty's physical red-rod study.",
+    "description": "A. Michael Noll made 'Gaussian-Quadratic' at Bell Labs between 1962 and 1964 — among the very first works of computer art. Its construction is pure statistics: a single open line whose horizontal vertex positions are drawn from a Gaussian (normal) random distribution while the vertical positions climb by a quadratic equation, so the steps accelerate upward; joined by straight segments, the figure reads as a jagged ascending gesture early viewers likened to a Cubist figure. Noah reposted @puttyxputty's gm tribute — a physical red-rod sculpture rebuilding that flat plotter line as a standing wireframe 'to tease out the spatial ideas implicit in it' — praising its 'spatial suggestiveness.' This piece answers both. A new engine primitive, mechanicalCharacter 'gaussquad', draws Noll's statistical polyline (Gaussian x, quadratic-climbing y) and renders it as puttyxputty's rods: a red depth ramp (far oxblood → near coral) with seeded pseudo-depth makes nearer segments thicker, warmer and drawn last, so a flat line stands up in space. Held pure — wMechanical 0.90, every other layer gated ≤0.12 — on the pale warm ground of the study rather than Noll's original white-on-black: one rising gesture, randomness disciplined by a single law. Noll is the engine's hidden ancestor; this is its first statistical-polyline form.",
+    "condensedReason": "A. Michael Noll made 'Gaussian-Quadratic' at Bell Labs between 1962 and 1964 — among the very first works of computer art. Its construction is pure statistics: a single open line whose horizontal vertex positions are drawn from a Gaussian (normal) random distribution while the vertical positions climb by a quadratic equation, so the steps accelerate upward; joined by straight segments, the figure reads as a jagged ascending gesture early viewers likened to a Cubist figure. Noah reposted @puttyxputty's gm tribute — a physical red-rod sculpture rebuilding that flat plotter line as a standing wireframe 'to tease out the spatial ideas implicit in it' — praising its 'spatial suggestiveness.' This piece answers both. A new engine primitive, mechanicalCharacter 'gaussquad', draws Noll's statistical polyline (Gaussian x, quadratic-climbing y) and renders it as puttyxputty's rods: a red depth ramp (far oxblood → near coral) with seeded pseudo-depth makes nearer segments thicker, warmer and drawn last, so a flat line stands up in space. Held pure — wMechanical 0.90, every other layer gated ≤0.12 — on the pale warm ground of the study rather than Noll's original white-on-black: one rising gesture, randomness disciplined by a single law. Noll is the engine's hidden ancestor; this is its first statistical-polyline form."
   }
 ]
