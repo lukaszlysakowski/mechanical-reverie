@@ -399,7 +399,10 @@
       "id": "noll",
       "title": "The Noll Lineage",
       "thesis": "The archive's other single-artist rooms read a pioneer; this one reads the engine's own ancestor. A. Michael Noll's works are not merely rendered here — several are transcribed into the instrument itself. The 'vectors' character is his '50 Lines Falling at Random Within a Cube' (1964); the 'gaussquad' polyline is his 'Gaussian-Quadratic' (1962–64), chance disciplined by a single quadratic law; the stereo compositor follows the 3-D line-pairs he built from a stereoscopic viewer he had owned since childhood. And his arguments are this project's doctrine, stated at the origin: fighting the Copyright Office he insisted the program, not the machine, made the work, and that its randomness was authored — the numbers 'only appeared random to humans'; in 1967 he called the computer not a tool but 'an intellectual and active creative partner.' Where Csuri, Molnár and Mohr are subjects the engine looks at, Noll is the one it is partly made of. This is the room where Mechanical Reverie finds its own lineage — the Bell Labs night-programmer whose probability fields, written in FORTRAN on the IBM 7094, are the direct ancestor of every genome-and-seed this machine performs.",
-      "link": null,
+      "link": {
+        "href": "noll.html",
+        "label": "Full lineage study →"
+      },
       "members": [
         {
           "gen": 111,
