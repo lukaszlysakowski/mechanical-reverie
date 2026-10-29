@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "concepts": [
     {
       "id": "bell-labs",
@@ -423,6 +423,10 @@
         {
           "gen": 157,
           "why": "Day 150 'The Gaussian Climb' — Noll's 'Gaussian-Quadratic' (1962–64) as the engine's first statistical-polyline, 'gaussquad': Gaussian chance disciplined by one quadratic law. 'The numbers only appeared random to humans' — authored randomness, the seeds doctrine in 1962."
+        },
+        {
+          "gen": 158,
+          "why": "The titular work itself — the 'vectors' character performing its namesake, Noll's '50 Lines Falling at Random Within a Cube' (1964); the sixth and most direct Noll gen."
         }
       ]
     },

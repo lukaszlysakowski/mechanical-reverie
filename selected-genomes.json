@@ -11387,5 +11387,93 @@
     "keyDetails": "A. Michael Noll, 'Gaussian-Quadratic' (1962-64, Bell Labs) — one of the first computer artworks. NB repost of @puttyxputty's physical red-rod study.",
     "description": "A. Michael Noll made 'Gaussian-Quadratic' at Bell Labs between 1962 and 1964 — among the very first works of computer art. Its construction is pure statistics: a single open line whose horizontal vertex positions are drawn from a Gaussian (normal) random distribution while the vertical positions climb by a quadratic equation, so the steps accelerate upward; joined by straight segments, the figure reads as a jagged ascending gesture early viewers likened to a Cubist figure. Noah reposted @puttyxputty's gm tribute — a physical red-rod sculpture rebuilding that flat plotter line as a standing wireframe 'to tease out the spatial ideas implicit in it' — praising its 'spatial suggestiveness.' This piece answers both. A new engine primitive, mechanicalCharacter 'gaussquad', draws Noll's statistical polyline (Gaussian x, quadratic-climbing y) and renders it as puttyxputty's rods: a red depth ramp (far oxblood → near coral) with seeded pseudo-depth makes nearer segments thicker, warmer and drawn last, so a flat line stands up in space. Held pure — wMechanical 0.90, every other layer gated ≤0.12 — on the pale warm ground of the study rather than Noll's original white-on-black: one rising gesture, randomness disciplined by a single law. Noll is the engine's hidden ancestor; this is its first statistical-polyline form.",
     "condensedReason": "A. Michael Noll made 'Gaussian-Quadratic' at Bell Labs between 1962 and 1964 — among the very first works of computer art. Its construction is pure statistics: a single open line whose horizontal vertex positions are drawn from a Gaussian (normal) random distribution while the vertical positions climb by a quadratic equation, so the steps accelerate upward; joined by straight segments, the figure reads as a jagged ascending gesture early viewers likened to a Cubist figure. Noah reposted @puttyxputty's gm tribute — a physical red-rod sculpture rebuilding that flat plotter line as a standing wireframe 'to tease out the spatial ideas implicit in it' — praising its 'spatial suggestiveness.' This piece answers both. A new engine primitive, mechanicalCharacter 'gaussquad', draws Noll's statistical polyline (Gaussian x, quadratic-climbing y) and renders it as puttyxputty's rods: a red depth ramp (far oxblood → near coral) with seeded pseudo-depth makes nearer segments thicker, warmer and drawn last, so a flat line stands up in space. Held pure — wMechanical 0.90, every other layer gated ≤0.12 — on the pale warm ground of the study rather than Noll's original white-on-black: one rising gesture, randomness disciplined by a single law. Noll is the engine's hidden ancestor; this is its first statistical-polyline form."
+  },
+  {
+    "day": 151,
+    "date": "2026-10-28",
+    "title": "Fifty Lines Falling",
+    "filename": "mechanical-reverie-day-151-fifty-lines-falling-2026-10-28.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 17,
+      "gridRows": 9,
+      "cellPadding": 0.1070383115696111,
+      "rotation": 3.1686090692760454,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.29,
+      "gearComplexity": 6,
+      "chainFrequency": 0.0753343691369851,
+      "pixelDensity": 0.23400913594312067,
+      "pixelSize": 6,
+      "flowScale": 0.008774055780179802,
+      "flowStrength": 3.275153468439022,
+      "particleCount": 1262,
+      "clockSpeed": 0,
+      "oscillation": 2.9865464132464403,
+      "wMechanical": 0.9,
+      "wPixel": 0.05,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 2.478467456547266,
+      "hatchSpacing": 19.370301111901735,
+      "pixelCharacter": "data",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "vectors",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 3230.8293462195893,
+      "renderSeed": 2037298972,
+      "disorder": 0.05,
+      "disorderMode": "uniform",
+      "disorderAngle": 5.61651553532787,
+      "paletteColors": [
+        "#f4f1ea",
+        "#e9e6de",
+        "#f0ede6",
+        "#e4e1d9",
+        "#faf8f2",
+        "#0a0a0f",
+        "#ece9e1",
+        "#f2efe8"
+      ],
+      "plotterAzimuth": 0.62,
+      "plotterElevation": 0.42,
+      "stereo": false,
+      "vignetteStrength": 0
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "47a6493484997306511a52bb14b52df801ab31b61745f73f853abbe87e703b38",
+      "engineVersion": "v3.22.0",
+      "renderSeed": 2037298972,
+      "noiseSeed": 3230.8293462195893,
+      "checksumStability": "7/7 identical — hard-canonical (pure renderRng line geometry, no alpha-composite GPU noise)"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "Curatorial study (not tweet-sourced) closing the 2026-10-28 Noll deep-read. The engine's 'vectors' character performs its own namesake at Noll's exact count (50 lines). Pure single-character: wMechanical 0.90, all others 0.05 (gated below 0.15 draw threshold). Hard-canonical 7/7, checksum 47a64934. Sixth Noll gen; the only one rendering his titular work.",
+      "condensedReason": "A. Michael Noll programmed '50 Lines Falling at Random Within a Cube' at Bell Labs in 1964 on an IBM 7094 — fifty straight segments with uniform-pseudorandom endpoints inside an imaginary cube, projected orthographically and drawn white on black by a Stromberg-Carlson 4020 microfilm plotter. It is one of the founding objects of computer art, and the work this engine's 'vectors' character was built from. This piece is not a picture of that work but a performance of it: the vectors character IS Noll's algorithm, so the study runs it at his own count — gearDensity 0.29 yields exactly 50 lines — and holds everything else out of the way (wMechanical 0.90; every other layer gated to 0.05, below the draw threshold), the restraint doctrine made literal. The only translation is palette: Noll's pure white-on-black spoken in the archive's warm near-white on #0a0a0f, with the handful of segments that cycle onto the ground tone receding into the back of the cube. Where the archive's other Noll gens read him sideways — the stereo pair (Day 107), the Gaussian-Quadratic polyline (Day 150) — this one renders the titular work itself. Deterministic score (7/7, checksum 47a64934), closing the Noll deep-read of 2026-10-28. Noll is the engine's hidden ancestor; here the machine performs the ancestor's own hand."
+    },
+    "tweetSummary": "Curatorial study — no tweet source. Closes the 2026-10-28 deep read of Noll's Ragnar essay; the engine's 'vectors' character renders its own namesake, A. Michael Noll's '50 Lines Falling at Random Within a Cube' (1964).",
+    "keyArtists": [
+      {
+        "name": "A. Michael Noll",
+        "role": "Bell Labs computer-art pioneer",
+        "work": "50 Lines Falling at Random Within a Cube (1964)"
+      }
+    ],
+    "themes": [
+      "random lines in a cube",
+      "the engine's own ancestor",
+      "restraint"
+    ],
+    "keyDetails": "A. Michael Noll, '50 Lines Falling at Random Within a Cube' (1964, Bell Labs). Curatorial study — the engine's 'vectors' character performs its own namesake.",
+    "description": "A. Michael Noll programmed '50 Lines Falling at Random Within a Cube' at Bell Labs in 1964 on an IBM 7094 — fifty straight segments with uniform-pseudorandom endpoints inside an imaginary cube, projected orthographically and drawn white on black by a Stromberg-Carlson 4020 microfilm plotter. It is one of the founding objects of computer art, and the work this engine's 'vectors' character was built from. This piece is not a picture of that work but a performance of it: the vectors character IS Noll's algorithm, so the study runs it at his own count — gearDensity 0.29 yields exactly 50 lines — and holds everything else out of the way (wMechanical 0.90; every other layer gated to 0.05, below the draw threshold), the restraint doctrine made literal. The only translation is palette: Noll's pure white-on-black spoken in the archive's warm near-white on #0a0a0f, with the handful of segments that cycle onto the ground tone receding into the back of the cube. Where the archive's other Noll gens read him sideways — the stereo pair (Day 107), the Gaussian-Quadratic polyline (Day 150) — this one renders the titular work itself. Deterministic score (7/7, checksum 47a64934), closing the Noll deep-read of 2026-10-28. Noll is the engine's hidden ancestor; here the machine performs the ancestor's own hand.",
+    "condensedReason": "A. Michael Noll programmed '50 Lines Falling at Random Within a Cube' at Bell Labs in 1964 on an IBM 7094 — fifty straight segments with uniform-pseudorandom endpoints inside an imaginary cube, projected orthographically and drawn white on black by a Stromberg-Carlson 4020 microfilm plotter. It is one of the founding objects of computer art, and the work this engine's 'vectors' character was built from. This piece is not a picture of that work but a performance of it: the vectors character IS Noll's algorithm, so the study runs it at his own count — gearDensity 0.29 yields exactly 50 lines — and holds everything else out of the way (wMechanical 0.90; every other layer gated to 0.05, below the draw threshold), the restraint doctrine made literal. The only translation is palette: Noll's pure white-on-black spoken in the archive's warm near-white on #0a0a0f, with the handful of segments that cycle onto the ground tone receding into the back of the cube. Where the archive's other Noll gens read him sideways — the stereo pair (Day 107), the Gaussian-Quadratic polyline (Day 150) — this one renders the titular work itself. Deterministic score (7/7, checksum 47a64934), closing the Noll deep-read of 2026-10-28. Noll is the engine's hidden ancestor; here the machine performs the ancestor's own hand."
   }
 ]
