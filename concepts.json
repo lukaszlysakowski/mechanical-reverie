@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "concepts": [
     {
       "id": "bell-labs",
@@ -392,6 +392,34 @@
         {
           "gen": 94,
           "why": "Day 95 - Csuri's 'Flies' (1967) / 'Feeding Time' (1966): the computer swarm, set against Ruscha's hand-printed ants"
+        }
+      ]
+    },
+    {
+      "id": "noll",
+      "title": "The Noll Lineage",
+      "thesis": "The archive's other single-artist rooms read a pioneer; this one reads the engine's own ancestor. A. Michael Noll's works are not merely rendered here — several are transcribed into the instrument itself. The 'vectors' character is his '50 Lines Falling at Random Within a Cube' (1964); the 'gaussquad' polyline is his 'Gaussian-Quadratic' (1962–64), chance disciplined by a single quadratic law; the stereo compositor follows the 3-D line-pairs he built from a stereoscopic viewer he had owned since childhood. And his arguments are this project's doctrine, stated at the origin: fighting the Copyright Office he insisted the program, not the machine, made the work, and that its randomness was authored — the numbers 'only appeared random to humans'; in 1967 he called the computer not a tool but 'an intellectual and active creative partner.' Where Csuri, Molnár and Mohr are subjects the engine looks at, Noll is the one it is partly made of. This is the room where Mechanical Reverie finds its own lineage — the Bell Labs night-programmer whose probability fields, written in FORTRAN on the IBM 7094, are the direct ancestor of every genome-and-seed this machine performs.",
+      "link": null,
+      "members": [
+        {
+          "gen": 111,
+          "why": "Day 107 'In Three Dimensions' — Noll's stereographic line-pairs, the 3-D instinct he traced to a childhood stereoscopic viewer, rendered as a red/cyan anaglyph. The direct ancestor of the engine's stereo compositor; a work Dalí later embedded in 'The Sleeping Smoker'."
+        },
+        {
+          "gen": 124,
+          "why": "Day 119 'Fifty Lines' — Noll's '50 Lines Falling at Random Within a Cube' / 'Computer Composition with Lines' (1964), run at his own line count of 50. The engine's 'vectors' character IS this work: its vocabulary built from his cube, not copied from his plot."
+        },
+        {
+          "gen": 125,
+          "why": "Day 120 'Choreography' — Noll's 'Computer-Generated Ballet' (1965), choreography computed frame by frame without dancers; one of his key works, shared here with Larry Cuba in the moving-image lineage."
+        },
+        {
+          "gen": 149,
+          "why": "Day 143 'A Creative Partner' — Noll's 'Patterns by 7090' random-line fields and his 1967 manifesto: 'the program, not the machine, made it,' and the computer as 'an intellectual and active creative partner' making 'wholly new art forms.' The authorship doctrine and the criteria-partnership north star, stated at the origin."
+        },
+        {
+          "gen": 157,
+          "why": "Day 150 'The Gaussian Climb' — Noll's 'Gaussian-Quadratic' (1962–64) as the engine's first statistical-polyline, 'gaussquad': Gaussian chance disciplined by one quadratic law. 'The numbers only appeared random to humans' — authored randomness, the seeds doctrine in 1962."
         }
       ]
     },
