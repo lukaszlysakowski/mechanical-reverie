@@ -11475,5 +11475,102 @@
     "keyDetails": "A. Michael Noll, '50 Lines Falling at Random Within a Cube' (1964, Bell Labs). Curatorial study — the engine's 'vectors' character performs its own namesake.",
     "description": "A. Michael Noll programmed '50 Lines Falling at Random Within a Cube' at Bell Labs in 1964 on an IBM 7094 — fifty straight segments with uniform-pseudorandom endpoints inside an imaginary cube, projected orthographically and drawn white on black by a Stromberg-Carlson 4020 microfilm plotter. It is one of the founding objects of computer art, and the work this engine's 'vectors' character was built from. This piece is not a picture of that work but a performance of it: the vectors character IS Noll's algorithm, so the study runs it at his own count — gearDensity 0.29 yields exactly 50 lines — and holds everything else out of the way (wMechanical 0.90; every other layer gated to 0.05, below the draw threshold), the restraint doctrine made literal. The only translation is palette: Noll's pure white-on-black spoken in the archive's warm near-white on #0a0a0f, with the handful of segments that cycle onto the ground tone receding into the back of the cube. Where the archive's other Noll gens read him sideways — the stereo pair (Day 107), the Gaussian-Quadratic polyline (Day 150) — this one renders the titular work itself. Deterministic score (7/7, checksum 47a64934), closing the Noll deep-read of 2026-10-28. Noll is the engine's hidden ancestor; here the machine performs the ancestor's own hand.",
     "condensedReason": "A. Michael Noll programmed '50 Lines Falling at Random Within a Cube' at Bell Labs in 1964 on an IBM 7094 — fifty straight segments with uniform-pseudorandom endpoints inside an imaginary cube, projected orthographically and drawn white on black by a Stromberg-Carlson 4020 microfilm plotter. It is one of the founding objects of computer art, and the work this engine's 'vectors' character was built from. This piece is not a picture of that work but a performance of it: the vectors character IS Noll's algorithm, so the study runs it at his own count — gearDensity 0.29 yields exactly 50 lines — and holds everything else out of the way (wMechanical 0.90; every other layer gated to 0.05, below the draw threshold), the restraint doctrine made literal. The only translation is palette: Noll's pure white-on-black spoken in the archive's warm near-white on #0a0a0f, with the handful of segments that cycle onto the ground tone receding into the back of the cube. Where the archive's other Noll gens read him sideways — the stereo pair (Day 107), the Gaussian-Quadratic polyline (Day 150) — this one renders the titular work itself. Deterministic score (7/7, checksum 47a64934), closing the Noll deep-read of 2026-10-28. Noll is the engine's hidden ancestor; here the machine performs the ancestor's own hand."
+  },
+  {
+    "day": 152,
+    "date": "2026-11-01",
+    "title": "Fifteen Minutes",
+    "filename": "mechanical-reverie-day-152-fifteen-minutes-2026-11-01.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 13,
+      "gridRows": 3,
+      "cellPadding": 0.15427729093199255,
+      "rotation": 1.937488326999788,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.20226237135882508,
+      "gearComplexity": 23,
+      "chainFrequency": 0.001449069362373434,
+      "pixelDensity": 0.2625328654525392,
+      "pixelSize": 3,
+      "flowScale": 0.0143007876984374,
+      "flowStrength": 1.3454758261853685,
+      "particleCount": 332,
+      "clockSpeed": 0,
+      "oscillation": 1.7497455308013048,
+      "wMechanical": 0.05,
+      "wPixel": 0.9,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 0.33894596967210155,
+      "hatchSpacing": 13.118476414215873,
+      "pixelCharacter": "dither",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 2242,
+      "renderSeed": 424242,
+      "disorder": 0.1,
+      "disorderMode": "uniform",
+      "disorderAngle": 5.437959377724109,
+      "paletteColors": [
+        "#4fc4d8",
+        "#e8468f",
+        "#c0243a",
+        "#d8a24e",
+        "#8fd6e8",
+        "#0a0a0f",
+        "#aeb4bc",
+        "#c0243a"
+      ],
+      "ditherRamp": [
+        "#0a0a0f",
+        "#c0243a",
+        "#e8468f",
+        "#d8a24e",
+        "#4fc4d8",
+        "#8fd6e8",
+        "#cdd2d8"
+      ],
+      "ditherScale": 0.55,
+      "ditherContrast": 1.5,
+      "ditherMenuBar": false,
+      "vignetteStrength": 0.12
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "ab6d1a6e02311e876041786af69bfc33b2e9823dee10baafea684e34a1ba9cdd",
+      "engineVersion": "v3.23.0",
+      "renderSeed": 424242,
+      "noiseSeed": 2242,
+      "checksumStability": "7/7 identical — hard-canonical (ordered-dither pixel fill, no alpha-composite GPU noise)"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First ordered-dither pixelCharacter ('dither', v3.23.0; Bayer 4x4). Pure single-character credit: wPixel 0.90, all others 0.05. Amiga Deluxe Paint aesthetic from Warhol's live-captured 'Untitled (Randall Krebs)' (1985). Hard-canonical 7/7, checksum ab6d1a6e. C2 GREEN (6 archive gens re-verified under v3.23.0). Menu-bar chrome available (ditherMenuBar) but left OFF — translate, don't illustrate.",
+      "condensedReason": "In 1985 Andy Warhol made 'Untitled (Randall Krebs)' live on a Commodore Amiga, using the machine's video live-capture to grab a frame and flood-filling it in Deluxe Paint — shown at the computer's launch and folded into the debut of his MTV show 'Fifteen Minutes of Fame.' Noah's essay reframes Warhol's computer period: often dismissed as commercial, the pop artist 'would ultimately produce a small volume of works on his own accord — prompted, but not dictated by Commodore.' The Amiga's signature is not the figure but the ORDERED DITHER: a Bayer-matrix crosshatch that blends a handful of hard, saturated colours to fake a continuum of tone. The engine learns that logic as a new pixelCharacter, 'dither' (v3.23.0): a multi-octave noise field posterizes into large colour zones — cyan, hot-magenta, red, tan, sky-blue on black — and the Bayer threshold dithers their boundaries into the crosshatch. Held pure (wPixel 0.90, every other layer gated to 0.05), a figure-like mass emerges at centre from the dithered colour: a portrait assembled by the screen rather than drawn on it. The archive's first ordered-dither form — the Amiga's way of seeing, taught to the program."
+    },
+    "tweetSummary": "NB posted Andy Warhol's 'Untitled (Randall Krebs)' (1985), live-captured on the Commodore Amiga for his MTV show 'Fifteen Minutes of Fame', with an essay on Warhol's computer period ('prompted, but not dictated by Commodore'). Nov 1 original + self-reply. (Catch-up: Oct 28-30 minor/rest; Oct 31 Keith Haring, a thematic sibling, left for a possible follow-up.)",
+    "keyArtists": [
+      {
+        "name": "Andy Warhol",
+        "role": "pop artist; Commodore Amiga works 1985-86",
+        "work": "Untitled (Randall Krebs) (1985)"
+      }
+    ],
+    "themes": [
+      "ordered dithering",
+      "pop art and the computer",
+      "the Amiga / Deluxe Paint"
+    ],
+    "keyDetails": "Andy Warhol, 'Untitled (Randall Krebs)' (1985) — live-captured on the Commodore Amiga for his MTV show 'Fifteen Minutes of Fame'. NB original post + essay, Nov 1.",
+    "description": "In 1985 Andy Warhol made 'Untitled (Randall Krebs)' live on a Commodore Amiga, using the machine's video live-capture to grab a frame and flood-filling it in Deluxe Paint — shown at the computer's launch and folded into the debut of his MTV show 'Fifteen Minutes of Fame.' Noah's essay reframes Warhol's computer period: often dismissed as commercial, the pop artist 'would ultimately produce a small volume of works on his own accord — prompted, but not dictated by Commodore.' The Amiga's signature is not the figure but the ORDERED DITHER: a Bayer-matrix crosshatch that blends a handful of hard, saturated colours to fake a continuum of tone. The engine learns that logic as a new pixelCharacter, 'dither' (v3.23.0): a multi-octave noise field posterizes into large colour zones — cyan, hot-magenta, red, tan, sky-blue on black — and the Bayer threshold dithers their boundaries into the crosshatch. Held pure (wPixel 0.90, every other layer gated to 0.05), a figure-like mass emerges at centre from the dithered colour: a portrait assembled by the screen rather than drawn on it. The archive's first ordered-dither form — the Amiga's way of seeing, taught to the program.",
+    "condensedReason": "In 1985 Andy Warhol made 'Untitled (Randall Krebs)' live on a Commodore Amiga, using the machine's video live-capture to grab a frame and flood-filling it in Deluxe Paint — shown at the computer's launch and folded into the debut of his MTV show 'Fifteen Minutes of Fame.' Noah's essay reframes Warhol's computer period: often dismissed as commercial, the pop artist 'would ultimately produce a small volume of works on his own accord — prompted, but not dictated by Commodore.' The Amiga's signature is not the figure but the ORDERED DITHER: a Bayer-matrix crosshatch that blends a handful of hard, saturated colours to fake a continuum of tone. The engine learns that logic as a new pixelCharacter, 'dither' (v3.23.0): a multi-octave noise field posterizes into large colour zones — cyan, hot-magenta, red, tan, sky-blue on black — and the Bayer threshold dithers their boundaries into the crosshatch. Held pure (wPixel 0.90, every other layer gated to 0.05), a figure-like mass emerges at centre from the dithered colour: a portrait assembled by the screen rather than drawn on it. The archive's first ordered-dither form — the Amiga's way of seeing, taught to the program."
   }
 ]

@@ -403,7 +403,14 @@ let W = canvas.width, H = canvas.height;
 // imply volume; seeded pseudo-depth makes a flat line stand up. The engine's first statistical-polyline primitive.
 // NOT in MECH_CHARS / not mutation-reachable; drawMechanical gains one dispatch line → every archive checksum
 // unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.22.0';
+// v3.23.0 — additive, opt-in (Day 152, Andy Warhol's live-captured Amiga portraits, 1985 — "Untitled (Randall
+// Krebs)", from the debut of his MTV show "Fifteen Minutes of Fame"): pixelCharacter 'dither' — ordered
+// (Bayer 4×4) dithering of a LIMITED palette. A multi-octave noise field posterises into large colour ZONES;
+// the Bayer threshold blends two tone-adjacent ramp colours in a fixed crosshatch, so a few hard colours fake
+// a continuum of tone — THE signature of Commodore Amiga Deluxe Paint. The archive's first ordered-dither form.
+// NOT in PIXEL_CHARS / not mutation-reachable; drawPixelLayer gains one else-if → every archive checksum
+// unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.23.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -2932,6 +2939,53 @@ function drawPixelLayer(g, pal, t) {
           }
         }
       }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'dither') {
+    // DITHER — ordered (Bayer-matrix) dithering of a LIMITED palette: a regular pixel grid where each
+    // cell blends two tone-adjacent ramp colours in a fixed crosshatch, so a few hard colours fake a
+    // continuum of tone. THE defining look of 1980s consumer paint programs — Commodore Amiga Deluxe
+    // Paint / GraphiCraft — after Andy Warhol's live-captured Amiga portraits (1985, "Untitled (Randall
+    // Krebs)", from the debut of his MTV show "Fifteen Minutes of Fame"). A multi-octave noise field
+    // gives large posterised colour ZONES; the Bayer threshold dithers their boundaries into the
+    // characteristic crosshatch. Params: ditherRamp (tone-ordered colours, else pal) · pixelSize (cell
+    // px) · ditherScale (zone size; lower = larger) · ditherContrast · ditherMenuBar (optional grey top
+    // band + two red icons = the paint-program chrome). Opt-in (NOT in PIXEL_CHARS / not mutation-
+    // reachable) → no existing genome uses it; additive / C2-safe. Deterministic (noise ∈ 0..1, no Math.random).
+    const size = Math.max(g.pixelSize, 2);
+    const cols = Math.floor(W / size), rows = Math.floor(H / size);
+    const ramp = (Array.isArray(g.ditherRamp) && g.ditherRamp.length >= 2) ? g.ditherRamp : pal;
+    const L = ramp.length;
+    const scale = g.ditherScale ?? 0.9;              // lower = larger colour zones
+    const contrast = g.ditherContrast ?? 1.35;       // >1 widens flat zones, crisps dither to the edges
+    const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]]; // 4×4 ordered matrix (0..15)
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        let tone = 0.55 * noise.noise2D(c * scale * 0.06 + t * g.clockSpeed, r * scale * 0.06)
+                 + 0.30 * noise.noise2D(c * scale * 0.14 + 7.1,  r * scale * 0.14 + 3.7)
+                 + 0.15 * noise.noise2D(c * scale * 0.33 + 19.0, r * scale * 0.33 + 11.0);
+        tone = clamp((tone - 0.5) * contrast + 0.5, 0, 1);
+        const scaled = tone * (L - 1);
+        const base = Math.floor(scaled);
+        const frac = scaled - base;
+        const thr = (BAYER[r & 3][c & 3] + 0.5) / 16;      // 0..1 ordered threshold
+        const idx = (frac > thr && base < L - 1) ? base + 1 : base;
+        ctx.fillStyle = ramp[idx];
+        ctx.globalAlpha = 1;
+        ctx.fillRect(c * size, r * size, size, size);       // contiguous pixels, no gap
+      }
+    }
+    // Optional paint-program chrome: grey menu bar + two red icons top-right (Deluxe Paint UI).
+    if (g.ditherMenuBar) {
+      const bh = Math.max(6, Math.round(H * 0.045));
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = g.ditherBarColor || '#aeb4bc';
+      ctx.fillRect(0, 0, W, bh);
+      ctx.fillStyle = g.ditherIconColor || '#d8402a';
+      const s2 = Math.round(bh * 0.58), pad = Math.round(bh * 0.22);
+      ctx.fillRect(W - s2 * 2 - pad * 2, (bh - s2) / 2, s2, s2);
+      ctx.fillRect(W - s2 - pad,         (bh - s2) / 2, s2, s2);
     }
     ctx.globalAlpha = 1;
   }
