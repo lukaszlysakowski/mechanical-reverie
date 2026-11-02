@@ -410,7 +410,14 @@ let W = canvas.width, H = canvas.height;
 // a continuum of tone — THE signature of Commodore Amiga Deluxe Paint. The archive's first ordered-dither form.
 // NOT in PIXEL_CHARS / not mutation-reachable; drawPixelLayer gains one else-if → every archive checksum
 // unchanged. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.23.0';
+// v3.24.0 — additive, opt-in (Day 153, Keith Haring's 1989 MTV "Decade" interview, "the computer generation
+// ... everyone has a hand in creating reality ... take it places we can't even imagine", + his late computer
+// work carrying the subway practice to the screen): mechanicalCharacter 'radiance' — bursts of short BOLD
+// strokes radiating from scattered centres (the radiant baby's aura, the motion lines), flat bold colour on a
+// black subway ground, filling the field = his "visual ubiquity". NOT in MECH_CHARS / not mutation-reachable;
+// drawMechanical gains one dispatch line → every archive checksum unchanged. Deterministic (renderRng + noise,
+// no Math.random). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.24.0';
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -1536,6 +1543,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'subdivide') { drawSubdivide(g, pal, t);   return; }
   if (ch === 'cipher')  { drawCipher(g, pal, t);        return; }
   if (ch === 'gaussquad') { drawGaussquad(g, pal, t);   return; }
+  if (ch === 'radiance') { drawRadiance(g, pal, t);     return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1711,6 +1719,53 @@ function drawGaussquad(g, pal, t) {
       ctx.fillStyle = ramp[clamp(Math.floor(p.z * ramp.length), 0, ramp.length - 1)];
       ctx.globalAlpha = 0.95;
       ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(2, baseW * (0.5 + depth * 0.45 * p.z)), 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+// RADIANCE (v3.24.0) — Keith Haring's signature mark: bursts of short BOLD strokes radiating from a centre
+// (the radiant baby's aura, the barking dog's motion lines), scattered until the ground is completely FULL —
+// his "visual ubiquity", carried from the subway chalk wall to the screen. After Haring's 1989 MTV interview:
+// "the computer generation ... everyone has a hand in ... creating reality and inventing reality ... they're
+// gonna take it places that we can't even imagine." Flat bold colour marks on the subway's black ground.
+// Params: radCount · radRays · radLen · radWeight · radJitter · radScaleVar · radRamp (bold colours, else pal)
+// · radDot · radBlackChance/radBlack. Opt-in (NOT in MECH_CHARS / not mutation-reachable), additive, C2-safe.
+// Deterministic (renderRng reseeds per pass from renderSeed + noise; no Math.random).
+function drawRadiance(g, pal, t) {
+  const M        = clamp(Math.round(g.radCount ?? 120), 4, 600);
+  const baseRays = clamp(Math.round(g.radRays ?? 7), 3, 16);
+  const len      = (g.radLen ?? 0.055) * Math.min(W, H);
+  const weight   = g.radWeight ?? 6;
+  const jitter   = clamp(g.radJitter ?? 0.35, 0, 1.2);
+  const scaleVar = clamp(g.radScaleVar ?? 0.7, 0, 1);
+  const ramp     = (Array.isArray(g.radRamp) && g.radRamp.length >= 2) ? g.radRamp : pal;
+  const dot      = g.radDot !== false;
+  const blackChance = clamp(g.radBlackChance ?? 0.18, 0, 1);
+  const black    = g.radBlack || '#0a0a0f';
+  ctx.lineCap = 'round';
+  for (let i = 0; i < M; i++) {
+    const cx = renderRng() * W;
+    const cy = renderRng() * H;
+    const scl = (1 - scaleVar) + scaleVar * (0.4 + 1.2 * renderRng());    // size variety
+    const rays = baseRays + (renderRng() < 0.4 ? 1 : 0);
+    const rot = renderRng() * Math.PI * 2;
+    const useBlack = renderRng() < blackChance;
+    const col = useBlack ? black : ramp[Math.floor(renderRng() * ramp.length) % ramp.length];
+    const L = len * scl;
+    const w = Math.max(1.5, weight * scl);
+    const innerR = L * 0.28;                                               // the aura gap around the centre
+    ctx.strokeStyle = col; ctx.lineWidth = w; ctx.globalAlpha = 0.95;
+    for (let k = 0; k < rays; k++) {
+      const a = rot + (k / rays) * Math.PI * 2 + (renderRng() - 0.5) * jitter;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(a) * innerR, cy + Math.sin(a) * innerR);
+      ctx.lineTo(cx + Math.cos(a) * L,      cy + Math.sin(a) * L);
+      ctx.stroke();
+    }
+    if (dot) {
+      ctx.fillStyle = col; ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(cx, cy, Math.max(2, w * 0.9), 0, Math.PI * 2); ctx.fill();
     }
   }
   ctx.globalAlpha = 1;

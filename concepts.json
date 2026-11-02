@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-29",
+  "updated": "2026-11-01",
   "concepts": [
     {
       "id": "bell-labs",
@@ -535,6 +535,14 @@
         {
           "gen": 104,
           "why": "The other artist at the 1985 Amiga screen: where Haring brought subway-chalk outline, Warhol brought garish RGB pop-portraiture. Whose Hand renders that digital-pop palette (electric blue / yellow / red on navy) — and Noah's question of the artist's hand vs the machine's demo, which is this archive's own."
+        },
+        {
+          "gen": 160,
+          "why": "Visual Ubiquity — Haring's own radiant mark (new 'radiance' character): bursts of bold strokes filling the field, the subway practice's ubiquity carried to the screen. The first to render his line/radiance rather than the Amiga mosaic."
+        },
+        {
+          "gen": 159,
+          "why": "Fifteen Minutes — the other artist at the same screen: Warhol's live-captured Amiga portrait rendered in its own ordered dither (Deluxe Paint). Pairs with 'Whose Hand'."
         }
       ]
     },

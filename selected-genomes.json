@@ -11572,5 +11572,106 @@
     "keyDetails": "Andy Warhol, 'Untitled (Randall Krebs)' (1985) — live-captured on the Commodore Amiga for his MTV show 'Fifteen Minutes of Fame'. NB original post + essay, Nov 1.",
     "description": "In 1985 Andy Warhol made 'Untitled (Randall Krebs)' live on a Commodore Amiga, using the machine's video live-capture to grab a frame and flood-filling it in Deluxe Paint — shown at the computer's launch and folded into the debut of his MTV show 'Fifteen Minutes of Fame.' Noah's essay reframes Warhol's computer period: often dismissed as commercial, the pop artist 'would ultimately produce a small volume of works on his own accord — prompted, but not dictated by Commodore.' The Amiga's signature is not the figure but the ORDERED DITHER: a Bayer-matrix crosshatch that blends a handful of hard, saturated colours to fake a continuum of tone. The engine learns that logic as a new pixelCharacter, 'dither' (v3.23.0): a multi-octave noise field posterizes into large colour zones — cyan, hot-magenta, red, tan, sky-blue on black — and the Bayer threshold dithers their boundaries into the crosshatch. Held pure (wPixel 0.90, every other layer gated to 0.05), a figure-like mass emerges at centre from the dithered colour: a portrait assembled by the screen rather than drawn on it. The archive's first ordered-dither form — the Amiga's way of seeing, taught to the program.",
     "condensedReason": "In 1985 Andy Warhol made 'Untitled (Randall Krebs)' live on a Commodore Amiga, using the machine's video live-capture to grab a frame and flood-filling it in Deluxe Paint — shown at the computer's launch and folded into the debut of his MTV show 'Fifteen Minutes of Fame.' Noah's essay reframes Warhol's computer period: often dismissed as commercial, the pop artist 'would ultimately produce a small volume of works on his own accord — prompted, but not dictated by Commodore.' The Amiga's signature is not the figure but the ORDERED DITHER: a Bayer-matrix crosshatch that blends a handful of hard, saturated colours to fake a continuum of tone. The engine learns that logic as a new pixelCharacter, 'dither' (v3.23.0): a multi-octave noise field posterizes into large colour zones — cyan, hot-magenta, red, tan, sky-blue on black — and the Bayer threshold dithers their boundaries into the crosshatch. Held pure (wPixel 0.90, every other layer gated to 0.05), a figure-like mass emerges at centre from the dithered colour: a portrait assembled by the screen rather than drawn on it. The archive's first ordered-dither form — the Amiga's way of seeing, taught to the program."
+  },
+  {
+    "day": 153,
+    "date": "2026-10-31",
+    "title": "Visual Ubiquity",
+    "filename": "mechanical-reverie-day-153-visual-ubiquity-2026-10-31.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 16,
+      "gridRows": 10,
+      "cellPadding": 0.14427158766757547,
+      "rotation": 2.8857114369224592,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.1,
+      "gearDensity": 0.3876383203176488,
+      "gearComplexity": 14,
+      "chainFrequency": 0.3321725117081525,
+      "pixelDensity": 0.9385255927369865,
+      "pixelSize": 7,
+      "flowScale": 0.0073838391651422485,
+      "flowStrength": 2.8138395006008787,
+      "particleCount": 1075,
+      "clockSpeed": 0,
+      "oscillation": 1.8124993094585802,
+      "wMechanical": 0.9,
+      "wPixel": 0.05,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 1.888906998671536,
+      "hatchSpacing": 8.480899602742927,
+      "pixelCharacter": "dither",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "radiance",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 4313,
+      "renderSeed": 131313,
+      "disorder": 0.1,
+      "disorderMode": "uniform",
+      "disorderAngle": 2.600691315236155,
+      "paletteColors": [
+        "#e5322d",
+        "#f2c014",
+        "#2c6fe0",
+        "#12a150",
+        "#ef7d1a",
+        "#0a0a0f",
+        "#ef7d1a",
+        "#f4f0e6"
+      ],
+      "radRamp": [
+        "#e5322d",
+        "#f2c014",
+        "#2c6fe0",
+        "#12a150",
+        "#ef7d1a",
+        "#f4f0e6"
+      ],
+      "radCount": 115,
+      "radRays": 6,
+      "radLen": 0.072,
+      "radWeight": 7,
+      "radJitter": 0.6,
+      "radScaleVar": 0.88,
+      "radDot": true,
+      "radBlackChance": 0.14,
+      "vignetteStrength": 0.1
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "5615d2652203a06adff03d3aef086e69d6d7f0590ac892a9d1e6520e835cce30",
+      "engineVersion": "v3.24.0",
+      "renderSeed": 131313,
+      "noiseSeed": 4313,
+      "checksumStability": "9/9 identical — hard-canonical (opaque bold strokes/dots, no alpha-composite GPU noise)"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "First 'radiance' mechanicalCharacter (v3.24.0): Haring's signature radiant bursts. Pure single-character: wMechanical 0.90, all others 0.05. Flat Haring palette on black (the subway practice). Hard-canonical 9/9, checksum 5615d265. C2 GREEN (6 archive gens re-verified under v3.24.0). Distinct from the 6 existing 'Haring at the Screen' pieces (those = mosaic/flat-colour blocks; this = the radiance/line). Second new character this session, after Day 152's 'dither'.",
+      "condensedReason": "In a 1989 MTV 'Decade' interview Keith Haring looked ahead to 'the computer generation' — 'everyone sort of has a hand in creating reality and inventing reality... they're gonna take it places that we can't even imagine.' In his final years, as Noah's essay puts it, the computer offered Haring 'a similar visual ubiquity achieved through his subway practice, but with an accessible permanence.' His unmistakable mark is the RADIANCE: the short bold strokes that burst from a form — the radiant baby's aura, the barking dog's motion lines — and the compulsion to fill a ground completely. The engine learns that mark as a new mechanicalCharacter, 'radiance' (v3.24.0): bursts of thick strokes radiating from scattered centres, in flat Haring colour (red, yellow, blue, green, orange, white) on the subway's black ground, multiplied until the field is full. Held pure (wMechanical 0.90, every other layer gated to 0.05), no two bursts the same size — a wall of energy marks, each a hand in the making. Not Haring's figures traced, but his radiance set loose: the subway chalk carried to the screen as the computer generation's ubiquity."
+    },
+    "tweetSummary": "NB posted Keith Haring's 1989 MTV 'Decade' interview — 'the computer generation... everyone has a hand in creating reality... take it places we can't even imagine' (Oct 31, video) — and an essay on Haring's late computer work carrying his subway practice's 'visual ubiquity' to the screen (Nov 1). Pop-art-at-the-computer week, alongside Warhol (Day 152).",
+    "keyArtists": [
+      {
+        "name": "Keith Haring",
+        "role": "pop artist; subway drawings + late computer work",
+        "work": "'the computer generation' MTV 'Decade' interview (1989); Amiga/computer works"
+      }
+    ],
+    "themes": [
+      "radiance",
+      "visual ubiquity",
+      "pop art and the computer"
+    ],
+    "keyDetails": "Keith Haring, 1989 MTV 'Decade' interview on 'the computer generation', + his late computer work. NB original video (Oct 31) + essay (Nov 1).",
+    "description": "In a 1989 MTV 'Decade' interview Keith Haring looked ahead to 'the computer generation' — 'everyone sort of has a hand in creating reality and inventing reality... they're gonna take it places that we can't even imagine.' In his final years, as Noah's essay puts it, the computer offered Haring 'a similar visual ubiquity achieved through his subway practice, but with an accessible permanence.' His unmistakable mark is the RADIANCE: the short bold strokes that burst from a form — the radiant baby's aura, the barking dog's motion lines — and the compulsion to fill a ground completely. The engine learns that mark as a new mechanicalCharacter, 'radiance' (v3.24.0): bursts of thick strokes radiating from scattered centres, in flat Haring colour (red, yellow, blue, green, orange, white) on the subway's black ground, multiplied until the field is full. Held pure (wMechanical 0.90, every other layer gated to 0.05), no two bursts the same size — a wall of energy marks, each a hand in the making. Not Haring's figures traced, but his radiance set loose: the subway chalk carried to the screen as the computer generation's ubiquity.",
+    "condensedReason": "In a 1989 MTV 'Decade' interview Keith Haring looked ahead to 'the computer generation' — 'everyone sort of has a hand in creating reality and inventing reality... they're gonna take it places that we can't even imagine.' In his final years, as Noah's essay puts it, the computer offered Haring 'a similar visual ubiquity achieved through his subway practice, but with an accessible permanence.' His unmistakable mark is the RADIANCE: the short bold strokes that burst from a form — the radiant baby's aura, the barking dog's motion lines — and the compulsion to fill a ground completely. The engine learns that mark as a new mechanicalCharacter, 'radiance' (v3.24.0): bursts of thick strokes radiating from scattered centres, in flat Haring colour (red, yellow, blue, green, orange, white) on the subway's black ground, multiplied until the field is full. Held pure (wMechanical 0.90, every other layer gated to 0.05), no two bursts the same size — a wall of energy marks, each a hand in the making. Not Haring's figures traced, but his radiance set loose: the subway chalk carried to the screen as the computer generation's ubiquity."
   }
 ]

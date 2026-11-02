@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-11-02T01:26:40Z",
+  "updated": "2026-11-02T01:41:02Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -3191,17 +3191,86 @@
         "date": null
       },
       "since": "2026-10-21T05:36:01Z"
+    },
+    "vortex|radiance|light": {
+      "fitness": 6.625,
+      "genome": {
+        "gridCols": 16,
+        "gridRows": 10,
+        "cellPadding": 0.14427158766757547,
+        "rotation": 2.8857114369224592,
+        "globalRotation": 0,
+        "paletteIndex": 9,
+        "bgDarkness": 0.1,
+        "gearDensity": 0.3876383203176488,
+        "gearComplexity": 14,
+        "chainFrequency": 0.3321725117081525,
+        "pixelDensity": 0.9385255927369865,
+        "pixelSize": 7,
+        "flowScale": 0.0073838391651422485,
+        "flowStrength": 2.8138395006008787,
+        "particleCount": 1075,
+        "clockSpeed": 0,
+        "oscillation": 1.8124993094585802,
+        "wMechanical": 0.9,
+        "wPixel": 0.05,
+        "wFlow": 0.05,
+        "wGeometric": 0.05,
+        "wOrganic": 0.05,
+        "wHatch": 0.05,
+        "hatchAngle": 1.888906998671536,
+        "hatchSpacing": 8.480899602742927,
+        "pixelCharacter": "dither",
+        "flowCharacter": "vortex",
+        "mechanicalCharacter": "radiance",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 4313,
+        "renderSeed": 131313,
+        "disorder": 0.1,
+        "disorderMode": "uniform",
+        "disorderAngle": 2.600691315236155,
+        "paletteColors": [
+          "#e5322d",
+          "#f2c014",
+          "#2c6fe0",
+          "#12a150",
+          "#ef7d1a",
+          "#0a0a0f",
+          "#ef7d1a",
+          "#f4f0e6"
+        ],
+        "radRamp": [
+          "#e5322d",
+          "#f2c014",
+          "#2c6fe0",
+          "#12a150",
+          "#ef7d1a",
+          "#f4f0e6"
+        ],
+        "radCount": 115,
+        "radRays": 6,
+        "radLen": 0.072,
+        "radWeight": 7,
+        "radJitter": 0.6,
+        "radScaleVar": 0.88,
+        "radDot": true,
+        "radBlackChance": 0.14,
+        "vignetteStrength": 0.1
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 160,
+        "day": 153,
+        "date": "2026-10-31",
+        "title": "Visual Ubiquity",
+        "filename": "mechanical-reverie-day-153-visual-ubiquity-2026-10-31.png"
+      },
+      "since": "2026-11-02T01:41:02Z"
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-08-22T15:59:53Z",
-      "cell": "transit|led|dark",
-      "challengerFitness": 6.0119,
-      "incumbentFitness": 6.0757,
-      "result": "held",
-      "source": "Day 108 candidates"
-    },
     {
       "ts": "2026-08-22T15:59:53Z",
       "cell": "transit|led|dark",
@@ -5593,6 +5662,14 @@
       "incumbentFitness": 6.574,
       "result": "held",
       "source": "Frontier F-08"
+    },
+    {
+      "ts": "2026-11-02T01:41:02Z",
+      "cell": "vortex|radiance|light",
+      "challengerFitness": 6.625,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 160"
     }
   ],
   "frontierState": {
@@ -5653,7 +5730,8 @@
       "data"
     ],
     "mech": [
-      "armature"
+      "armature",
+      "radiance"
     ]
   },
   "legacyNote": "Coordinates from earlier engine versions that the current engine cannot produce ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived pieces occupy these cells, so they are preserved and displayed, but they are excluded from the frontier and from coverage."
