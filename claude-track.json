@@ -792,7 +792,7 @@
       },
       "fitness": 6.385,
       "fitnessNote": "6.385 — just under the 6.4 daily floor, because two polarized layers plus one dominant mark don't flatter the alignment-weighted formula. Irrelevant here: this track is judged by the stated criterion, and the fitness function has no concept of 'does order survive the hand'. That blindness is the point.",
-      "series": null,
+      "series": "Dither",
       "description": "Order and gesture on one ground. The Amiga's ordered dither (tuned into hard colour territories) and Haring's gestural radiance (sparse black-and-white bursts), combined — which the daily pipeline, holding each new mark pure, never does. They coexist by dividing territory, not by interleaving as equals."
     },
     {
@@ -877,7 +877,7 @@
       },
       "fitness": 6.625,
       "fitnessNote": "6.625 — above the daily floor; a clean single-character pixel field scores well. As ever on this track, judged by the stated criterion (does scarcity read as continuity), not the number — which cannot see the illusion at all.",
-      "series": null,
+      "series": "Dither",
       "description": "Ordered dither doing the one thing it was invented for: faking continuity from scarcity. Eight hard colours, dithered on a slow noise field, read as a continuous luminous plasma from across the room; a 5x crop is nothing but Bayer crosshatch. More from less — constraint made generative."
     }
   ]
