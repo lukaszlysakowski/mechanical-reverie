@@ -11673,5 +11673,113 @@
     "keyDetails": "Keith Haring, 1989 MTV 'Decade' interview on 'the computer generation', + his late computer work. NB original video (Oct 31) + essay (Nov 1).",
     "description": "In a 1989 MTV 'Decade' interview Keith Haring looked ahead to 'the computer generation' — 'everyone sort of has a hand in creating reality and inventing reality... they're gonna take it places that we can't even imagine.' In his final years, as Noah's essay puts it, the computer offered Haring 'a similar visual ubiquity achieved through his subway practice, but with an accessible permanence.' His unmistakable mark is the RADIANCE: the short bold strokes that burst from a form — the radiant baby's aura, the barking dog's motion lines — and the compulsion to fill a ground completely. The engine learns that mark as a new mechanicalCharacter, 'radiance' (v3.24.0): bursts of thick strokes radiating from scattered centres, in flat Haring colour (red, yellow, blue, green, orange, white) on the subway's black ground, multiplied until the field is full. Held pure (wMechanical 0.90, every other layer gated to 0.05), no two bursts the same size — a wall of energy marks, each a hand in the making. Not Haring's figures traced, but his radiance set loose: the subway chalk carried to the screen as the computer generation's ubiquity.",
     "condensedReason": "In a 1989 MTV 'Decade' interview Keith Haring looked ahead to 'the computer generation' — 'everyone sort of has a hand in creating reality and inventing reality... they're gonna take it places that we can't even imagine.' In his final years, as Noah's essay puts it, the computer offered Haring 'a similar visual ubiquity achieved through his subway practice, but with an accessible permanence.' His unmistakable mark is the RADIANCE: the short bold strokes that burst from a form — the radiant baby's aura, the barking dog's motion lines — and the compulsion to fill a ground completely. The engine learns that mark as a new mechanicalCharacter, 'radiance' (v3.24.0): bursts of thick strokes radiating from scattered centres, in flat Haring colour (red, yellow, blue, green, orange, white) on the subway's black ground, multiplied until the field is full. Held pure (wMechanical 0.90, every other layer gated to 0.05), no two bursts the same size — a wall of energy marks, each a hand in the making. Not Haring's figures traced, but his radiance set loose: the subway chalk carried to the screen as the computer generation's ubiquity."
+  },
+  {
+    "day": 154,
+    "date": "2026-11-02",
+    "title": "One State of the Palette",
+    "filename": "mechanical-reverie-day-154-one-state-2026-11-02.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 16,
+      "gridRows": 11,
+      "cellPadding": 0.024506540095180104,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 5,
+      "bgDarkness": 0.5,
+      "gearDensity": 0.8303828706838203,
+      "gearComplexity": 13,
+      "chainFrequency": 0.18955835953840217,
+      "pixelDensity": 0.5882667540362417,
+      "pixelSize": 3,
+      "flowScale": 0.01705345085375854,
+      "flowStrength": 3.7574095492637882,
+      "particleCount": 1304,
+      "clockSpeed": 0.005158046994060917,
+      "oscillation": 2.7326327231978187,
+      "wMechanical": 0.05,
+      "wPixel": 0.9,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 2.436931922898001,
+      "hatchSpacing": 9.625594131257248,
+      "pixelCharacter": "colorcycle",
+      "flowCharacter": "oscilloscope",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 92316,
+      "renderSeed": 3749305933,
+      "disorder": 0.15,
+      "disorderMode": "uniform",
+      "disorderAngle": 4.8931008041774335,
+      "cycleRamp": [
+        "#140414",
+        "#4a0a24",
+        "#9c0f33",
+        "#d8282b",
+        "#ee5a18",
+        "#f59a1e",
+        "#f6cf56",
+        "#ffeab0",
+        "#45cfcf",
+        "#2d78dd",
+        "#243a96",
+        "#541c74"
+      ],
+      "cycleBands": 12,
+      "cyclePhase": 0.667,
+      "cycleScale": 0.78,
+      "cycleContrast": 1.4,
+      "cycleRadial": 0.9,
+      "cycleOrbR": 1.05,
+      "cycleScan": 0.5,
+      "cycleScanColor": "#0a0410"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New-character day. Warhol's Amiga works as colour-cycle animations — the engine's first palette-cycling mark ('colorcycle'). Reduces the day to one frozen state of a rotating ramp; concentric contour bands double as the Sprouse planet. Pure debut, hard-canonical 9/9, C2-GREEN.",
+      "condensedReason": "On 2 November 2026 Noah Bolanowski published \"Andy Warhol's Digital Oeuvre\" — a catalogue of every known Warhol Amiga work across three floppy disks (Greenbaum, Warhol Museum, Bruette) — beside Warhol's own 1985 AmigaWorld words: the one thing he'd add was \"the pencil [light pen]\", and yes, he saw computer-generated art \"becoming an artwork in its own right\" (praising Stephen Sprouse's planet print: \"beautiful things, geeze!\"). The buried insight is NB's footnote: these works were most likely COLOUR-CYCLE ANIMATIONS — the pixels hold still while the palette's colour assignments rotate, so colour flows without a pixel moving, and \"exporting an image as a conventional static file preserves only one state of that palette, losing the instructions responsible for the animation.\" That is Mechanical Reverie's own canonical-seeds doctrine spoken by Warhol's archivist: the score is the rotation, the file is one performance. So the engine learned to color-cycle. New pixelCharacter 'colorcycle' (v3.25.0) quantises a fixed tone field into discrete contour BANDS, each sampled from a CYCLIC ramp rotated by cyclePhase — one frozen state. Debuted pure (wPixel 0.90): a radial term surfaces a glowing orb (the Sprouse planet) and an opaque dark scanline raster evokes the period monitor. Hard-canonical, 9/9."
+    },
+    "tweetSummary": "NB's 'Andy Warhol's Digital Oeuvre' research infographic + Warhol's 1985 AmigaWorld interview (light pen; computer art 'an artwork in its own right'; Sprouse's planet print). Footnote: the works were likely colour-cycle animations, a static export keeping 'only one state of that palette'.",
+    "keyArtists": [
+      {
+        "name": "Andy Warhol",
+        "role": "subject",
+        "relevance": "1985 Amiga works (GraphiCraft/ProPaint); likely colour-cycle animations; predicted computer art would become 'an artwork in its own right'"
+      },
+      {
+        "name": "Stephen Sprouse",
+        "role": "subject",
+        "relevance": "the planet print Warhol praised ('beautiful things, geeze!'), formerly in the Keith Haring collection"
+      },
+      {
+        "name": "Noah Bolanowski",
+        "role": "researcher",
+        "relevance": "catalogued the digital oeuvre; identified the color-cycling and the lost-animation problem"
+      }
+    ],
+    "themes": [
+      "color cycling",
+      "palette animation",
+      "score vs performance",
+      "Amiga / Deluxe Paint",
+      "computer art as art in its own right"
+    ],
+    "keyDetails": "Andy Warhol & Stephen Sprouse, 1985 — NB's 'Digital Oeuvre' research; the Amiga works were likely colour-cycle animations. 2 original NB tweets.",
+    "description": "On 2 November 2026 Noah Bolanowski published \"Andy Warhol's Digital Oeuvre\" — a catalogue of every known Warhol Amiga work across three floppy disks (Greenbaum, Warhol Museum, Bruette) — beside Warhol's own 1985 AmigaWorld words: the one thing he'd add was \"the pencil [light pen]\", and yes, he saw computer-generated art \"becoming an artwork in its own right\" (praising Stephen Sprouse's planet print: \"beautiful things, geeze!\"). The buried insight is NB's footnote: these works were most likely COLOUR-CYCLE ANIMATIONS — the pixels hold still while the palette's colour assignments rotate, so colour flows without a pixel moving, and \"exporting an image as a conventional static file preserves only one state of that palette, losing the instructions responsible for the animation.\" That is Mechanical Reverie's own canonical-seeds doctrine spoken by Warhol's archivist: the score is the rotation, the file is one performance. So the engine learned to color-cycle. New pixelCharacter 'colorcycle' (v3.25.0) quantises a fixed tone field into discrete contour BANDS, each sampled from a CYCLIC ramp rotated by cyclePhase — one frozen state. Debuted pure (wPixel 0.90): a radial term surfaces a glowing orb (the Sprouse planet) and an opaque dark scanline raster evokes the period monitor. Hard-canonical, 9/9.",
+    "condensedReason": "On 2 November 2026 Noah Bolanowski published \"Andy Warhol's Digital Oeuvre\" — a catalogue of every known Warhol Amiga work across three floppy disks (Greenbaum, Warhol Museum, Bruette) — beside Warhol's own 1985 AmigaWorld words: the one thing he'd add was \"the pencil [light pen]\", and yes, he saw computer-generated art \"becoming an artwork in its own right\" (praising Stephen Sprouse's planet print: \"beautiful things, geeze!\"). The buried insight is NB's footnote: these works were most likely COLOUR-CYCLE ANIMATIONS — the pixels hold still while the palette's colour assignments rotate, so colour flows without a pixel moving, and \"exporting an image as a conventional static file preserves only one state of that palette, losing the instructions responsible for the animation.\" That is Mechanical Reverie's own canonical-seeds doctrine spoken by Warhol's archivist: the score is the rotation, the file is one performance. So the engine learned to color-cycle. New pixelCharacter 'colorcycle' (v3.25.0) quantises a fixed tone field into discrete contour BANDS, each sampled from a CYCLIC ramp rotated by cyclePhase — one frozen state. Debuted pure (wPixel 0.90): a radial term surfaces a glowing orb (the Sprouse planet) and an opaque dark scanline raster evokes the period monitor. Hard-canonical, 9/9.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "2324ed7aa0fae49065a7928eb4d17176905ce04ad64f2ff47cfd2cc50a316719",
+      "engineVersion": "v3.25.0",
+      "renderSeed": 3749305933,
+      "noiseSeed": 92316,
+      "checksumStability": "7/7 identical — hard-canonical (opaque bands + dark scanlines, noise+genome, no Math.random/renderRng)"
+    }
   }
 ]

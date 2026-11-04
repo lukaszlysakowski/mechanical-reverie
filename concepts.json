@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-01",
+  "updated": "2026-11-03",
   "concepts": [
     {
       "id": "bell-labs",
@@ -101,6 +101,10 @@
         {
           "gen": 90,
           "why": "Day 91 — 1983's flat-TV-as-picture prophecy fulfilled: digitally-native art coming alive on plasma/flat screens in the home"
+        },
+        {
+          "gen": 161,
+          "why": "Warhol, 1985: 'Do you ever see computer-generated art as becoming an artwork in its own right? — Oh yeah...' A prediction the archive fulfills with this wholly computer-generated piece."
         }
       ]
     },
@@ -941,6 +945,10 @@
         {
           "gen": 156,
           "why": "Day 149 — Leslie Mezei 'Art from Computers' (1971): the computer making art from its OWN native symbols — digits 0-9 set loose. Rendered via the new 'cipher' character; the machine's base alphabet as the artwork."
+        },
+        {
+          "gen": 161,
+          "why": "Warhol's Amiga works were colour-cycle animations: the work is the palette-rotation INSTRUCTIONS, the static file loses them. The engine answers by changing the program — a new 'colorcycle' mark — not the drawing."
         }
       ]
     },
