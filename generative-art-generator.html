@@ -3859,6 +3859,85 @@ function renderToServer(g, scale, filename) {
   }).then(r => r.text());
 }
 
+// ── Candidate contact sheet (Step 9½) ──
+// A TOOL, not part of the render path — it only CALLS render(), never changes it, so ENGINE_VERSION
+// is unaffected and every archived checksum is unchanged. Renders each candidate genome to a full
+// 780×580 offscreen (so each thumbnail matches the final look), then tiles labelled thumbnails into
+// one montage PNG. Lets the day's seed/parameter sweep be judged at a glance and handed to the
+// curator to pick — "pick #N" maps to window.__contactCandidates[N-1].genome (the exact genome).
+// candidates: array of { genome, label } (a bare genome is accepted; label defaults to "#i").
+// opts: { cols, cellW, gap, labelH, headerH, bg, title, save (filename → POST to save server) }.
+// Returns { cols, rows, count, saved }. Deterministic: no Math.random, pure render() of each genome.
+async function buildContactSheet(candidates, opts = {}) {
+  const n       = candidates.length;
+  const cols    = opts.cols    || Math.min(n, Math.ceil(Math.sqrt(n)));
+  const cellW   = opts.cellW   || 300;
+  const cellH   = Math.round(cellW * 580 / 780);
+  const gap     = opts.gap     ?? 14;
+  const labelH  = opts.labelH  ?? 26;
+  const headerH = opts.title ? (opts.headerH ?? 46) : 0;
+  const bg      = opts.bg      || '#141416';
+  const rows    = Math.ceil(n / cols);
+  const mW = gap + cols * (cellW + gap);
+  const mH = headerH + gap + rows * (cellH + labelH + gap);
+
+  const m  = document.createElement('canvas');
+  m.width = mW; m.height = mH;
+  const mc = m.getContext('2d');
+  mc.fillStyle = bg; mc.fillRect(0, 0, mW, mH);
+  mc.textAlign = 'left';
+
+  if (opts.title) {
+    mc.fillStyle = '#e8e4da';
+    mc.font = '600 20px -apple-system, Segoe UI, sans-serif';
+    mc.textBaseline = 'middle';
+    mc.fillText(opts.title, gap, headerH / 2);
+  }
+
+  const off = document.createElement('canvas');
+  off.width = 780; off.height = 580;
+  const prevCtx = ctx, prevW = W, prevH = H;
+
+  for (let i = 0; i < n; i++) {
+    const cand  = candidates[i];
+    const g     = cand.genome || cand;
+    const label = cand.label || ('#' + (i + 1));
+    // render candidate to the full-size offscreen using the same ctx/W/H swap idiom as certifyRender
+    ctx = off.getContext('2d'); W = off.width; H = off.height;
+    try { render(g, 0); } catch (e) { ctx.fillStyle = '#300'; ctx.fillRect(0, 0, W, H); }
+    ctx = prevCtx; W = prevW; H = prevH;
+
+    const col = i % cols, row = Math.floor(i / cols);
+    const x = gap + col * (cellW + gap);
+    const y = headerH + gap + row * (cellH + labelH + gap);
+    mc.drawImage(off, 0, 0, 780, 580, x, y, cellW, cellH);
+    mc.strokeStyle = 'rgba(255,255,255,0.12)'; mc.lineWidth = 1;
+    mc.strokeRect(x + 0.5, y + 0.5, cellW - 1, cellH - 1);
+    // index badge (top-left)
+    mc.fillStyle = 'rgba(0,0,0,0.58)'; mc.fillRect(x, y, 34, 24);
+    mc.fillStyle = '#ffd36b';
+    mc.font = '700 16px -apple-system, Segoe UI, sans-serif';
+    mc.textBaseline = 'middle';
+    mc.fillText(String(i + 1), x + 10, y + 13);
+    // label strip (under thumbnail)
+    mc.fillStyle = '#b9b4aa';
+    mc.font = '12px ui-monospace, Menlo, monospace';
+    mc.textBaseline = 'middle';
+    mc.fillText(String(label).slice(0, Math.floor(cellW / 6.6)), x + 2, y + cellH + labelH / 2);
+  }
+
+  window.__contactCandidates = candidates;   // "pick #N" → window.__contactCandidates[N-1].genome
+  const dataUrl = m.toDataURL('image/png');
+  let saved = null;
+  if (opts.save) {
+    saved = await fetch('http://localhost:8767/save', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: opts.save, data: dataUrl })
+    }).then(r => r.text());
+  }
+  return { cols, rows, count: n, saved };
+}
+
 function resetLineage() {
   stopAnimation();
   likedGenomes = [];
