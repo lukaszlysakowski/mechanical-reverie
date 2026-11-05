@@ -3938,6 +3938,37 @@ async function buildContactSheet(candidates, opts = {}) {
   return { cols, rows, count: n, saved };
 }
 
+// ── renderGrid — SEED-RANGE contact sheet (the genart '--grid' idea, MR-native) ──
+// Where buildContactSheet tiles DIFFERENT candidate genomes, renderGrid sweeps ONE base genome across many
+// SEEDS and tiles the results, to judge a character's/composition's RANGE rather than one cherry-picked seed.
+// Directly serves the new-character doctrine (the "snowflake trap": a mark-field needs real variance across
+// seeds or it reads as clip-art) — debut a character, grid it, see the whole behaviour before committing.
+// A TOOL built on buildContactSheet: only CALLS render(), never changes it, so ENGINE_VERSION and every
+// archived checksum are untouched. Each variant moves BOTH noiseSeed and renderSeed, so the full stochastic
+// field shifts whichever seed the character keys off (noise-based or renderRng-based). Deterministic per seed.
+// base: the genome to test (character + params). opts: { seeds (count, default 12, or an explicit array),
+//   seedBase (default 1000), seedStep (default 101), cols (default 4), save (filename), title, cellW, ... }.
+// "pick #N" still maps to window.__contactCandidates[N-1].genome (the exact seed-varied genome).
+async function renderGrid(base, opts = {}) {
+  const seeds = Array.isArray(opts.seeds)
+    ? opts.seeds
+    : Array.from({ length: opts.seeds || 12 }, (_, i) => (opts.seedBase || 1000) + i * (opts.seedStep || 101));
+  const cands = seeds.map(s => ({
+    genome: Object.assign({}, base, { noiseSeed: s, renderSeed: s }),
+    label: 'seed ' + s
+  }));
+  // Name EVERY character the genome carries — a piece can run mechanical + pixel + flow marks at once,
+  // and picking just one silently mislabels the field you're trying to read. Join them so the title is honest.
+  const char = [base.mechanicalCharacter, base.pixelCharacter, base.flowCharacter].filter(Boolean).join('+') || 'genome';
+  const sheetOpts = Object.assign({}, opts, {
+    title: opts.title || ('grid · ' + char + ' · ' + seeds.length + ' seeds'),
+    cols: opts.cols || 4
+  });
+  delete sheetOpts.seeds; delete sheetOpts.seedBase; delete sheetOpts.seedStep;  // grid-only keys
+  return renderGrid._sheet(cands, sheetOpts);
+}
+renderGrid._sheet = buildContactSheet;   // indirection keeps it a thin, testable wrapper
+
 function resetLineage() {
   stopAnimation();
   likedGenomes = [];
