@@ -11781,5 +11781,184 @@
       "noiseSeed": 92316,
       "checksumStability": "7/7 identical — hard-canonical (opaque bands + dark scanlines, noise+genome, no Math.random/renderRng)"
     }
+  },
+  {
+    "day": 155,
+    "date": "2026-11-05",
+    "title": "The Person to Whom It Applies",
+    "filename": "mechanical-reverie-day-155-the-person-to-whom-it-applies-2026-11-05.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 14,
+      "gridRows": 7,
+      "cellPadding": 0.08574765517384429,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 5,
+      "bgDarkness": 0.5,
+      "gearDensity": 0.7715817170952947,
+      "gearComplexity": 19,
+      "chainFrequency": 0.7110248552708335,
+      "pixelDensity": 0.11602216942941132,
+      "pixelSize": 5,
+      "flowScale": 0.012649007945836139,
+      "flowStrength": 3.9220070903431057,
+      "particleCount": 568,
+      "clockSpeed": 0.012402432845153438,
+      "oscillation": 2.3487337446728414,
+      "wMechanical": 0.05,
+      "wPixel": 0.9,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 3.1295176852096507,
+      "hatchSpacing": 15.384423906449902,
+      "pixelCharacter": "texttone",
+      "flowCharacter": "dispersal",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 3,
+      "noiseSeed": 303,
+      "renderSeed": 1319846958,
+      "disorder": 0.15,
+      "disorderMode": "uniform",
+      "disorderAngle": 0.8300172750763447,
+      "ttCols": 94,
+      "ttRowH": 1.02,
+      "ttFigure": 0.68,
+      "ttContrast": 1.55,
+      "ttScale": 0.9,
+      "ttInk": "#e9ddc6",
+      "ttInkBright": "#fff6e6",
+      "ttGround": "#241812"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New-character day. Knowlton's letters-as-photograph — the engine's first WEIGHT-as-tone text form ('texttone'): real declaration text, a figure emerging in bold. Pure debut, hard-canonical 9/9, C2-GREEN. Reads as a document up close, a person at a distance (Recognition).",
+      "condensedReason": "On 5 November 2026 Noah Bolanowski posted Ken Knowlton's \"UN Declaration of Human Rights\" (1970, from the Spalter Digital Collection) with Knowlton's own 1998 words: \"I combined letters and photographs and this, I thought it was a very political statement.\" The work typesets the ENTIRE declaration as a running block of text, and a human figure emerges from it in BOLD characters — the words of universal rights are the pixels of the person they apply to. NB framed it as positioning the viewer \"between the promise of universal rights and the person to whom it applies — the distance between the declaration of rights and their protection in practice.\" Knowlton (Bell Labs) is the direct ancestor of the engine's text forms. The reduction teaches the program his actual mechanism, which 'lineprinter' could not make: new pixelCharacter 'texttone' (v3.26.0) lays the real declaration text as a monospace field and lets a tone field drive glyph WEIGHT + brightness — a readable document carrying an emergent image, not a density ramp. Held pure (wPixel 0.90) on a warm document ground, a bust silhouette surfaces in the bold type: up close the rights are legible, stepping back the person appears (the Harmon–Knowlton perceptual effect). Hard-canonical 9/9, fitness 6.625."
+    },
+    "tweetSummary": "Ken Knowlton's 'UN Declaration of Human Rights' (1970, Bell Labs; Spalter Digital). 'I combined letters and photographs... a very political statement.' The declaration's running text, a figure emerging in bold — the rights are the pixels of the person.",
+    "keyArtists": [
+      {
+        "name": "Ken Knowlton",
+        "role": "subject",
+        "relevance": "Bell Labs pioneer of the typographic photomosaic (letters as pixels); 'UN Declaration of Human Rights' 1970; ancestor of the engine's text forms"
+      },
+      {
+        "name": "Noah Bolanowski",
+        "role": "curator",
+        "relevance": "posted the work + Knowlton's 1998 'political statement' quote; framed the rights/person tension"
+      }
+    ],
+    "themes": [
+      "text as image",
+      "letters and photographs",
+      "Recognition / perception at a distance",
+      "human rights",
+      "Bell Labs",
+      "weight as tone"
+    ],
+    "keyDetails": "Ken Knowlton, 'UN Declaration of Human Rights', 1970 (Bell Labs; Spalter Digital). NB original thread, 2 tweets.",
+    "description": "On 5 November 2026 Noah Bolanowski posted Ken Knowlton's \"UN Declaration of Human Rights\" (1970, from the Spalter Digital Collection) with Knowlton's own 1998 words: \"I combined letters and photographs and this, I thought it was a very political statement.\" The work typesets the ENTIRE declaration as a running block of text, and a human figure emerges from it in BOLD characters — the words of universal rights are the pixels of the person they apply to. NB framed it as positioning the viewer \"between the promise of universal rights and the person to whom it applies — the distance between the declaration of rights and their protection in practice.\" Knowlton (Bell Labs) is the direct ancestor of the engine's text forms. The reduction teaches the program his actual mechanism, which 'lineprinter' could not make: new pixelCharacter 'texttone' (v3.26.0) lays the real declaration text as a monospace field and lets a tone field drive glyph WEIGHT + brightness — a readable document carrying an emergent image, not a density ramp. Held pure (wPixel 0.90) on a warm document ground, a bust silhouette surfaces in the bold type: up close the rights are legible, stepping back the person appears (the Harmon–Knowlton perceptual effect). Hard-canonical 9/9, fitness 6.625.",
+    "condensedReason": "On 5 November 2026 Noah Bolanowski posted Ken Knowlton's \"UN Declaration of Human Rights\" (1970, from the Spalter Digital Collection) with Knowlton's own 1998 words: \"I combined letters and photographs and this, I thought it was a very political statement.\" The work typesets the ENTIRE declaration as a running block of text, and a human figure emerges from it in BOLD characters — the words of universal rights are the pixels of the person they apply to. NB framed it as positioning the viewer \"between the promise of universal rights and the person to whom it applies — the distance between the declaration of rights and their protection in practice.\" Knowlton (Bell Labs) is the direct ancestor of the engine's text forms. The reduction teaches the program his actual mechanism, which 'lineprinter' could not make: new pixelCharacter 'texttone' (v3.26.0) lays the real declaration text as a monospace field and lets a tone field drive glyph WEIGHT + brightness — a readable document carrying an emergent image, not a density ramp. Held pure (wPixel 0.90) on a warm document ground, a bust silhouette surfaces in the bold type: up close the rights are legible, stepping back the person appears (the Harmon–Knowlton perceptual effect). Hard-canonical 9/9, fitness 6.625.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "f8e0dca0551f51bc3623570b8ff1636a150d8fc26a6a89e268aaebe9a3555c33",
+      "engineVersion": "v3.26.0",
+      "renderSeed": 1319846958,
+      "noiseSeed": 303,
+      "checksumStability": "9/9 identical — hard-canonical (deterministic monospace fill, noise+genome, no Math.random)"
+    }
+  },
+  {
+    "day": 156,
+    "date": "2026-11-06",
+    "title": "Permutations",
+    "filename": "mechanical-reverie-day-156-permutations-2026-11-06.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 20,
+      "gridRows": 6,
+      "cellPadding": 0.1623650064680528,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 5,
+      "bgDarkness": 0.5,
+      "gearDensity": 0.11913376977442969,
+      "gearComplexity": 7,
+      "chainFrequency": 0.43049891735201695,
+      "pixelDensity": 0.02980065866918591,
+      "pixelSize": 8,
+      "flowScale": 0.003307512490090183,
+      "flowStrength": 1.3105560043570204,
+      "particleCount": 375,
+      "clockSpeed": 0.00242554508832283,
+      "oscillation": 2.8390281479892745,
+      "wMechanical": 0.05,
+      "wPixel": 0.9,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 0.7117690488052428,
+      "hatchSpacing": 9.304964211325188,
+      "pixelCharacter": "engrave",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "plotter",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 2,
+      "noiseSeed": 660,
+      "renderSeed": 3634839565,
+      "disorder": 0.15,
+      "disorderMode": "uniform",
+      "disorderAngle": 0.5145731294053245,
+      "egCols": 8,
+      "egFill": 0.8,
+      "egSize": 0.28,
+      "egRough": 0.2,
+      "egVerts": 36,
+      "egSpecks": 6,
+      "egInk": "#f4f2ea",
+      "egGround": "#060606"
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New-character day. Hébert's engraved-on-film OpHop — the engine's first grid-of-engraved-discs mark ('engrave'): a block of frames, each a seeded variant = the permutation. Pure debut, hard-canonical 9/9, C2-GREEN.",
+      "condensedReason": "On 6 November 2026 Noah Bolanowski posted Pierre Hébert's \"Op Hop–Hop Op\" (1966) with Hébert's 2021 account of the method: \"starting with a block of twenty-four animated frames, I then used these by permuting the order of subgroups included in the initial loop.\" Hébert, a Québécois animator, engraved the film frame by frame directly on the emulsion; OpHop is an optical animation whose motion comes not from drawing new images but from REORDERING a small fixed set — combinatorial op-art. The source image is a grid of near-identical hand-scratched white discs on black, each cell a frame, each slightly different (ragged edge, scratch specks), the near-repetition reading as a flickering 'hop'. The reduction teaches the program that block: new pixelCharacter 'engrave' (v3.27.0) renders a GRID of irregular engraved discs — each a many-vertex polygon whose radius is perturbed by angle-noise, bitten with dark scratch specks, each cell a seeded variant = the permutation. Held pure (wPixel 0.90) as white on near-black. The grid IS the frame-block; the field of subtly different discs is the optical hop made still. Hard-canonical 9/9, fitness 6.625."
+    },
+    "tweetSummary": "Pierre Hébert's 'Op Hop–Hop Op' (1966): a block of 24 engraved film frames, animated by permuting the order of subgroups. Rendered as a grid of irregular hand-scratched white discs on black — the frame-block, the hop made still.",
+    "keyArtists": [
+      {
+        "name": "Pierre Hébert",
+        "role": "subject",
+        "relevance": "Québécois engrave-on-film animator; 'Op Hop–Hop Op' 1966, op-art animation by permuting a block of 24 frames"
+      },
+      {
+        "name": "Noah Bolanowski",
+        "role": "curator",
+        "relevance": "posted OpHop + Hébert's 2021 Hors Champ account of the permutation method"
+      }
+    ],
+    "themes": [
+      "permutation / combinatorics",
+      "engraving on film",
+      "op art",
+      "animation",
+      "the frame as unit"
+    ],
+    "keyDetails": "Pierre Hébert, 'Op Hop–Hop Op', 1966 (engraved on film). NB original tweet, Hébert 2021 Hors Champ quote.",
+    "description": "On 6 November 2026 Noah Bolanowski posted Pierre Hébert's \"Op Hop–Hop Op\" (1966) with Hébert's 2021 account of the method: \"starting with a block of twenty-four animated frames, I then used these by permuting the order of subgroups included in the initial loop.\" Hébert, a Québécois animator, engraved the film frame by frame directly on the emulsion; OpHop is an optical animation whose motion comes not from drawing new images but from REORDERING a small fixed set — combinatorial op-art. The source image is a grid of near-identical hand-scratched white discs on black, each cell a frame, each slightly different (ragged edge, scratch specks), the near-repetition reading as a flickering 'hop'. The reduction teaches the program that block: new pixelCharacter 'engrave' (v3.27.0) renders a GRID of irregular engraved discs — each a many-vertex polygon whose radius is perturbed by angle-noise, bitten with dark scratch specks, each cell a seeded variant = the permutation. Held pure (wPixel 0.90) as white on near-black. The grid IS the frame-block; the field of subtly different discs is the optical hop made still. Hard-canonical 9/9, fitness 6.625.",
+    "condensedReason": "On 6 November 2026 Noah Bolanowski posted Pierre Hébert's \"Op Hop–Hop Op\" (1966) with Hébert's 2021 account of the method: \"starting with a block of twenty-four animated frames, I then used these by permuting the order of subgroups included in the initial loop.\" Hébert, a Québécois animator, engraved the film frame by frame directly on the emulsion; OpHop is an optical animation whose motion comes not from drawing new images but from REORDERING a small fixed set — combinatorial op-art. The source image is a grid of near-identical hand-scratched white discs on black, each cell a frame, each slightly different (ragged edge, scratch specks), the near-repetition reading as a flickering 'hop'. The reduction teaches the program that block: new pixelCharacter 'engrave' (v3.27.0) renders a GRID of irregular engraved discs — each a many-vertex polygon whose radius is perturbed by angle-noise, bitten with dark scratch specks, each cell a seeded variant = the permutation. Held pure (wPixel 0.90) as white on near-black. The grid IS the frame-block; the field of subtly different discs is the optical hop made still. Hard-canonical 9/9, fitness 6.625.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "d3eb83ad328f5cb432dbb5b1fa112abe0f61091ffb3736a29fdbd12f0283f249",
+      "engineVersion": "v3.27.0",
+      "renderSeed": 3634839565,
+      "noiseSeed": 660,
+      "checksumStability": "9/9 identical — hard-canonical (opaque discs + specks, noise+genome, no Math.random)"
+    }
   }
 ]

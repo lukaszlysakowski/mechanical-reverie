@@ -426,7 +426,26 @@ let W = canvas.width, H = canvas.height;
 // surface (the Stephen Sprouse "planets" print Warhol praised) and a per-row scanline gap evokes the monitor
 // raster. NOT in PIXEL_CHARS / not mutation-reachable; drawPixelLayer gains one else-if → every archive checksum
 // unchanged. Deterministic (noise + genome, no Math.random); opaque fills → hard-canonical. C2 regression GREEN.
-const ENGINE_VERSION = 'v3.25.0';
+// v3.26.0 — additive, opt-in (Day 155, Ken Knowlton's "UN Declaration of Human Rights", 1970, Bell Labs):
+// pixelCharacter 'texttone'. Knowlton combined "letters and photographs" — the running text of the declaration
+// IS the medium, and a human figure emerges from the BOLD characters (weight-as-tone over meaningful text).
+// Distinct from 'lineprinter' (which swaps glyph IDENTITY for tone); here the glyphs are real words and the tone
+// field drives glyph WEIGHT + brightness, so a readable document carries an emergent image. NOT in PIXEL_CHARS /
+// not mutation-reachable; drawPixelLayer gains one else-if → every archive checksum unchanged. Deterministic
+// (noise + genome, no Math.random). C2 regression GREEN.
+// v3.27.0 — additive, opt-in (Day 156, Pierre Hébert's "Op Hop–Hop Op", 1966, engraved frame-by-frame on film):
+// pixelCharacter 'engrave'. Hébert animated OpHop by permuting the order of subgroups in a block of twenty-four
+// frames; the mark renders that block as a GRID of near-identical hand-scratched white discs on black, each cell
+// a frame (ragged polygon edge + dark scratch specks), each a seeded variant = the permutation, the field read
+// as the optical "hop". NOT in PIXEL_CHARS / not mutation-reachable; drawPixelLayer gains one else-if → every
+// archive checksum unchanged. Deterministic (noise + genome, no Math.random); opaque fills → hard-canonical.
+// C2 regression GREEN.
+const ENGINE_VERSION = 'v3.27.0';
+
+// Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
+// the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
+// fill the field. Overridable per-genome with g.ttText.
+const TEXTTONE_UDHR = "UNIVERSAL DECLARATION OF HUMAN RIGHTS. All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status. Everyone has the right to life, liberty and security of person. No one shall be held in slavery or servitude. No one shall be subjected to torture or to cruel, inhuman or degrading treatment or punishment. Everyone has the right to recognition everywhere as a person before the law. All are equal before the law and are entitled without any discrimination to equal protection of the law. Everyone has the right to freedom of thought, conscience and religion, to freedom of opinion and expression, to freedom of peaceful assembly and association. Everyone has the right to a standard of living adequate for health and well being. Everyone has the right to education. ";
 
 // mulberry32 — small deterministic PRNG. Returns a () => [0,1) function.
 function mulberry32(seed) {
@@ -3103,6 +3122,112 @@ function drawPixelLayer(g, pal, t) {
       ctx.fillStyle = g.cycleScanColor || '#0a0410';
       ctx.globalAlpha = 1;
       for (let y = size - lh; y < rows * size; y += size) ctx.fillRect(0, y, cols * size, lh);
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'texttone') {
+    // TEXTTONE — Ken Knowlton's "letters + photographs" (UN Declaration of Human Rights, 1970): a block of
+    // RUNNING TEXT (the declaration itself) whose glyph WEIGHT carries a tonal image — a human figure emerges
+    // in the BOLD characters while the rest stays a readable document. The words of universal rights ARE the
+    // pixels of the person, and held in tension with them. Distinct from 'lineprinter' (which swaps glyph
+    // IDENTITY for tone); here the glyphs are real words and the TONE field drives weight + brightness. Params:
+    // ttText (running text) · ttCols · ttRowH · ttInk · ttInkBright · ttGround · ttFigure (central-mass bias) ·
+    // ttContrast · ttScale. Opt-in (NOT in PIXEL_CHARS / not mutation-reachable), additive, C2-safe.
+    // Deterministic (noise + genome, no Math.random).
+    const txt = (typeof g.ttText === 'string' && g.ttText.length > 20) ? g.ttText : TEXTTONE_UDHR;
+    const L = txt.length;
+    const cols = clamp(Math.round(g.ttCols || 92), 24, 220);
+    const cw = W / cols;
+    const fontSize = cw / 0.6;                       // monospace advance ≈ 0.6·em → glyph fills the cell
+    const rh = fontSize * (g.ttRowH || 1.02);
+    const rows = Math.ceil(H / rh);
+    const ink = g.ttInk || '#e9ddc6';                // document cream
+    const inkB = g.ttInkBright || '#fff6e6';         // the figure, brighter
+    const ground = g.ttGround || pal[5] || '#241812';
+    const figW = clamp(g.ttFigure ?? 0.38, 0, 1);    // weight of the central vertical mass (the figure bias)
+    const contrast = g.ttContrast ?? 1.3;
+    const sc = g.ttScale ?? 0.9;
+    ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    let k = 0;
+    for (let r = 0; r < rows; r++) {
+      const fy = (r + 0.5) / rows;
+      for (let c = 0; c < cols; c++) {
+        const fx = (c + 0.5) / cols;
+        let nz = 0.6 * noise.noise2D(c * sc * 0.07, r * sc * 0.07)
+               + 0.3 * noise.noise2D(c * sc * 0.16 + 5.1,  r * sc * 0.16 + 2.7)
+               + 0.1 * noise.noise2D(c * sc * 0.34 + 14.0, r * sc * 0.34 + 9.0);
+        // bust silhouette (head + shoulders) = the "person to whom the rights apply", made of the text;
+        // soft-edged so the bold figure has a ragged, typed edge rather than a cut-out.
+        const head  = 1 - Math.hypot((fx - 0.5) / 0.135, (fy - 0.31) / 0.16);
+        const torso = 1 - Math.hypot((fx - 0.5) / 0.34,  (fy - 0.82) / 0.34);
+        const sil = clamp(Math.max(head, torso) * 1.25, 0, 1);
+        let tone = (1 - figW) * nz + figW * sil;
+        tone = clamp((tone - 0.5) * contrast + 0.5, 0, 1);
+        const ch = txt[k % L]; k++;
+        if (ch === ' ') continue;                    // spaces advance the stream but print nothing
+        let weight, alpha, col;
+        if (tone < 0.5)       { weight = 'normal'; alpha = 0.20 + tone * 0.52; col = ink; }   // faint ground text
+        else if (tone < 0.72) { weight = 'normal'; alpha = 0.80;               col = ink; }   // mid document
+        else                  { weight = 'bold';   alpha = 1.0;                col = inkB; }  // the figure, in bold
+        ctx.font = weight + ' ' + fontSize.toFixed(2) + 'px "Courier New", monospace';
+        ctx.fillStyle = col;
+        ctx.globalAlpha = alpha;
+        ctx.fillText(ch, c * cw, r * rh);
+      }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'engrave') {
+    // ENGRAVE — Pierre Hébert's "Op Hop–Hop Op" (1966), engraved frame by frame directly on film: a GRID of
+    // near-identical hand-scratched white discs on black, each cell a FRAME of the loop, each slightly
+    // different (ragged edge, scratch specks). Hébert animated it by permuting the order of subgroups — so the
+    // grid IS the block of frames, and the per-cell variation is the permutation. Reduces the film to its one
+    // signature: a field of hopping engraved discs. Params: egCols · egFill (disc size) · egSize (per-cell size
+    // variation) · egRough (edge raggedness) · egVerts · egSpecks (scratch marks) · egInk · egGround. Opt-in
+    // (NOT in PIXEL_CHARS / not mutation-reachable), additive, C2-safe. Deterministic (noise + genome, no
+    // Math.random); opaque fills → hard-canonical.
+    const egCols = clamp(Math.round(g.egCols || 7), 2, 24);
+    const cellW = W / egCols;
+    const egRows = Math.max(1, Math.round(H / cellW));
+    const cellH = H / egRows;
+    const fill = g.egFill ?? 0.78;
+    const sizeVar = g.egSize ?? 0.26;
+    const rough = g.egRough ?? 0.15;
+    const verts = clamp(Math.round(g.egVerts || 30), 10, 60);
+    const specks = clamp(Math.round(g.egSpecks ?? 5), 0, 20);
+    const ink = g.egInk || '#f4f2ea';
+    const ground = g.egGround || '#060606';
+    const ns = (g.noiseSeed || 1) * 0.001;
+    ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = 1;
+    for (let gr = 0; gr < egRows; gr++) {
+      for (let gc = 0; gc < egCols; gc++) {
+        const cs = (gr * 37 + gc * 101) * 0.013 + ns;     // per-cell seed (the "frame")
+        const cx = (gc + 0.5) * cellW + (noise.noise2D(cs + 1.1, 3.3) - 0.5) * cellW * 0.14;
+        const cy = (gr + 0.5) * cellH + (noise.noise2D(2.7, cs + 1.1) - 0.5) * cellH * 0.14;
+        const baseR = Math.min(cellW, cellH) * 0.5 * fill * (1 - sizeVar * 0.5 + sizeVar * noise.noise2D(cs + 5.0, cs + 9.0));
+        // ragged engraved disc as a many-vertex polygon, radius perturbed by angle-noise
+        ctx.fillStyle = ink;
+        ctx.beginPath();
+        for (let v = 0; v <= verts; v++) {
+          const a = v / verts * Math.PI * 2;
+          const rr = baseR * (1 + rough * (noise.noise2D(Math.cos(a) * 1.7 + cs * 3.1, Math.sin(a) * 1.7 + cs * 3.1) - 0.5) * 2);
+          const px = cx + Math.cos(a) * rr, py = cy + Math.sin(a) * rr;
+          v === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+        // engraving scratch specks: small dark marks bitten into the disc
+        ctx.fillStyle = ground;
+        for (let s = 0; s < specks; s++) {
+          const sa = noise.noise2D(cs * 7 + s * 1.3, 4.1) * Math.PI * 2;
+          const sr = noise.noise2D(2.2, cs * 7 + s * 1.3) * baseR * 0.82;
+          const sx = cx + Math.cos(sa) * sr, sy = cy + Math.sin(sa) * sr;
+          const sw = 1 + noise.noise2D(cs + s, 8.8) * (baseR * 0.09);
+          ctx.fillRect(sx, sy, sw, sw * (0.6 + noise.noise2D(s, cs) * 1.8));
+        }
+      }
     }
     ctx.globalAlpha = 1;
   }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-03",
+  "updated": "2026-11-06",
   "concepts": [
     {
       "id": "bell-labs",
@@ -74,6 +74,10 @@
         {
           "gen": 157,
           "why": "A. Michael Noll's 'Gaussian-Quadratic' (1962-64) — the Bell Labs ur-form of computer art; the engine's first statistical-polyline primitive renders it."
+        },
+        {
+          "gen": 162,
+          "why": "Ken Knowlton at Bell Labs: the declaration typeset as a photomosaic, letters as the pixels of a person."
         }
       ]
     },
@@ -801,6 +805,10 @@
         {
           "gen": 148,
           "why": "Dalí's optical dots, completed by the eye into DEPTH rather than a face: a flat screen of microscopic dots the viewer reads as a bulging third dimension the field does not literally contain. Recognition broadened from the face (Harmon/Dalí-Lincoln) to the illusion of a solid — the op-art cousin of the same perceptual trick."
+        },
+        {
+          "gen": 162,
+          "why": "Up close the rights are a readable document; stepping back the person appears — the Harmon–Knowlton perceptual completion the room is named for."
         }
       ]
     },
@@ -875,6 +883,10 @@
         {
           "gen": 156,
           "why": "Day 149 — Leslie Mezei 'Art from Computers' (1971) is an ANIMATION of hand-drawn numerals floating on black; MR's still reduces it to a scattered, trembling constellation of the ten digits."
+        },
+        {
+          "gen": 163,
+          "why": "Pierre Hébert's OpHop (1966): an engraved-on-film animation whose motion is the PERMUTATION of a block of 24 frames; the grid of near-identical discs is that frame-block, the hop made still."
         }
       ]
     },
