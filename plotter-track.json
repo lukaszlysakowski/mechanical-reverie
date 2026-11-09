@@ -2,7 +2,7 @@
   "track": "Plotter Studies: Overstruck",
   "premise": "A plotter exploration forked from the daily archive piece 'Overstruck' (Day 147). The daily track asks what a Noah source reduces to in the engine's own vocabulary; this strand asks what the line-printer piece becomes when a PEN — not a screen — makes its marks. The parent's canonical raster is never altered. Everything here is either a faithful translation of that parent to pen (a rendition) or a study that deliberately leaves it behind.",
   "started": "2026-10-25",
-  "updated": "2026-10-27",
+  "updated": "2026-11-08",
   "forkRule": {
     "line": "Fidelity. A plot is a faithful EXPORT while it still reproduces the parent's checksum; it becomes a STUDY the moment a decision changes what is DRAWN, not just how it is output.",
     "stillAnExport": [
@@ -216,6 +216,7 @@
     }
   ],
   "openDirections": [
+    "Two-pen CHECKER composition: a screen/plot piece that deliberately drives solid-fill zones into the red/black checker the plot surfaced, instead of line-fill — the plot found the move, so author it. Own checksum = a branch (compositions), not an export.",
     "Tonal-depth study: a pen-first solid-fill (larger cells or scribble-fill) so █ reads as true black, restoring the digital tonal range on paper (a fork, not an export).",
     "Multi-pen colour separation — the first likely true fork (the raster has no colour-layer equivalent).",
     "A plotter-native glyph vocabulary (beyond the lineprinter ink-density set).",
@@ -228,7 +229,26 @@
       "from": "first physical plot of Overstruck",
       "finding": "Pen translates the lineprinter ink-density ramp (space‹-‹I‹#‹▓‹█) into a TEXTURE vocabulary, not a tonal one. Darkness order is not preserved — crosshatch # reads as heavy as the solid-hatch █. Dash grounds and # grids are the strongest marks; the Micron holds a clean consistent line at 0.45mm.",
       "implication": "A faithful plot = textural reading (good, Hammersley-true). For genuine tonal DEPTH / true black on paper, redesign the stroke-glyph fill for pen (bigger cells so hatch builds, or a blackout scribble-fill) — that CHANGES what is drawn, so it would be Study 01, not an export."
+    },
+    {
+      "date": "2026-11-08",
+      "from": "physical-plot batch — the two-colour weave studies + the tonal-black studies on paper (8 sheets)",
+      "finding": "Plotting the overstrike as TWO DISCRETE PEN PASSES (black writing + thin red ruling) produces an emergent form the screen render never shows: inside a solid-fill zone the two passes do not blend, they ALTERNATE into a hard red/black (and black/black) CHECKER. That checker reads as STRUCK — it belongs to the weave around it — whereas the single-pen horizontal line-fill blocks read as a different material pasted in. The pure-black density plots (no colour) give the cleanest single-idea reads; the busiest even-weight two-colour weaves spread the energy out and go muddy.",
+      "implication": "The plot discovered a composition move no screen decision proposed: deliberately drive fill zones into the two-pen checker instead of line-fill. Candidate next branch (see openDirections). Keepers from this batch: the pure-black density sheets (study-02 tonal lineage) and the two-pen checker weaves (study-01b/d/e territory). Registration drift between the two pens is accepted as plot/hand character, not a defect to chase out."
     }
   ],
-  "partOf": "overstruck-thread.json → branches.plotter (the Overstruck thread, 2026-10-27)"
+  "partOf": "overstruck-thread.json → branches.plotter (the Overstruck thread, 2026-10-27)",
+  "physicalPlots": [
+    {
+      "date": "2026-11-08",
+      "sheets": 8,
+      "covers": "tonal-black (study-02 lineage), two-colour nested (study-01), and the weave variants (01b/c/d/e) — black Micron 05 + thin red",
+      "photographed": true,
+      "keepers": [
+        "pure-black density (study-02)",
+        "two-pen checker weaves (study-01b/d/e)"
+      ],
+      "note": "Second physical outing of the thread. The two-pen checker (see findings 2026-11-08) is the batch's discovery."
+    }
+  ]
 }

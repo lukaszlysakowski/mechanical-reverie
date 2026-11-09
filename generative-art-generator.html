@@ -440,7 +440,15 @@ let W = canvas.width, H = canvas.height;
 // as the optical "hop". NOT in PIXEL_CHARS / not mutation-reachable; drawPixelLayer gains one else-if → every
 // archive checksum unchanged. Deterministic (noise + genome, no Math.random); opaque fills → hard-canonical.
 // C2 regression GREEN.
-const ENGINE_VERSION = 'v3.27.0';
+// v3.28.0 — additive, opt-in (Overstruck thread, 2026-11-08): the PLOT taught the engine a mark. Plotting the
+// two-colour overstrike as two discrete pen passes made a solid-fill core's passes stop blending and ALTERNATE
+// into a hard red/black CHECKER — a form no screen decision had proposed. lineprinter gains `lpColorMode 'checker'`
+// (SCREEN) + a matching `penSplit 'checker'` (EXPORT): only the solid-fill tier (the two densest glyphs ▓/█,
+// where the physical checker appeared) alternates by cell parity (odd → lpInk2), so the red concentrates in the
+// mass as a red/black checkerboard while the # overstrike texture around it stays one ink.
+// The accident, authored. New lpColorMode value → no existing genome reaches it; default 'mono' byte-identical;
+// Day 147 still `7ddf2b3d`. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
+const ENGINE_VERSION = 'v3.28.0';
 
 // Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
 // the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
@@ -2906,6 +2914,11 @@ function drawPixelLayer(g, pal, t) {
           // handled per-stroke by geometry in the export (mixed-direction glyphs can't be tagged per cell).
           if (ctx._penSplit === 'nested')      ctx._pen = bestRing % 2;
           else if (ctx._penSplit === 'figure') ctx._pen = (gi >= Math.ceil(steps / 2)) ? 1 : 0;
+          // 'checker' (v3.28.0): the two-pen CHECKER the plots SURFACED — inside a SOLID-FILL core the two
+          // passes don't blend, they alternate by cell parity. Author it: only the solid-fill tier (the two
+          // densest glyphs ▓/█, where the physical checker actually appeared) on odd parity goes to pen 1, so
+          // the red concentrates in the mass and the # overstrike texture around it stays pen 0 (black).
+          else if (ctx._penSplit === 'checker') ctx._pen = ((gi >= steps - 2) && ((r + c) & 1)) ? 1 : 0;
           ctx._cellR = r; ctx._cellC = c;   // tag source cell for per-cell weave patterns (export reads cr/cc)
           plotGlyph(ch2, gi, steps, c * cw, r * rh, cw, rh);
         } else {
@@ -2913,6 +2926,11 @@ function drawPixelLayer(g, pal, t) {
           // 'mono' leaves fillStyle = ink (set once), so the render is byte-identical to before.
           if (colorMode === 'figure')      ctx.fillStyle = (gi >= Math.ceil(steps / 2)) ? ink2 : ink;
           else if (colorMode === 'nested') ctx.fillStyle = (bestRing % 2) ? ink2 : ink;
+          // 'checker' (v3.28.0): the two-pen checker the plots found, authored on screen. Only the SOLID-FILL
+          // tier (the two densest glyphs ▓/█ — where the physical red-over-black checker actually appeared)
+          // alternates: odd parity → ink2, else ink. So the red concentrates in the mass as a checkerboard while
+          // the # overstrike texture around it stays one ink. The plot surfaced it; now we mean it.
+          else if (colorMode === 'checker') ctx.fillStyle = ((gi >= steps - 2) && ((r + c) & 1)) ? ink2 : ink;
           ctx.globalAlpha = clamp(0.55 + tone * 0.45, 0.5, 1);
           ctx.fillText(ch2, c * cw, r * rh);
         }
