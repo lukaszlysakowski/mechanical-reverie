@@ -28,9 +28,9 @@
       "works": [
         {
           "id": "overstruck-01",
-          "title": "The Red and the Black",
+          "title": "The Whale",
           "date": "2026-10-27",
-          "filename": "mechanical-reverie-overstruck-01-the-red-and-the-black-2026-10-27.png",
+          "filename": "mechanical-reverie-overstruck-01-the-whale-2026-10-27.png",
           "engineVersion": "v3.21.0",
           "checksum": "26cb3fbb8095581c00528974cbab33b8aee48d88fd7bb98d62a52cbed424c988",
           "fitness": 6.75,
@@ -116,8 +116,8 @@
           "engineVersion": "v3.28.0",
           "checksum": "8b6f742a2d5ee30246f116a634f46f6a228ef891a45fa93f57ad92233d08b617",
           "fitness": 6.75,
-          "idea": "The PLOT taught the engine a mark. Plotting 'The Red and the Black' as two discrete pen passes (black writing + thin red ruling) made the solid-fill cores stop blending and ALTERNATE into a hard red/black CHECKER — a form no screen decision had proposed (see plotter-track.json findings 2026-11-08). This composition authors that accident: new lpColorMode 'checker' (v3.28.0) reddens only the solid-fill tier (▓/█) on odd cell parity, so the mass reads as a red/black checkerboard while the # overstrike texture around it stays black. Title = the typographic/plotter term for the overprint pass that IS the checker. noiseSeed 1909, renderSeed 20261108 (the date), picked from a seed sweep for the single cleanest focal mass.",
-          "lineage": "root → compositions.overstruck-01 'The Red and the Black' → compositions.overstruck-02 'Second Pass'. Same genome family (lineprinter, cream palette 8, red lpInk2) as 01; the one change is lpColorMode nested→checker. The idea now goes where neither the navy root NOR the first colour branch did: into a form the physical PLOT discovered and the engine learned to make.",
+          "idea": "The PLOT taught the engine a mark. Plotting 'The Whale' as two discrete pen passes (black writing + thin red ruling) made the solid-fill cores stop blending and ALTERNATE into a hard red/black CHECKER — a form no screen decision had proposed (see plotter-track.json findings 2026-11-08). This composition authors that accident: new lpColorMode 'checker' (v3.28.0) reddens only the solid-fill tier (▓/█) on odd cell parity, so the mass reads as a red/black checkerboard while the # overstrike texture around it stays black. Title = the typographic/plotter term for the overprint pass that IS the checker. noiseSeed 1909, renderSeed 20261108 (the date), picked from a seed sweep for the single cleanest focal mass.",
+          "lineage": "root → compositions.overstruck-01 'The Whale' → compositions.overstruck-02 'Second Pass'. Same genome family (lineprinter, cream palette 8, red lpInk2) as 01; the one change is lpColorMode nested→checker. The idea now goes where neither the navy root NOR the first colour branch did: into a form the physical PLOT discovered and the engine learned to make.",
           "certificate": {
             "deterministic": true,
             "checksum": "8b6f742a2d5ee30246f116a634f46f6a228ef891a45fa93f57ad92233d08b617",
