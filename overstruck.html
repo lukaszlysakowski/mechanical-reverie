@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical Reverie — Overstruck</title>
+<meta name="description" content="A thread within Mechanical Reverie: Day 147 'Overstruck' grown as its own line of descent — a root that is never rewritten, screen compositions that branch into colour, and a plotter branch that takes the mark into ink and hands discoveries back to the engine.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #c9b896;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    text-align: center;
+    padding: 44px 20px 22px;
+    border-bottom: 1px solid #2a2218;
+  }
+  .header h1 {
+    font-size: 28px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #b0a078;
+    font-style: italic;
+    letter-spacing: 2px;
+  }
+  .header .stats {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8f7f5e;
+    letter-spacing: 1px;
+  }
+  .nav {
+    margin-top: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .nav a {
+    color: #9c8a68;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2218;
+    padding-bottom: 1px;
+    margin: 0 8px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav a:hover { color: #c4a265; border-color: #c4a265; }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .premise {
+    max-width: 780px;
+    margin: 30px auto 0;
+    padding: 22px 28px;
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+    font-size: 14px;
+    line-height: 1.78;
+    color: #c9b896;
+  }
+  .premise em { color: #d4af37; font-style: italic; }
+  .premise .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 6px;
+  }
+
+  /* fork rule — the conceptual spine */
+  .forkrule {
+    max-width: 780px;
+    margin: 18px auto 0;
+    padding: 18px 28px;
+    border: 1px solid #2a2218;
+    border-left: 2px solid #c0392b;
+    background: #0c0b0a;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #bfae82;
+  }
+  .forkrule .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 6px;
+  }
+  .forkrule .tell { color: #8f7f5e; font-style: italic; display: block; margin-top: 8px; }
+  .forkrule em { color: #d4af37; font-style: normal; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
+
+  /* section rule */
+  .branchhead {
+    max-width: 1100px;
+    margin: 72px auto 0;
+    padding: 0 24px 14px;
+    border-bottom: 1px solid #2a2218;
+  }
+  .branchhead .kicker {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0392b;
+  }
+  .branchhead h2 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #c4a265;
+    font-weight: normal;
+    margin: 6px 0 4px;
+  }
+  .branchhead p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #a8986f;
+    max-width: 820px;
+  }
+
+  /* root hero */
+  .root {
+    max-width: 920px;
+    margin: 34px auto 0;
+    padding: 0 24px;
+    text-align: center;
+  }
+  .root img {
+    width: 100%;
+    max-width: 760px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #2a2218;
+    background: #050505;
+  }
+  .root .rootmeta {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8f7f5e;
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+  }
+  .root .rootmeta .t { color: #c4a265; font-size: 15px; letter-spacing: 1px; }
+  .root .rootmeta a { color: #9c8a68; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .root .rootmeta a:hover { color: #c4a265; }
+  .root .cksum {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #7d6f52;
+    word-break: break-all;
+    margin-top: 6px;
+  }
+  .root .cksum .k { color: #9c8a68; }
+
+  /* compositions — two-column works (as claude.html) */
+  .work {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 34px;
+    align-items: start;
+  }
+  .work-figure { position: sticky; top: 20px; }
+  .work-figure img {
+    width: 100%;
+    display: block;
+    border: 1px solid #2a2218;
+    background: #050505;
+  }
+  .work-figure .cap {
+    margin-top: 10px;
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+    color: #8f7f5e;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .work-figure .cap a { color: #9c8a68; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .work-figure .cap a:hover { color: #c4a265; }
+
+  .work-body .idx {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8f7f5e;
+    text-transform: uppercase;
+  }
+  .work-body h3 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #c4a265;
+    margin: 4px 0 14px;
+    font-weight: normal;
+  }
+  .field { margin-bottom: 16px; }
+  .field .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c4a265;
+    margin-bottom: 5px;
+  }
+  .field .val { font-size: 14px; line-height: 1.75; color: #c9b896; }
+  .field.idea .val { color: #d8c9a0; }
+  .field.lineage .val {
+    border-left: 2px solid #4a3e2e;
+    padding-left: 12px;
+    color: #bfae82;
+    font-size: 13.5px;
+  }
+  .field .val em { color: #d4af37; font-style: italic; }
+
+  .cert {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #2a2218;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    color: #7d6f52;
+    line-height: 1.8;
+    word-break: break-all;
+  }
+  .cert .k { color: #9c8a68; }
+  .cert .c2 { color: #6f8f5e; }
+
+  /* plotter branch — findings callout + ink gallery */
+  .finding {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 18px 24px;
+    border: 1px solid #2a2218;
+    border-left: 2px solid #c0392b;
+    background: #0c0b0a;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #bfae82;
+  }
+  .finding .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 6px;
+  }
+  .finding em { color: #d4af37; font-style: italic; }
+
+  .plots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px;
+    margin-top: 34px;
+  }
+  .plot {
+    border: 1px solid #2a2218;
+    background: #0d0d0d;
+  }
+  .plot img {
+    width: 100%;
+    display: block;
+    background: #f4efe4; /* paper ground, so black+red ink reads */
+    border-bottom: 1px solid #2a2218;
+  }
+  .plot .pbody { padding: 13px 15px 15px; }
+  .plot .pkind {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 4px;
+  }
+  .plot .pkind.export { color: #6f8f5e; }
+  .plot h4 {
+    font-size: 15px;
+    color: #c4a265;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin-bottom: 7px;
+    line-height: 1.35;
+  }
+  .plot .pidea { font-size: 12.5px; line-height: 1.6; color: #a8986f; }
+  .plot .pmeta {
+    margin-top: 9px;
+    font-size: 10.5px;
+    color: #7d6f52;
+    letter-spacing: 0.3px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+  }
+  .plot .pmeta a { color: #9c8a68; text-decoration: none; border-bottom: 1px dotted #4a3e2e; }
+  .plot .pmeta a:hover { color: #c4a265; }
+  .plot .plotted { color: #6f8f5e; }
+
+  .footer {
+    text-align: center;
+    padding: 46px 20px 56px;
+    margin-top: 72px;
+    font-size: 12px;
+    color: #6f6247;
+    letter-spacing: 1px;
+    border-top: 1px solid #2a2218;
+    line-height: 1.8;
+  }
+  .footer a { color: #8f7f5e; text-decoration: none; }
+  .footer a:hover { color: #c4a265; }
+
+  @media (max-width: 760px) {
+    .work { grid-template-columns: 1fr; gap: 18px; }
+    .work-figure { position: static; }
+    .work-body h3 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Overstruck</h1>
+    <div class="subtitle">a thread within Mechanical Reverie</div>
+    <div class="stats" id="stats">loading&hellip;</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="claude.html">Claude&rsquo;s Own</a>
+    </div>
+  </div>
+
+  <div class="premise" id="premise"></div>
+  <div class="forkrule" id="forkrule"></div>
+
+  <!-- ROOT -->
+  <div class="branchhead">
+    <div class="kicker">The root</div>
+    <h2>Where the thread begins</h2>
+    <p>The daily-archive piece the whole line descends from. It is never rewritten — every branch keeps its checksum intact and grows beside it, not over it.</p>
+  </div>
+  <div class="root" id="root"></div>
+
+  <!-- COMPOSITIONS -->
+  <div class="branchhead">
+    <div class="kicker">Branch · screen</div>
+    <h2>Compositions</h2>
+    <p id="compPremise"></p>
+  </div>
+  <div class="wrap" id="compositions"></div>
+
+  <!-- PLOTTER -->
+  <div class="branchhead">
+    <div class="kicker">Branch · ink</div>
+    <h2>The plotter studies</h2>
+    <p id="plotPremise"></p>
+  </div>
+  <div class="finding" id="plotFinding"></div>
+  <div class="wrap"><div class="plots" id="plots"></div></div>
+
+  <div class="footer" id="footer">
+    Mechanical Reverie &middot; <a href="index.html">home</a>
+  </div>
+
+<script>
+const ART = 'art/';
+const esc = s => (s == null ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+
+Promise.all([
+  fetch('overstruck-thread.json?t=' + Date.now()).then(r => r.json()),
+  fetch('plotter-track.json?t=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null)
+]).then(([thread, plotter]) => {
+  const comps = (thread.branches && thread.branches.compositions && thread.branches.compositions.works) || [];
+
+  // stats
+  document.getElementById('stats').textContent =
+    `root + ${comps.length} composition${comps.length === 1 ? '' : 's'} + plotter branch · root untouched (7ddf2b3d) · updated ${thread.updated || ''}`;
+
+  // premise
+  document.getElementById('premise').innerHTML =
+    `<div class="label">The thread</div><div>${esc(thread.premise)}</div>`;
+
+  // fork rule
+  if (thread.forkRule) {
+    document.getElementById('forkrule').innerHTML =
+      `<div class="label">The fork rule</div><div>${esc(thread.forkRule.line)}</div>` +
+      (thread.forkRule.tell ? `<span class="tell">The tell — ${esc(thread.forkRule.tell)}</span>` : '');
+  }
+
+  // root
+  const r = thread.root || {};
+  document.getElementById('root').innerHTML = `
+    <img src="${ART}${esc(r.rasterFilename)}" alt="${esc(r.title)}" loading="lazy">
+    <div class="rootmeta">
+      <span class="t">${esc(r.title)}</span> &nbsp;·&nbsp; Day ${esc(r.day)} &nbsp;·&nbsp; ${esc(r.date)}<br>
+      ${r.after ? `after ${esc(r.after)} &nbsp;·&nbsp; ` : ''}${r.via ? `via ${esc(r.via)}<br>` : ''}
+      <a href="${ART}${esc(r.rasterFilename)}" download="${esc(r.rasterFilename)}">download the root ▾</a>
+      <div class="cksum"><span class="k">checksum</span> ${esc(r.checksum)} &nbsp; <span class="k">engine</span> ${esc(r.engineVersion)} &nbsp; <span class="k">seeds</span> noise ${esc(r.noiseSeed)} · render ${esc(r.renderSeed)}</div>
+    </div>`;
+
+  // compositions
+  document.getElementById('compPremise').textContent =
+    (thread.branches && thread.branches.compositions && thread.branches.compositions.premise) || '';
+  const cwrap = document.getElementById('compositions');
+  comps.forEach(w => {
+    const c = w.certificate || {};
+    const el = document.createElement('div');
+    el.className = 'work';
+    el.id = w.id;
+    el.innerHTML = `
+      <div class="work-figure">
+        <img src="${ART}${esc(w.filename)}" alt="${esc(w.title)}" loading="lazy">
+        <div class="cap">
+          <span>${esc(w.date || '')}</span>
+          <span style="display:flex; gap:14px;">
+            <a href="generative-art-generator.html?overstruck=${esc(w.id)}" target="_blank" rel="noopener" title="Open the render page — live view with Save 1×/2×/4×, SVG and MP4 options">view render ↗</a>
+            <a href="${ART}${esc(w.filename)}" download="${esc(w.filename)}">download ▾</a>
+          </span>
+        </div>
+      </div>
+      <div class="work-body">
+        <div class="idx">${esc(w.id)} · engine ${esc(w.engineVersion || '')}</div>
+        <h3>${esc(w.title)}</h3>
+        ${w.idea ? `<div class="field idea"><div class="label">The idea</div><div class="val">${esc(w.idea)}</div></div>` : ''}
+        ${w.lineage ? `<div class="field lineage"><div class="label">Lineage</div><div class="val">${esc(w.lineage)}</div></div>` : ''}
+        <div class="cert">
+          <span class="k">checksum</span> ${esc(c.checksum || w.checksum || '—')}<br>
+          <span class="k">stability</span> ${esc(c.checksumStability || '—')} &nbsp;
+          <span class="k">seeds</span> noise ${esc(c.noiseSeed)} · render ${esc(c.renderSeed)}
+          ${typeof w.fitness === 'number' ? `&nbsp; <span class="k">fitness</span> ${esc(w.fitness)}` : ''}
+          ${c.c2 ? `<br><span class="k">C2</span> <span class="c2">${esc(c.c2)}</span>` : ''}
+        </div>
+      </div>`;
+    cwrap.appendChild(el);
+  });
+
+  // plotter branch
+  const pl = (thread.branches && thread.branches.plotter) || {};
+  document.getElementById('plotPremise').textContent = pl.premise || '';
+
+  // the finding that led to overstruck-02 (latest from plotter-track findings)
+  let finding = null;
+  if (plotter && Array.isArray(plotter.findings) && plotter.findings.length) {
+    finding = plotter.findings.find(f => /checker/i.test(JSON.stringify(f))) || plotter.findings[plotter.findings.length - 1];
+  }
+  const fEl = document.getElementById('plotFinding');
+  if (finding) {
+    const body = finding.finding || finding.note || finding.text || finding.summary || JSON.stringify(finding);
+    fEl.innerHTML = `<div class="label">What the pen discovered${finding.date ? ' · ' + esc(finding.date) : ''}</div><div>${esc(body)}</div>`;
+  } else {
+    fEl.style.display = 'none';
+  }
+
+  // ink gallery: studies (forks) + faithful renditions
+  const gal = document.getElementById('plots');
+  const items = [];
+  if (plotter) {
+    (plotter.studies || []).forEach(s => items.push({ ...s, _export: false }));
+    (plotter.renditions || []).forEach(r2 => items.push({
+      id: r2.kind || 'rendition',
+      title: r2.caption ? 'Faithful export' : (r2.kind || 'rendition'),
+      idea: r2.caption || r2.note || '',
+      filename: r2.filename, pens: r2.pen ? [r2.pen] : [], paths: r2.paths,
+      plotted: r2.plotted, plotFinding: r2.plotFinding, _export: true
+    }));
+  }
+  if (!items.length) {
+    gal.innerHTML = `<div class="plot"><div class="pbody"><div class="pidea">See <a href="plotter-track.json">plotter-track.json</a> for the full ink branch.</div></div></div>`;
+  }
+  items.forEach(s => {
+    if (!s.filename) return;
+    const svg = /\.svg$/i.test(s.filename);
+    const el = document.createElement('div');
+    el.className = 'plot';
+    el.innerHTML = `
+      <img src="${ART}${esc(s.filename)}" alt="${esc(s.title)}" loading="lazy"${svg ? '' : ''}>
+      <div class="pbody">
+        <div class="pkind ${s._export ? 'export' : ''}">${s._export ? 'faithful export' : 'study · fork'}</div>
+        <h4>${esc(s.title || s.id)}</h4>
+        ${s.idea ? `<div class="pidea">${esc(s.idea)}</div>` : ''}
+        <div class="pmeta">
+          ${Array.isArray(s.pens) && s.pens.length ? esc(s.pens.join(' + ')) + '<br>' : ''}
+          ${s.paths ? esc(s.paths) + ' paths · ' : ''}<a href="${ART}${esc(s.filename)}" download="${esc(s.filename)}">download SVG ▾</a>
+          ${s.plotted ? `<br><span class="plotted">✓ plotted</span>${s.plotFinding ? ' — ' + esc(s.plotFinding) : ''}` : ''}
+        </div>
+      </div>`;
+    gal.appendChild(el);
+  });
+
+  // footer
+  document.getElementById('footer').innerHTML =
+    `Mechanical Reverie &middot; <a href="index.html">home</a> &middot; the root reads ` +
+    `<a href="https://x.com/Noahbolanowski" target="_blank" rel="noopener">@Noahbolanowski</a>; ` +
+    `this thread lets one day grow its own line — in pixels and in ink.`;
+
+  if (location.hash) {
+    const t = document.getElementById(location.hash.slice(1));
+    if (t) t.scrollIntoView();
+  }
+})
+.catch(err => {
+  document.getElementById('stats').textContent = 'Could not load the thread — ' + err.message;
+});
+</script>
+</body>
+</html>
