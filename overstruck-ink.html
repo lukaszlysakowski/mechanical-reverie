@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Overstruck in Ink</title>
-<meta name="description" content="The plotter branch of Overstruck: the piece taken off the screen onto an AxiDraw — a faithful plot, then studies that leave the root behind, in black and red ink on paper. Click any sheet to look closely.">
+<meta name="description" content="The plotter branch of Overstruck, in ink on paper: the physical sheets drawn on an AxiDraw — black density, two-colour weave, and the two-pen checker that the engine later learned as Second Pass. Click any sheet to look closely.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Layout idea: an ink room. Every plate is a plotted sheet on paper — faithful plot as the
-     opener, then the studies as a gallery. Click a sheet to study it full-size. Light, single theme. */
+  /* Layout idea: the real plotted sheets, photographed. A light room; each sheet a framed photo
+     with a wall-label, grouped by how they were drawn; the checker as the finale. Single theme. */
   :root{
-    --paper:#e7e4dc; --card:#f8f5ef; --sheet:#f4efe4;
+    --paper:#e7e4dc; --card:#f8f5ef;
     --ink:#1b1a17; --soft:#6f6a60; --faint:#cfc9bd; --accent:#b5362a; --good:#5f7a4e;
     --display:'Fraunces',Georgia,serif;
     --label:'Archivo',system-ui,-apple-system,sans-serif;
@@ -22,68 +22,52 @@
   html,body{overflow-x:hidden;}
   body{background:var(--paper);color:var(--ink);font-family:var(--label);-webkit-font-smoothing:antialiased;line-height:1.5;}
 
-  .col{max-width:720px;margin:0 auto;padding:0 24px;}
   .wide{max-width:1180px;margin:0 auto;padding:0 24px;}
 
-  /* header */
   header{text-align:center;padding:clamp(60px,10vw,110px) 24px clamp(26px,4vw,40px);}
   .kicker{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
   header h1{font-family:var(--display);font-weight:500;font-size:clamp(50px,11vw,112px);letter-spacing:-0.02em;line-height:0.9;}
-  .dek{max-width:54ch;margin:24px auto 0;font-size:16.5px;line-height:1.7;color:#35332e;text-wrap:balance;}
+  .dek{max-width:56ch;margin:24px auto 0;font-size:16.5px;line-height:1.7;color:#35332e;text-wrap:balance;}
   .meta{margin-top:20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);}
 
-  /* section heads */
-  .sec-head{border-bottom:1px solid var(--faint);padding-bottom:14px;margin:clamp(56px,8vw,96px) 0 clamp(30px,4vw,44px);}
+  .sec-head{border-bottom:1px solid var(--faint);padding-bottom:14px;margin:clamp(56px,8vw,96px) 0 clamp(28px,4vw,40px);}
   .sec-head .s-kick{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);}
   .sec-head h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,4.4vw,46px);letter-spacing:-0.015em;line-height:1.04;margin:8px 0 6px;}
-  .sec-head p{font-size:14.5px;line-height:1.7;color:var(--soft);max-width:70ch;}
+  .sec-head p{font-size:14.5px;line-height:1.7;color:var(--soft);max-width:72ch;}
 
-  /* a plotted sheet (shared) */
-  .plate-img{
-    display:block;width:100%;height:auto;background:var(--sheet);cursor:zoom-in;
-    box-shadow:0 2px 2px rgba(0,0,0,.08),0 22px 40px -22px rgba(30,26,20,.55);
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(28px,3.5vw,44px);}
+  .grid.two{grid-template-columns:repeat(auto-fit,minmax(420px,1fr));}
+  figure{margin:0;}
+  .sheet{
+    display:block;width:100%;height:auto;cursor:zoom-in;background:#fff;
+    border:1px solid rgba(27,26,23,.14);
+    box-shadow:0 2px 3px rgba(0,0,0,.08),0 22px 42px -22px rgba(30,26,20,.55);
   }
-  .plate-img.pad{padding:clamp(16px,2vw,30px);}
-
-  /* hero faithful plot */
-  .faithful{max-width:960px;margin:0 auto;}
-  .faithful .plate-img{transform:rotate(-0.4deg);}
-  .caption{margin-top:22px;max-width:720px;}
-  .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;}
+  .cap{margin-top:16px;}
+  .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px;}
   .tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1px solid var(--faint);border-radius:999px;color:var(--soft);}
-  .tag.export{color:var(--good);border-color:rgba(95,122,78,.4);}
-  .tag.study{color:var(--accent);border-color:rgba(181,54,42,.35);}
   .tag.plotted{color:var(--good);border-color:rgba(95,122,78,.4);}
-  .tag.planned{color:var(--soft);}
-  .caption h3{font-family:var(--display);font-weight:500;font-size:clamp(22px,3vw,30px);letter-spacing:-0.01em;line-height:1.1;margin-bottom:8px;}
-  .caption .pens{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:var(--soft);margin-bottom:10px;}
-  .caption .body{font-size:15px;line-height:1.7;color:#34322d;}
-  .caption .finding{margin-top:10px;font-size:14px;line-height:1.65;color:var(--soft);border-left:2px solid var(--faint);padding-left:12px;}
-  .caption .dl{margin-top:12px;display:inline-block;font-size:12px;letter-spacing:.5px;color:var(--accent);text-decoration:none;border-bottom:1px dotted rgba(181,54,42,.4);}
-  .caption .dl:hover{border-color:var(--accent);}
+  .tag.keeper{color:var(--accent);border-color:rgba(181,54,42,.4);}
+  .tag.origin{color:#fff;background:var(--accent);border-color:var(--accent);}
+  .cap h3{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.3vw,24px);letter-spacing:-0.01em;line-height:1.14;margin-bottom:7px;}
+  .cap .pens{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--soft);margin-bottom:9px;}
+  .cap .body{font-size:14px;line-height:1.65;color:#34322d;}
 
-  /* studies grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:clamp(30px,4vw,48px);}
-  .study{display:flex;flex-direction:column;}
-  .study .plate-img{transform:rotate(-0.5deg);}
-  .study:nth-child(even) .plate-img{transform:rotate(0.5deg);}
-  .study .caption{margin-top:18px;max-width:none;}
-  .study .caption h3{font-size:21px;}
+  .note{max-width:720px;margin:clamp(40px,5vw,60px) auto 0;font-size:14px;line-height:1.7;color:var(--soft);text-align:center;}
+  .note a{color:var(--accent);text-decoration:none;border-bottom:1px dotted rgba(181,54,42,.4);}
+  .note a:hover{border-color:var(--accent);}
 
-  /* lightbox */
-  .lb{position:fixed;inset:0;background:rgba(20,18,14,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:clamp(16px,4vw,56px);cursor:zoom-out;}
+  .lb{position:fixed;inset:0;background:rgba(20,18,14,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:clamp(12px,3vw,48px);cursor:zoom-out;}
   .lb.open{display:flex;}
-  .lb img{max-width:100%;max-height:82vh;background:var(--sheet);padding:clamp(14px,2vw,28px);box-shadow:0 30px 80px -20px rgba(0,0,0,.6);}
-  .lb .lb-cap{position:absolute;bottom:clamp(14px,3vw,30px);left:0;right:0;text-align:center;color:#e7e4dc;font-size:12px;letter-spacing:1px;padding:0 20px;}
-  .lb .lb-close{position:absolute;top:18px;right:22px;color:#e7e4dc;font-size:26px;line-height:1;background:none;border:none;cursor:pointer;opacity:.8;}
-  .lb .lb-close:hover{opacity:1;}
+  .lb img{max-width:100%;max-height:88vh;background:#fff;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);}
+  .lb .lb-cap{position:absolute;bottom:clamp(12px,2.5vw,26px);left:0;right:0;text-align:center;color:#e7e4dc;font-size:12px;letter-spacing:1px;padding:0 20px;}
+  .lb .lb-close{position:absolute;top:16px;right:20px;color:#e7e4dc;font-size:26px;line-height:1;background:none;border:none;cursor:pointer;opacity:.85;}
 
   footer{text-align:center;padding:clamp(60px,9vw,96px) 24px clamp(70px,10vw,100px);margin-top:clamp(56px,8vw,88px);border-top:1px solid var(--faint);font-size:13px;color:var(--soft);line-height:1.8;}
   footer a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(181,54,42,.3);}
   footer a:hover{border-color:var(--accent);}
 
-  @media (prefers-reduced-motion: reduce){ .plate-img{transform:none !important;} }
-  @media (max-width:560px){ .plate-img{transform:none !important;} }
+  @media (max-width:560px){ .grid,.grid.two{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -91,132 +75,117 @@
   <header>
     <div class="kicker">Mechanical Reverie · the plotter branch</div>
     <h1>Overstruck in Ink</h1>
-    <p class="dek">The piece taken off the screen and drawn by a pen. A faithful plot of the root, then studies that leave it behind — black and red ink on paper, where the overstrike becomes weave, weight, and the checker that later taught the engine.</p>
-    <div class="meta">AxiDraw V3/A3 · Sakura Pigma Micron 05 · black &amp; fine red · click any sheet to look closely</div>
+    <p class="dek">The real sheets, drawn by a pen on paper. Overstruck plotted on an AxiDraw &mdash; black density, two colours in a woven field, and the two-pen checker the engine later learned to make. Photographs of the physical plots; click any sheet to look closely.</p>
+    <div class="meta">AxiDraw V3/A3 · Sakura Pigma Micron 05 · black &amp; fine red · plotted 2026</div>
   </header>
 
   <div class="wide">
 
-    <!-- FAITHFUL -->
+    <!-- BLACK DENSITY -->
     <div class="sec-head">
-      <div class="s-kick">The faithful plot</div>
-      <h2>The root, in ink</h2>
-      <p>The canonical Day-147 piece drawn as pen strokes — no decisions changed, only the medium. On paper the glyph ramp reads as a texture vocabulary rather than tone: dashes as ruling, hashes as a woven grey, solids as weight.</p>
+      <div class="s-kick">Black on paper</div>
+      <h2>The density plots</h2>
+      <p>The piece drawn in a single black pen. On paper the glyph ramp reads as texture rather than tone &mdash; dashes as ruling, hashes as a woven grey, the solid cores as weight. The cleanest, most single-minded reads of the whole batch.</p>
     </div>
-    <figure class="faithful">
-      <img class="plate-img pad" data-full src="art/mechanical-reverie-day-147-overstruck-axidraw-11x17-micron05-0.45mm-signed-noah-smallsig.svg" alt="Overstruck plotted in black ink on paper, with a small signature footer" loading="lazy" data-cap="The faithful plot — AxiDraw, Micron 05, 0.45 mm, signed">
-      <figcaption class="caption">
-        <div class="tagrow"><span class="tag export">Faithful export</span><span class="tag plotted">Plotted 2026-10-25</span></div>
-        <h3>Overstruck</h3>
-        <div class="pens">AxiDraw V3/A3 · Sakura Pigma Micron 05 · hatch 0.45 mm</div>
-        <div class="body">The first physical realization of a Mechanical Reverie piece. Calibrated to the pen, with a quiet signature footer so the fine line-printer marks dominate.</div>
-      </figcaption>
-    </figure>
+    <div class="grid" id="black"></div>
 
-    <!-- STUDIES -->
+    <!-- TWO COLOUR -->
     <div class="sec-head">
-      <div class="s-kick">The studies · forks</div>
-      <h2>Where the pen leaves the root behind</h2>
-      <p>The moment a decision changes what is drawn, a plot stops being an export and becomes a study. Colour separation, solid fills, woven direction splits — none has a screen equivalent. The houndstooth weave is where the red/black checker first appeared.</p>
+      <div class="s-kick">Two pens</div>
+      <h2>In black and red</h2>
+      <p>Black writing, fine red ruling. The thin red lays a lighter line than the bold black, so the two pens differ in weight as well as hue: red recedes to a faint underlayer, black advances. In the weaves the two directions split across the pens and the hash regions become cloth.</p>
     </div>
+    <div class="grid" id="colour"></div>
 
-    <div class="grid" id="grid"></div>
+    <!-- THE CHECKER -->
+    <div class="sec-head">
+      <div class="s-kick">Where it came from</div>
+      <h2>The checker</h2>
+      <p>Plotted as two discrete passes over the same ground, the solid cores stop blending and alternate into a hard red/black checker. No screen decision proposed it &mdash; the pen found it, in the gap between two passes. This is the physical origin of the composition the engine later learned as <em>Second Pass</em>.</p>
+    </div>
+    <div class="grid two" id="checker"></div>
+
+    <div class="note">
+      These are the plotted sheets themselves. The vector plot files and the full study set &mdash;
+      including variants not yet pulled off the bed &mdash; live in the
+      <a href="overstruck.html">Overstruck thread&rsquo;s plotter branch</a>.
+    </div>
   </div>
 
   <footer>
     <a href="index.html">Mechanical Reverie</a> &middot; the ink branch of the <a href="overstruck.html">Overstruck</a> thread &middot;
-    plotted and planned on an AxiDraw.
+    drawn on an AxiDraw, in black and red.
   </footer>
 
-  <!-- lightbox -->
-  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged plot">
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged sheet">
     <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
     <img id="lbImg" alt="">
     <div class="lb-cap" id="lbCap"></div>
   </div>
 
 <script>
-const STUDIES = [
-  {
-    file:"art/mechanical-reverie-plotter-study01-overstruck-2color-nested-blackred.svg",
-    title:"Two Colour — Nested Regions",
-    tag:"study", state:"Plotted 2026-10-25",
-    pens:"black Micron 05 + a very fine red · two pens",
-    body:"Concentric regions of the tone field alternate black and red, so the stacked-rectangle structure turns chromatic and the overprint reads where they meet.",
-    finding:"The thin red lays a lighter line than the black, so the two pens differ in weight as well as hue — red zones recede, black advances, and the nesting gains real depth."
-  },
-  {
-    file:"art/mechanical-reverie-plotter-study02-overstruck-tonal-solidblack.svg",
-    title:"Tonal Depth — Solid Black",
-    tag:"study", state:"Plotted 2026-10-25",
-    pens:"single black Micron 05 · full-cell fill",
-    body:"Dashes, bars and hashes keep their character, but the dense glyphs fill the whole cell at pen pitch so adjacent darks merge into true solid black — light→dark depth restored in ink.",
-    finding:"Solids read as deep charcoal with faint striping in the small cores; the dark blocks are unambiguously the heaviest marks."
-  },
-  {
-    file:"art/mechanical-reverie-plotter-study01b-overstruck-weave-black-thinred.svg",
-    title:"Weave — Direction",
-    tag:"study", state:"Planned",
-    pens:"black 0.45 mm horizontals · fine red 0.2 mm verticals",
-    body:"Horizontal marks on the bold black pen, verticals on the fine red: the hash regions become woven cloth — black weft on top, thin red warp beneath."
-  },
-  {
-    file:"art/mechanical-reverie-plotter-study01c-overstruck-weave-swap-black-thinred.svg",
-    title:"Weave — Swap",
-    tag:"study", state:"Planned",
-    pens:"fine red horizontals · bold black verticals",
-    body:"Warp and weft colours swapped: the columns pop black, dash grounds recede to faint red, the solid block goes red — the vertical reading of the same cloth."
-  },
-  {
-    file:"art/mechanical-reverie-plotter-study01d-overstruck-weave-houndstooth-black-thinred.svg",
-    title:"Weave — Houndstooth",
-    tag:"study", state:"Planned", star:true,
-    pens:"black 0.45 mm + fine red 0.2 mm · alternating",
-    body:"The warp/weft colour flips every other cell, so the hash masses fill with a fine black-and-red checkerboard — real woven houndstooth.",
-    finding:"This is where the checker was found: the two passes stop blending and alternate, the form the engine later learned as Second Pass."
-  },
-  {
-    file:"art/mechanical-reverie-plotter-study01e-overstruck-weave-twill-black-thinred.svg",
-    title:"Weave — Twill",
-    tag:"study", state:"Planned",
-    pens:"black 0.45 mm + fine red 0.2 mm · diagonal bands",
-    body:"The weave flips in two-cell diagonal bands, so colour moves diagonally and the solid block shows a twill's diagonal wale."
-  }
-];
+const AP = 'art/mechanical-reverie-overstruck-plot-photo-';
+const SHEETS = {
+  black: [
+    { f:AP+'black-density-1.webp', title:'Overstruck — black', keeper:true,
+      pens:'Sakura Pigma Micron 05 · 0.45 mm · single black pen',
+      body:'One of the two cleanest sheets of the batch — the dark cores read as the heaviest marks, the hash field as a steady woven grey.' },
+    { f:AP+'black-density-2.webp', title:'Overstruck — black, variant',
+      pens:'Micron 05 · 0.45 mm · single black pen',
+      body:'The same field pulled again; the striped solids and crosshatch sit as pure character texture.' },
+    { f:AP+'black-density-3.webp', title:'Overstruck — black', keeper:true,
+      pens:'Micron 05 · 0.45 mm · single black pen',
+      body:'The second keeper — dense, legible, the overstrike doing all the work with one colour.' }
+  ],
+  colour: [
+    { f:AP+'2color-nested.webp', title:'Two Colour — Nested',
+      pens:'black Micron 05 + a very fine red · two pens',
+      body:'Concentric regions alternate black and red; the fine red recedes beneath the bold black, so the nesting gains depth as well as colour.' },
+    { f:AP+'weave-1.webp', title:'Weave',
+      pens:'black 0.45 mm + fine red 0.2 mm · direction split',
+      body:'Black marks one way, fine red the other: the hash regions become a two-layer woven cloth.' },
+    { f:AP+'weave-2.webp', title:'Weave, variant',
+      pens:'black 0.45 mm + fine red 0.2 mm',
+      body:'A second pull of the weave — red warp, black weft, the solid cores going pink where the red fills.' }
+  ],
+  checker: [
+    { f:AP+'checker-1.webp', title:'The Checker', origin:true,
+      pens:'black 0.45 mm + fine red 0.2 mm · two discrete passes',
+      body:'The solid cores alternate black and red in a hard checker — struck, part of the weave around them. This is the sheet the engine answered with Second Pass.' },
+    { f:AP+'checker-2.webp', title:'The Checker, variant', origin:true,
+      pens:'black 0.45 mm + fine red 0.2 mm · two discrete passes',
+      body:'A second checker pull — the black blocks step across the red field, the physical form in ink before it was ever on screen.' }
+  ]
+};
 
 const esc = s => (s==null?'':String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
-const grid = document.getElementById('grid');
-STUDIES.forEach(s=>{
-  const el=document.createElement('figure');
-  el.className='study';
-  el.innerHTML=`
-    <img class="plate-img pad" src="${s.file}" alt="${esc(s.title)} — plotter study in ink" loading="lazy" data-cap="${esc(s.title)} · ${esc(s.state)}">
-    <figcaption class="caption">
-      <div class="tagrow">
-        <span class="tag study">Study · fork</span>
-        <span class="tag ${/Plotted/.test(s.state)?'plotted':'planned'}">${esc(s.state)}</span>
-        ${s.star?'<span class="tag" style="color:var(--accent);border-color:rgba(181,54,42,.35)">the checker&rsquo;s origin</span>':''}
-      </div>
+function card(s){
+  const tags = [
+    '<span class="tag plotted">Plotted · ink on paper</span>',
+    s.keeper ? '<span class="tag keeper">a keeper</span>' : '',
+    s.origin ? '<span class="tag origin">origin of Second Pass</span>' : ''
+  ].join('');
+  return `<figure>
+    <img class="sheet" src="${s.f}" alt="${esc(s.title)} — plotted sheet in ink" loading="lazy" data-cap="${esc(s.title)} · ink on paper">
+    <figcaption class="cap">
+      <div class="tagrow">${tags}</div>
       <h3>${esc(s.title)}</h3>
       <div class="pens">${esc(s.pens)}</div>
       <div class="body">${esc(s.body)}</div>
-      ${s.finding?`<div class="finding">${esc(s.finding)}</div>`:''}
-      <a class="dl" href="${s.file}" download>download SVG ▾</a>
-    </figcaption>`;
-  grid.appendChild(el);
-});
+    </figcaption>
+  </figure>`;
+}
+for (const [id, arr] of Object.entries(SHEETS)){
+  document.getElementById(id).innerHTML = arr.map(card).join('');
+}
 
-// lightbox
 const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
-function openLb(src,cap){ lbImg.src=src; lbCap.textContent=cap||''; lb.classList.add('open'); }
-function closeLb(){ lb.classList.remove('open'); lbImg.src=''; }
 document.addEventListener('click',e=>{
-  const img=e.target.closest('.plate-img');
-  if(img){ openLb(img.currentSrc||img.src, img.getAttribute('data-cap')); return; }
+  const img=e.target.closest('.sheet');
+  if(img){ lbImg.src=img.currentSrc||img.src; lbCap.textContent=img.getAttribute('data-cap')||''; lb.classList.add('open'); return; }
+  if(e.target.id==='lb'||e.target.id==='lbClose'){ lb.classList.remove('open'); lbImg.src=''; }
 });
-document.getElementById('lb').addEventListener('click',e=>{ if(e.target.id==='lb'||e.target.id==='lbClose') closeLb(); });
-document.getElementById('lbClose').addEventListener('click',closeLb);
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ lb.classList.remove('open'); lbImg.src=''; } });
 </script>
 </body>
 </html>
