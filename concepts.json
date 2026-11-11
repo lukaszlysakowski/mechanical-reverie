@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-06",
+  "updated": "2026-11-11",
   "concepts": [
     {
       "id": "bell-labs",
@@ -657,6 +657,10 @@
         {
           "gen": 126,
           "why": "Nam June Paik's 'Lake Placid ’80' reduced to its glowing dot-matrix — the 'led' character run pure, a video wall of emitted colored light (Paik-Abe blue/green/magenta on video-black). Emitted light as the material, not the display: the LED grid that Harmon's squares were destined for, here carrying the colorized Winter Games. Joins Global Groove (123) as the room's second Paik."
+        },
+        {
+          "gen": 164,
+          "why": "Dupuy Heart Beats Dust (1968): a cone of light is not how the work is shown but what reveals it — the red dust exists only where the beam strikes it; light as the literal medium of visibility."
         }
       ]
     },
@@ -887,6 +891,10 @@
         {
           "gen": 163,
           "why": "Pierre Hébert's OpHop (1966): an engraved-on-film animation whose motion is the PERMUTATION of a block of 24 frames; the grid of near-identical discs is that frame-block, the hop made still."
+        },
+        {
+          "gen": 164,
+          "why": "Dupuy Heart Beats Dust is kinetic — a heartbeat is the clock that propels the pulsing dust; the \"heartdust\" render freezes one beat of that rhythm into concentric lub-dub shells, as Day 156 froze Hébert's film."
         }
       ]
     },

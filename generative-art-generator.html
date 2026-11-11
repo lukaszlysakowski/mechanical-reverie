@@ -448,7 +448,16 @@ let W = canvas.width, H = canvas.height;
 // mass as a red/black checkerboard while the # overstrike texture around it stays one ink.
 // The accident, authored. New lpColorMode value → no existing genome reaches it; default 'mono' byte-identical;
 // Day 147 still `7ddf2b3d`. Deterministic (noise + genome, no Math.random). C2 regression GREEN.
-const ENGINE_VERSION = 'v3.28.0';
+// v3.29.0 — additive, opt-in (Day 157 "Heart Beats Dust", Jean Dupuy 1968, via @Noahbolanowski): the engine's
+// FIRST pulse-modulated particle field. A visitor's amplified heartbeat drove a membrane that threw red pigment
+// dust into a cone of light inside a glass box — the dust glowed in time with the living pulse. New 'heartdust'
+// pixelCharacter renders ONE frozen instant of that: a field of fine red specks whose local density follows a
+// cardiac double-beat (lub-dub) waveform in concentric shells radiating from a low source, revealed by a vertical
+// cone of light; dense/hot where a pulse-shell crosses the beam, near-black in the diastolic gaps. The body's
+// signal as the pattern (Wiener: "a pattern is a message"). NOT in PIXEL_CHARS / not mutation-reachable →
+// drawPixelLayer gains one else-if; every archive checksum unchanged. Deterministic (noise + a seeded GLSL-style
+// hash + genome, no Math.random); opaque fills → hard-canonical.
+const ENGINE_VERSION = 'v3.29.0';
 
 // Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
 // the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
@@ -3245,6 +3254,82 @@ function drawPixelLayer(g, pal, t) {
           const sw = 1 + noise.noise2D(cs + s, 8.8) * (baseR * 0.09);
           ctx.fillRect(sx, sy, sw, sw * (0.6 + noise.noise2D(s, cs) * 1.8));
         }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'heartdust') {
+    // HEARTDUST — Jean Dupuy's "Heart Beats Dust" (1968, MoMA "The Machine…"): a visitor's amplified heartbeat
+    // drove a membrane that propelled red pigment dust into a cone of light inside a glass box, so the dust pulsed,
+    // glowing, with the living pulse. Reduction = ONE frozen instant: a field of fine red specks whose density
+    // follows a cardiac double-beat (lub-dub) in concentric shells radiating from a low source (the membrane),
+    // revealed by a vertical cone of light. Dense & hot where a pulse-shell crosses the beam; near-black in the
+    // diastolic gaps. The body's signal IS the pattern (Wiener). Params: hdGround · hdConeColor · hdDustRamp ·
+    // hdSourceX/Y (frac) · hdRingSpacing (px) · hdPhase (0..1 cycle offset) · hdBeatSharp · hdConeSpread · hdConeSoft
+    // · hdDensity · hdSpeckStep · hdSpeckSize · hdTurb · hdTurbScale · hdGrain. Opt-in (NOT in PIXEL_CHARS / not
+    // mutation-reachable), additive, C2-safe. Deterministic (noise + a seeded hash + genome, no Math.random);
+    // opaque fills → hard-canonical.
+    const ground   = g.hdGround   || '#08060c';
+    const coneCol  = g.hdConeColor|| '#130d1b';
+    const ramp     = (g.hdDustRamp && g.hdDustRamp.length) ? g.hdDustRamp
+                     : ['#360a0c','#7a1013','#c01f20','#ec4b35','#ff8a5a','#ffe6c4'];
+    const L        = ramp.length;
+    const seed     = (g.noiseSeed || 1);
+    const sx0      = W * (g.hdSourceX ?? 0.5) + (noise.noise2D(seed*0.013 + 1.7, 4.2) - 0.5) * W * 0.10;
+    const sy0      = H * (g.hdSourceY ?? 0.80);
+    const ringSp   = Math.max(18, g.hdRingSpacing ?? 82);
+    const phase    = g.hdPhase ?? 0.0;
+    const sharp    = g.hdBeatSharp ?? 1.0;
+    const spread   = (g.hdConeSpread ?? 0.40) * W;       // cone half-width at the bottom edge
+    const coneSoft = g.hdConeSoft ?? 1.15;
+    const density  = g.hdDensity ?? 0.92;
+    const step     = Math.max(1.6, g.hdSpeckStep ?? 2.3);
+    const baseSz   = g.hdSpeckSize ?? 1.6;
+    const turb     = g.hdTurb ?? 0.55;
+    const turbSc   = g.hdTurbScale ?? 0.02;
+    const grain    = g.hdGrain ?? 0.05;
+    const apexX = W * 0.5, apexY = -0.12 * H;
+    ctx.globalAlpha = 1;   // reset first so the ground fill is fully opaque (no prior-layer bleed-through)
+    const hash = (x, y) => { const v = Math.sin(x * 12.9898 + y * 78.233 + seed * 37.719) * 43758.5453; return v - Math.floor(v); };
+    const smooth = (e0, e1, x) => { let t = (x - e0) / (e1 - e0); t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); };
+    // cardiac double-beat over one cycle p∈[0,1): S1 (lub) strong & narrow, S2 (dub) weaker, long diastolic gap
+    const beat = (p) => {
+      const g1 = Math.exp(-(((p - 0.12) / (0.045 * sharp)) ** 2));
+      const g2 = 0.62 * Math.exp(-(((p - 0.33) / (0.052 * sharp)) ** 2));
+      const b = g1 + g2;
+      return b > 1 ? 1 : b;
+    };
+    ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = 1;
+    // faint light-beam wedge (opaque, so hard-canonical): apex above top-centre, widening to ±spread at the base
+    ctx.fillStyle = coneCol;
+    ctx.beginPath();
+    ctx.moveTo(apexX, apexY);
+    ctx.lineTo(apexX - spread, H);
+    ctx.lineTo(apexX + spread, H);
+    ctx.closePath();
+    ctx.fill();
+    for (let y = 0; y < H; y += step) {
+      const hw = (y - apexY) / (H - apexY) * spread;      // cone half-width at this depth
+      for (let x = 0; x < W; x += step) {
+        const dx = x - sx0, dy = y - sy0;
+        const r = Math.sqrt(dx * dx + dy * dy);
+        const p = ((r / ringSp - phase) % 1 + 1) % 1;
+        let b = beat(p) + grain;
+        // light-cone illumination: 1 near the beam centreline, →0 outside (dust invisible in the dark box)
+        const adx = Math.abs(x - apexX);
+        const I = 1 - smooth(hw * 0.30, hw * coneSoft, adx);
+        // organic turbulence so the dust is grainy, not clean rings
+        const tn = (1 - turb) + turb * noise.noise2D(x * turbSc + 10.1, y * turbSc + 3.3);
+        let d = b * I * tn;
+        if (d <= 0.02) continue;
+        if (d > 1) d = 1;
+        const h = hash(x, y);
+        if (h > d * density) continue;                    // deterministic speck placement
+        const idx = Math.min(L - 1, Math.floor(d * L));
+        ctx.fillStyle = ramp[idx];
+        const sz = baseSz * (0.7 + hash(y, x) * 0.9);
+        ctx.fillRect(x - sz * 0.5, y - sz * 0.5, sz, sz);
       }
     }
     ctx.globalAlpha = 1;

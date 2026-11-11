@@ -11960,5 +11960,106 @@
       "noiseSeed": 660,
       "checksumStability": "9/9 identical — hard-canonical (opaque discs + specks, noise+genome, no Math.random)"
     }
+  },
+  {
+    "day": 157,
+    "date": "2026-11-09",
+    "title": "The Pulse Made Visible",
+    "filename": "mechanical-reverie-day-157-the-pulse-made-visible-2026-11-09.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 9,
+      "gridRows": 7,
+      "cellPadding": 0.12682324890353325,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.92,
+      "gearDensity": 0.6954027627070751,
+      "gearComplexity": 18,
+      "chainFrequency": 0.18691940677952712,
+      "pixelDensity": 0.23210291416314577,
+      "pixelSize": 4,
+      "flowScale": 0.01593007867819962,
+      "flowStrength": 3.8530375280276674,
+      "particleCount": 1954,
+      "clockSpeed": 0.012814564979375508,
+      "oscillation": 0.5985099236441698,
+      "wMechanical": 0.05,
+      "wPixel": 0.9,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 1.338617090851205,
+      "hatchSpacing": 9.858150489607711,
+      "pixelCharacter": "heartdust",
+      "flowCharacter": "vortex",
+      "mechanicalCharacter": "led",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 1,
+      "noiseSeed": 888,
+      "renderSeed": 2923292916,
+      "disorder": 0.22,
+      "disorderMode": "radial",
+      "disorderAngle": 0,
+      "hdSourceX": 0.5,
+      "hdSourceY": 0.8,
+      "hdRingSpacing": 82,
+      "hdConeSpread": 0.4,
+      "hdDensity": 1,
+      "hdSpeckStep": 2,
+      "hdSpeckSize": 1.9,
+      "hdTurb": 0.72,
+      "hdTurbScale": 0.02,
+      "hdGrain": 0.08,
+      "hdBeatSharp": 1.3,
+      "hdPhase": 0.3,
+      "paletteColors": [
+        "#08060c",
+        "#7a1013",
+        "#c01f20",
+        "#ec4b35",
+        "#ff8a5a",
+        "#08060c",
+        "#360a0c",
+        "#ffe6c4"
+      ],
+      "hdDustRamp": [
+        "#360a0c",
+        "#7a1013",
+        "#c01f20",
+        "#ec4b35",
+        "#ff8a5a",
+        "#ffe6c4"
+      ]
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "158f24ecb34486aa530bda9e10dd1683a23d1760e80c0ae428150e53f5bc8177",
+      "checksumStability": "6/6 identical — hard-canonical (noise + seeded hash + genome, opaque fills)",
+      "engineVersion": "v3.29.0",
+      "renderSeed": 2923292916,
+      "noiseSeed": 888
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New character 'heartdust' (v3.29.0) — engine's first pulse-modulated particle field. Pure debut. Hard-canonical 6/6. User picked render D (dusty, seed 888) from a 4-way register/seed contact sheet.",
+      "condensedReason": "Jean Dupuy's \"Heart Beats Dust\" (1968), shown in MoMA's landmark \"The Machine as Seen at the End of the Mechanical Age\": a visitor pressed a stethoscope to their chest and their amplified heartbeat drove a membrane that propelled red pigment dust up into a cone of light inside a transparent glass box — so the dust pulsed, glowing, in time with the living body. NB quoted the contemporaneous description — \"the rhythmic heartbeats... propels the dust particles into the light cone within a transparent glass enclosure\" — a perfect statement of the cybernetic hinge the exhibition's title named: the body's own signal becomes the visible pattern (Wiener, \"a pattern is a message\"). The piece could not be reduced in the engine's existing vocabulary, so the program learned a new way to see: 'heartdust', its first pulse-modulated particle field. A field of fine red specks whose local density follows a cardiac double-beat (lub-dub) waveform in concentric shells radiating from a low source (the membrane), revealed by a vertical cone of light — dense and hot where a pulse-shell crosses the beam, near-black in the diastolic gaps. Debuted pure (wPixel 0.90), on a dark-red pigment ramp (#7a1013→#ff8a5a) over a near-black enclosure; seed 888 and the 'dusty' tuning (higher turbulence, thicker beat bands) chosen so the rings read as propelled pigment, not clean isobars. Deterministic and hard-canonical (6/6)."
+    },
+    "tweetSummary": "NB: Jean Dupuy's Heart Beats Dust (1968) at MoMA's The Machine — a heartbeat propels red dust into a cone of light in a glass box.",
+    "keyArtists": [
+      "Jean Dupuy"
+    ],
+    "themes": [
+      "cybernetic feedback",
+      "kinetic / particle motion",
+      "light as medium",
+      "cardiac rhythm"
+    ],
+    "keyDetails": "Jean Dupuy, Heart Beats Dust (1968), MoMA 'The Machine' — heartbeat-driven pigment dust in a light cone. NB original tweet, 21 likes, 920 views.",
+    "description": "Jean Dupuy's \"Heart Beats Dust\" (1968), shown in MoMA's landmark \"The Machine as Seen at the End of the Mechanical Age\": a visitor pressed a stethoscope to their chest and their amplified heartbeat drove a membrane that propelled red pigment dust up into a cone of light inside a transparent glass box — so the dust pulsed, glowing, in time with the living body. NB quoted the contemporaneous description — \"the rhythmic heartbeats... propels the dust particles into the light cone within a transparent glass enclosure\" — a perfect statement of the cybernetic hinge the exhibition's title named: the body's own signal becomes the visible pattern (Wiener, \"a pattern is a message\"). The piece could not be reduced in the engine's existing vocabulary, so the program learned a new way to see: 'heartdust', its first pulse-modulated particle field. A field of fine red specks whose local density follows a cardiac double-beat (lub-dub) waveform in concentric shells radiating from a low source (the membrane), revealed by a vertical cone of light — dense and hot where a pulse-shell crosses the beam, near-black in the diastolic gaps. Debuted pure (wPixel 0.90), on a dark-red pigment ramp (#7a1013→#ff8a5a) over a near-black enclosure; seed 888 and the 'dusty' tuning (higher turbulence, thicker beat bands) chosen so the rings read as propelled pigment, not clean isobars. Deterministic and hard-canonical (6/6).",
+    "condensedReason": "Jean Dupuy's \"Heart Beats Dust\" (1968), shown in MoMA's landmark \"The Machine as Seen at the End of the Mechanical Age\": a visitor pressed a stethoscope to their chest and their amplified heartbeat drove a membrane that propelled red pigment dust up into a cone of light inside a transparent glass box — so the dust pulsed, glowing, in time with the living body. NB quoted the contemporaneous description — \"the rhythmic heartbeats... propels the dust particles into the light cone within a transparent glass enclosure\" — a perfect statement of the cybernetic hinge the exhibition's title named: the body's own signal becomes the visible pattern (Wiener, \"a pattern is a message\"). The piece could not be reduced in the engine's existing vocabulary, so the program learned a new way to see: 'heartdust', its first pulse-modulated particle field. A field of fine red specks whose local density follows a cardiac double-beat (lub-dub) waveform in concentric shells radiating from a low source (the membrane), revealed by a vertical cone of light — dense and hot where a pulse-shell crosses the beam, near-black in the diastolic gaps. Debuted pure (wPixel 0.90), on a dark-red pigment ramp (#7a1013→#ff8a5a) over a near-black enclosure; seed 888 and the 'dusty' tuning (higher turbulence, thicker beat bands) chosen so the rings read as propelled pigment, not clean isobars. Deterministic and hard-canonical (6/6)."
   }
 ]
