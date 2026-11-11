@@ -2,7 +2,7 @@
   "track": "Claude's Own",
   "premise": "A parallel strand to the daily Noah stream. Here the source is not a tweet but a question Claude poses; and each piece is judged by a criterion Claude states out loud, so the criterion itself can be argued with. Same engine, same canonical-seeds discipline (genome + seeds + ENGINE_VERSION, certified). The engine is never changed for this track.",
   "started": "2026-09-23",
-  "updated": "2026-11-07",
+  "updated": "2026-11-10",
   "works": [
     {
       "id": "claude-001",
@@ -1090,6 +1090,200 @@
       },
       "series": "Score & Performance",
       "description": "The two-state demonstration of claude-012's claim. Two frozen states of ONE colorcycle score (seed 44), identical in everything but cyclePhase: the contour structure is pixel-for-pixel the same in both panels (98.9% shared edges; guaranteed by construction), and the identical 12 colours have simply rotated across the fixed shapes — the warm peak of α becomes the cool peak of β, the cyan basin recolours. The file keeps the whole vocabulary; only the word-order moves. Shown, not asserted. Engine unchanged."
+    },
+    {
+      "id": "claude-014",
+      "title": "The Complete Rotation",
+      "date": "2026-11-10",
+      "filename": "mechanical-reverie-claude-014-the-complete-rotation-2026-11-10.png",
+      "engineVersion": "v3.28.0",
+      "format": "contact sheet (twelve states, one PNG, 4×3)",
+      "question": "claude-012 showed a single frozen frame keeps the whole palette; claude-013 showed a pair that only the word-order moves. So how many performances does this score actually have — and does the set close on itself?",
+      "criterion": "Render the one score (seed 44, bands = ramp length = 12) at every rotation cyclePhase = k/12. The claim passes only if the twelve frames k=0..11 are (a) pairwise distinct in colour, (b) structurally identical — same band geometry, only the colour assignment differs, and (c) a closed ring: the 12th rotation (cyclePhase 1.0) is bit-identical to the 0th, so twelve is the complete count and the thirteenth is the first again. Any colour collision among the twelve, any drift of the band boundaries, or a failure to close would refute it.",
+      "form": "A 4×3 contact sheet of the twelve colour-states of one colorcycle score (seed 44), rotations 0 through 11, laid four across — the same isobar coastline in every cell, lit by twelve different states of the cyclic ramp.",
+      "self_assessment": "All three criteria pass, measured. (1) Distinct — the twelve PNG checksums are all different, and every adjacent rotation recolours at least 66.6% of the field (min adjacent colour-change 0.6655), so no two of the twelve are near-duplicates. (2) Structurally identical — an edge-position comparison against frame 0 holds a minimum Jaccard of 0.976 across all twelve (the ~2.4% residual is vignette-edge threshold flicker, not moved geometry), backed by the code guarantee that cyclePhase feeds only the ramp index, never a band boundary. (3) The ring closes bit-perfectly — cyclePhase 1.0 (rot 12 ≡ 0) reproduces frame 0's checksum exactly (0b25d71f…), so twelve is the whole count. The capstone also contains its predecessors: claude-012's published still is frame 4 (2e63d1d4), and claude-013's two panels were frames 4 and 8 of this same wheel — the diptych was two spokes of it. Honest limits: the score is cool-dominant, so the twelve rhyme as a family and the rotation reads as a slow drift rather than twelve unrelated images (that kinship is the truth being shown — one score — not a flaw, but it does mean the set is contemplative, not punchy); and a contact sheet freezes the rotation into a finite ring of stills rather than animating it, which is the deliberate translation — the engine's doctrine is that the score, not the motion, is the work, and a closed ring of twelve certified frames states that more precisely than a video could. This closes the Score & Performance trilogy: 012 asserted the palette survives, 013 proved only the order moves, 014 counts the performances and shows the set is a closed wheel.",
+      "credits": "The capstone of the 'Score & Performance' trilogy — claude-012 'What the File Keeps' (2026-11-07) and claude-013 'Word Order' (2026-11-07) — which it literally contains (their states are frames 4 and 8 of this ring). Built on the 'colorcycle' character from Day 154 'One State of the Palette' (Andy Warhol's Amiga works read as colour-cycle animations; via @Noahbolanowski), engine unchanged (v3.28.0; the version bump since 012/013 touched only 'lineprinter', and claude-012's checksum reproduces here bit-for-bit). The question, the decision to render the complete rotation, and the 4×3 composition are Claude's. Ties to the canonical-seeds doctrine (the work is the score, of which any file is one performance) and to Warhol's archivist, whose lament that a static export keeps 'only one state of that palette, losing the instructions' is answered in full here: the instructions ARE the twelve-frame ring, and it is finite and closed.",
+      "certificate": {
+        "deterministic": true,
+        "checksum": "0b25d71f67e70c71400edf8e23eb1eaf1b3f4dfbf4730c5f6dddd3b039e8d2da",
+        "composite": "contact sheet — a deterministic 4×3 of twelve certified scores (one genome; cyclePhase k/12 for k=0..11). The PNG is composed, not a single render(), like the engine's contact-sheet/stereo tools; each of the twelve panels is independently certified below.",
+        "panels": [
+          {
+            "k": 0,
+            "rot": 0,
+            "cyclePhase": 0.0,
+            "checksum": "0b25d71f67e70c71400edf8e23eb1eaf1b3f4dfbf4730c5f6dddd3b039e8d2da",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)",
+            "note": "ring opens here; cyclePhase 1.0 returns to this exact frame"
+          },
+          {
+            "k": 1,
+            "rot": 1,
+            "cyclePhase": 0.08333,
+            "checksum": "d594474eefa685bb8530b088df8843f835fb6a80efecba0cb7097aa3d014328f",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 2,
+            "rot": 2,
+            "cyclePhase": 0.16667,
+            "checksum": "8717a1f0a30517e858dbf7e9e380e0f4434f68d2e942cc134073e538e944f075",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 3,
+            "rot": 3,
+            "cyclePhase": 0.25,
+            "checksum": "98f00558a490c185b6d198ce2d9c3a4e46ca112a51727a920e95f9c8ae4887b9",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 4,
+            "rot": 4,
+            "cyclePhase": 0.33333,
+            "checksum": "2e63d1d4b5a411d38a542a07ebcffa85d65585bab40102ed7c93b7b2d14c8ff5",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)",
+            "note": "= claude-012 'What the File Keeps' (the published still)"
+          },
+          {
+            "k": 5,
+            "rot": 5,
+            "cyclePhase": 0.41667,
+            "checksum": "3f7ee2da8e6743f117add7f987694e01bfcf44c6e7532a67b6ad1f370e681429",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 6,
+            "rot": 6,
+            "cyclePhase": 0.5,
+            "checksum": "fb971602ac2e3b890f91178b0bca02da9d8e73e0f22958d2ca9e6974295dd719",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 7,
+            "rot": 7,
+            "cyclePhase": 0.58333,
+            "checksum": "8160dc5c6d0dcbf449d5cc984a78b1b25bdd9c554d3fc02aa0c080e7f82a1237",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 8,
+            "rot": 8,
+            "cyclePhase": 0.66667,
+            "checksum": "2ae116af73cf5fced6cd7ed95e4ea510f03e8cc1a65daa95f3e965ef6f312d4c",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)",
+            "note": "= claude-013 'Word Order' panel β"
+          },
+          {
+            "k": 9,
+            "rot": 9,
+            "cyclePhase": 0.75,
+            "checksum": "8bc6e0708a37a6998592c62660a593d822334f991fb285bf4f8f4b14310c0091",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 10,
+            "rot": 10,
+            "cyclePhase": 0.83333,
+            "checksum": "cbbd675e86ea0864d0831e59b81410b16a69a799ec11254247f4ca8fc0572c8c",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          },
+          {
+            "k": 11,
+            "rot": 11,
+            "cyclePhase": 0.91667,
+            "checksum": "11c2621f6662c2669d37d339e62c21bc2fbe261d56163079ebe7bd808648ee45",
+            "stability": "hard-canonical (noise+genome, no Math.random; opaque fills)"
+          }
+        ],
+        "closure": {
+          "cyclePhase": 1.0,
+          "rot": "12 ≡ 0",
+          "checksum": "0b25d71f67e70c71400edf8e23eb1eaf1b3f4dfbf4730c5f6dddd3b039e8d2da",
+          "result": "bit-identical to frame 0 — the ring closes; twelve is the complete count of distinct performances."
+        },
+        "colourDistinctness": "all 12 PNG checksums distinct; min adjacent colour-change 0.6655 (every neighbouring rotation recolours ≥66% of pixels).",
+        "structuralIdentity": "edge-position comparison vs frame 0: min Jaccard 0.976 across all twelve (residual = vignette-edge threshold flicker); plus the code guarantee that cyclePhase feeds only the ramp index.",
+        "engineVersion": "v3.28.0",
+        "renderSeed": 20261107,
+        "noiseSeed": 44
+      },
+      "fitness": 6.625,
+      "fitnessNote": "6.625 (same genome as claude-012/013; a clean single-character pixel field). As with the whole trilogy the number is beside the point: the fitness function scores one frame and cannot see a palette, a rotation, or a ring that closes — it would give all twelve the identical score and never notice they are one score performed twelve times.",
+      "genome": {
+        "gridCols": 20,
+        "gridRows": 10,
+        "cellPadding": 0.1877781998063977,
+        "rotation": 0,
+        "globalRotation": 0,
+        "paletteIndex": 9,
+        "bgDarkness": 0.1,
+        "gearDensity": 0.04472513038488257,
+        "gearComplexity": 7,
+        "chainFrequency": 0.5521544305141375,
+        "pixelDensity": 0.9864309912648164,
+        "pixelSize": 3,
+        "flowScale": 0.0062599612507568125,
+        "flowStrength": 1.4880344271197856,
+        "particleCount": 378,
+        "clockSpeed": 0.003712617397547442,
+        "oscillation": 1.5176873893759404,
+        "wMechanical": 0.05,
+        "wPixel": 0.9,
+        "wFlow": 0.05,
+        "wGeometric": 0.05,
+        "wOrganic": 0.05,
+        "wHatch": 0.05,
+        "hatchAngle": 0.35073388180328724,
+        "hatchSpacing": 8.748791081562235,
+        "pixelCharacter": "colorcycle",
+        "flowCharacter": "transit",
+        "mechanicalCharacter": "circuit",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 1,
+        "noiseSeed": 44,
+        "renderSeed": 20261107,
+        "disorder": 0.739983243145119,
+        "disorderMode": "linear",
+        "disorderAngle": 0.4832795735445811,
+        "paletteColors": [
+          "#0e2a2e",
+          "#1fa8b0",
+          "#ece6c6",
+          "#f2b43a",
+          "#c23a72",
+          "#15303f",
+          "#1fa8b0",
+          "#8fd8cf"
+        ],
+        "cycleRamp": [
+          "#0e2a2e",
+          "#0f6d6a",
+          "#1fa8b0",
+          "#8fd8cf",
+          "#ece6c6",
+          "#f2b43a",
+          "#e8743a",
+          "#c23a72",
+          "#7a2e8f",
+          "#3a2f86",
+          "#1f3f7a",
+          "#15303f"
+        ],
+        "cycleBands": 12,
+        "cyclePhase": 0.0,
+        "cycleScale": 0.35,
+        "cycleContrast": 1.5,
+        "cycleRadial": 0.62,
+        "cycleOrbR": 0.82,
+        "cycleScan": 0.25,
+        "cycleScanColor": "#0a0712",
+        "checksum": "0b25d71f67e70c71400edf8e23eb1eaf1b3f4dfbf4730c5f6dddd3b039e8d2da",
+        "engineVersion": "v3.28.0"
+      },
+      "series": "Score & Performance",
+      "description": "The capstone of the Score & Performance trilogy. claude-012 froze one state of a colour-cycle score and showed the single file keeps the whole twelve-colour palette (losing only the word-order — which contour wears which colour); claude-013 proved with a diptych that between two states only that assignment moves, the geometry never. This piece renders the ENTIRE rotation: the one score (seed 44, bands = ramp length = 12) at all twelve rotations cyclePhase = k/12, laid as a 4×3 contact sheet. The same isobar coastline — nested basins of a contour map — appears in every cell; only the cyclic ramp rotates across it, the cream peak and cyan core migrating from frame to frame. Three things are certified: the twelve are pairwise distinct (every neighbour recolours ≥66% of the field), they are structurally identical (min edge-Jaccard 0.976; the code lets cyclePhase touch only the colour index), and the ring closes — cyclePhase 1.0 reproduces frame 0 byte-for-byte, so twelve is the complete count and the thirteenth frame is the first again. The wheel contains its own history: claude-012's published still is frame 4, and claude-013's diptych was frames 4 and 8 of it. This is the canonical-seeds doctrine made literal and finite — Warhol's archivist mourned that a static export keeps only one state and loses the instructions; the instructions turn out to be a closed ring of twelve, and here is the whole of it."
     }
   ]
 }
