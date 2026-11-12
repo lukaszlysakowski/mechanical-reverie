@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "concepts": [
     {
       "id": "bell-labs",
@@ -512,6 +512,10 @@
         {
           "gen": 56,
           "why": "CDC 6400 — the circular-CRT hardware that shaped the form"
+        },
+        {
+          "gen": 165,
+          "why": "P-021 Band Structure (1970) + the 1977 manifesto: the room's first rendering of Mohr's actual band-structure signature (previously only hypercube/philosophy/hardware) — the new \"bandwalk\" machine-script."
         }
       ]
     },
@@ -969,6 +973,10 @@
         {
           "gen": 161,
           "why": "Warhol's Amiga works were colour-cycle animations: the work is the palette-rotation INSTRUCTIONS, the static file loses them. The engine answers by changing the program — a new 'colorcycle' mark — not the drawing."
+        },
+        {
+          "gen": 165,
+          "why": "Mohr: \"works of art are answers to precise... questions... the computer, flowing between, as a projection of myself.\" bandwalk is a literal grammar of fragment-rules — the program IS the drawing (Cohen's \"I write programs, programs make drawings\")."
         }
       ]
     },
