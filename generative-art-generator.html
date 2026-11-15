@@ -464,7 +464,15 @@ let W = canvas.width, H = canvas.height;
 // joins, no tremble, no decay — Mohr: "works of art are answers to precise questions." Black ink on paper.
 // NOT in MECH_CHARS / not mutation-reachable -> drawMechanical gains one if; every archive checksum unchanged.
 // Deterministic (renderRng + genome, no Math.random); opaque strokes -> hard-canonical.
-const ENGINE_VERSION = 'v3.30.0';
+// v3.31.0 — additive, opt-in (Day 159 "Twenty Meters", Leon Harmon's Bell Labs block portrait of Lincoln, 1973,
+// via @Noahbolanowski's Dalí "Lincoln in Dalívision" essay): the engine's FIRST block-pixel portrait that
+// resolves at a distance. New 'blockface' pixelCharacter: a COARSE grid of SOLID squares, each quantised to one
+// grey level from an underlying shaped bust tone field — abstract blocks up close, a head-and-shoulders figure at
+// twenty meters (the Recognition effect). The GREYSCALE sibling of 'texttone' (Knowlton): both Bell Labs, both a
+// figure from a coarse field; Harmon is the computational source Dalí colourised. NOT in PIXEL_CHARS / not
+// mutation-reachable -> drawPixelLayer gains one else-if; every archive checksum unchanged. Deterministic
+// (noise + a seeded hash + genome, no Math.random); opaque fills -> hard-canonical.
+const ENGINE_VERSION = 'v3.31.0';
 
 // Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
 // the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
@@ -3410,6 +3418,60 @@ function drawPixelLayer(g, pal, t) {
         ctx.fillStyle = ramp[idx];
         const sz = baseSz * (0.7 + hash(y, x) * 0.9);
         ctx.fillRect(x - sz * 0.5, y - sz * 0.5, sz, sz);
+      }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'blockface') {
+    // BLOCKFACE — Leon Harmon's Bell Labs "block portrait" of Lincoln (1973, "The Recognition of Faces"), the
+    // computational source Dalí colourised into "Lincoln in Dalívision" (1976). A COARSE grid of SOLID squares,
+    // each quantised to one grey level from an underlying shaped bust tone field, so the image reads as abstract
+    // blocks up close and resolves into a head-and-shoulders figure at a distance (the Recognition effect). The
+    // greyscale sibling of 'texttone' (Knowlton): both Bell Labs, both a figure from a coarse field; abstract (no
+    // features), never a traced Lincoln. Params: bfCols · bfLevels (quantisation) · bfFigure (bust bias) ·
+    // bfContrast · bfScale · bfNoise (per-cell jitter — Harmon found a little noise AIDS recognition) · bfGap ·
+    // bfInk · bfPaper. Opt-in (NOT in PIXEL_CHARS / not mutation-reachable), additive, C2-safe. Deterministic
+    // (noise + a seeded hash + genome, no Math.random); opaque fills → hard-canonical.
+    const cols = clamp(Math.round(g.bfCols || 16), 6, 48);
+    const cell = W / cols;
+    const rows = Math.max(1, Math.round(H / cell));
+    const levels = clamp(Math.round(g.bfLevels || 8), 2, 24);
+    const figW = clamp(g.bfFigure ?? 0.6, 0, 1);
+    const contrast = g.bfContrast ?? 1.25;
+    const sc = g.bfScale ?? 1.0;
+    const cellNoise = clamp(g.bfNoise ?? 0.12, 0, 0.5);
+    const gap = g.bfGap ?? 0;
+    const ink = g.bfInk || '#1a1613';
+    const paper = g.bfPaper || '#e9e2d2';
+    const ns = (g.noiseSeed || 1) * 0.001;
+    const hex = (h) => { h = h.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; };
+    const ic = hex(ink), pc = hex(paper);
+    const bhash = (a, b) => { const v = Math.sin(a * 12.9898 + b * 78.233 + ns * 1000) * 43758.5453; return v - Math.floor(v); };
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = paper; ctx.fillRect(0, 0, W, H);
+    for (let r = 0; r < rows; r++) {
+      const fy = (r + 0.5) / rows;
+      for (let c = 0; c < cols; c++) {
+        const fx = (c + 0.5) / cols;
+        let nz = 0.6 * noise.noise2D(c * sc * 0.09 + ns, r * sc * 0.09)
+               + 0.3 * noise.noise2D(c * sc * 0.20 + 5.1, r * sc * 0.20 + 2.7)
+               + 0.1 * noise.noise2D(c * sc * 0.40 + 14.0, r * sc * 0.40 + 9.0);
+        // head + shoulders bust — a portrait that resolves at a distance (abstract, no features)
+        const head = 1 - Math.hypot((fx - 0.5) / 0.185, (fy - 0.35) / 0.235);
+        const shoulders = 1 - Math.hypot((fx - 0.5) / 0.44, (fy - 0.86) / 0.30);
+        const sil = clamp(Math.max(head, shoulders) * 1.18, 0, 1);  // head + shoulders overlap → connected bust
+        let tone = (1 - figW) * nz + figW * sil;
+        tone = clamp((tone - 0.5) * contrast + 0.5, 0, 1);
+        tone = clamp(tone + (bhash(c + 1, r + 1) - 0.5) * cellNoise, 0, 1);
+        const q = Math.round(tone * (levels - 1)) / (levels - 1);   // quantised darkness: 0 = paper, 1 = ink
+        const R = Math.round(pc[0] + (ic[0] - pc[0]) * q);
+        const G = Math.round(pc[1] + (ic[1] - pc[1]) * q);
+        const B = Math.round(pc[2] + (ic[2] - pc[2]) * q);
+        ctx.fillStyle = `rgb(${R},${G},${B})`;
+        // integer-aligned, abutting cells (no sub-pixel seams); bfGap>0 opens a deliberate tile grout
+        const x0 = Math.round(c * cell), x1 = Math.round((c + 1) * cell);
+        const y0 = Math.round(r * cell), y1 = Math.round((r + 1) * cell);
+        ctx.fillRect(x0, y0, (x1 - x0) - gap, (y1 - y0) - gap);
       }
     }
     ctx.globalAlpha = 1;

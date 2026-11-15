@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-15",
   "concepts": [
     {
       "id": "bell-labs",
@@ -78,6 +78,10 @@
         {
           "gen": 162,
           "why": "Ken Knowlton at Bell Labs: the declaration typeset as a photomosaic, letters as the pixels of a person."
+        },
+        {
+          "gen": 166,
+          "why": "Harmon's \"The Recognition of Faces\" (1973) was Bell Labs work; the computational source Dali colourised into Lincoln in Dalivision. Harmon sits beside Knowlton and the Bell Labs text/image lineage."
         }
       ]
     },
@@ -817,6 +821,10 @@
         {
           "gen": 162,
           "why": "Up close the rights are a readable document; stepping back the person appears — the Harmon–Knowlton perceptual completion the room is named for."
+        },
+        {
+          "gen": 166,
+          "why": "Leon Harmon's block portrait of Lincoln (1973) is the room's archetype — a coarse grid of quantised grey squares that is abstract up close and a face at a distance. The new \"blockface\" char joins Knowlton's texttone: both resolve a figure from a coarse field."
         }
       ]
     },
