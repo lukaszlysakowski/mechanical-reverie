@@ -12243,5 +12243,92 @@
     "keyDetails": "Leon Harmon, block portrait of Lincoln (1973, Bell Labs) — the source of Dali's 'Lincoln in Dalivision' (1976). NB essay tweet, 36 likes, 1785 views.",
     "description": "NB's essay corrects the historical record behind Salvador Dali's \"Lincoln in Dalivision\" (1976): its computational source is Leon Harmon's Bell Labs \"block portrait\" of Lincoln (1973, from \"The Recognition of Faces\") — a coarse grid of solid quantised grey squares that reads as abstract blocks up close and resolves into a face at a distance. Dali colourised Harmon's exact mosaic and added Gala, tiles and sky; Harmon supplied the pixelation. This is the archetypal Recognition image, and Harmon is a direct ancestor — with Knowlton — of the engine's figure-from-a-coarse-field forms. The engine's 'halftone' only ever gestured at Harmon (a noise-density grid); it had never rendered the actual block portrait, so the program learned 'blockface' (v3.31.0): a coarse grid of SOLID squares each quantised to one grey level from a shaped head-and-shoulders tone field — the greyscale sibling of 'texttone' (Knowlton's text figure). Debuted pure (wPixel 0.90) in Harmon greyscale (quantised #1a1613 ink → #e9e2d2 paper, vignette off), seed 142, a chunky 15-column grid for the up-close abstraction. The title is Dali's own — \"which at Twenty Meters Becomes the Portrait of Abraham Lincoln\" — the recognition distance. Deterministic and hard-canonical (7/7).",
     "condensedReason": "NB's essay corrects the historical record behind Salvador Dali's \"Lincoln in Dalivision\" (1976): its computational source is Leon Harmon's Bell Labs \"block portrait\" of Lincoln (1973, from \"The Recognition of Faces\") — a coarse grid of solid quantised grey squares that reads as abstract blocks up close and resolves into a face at a distance. Dali colourised Harmon's exact mosaic and added Gala, tiles and sky; Harmon supplied the pixelation. This is the archetypal Recognition image, and Harmon is a direct ancestor — with Knowlton — of the engine's figure-from-a-coarse-field forms. The engine's 'halftone' only ever gestured at Harmon (a noise-density grid); it had never rendered the actual block portrait, so the program learned 'blockface' (v3.31.0): a coarse grid of SOLID squares each quantised to one grey level from a shaped head-and-shoulders tone field — the greyscale sibling of 'texttone' (Knowlton's text figure). Debuted pure (wPixel 0.90) in Harmon greyscale (quantised #1a1613 ink → #e9e2d2 paper, vignette off), seed 142, a chunky 15-column grid for the up-close abstraction. The title is Dali's own — \"which at Twenty Meters Becomes the Portrait of Abraham Lincoln\" — the recognition distance. Deterministic and hard-canonical (7/7)."
+  },
+  {
+    "day": 160,
+    "date": "2026-11-16",
+    "title": "Futuristic Sheen",
+    "filename": "mechanical-reverie-day-160-futuristic-sheen-2026-11-16.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 16,
+      "gridRows": 11,
+      "cellPadding": 0.1064117204088946,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.05,
+      "gearDensity": 0.03529394078702175,
+      "gearComplexity": 15,
+      "chainFrequency": 0.3606275404427276,
+      "pixelDensity": 0.806095091180688,
+      "pixelSize": 5,
+      "flowScale": 0.0021941128035339818,
+      "flowStrength": 3.400360538499476,
+      "particleCount": 1896,
+      "clockSpeed": 0.0026546940268849066,
+      "oscillation": 1.6878648660736502,
+      "wMechanical": 0.9,
+      "wPixel": 0.05,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 0.46378894072538124,
+      "hatchSpacing": 17.18657732613549,
+      "pixelCharacter": "blockface",
+      "flowCharacter": "transit",
+      "mechanicalCharacter": "console",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 4,
+      "noiseSeed": 77,
+      "renderSeed": 3412699756,
+      "disorder": 0.05,
+      "disorderMode": "uniform",
+      "disorderAngle": 2.476458615068596,
+      "vignetteStrength": 0,
+      "paletteColors": [
+        "#0a0d12",
+        "#272e38",
+        "#e6b43c",
+        "#dfe6ee",
+        "#6cc8e0",
+        "#0a0d12",
+        "#19222e",
+        "#0e141c"
+      ],
+      "csGrid": 7,
+      "csBig": 0.5,
+      "csArray": 0.22,
+      "csReadout": 0.82
+    },
+    "certificate": {
+      "deterministic": true,
+      "checksum": "32a229cab2766d8e746ae0bcf3d4634c0248e739629630123605ee8f92272e98",
+      "checksumStability": "7/7 identical — hard-canonical (renderRng + genome, opaque fills/strokes)",
+      "engineVersion": "v3.32.0",
+      "renderSeed": 3412699756,
+      "noiseSeed": 77
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New character 'console' (v3.32.0) — the engine's first screen-wall: a packed field of flat glowing screen-panels with phosphor readouts. A NEW facet of Noll (the flat-screen/console designer), distinct from his line-art (vectors/gaussquad). Pure debut. Hard-canonical 7/7. User picked #9 (seed 77, grid 7 — the dense monitor-wall with Noll vector scribbles).",
+      "condensedReason": "Michael Benson, in \"Space Odyssey\": \"In the summer of 1965, Kubrick received two detailed Bell Labs reports written by A. Michael Noll... Flat screens were, of course, unknown in the '60s — at least outside of movie theaters — and they helped to ensure 2001's futuristic sheen.\" NB paired the quote with Noll's actual 1965 documents: a memo titled \"Phone Booth for Orbiting Space Station\", his drawing of a flat-screen PICTUREPHONE (realized in the film as Floyd's \"READY TO PLACE CALL\" videophone), and his master control CONSOLE — a wraparound wall of flat rectangular screens of varying sizes (big SCREEN A/B, 3x3 small-screen arrays, an intercom column). A. Michael Noll is the engine's hidden ancestor, already rendered as line-art ('vectors' Day 151, 'gaussquad' Day 150); but here is a NEW facet — Noll the designer of the flat SCREEN itself. The engine had no screen-wall, so the program learned 'console' (v3.32.0): a deterministic packing of glowing flat screen-panels — big screens, small-screen 3x3 arrays, bezels, one bright active display — each with a faint phosphor readout (data bars, dot grids, and vector lines that are a quiet Noll self-reference: his vector graphics on the screens he designed), on a dark console. Debuted pure (wMechanical 0.90) in a cool-dark console with amber/white/cyan phosphor, seed 77, a dense grid-7 monitor-wall closest to Noll's own drawing. Deterministic and hard-canonical (7/7)."
+    },
+    "tweetSummary": "NB: Michael Benson quote — Noll's 1965 Bell Labs reports gave Kubrick's 2001 its flat screens and 'futuristic sheen' (picturephone + master console).",
+    "keyArtists": [
+      "A. Michael Noll",
+      "Stanley Kubrick"
+    ],
+    "themes": [
+      "flat screens / the screen-wall",
+      "retro-futurism / 2001",
+      "phosphor readouts",
+      "Bell Labs / Noll lineage"
+    ],
+    "keyDetails": "A. Michael Noll's 1965 Bell Labs flat-screen designs for Kubrick's 2001 (picturephone + master console). NB original tweet (Michael Benson quote), 28 likes, 868 views.",
+    "description": "Michael Benson, in \"Space Odyssey\": \"In the summer of 1965, Kubrick received two detailed Bell Labs reports written by A. Michael Noll... Flat screens were, of course, unknown in the '60s — at least outside of movie theaters — and they helped to ensure 2001's futuristic sheen.\" NB paired the quote with Noll's actual 1965 documents: a memo titled \"Phone Booth for Orbiting Space Station\", his drawing of a flat-screen PICTUREPHONE (realized in the film as Floyd's \"READY TO PLACE CALL\" videophone), and his master control CONSOLE — a wraparound wall of flat rectangular screens of varying sizes (big SCREEN A/B, 3x3 small-screen arrays, an intercom column). A. Michael Noll is the engine's hidden ancestor, already rendered as line-art ('vectors' Day 151, 'gaussquad' Day 150); but here is a NEW facet — Noll the designer of the flat SCREEN itself. The engine had no screen-wall, so the program learned 'console' (v3.32.0): a deterministic packing of glowing flat screen-panels — big screens, small-screen 3x3 arrays, bezels, one bright active display — each with a faint phosphor readout (data bars, dot grids, and vector lines that are a quiet Noll self-reference: his vector graphics on the screens he designed), on a dark console. Debuted pure (wMechanical 0.90) in a cool-dark console with amber/white/cyan phosphor, seed 77, a dense grid-7 monitor-wall closest to Noll's own drawing. Deterministic and hard-canonical (7/7).",
+    "condensedReason": "Michael Benson, in \"Space Odyssey\": \"In the summer of 1965, Kubrick received two detailed Bell Labs reports written by A. Michael Noll... Flat screens were, of course, unknown in the '60s — at least outside of movie theaters — and they helped to ensure 2001's futuristic sheen.\" NB paired the quote with Noll's actual 1965 documents: a memo titled \"Phone Booth for Orbiting Space Station\", his drawing of a flat-screen PICTUREPHONE (realized in the film as Floyd's \"READY TO PLACE CALL\" videophone), and his master control CONSOLE — a wraparound wall of flat rectangular screens of varying sizes (big SCREEN A/B, 3x3 small-screen arrays, an intercom column). A. Michael Noll is the engine's hidden ancestor, already rendered as line-art ('vectors' Day 151, 'gaussquad' Day 150); but here is a NEW facet — Noll the designer of the flat SCREEN itself. The engine had no screen-wall, so the program learned 'console' (v3.32.0): a deterministic packing of glowing flat screen-panels — big screens, small-screen 3x3 arrays, bezels, one bright active display — each with a faint phosphor readout (data bars, dot grids, and vector lines that are a quiet Noll self-reference: his vector graphics on the screens he designed), on a dark console. Debuted pure (wMechanical 0.90) in a cool-dark console with amber/white/cyan phosphor, seed 77, a dense grid-7 monitor-wall closest to Noll's own drawing. Deterministic and hard-canonical (7/7)."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-15",
+  "updated": "2026-11-17",
   "concepts": [
     {
       "id": "bell-labs",
@@ -439,6 +439,10 @@
         {
           "gen": 158,
           "why": "The titular work itself — the 'vectors' character performing its namesake, Noll's '50 Lines Falling at Random Within a Cube' (1964); the sixth and most direct Noll gen."
+        },
+        {
+          "gen": 167,
+          "why": "A NEW facet of Noll (the room's hidden ancestor): not his line-art (vectors/gaussquad) but the flat SCREEN itself — his 1965 Bell Labs picturephone + master-console designs for Kubrick's 2001, rendered as the new \"console\" screen-wall."
         }
       ]
     },
@@ -669,6 +673,10 @@
         {
           "gen": 164,
           "why": "Dupuy Heart Beats Dust (1968): a cone of light is not how the work is shown but what reveals it — the red dust exists only where the beam strikes it; light as the literal medium of visibility."
+        },
+        {
+          "gen": 167,
+          "why": "Noll's flat screens for 2001: emitted light is what the work is made of — a wall of glowing phosphor displays on near-black; the \"futuristic sheen\" is the glow itself."
         }
       ]
     },

@@ -472,7 +472,16 @@ let W = canvas.width, H = canvas.height;
 // figure from a coarse field; Harmon is the computational source Dalí colourised. NOT in PIXEL_CHARS / not
 // mutation-reachable -> drawPixelLayer gains one else-if; every archive checksum unchanged. Deterministic
 // (noise + a seeded hash + genome, no Math.random); opaque fills -> hard-canonical.
-const ENGINE_VERSION = 'v3.31.0';
+// v3.32.0 — additive, opt-in (Day 160 "Futuristic Sheen", A. Michael Noll's 1965 Bell Labs reports for Kubrick's
+// 2001, via @Noahbolanowski / Michael Benson): the engine's FIRST screen-wall. Noll designed the flat-screen
+// picturephone and the master control console — a WALL of flat rectangular screens of varying sizes — that gave
+// 2001 its "futuristic sheen." New 'console' mechanicalCharacter: a deterministic packing of glowing flat
+// screen-panels (big screens, small-screen 3x3 arrays, bezels) on a dark console, each with a faint phosphor
+// readout (bars / vector lines — a Noll self-reference / dot grid), one panel bright-active. A new FACET of Noll,
+// distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
+// gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
+// hard-canonical.
+const ENGINE_VERSION = 'v3.32.0';
 
 // Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
 // the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
@@ -1605,6 +1614,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'gaussquad') { drawGaussquad(g, pal, t);   return; }
   if (ch === 'radiance') { drawRadiance(g, pal, t);     return; }
   if (ch === 'bandwalk') { drawBandwalk(g, pal, t);     return; }
+  if (ch === 'console')  { drawConsole(g, pal, t);      return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -2243,6 +2253,96 @@ function drawBandwalk(g, pal, t) {
       }
     }
     ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+}
+
+// CONSOLE — A. Michael Noll's 1965 Bell Labs master control console for Kubrick's 2001: a WALL of flat
+// rectangular glowing screens of varying sizes (big screens + small-screen 2×2/3×3 arrays, bezels), each with a
+// faint phosphor readout (data bars / vector lines — a Noll self-reference / dot grid), one panel bright-active,
+// on a dark console. The flat-screen aesthetic Noll invented → 2001's "futuristic sheen." Params: csGrid · csBig ·
+// csArray · csReadout · csConsole · csBezel · csFace · csSheen · csPhosphor. Opt-in (NOT in MECH_CHARS / not
+// mutation-reachable), additive, C2-safe. Deterministic (renderRng + genome, no Math.random); opaque → hard-canonical.
+function drawConsole(g, pal, t) {
+  const gc = clamp(Math.round(g.csGrid || 6), 3, 12);
+  const cell = W / gc;
+  const gr = Math.max(2, Math.round(H / cell));
+  const bigBias = clamp(g.csBig ?? 0.5, 0, 0.9);
+  const arrayRate = clamp(g.csArray ?? 0.22, 0, 0.6);
+  const readout = clamp(g.csReadout ?? 0.82, 0, 1);
+  const ground = g.csConsole || '#0a0d12';
+  const bezel = g.csBezel || '#272e38';
+  const face = g.csFace || '#0e141c';
+  const sheen = g.csSheen || '#19222e';
+  const phos = (Array.isArray(g.csPhosphor) && g.csPhosphor.length) ? g.csPhosphor : ['#e6b43c', '#dfe6ee', '#6cc8e0'];
+  const doGlow = (g.csGlow ?? 1) > 0;
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
+  const occ = Array.from({ length: gr }, () => new Array(gc).fill(false));
+  const pad = Math.max(3, cell * 0.07);
+  const rr = (x, y, w, h, r) => { r = Math.min(r, w / 2, h / 2); ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); };
+  function drawScreen(px, py, pw, ph, active) {
+    if (pw < 4 || ph < 4) return;
+    const b = Math.max(2, Math.min(pw, ph) * 0.05);
+    ctx.fillStyle = bezel; rr(px, py, pw, ph, b * 1.8); ctx.fill();
+    const fx = px + b, fy = py + b, fw = pw - 2 * b, fh = ph - 2 * b;
+    if (fw < 3 || fh < 3) return;
+    ctx.fillStyle = face; rr(fx, fy, fw, fh, b); ctx.fill();
+    if (doGlow) { ctx.fillStyle = sheen; rr(fx, fy, fw, fh * 0.34, b); ctx.fill(); }  // opaque top sheen
+    const col = phos[Math.floor(renderRng() * phos.length) % phos.length];
+    if (active) {                                        // the bright active screen (e.g. "READY TO PLACE CALL")
+      ctx.fillStyle = col;
+      const bw = fw * 0.5, bh = fh * 0.15;
+      ctx.fillRect(fx + (fw - bw) / 2, fy + fh * 0.30, bw, bh);
+      ctx.fillRect(fx + (fw - bw) / 2, fy + fh * 0.52, bw * 0.68, bh * 0.55);
+      return;
+    }
+    if (renderRng() > readout) return;                   // some screens stay dark
+    const type = renderRng();
+    ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = Math.max(1, b * 0.4);
+    if (type < 0.4) {                                    // data bars
+      const n = 2 + Math.floor(renderRng() * 4);
+      for (let i = 0; i < n; i++) { const yy = fy + fh * (0.2 + 0.6 * i / Math.max(1, n - 1));
+        const ln = fw * (0.3 + 0.55 * renderRng()); ctx.fillRect(fx + fw * 0.12, yy, ln, Math.max(1, b * 0.35)); }
+    } else if (type < 0.72) {                            // vector lines (Noll self-reference)
+      const n = 3 + Math.floor(renderRng() * 4); ctx.beginPath();
+      for (let i = 0; i < n; i++) { ctx.moveTo(fx + fw * renderRng(), fy + fh * renderRng());
+        ctx.lineTo(fx + fw * renderRng(), fy + fh * renderRng()); }
+      ctx.stroke();
+    } else {                                             // dot grid
+      const dc = 3 + Math.floor(renderRng() * 3), dr = 2 + Math.floor(renderRng() * 3);
+      for (let i = 0; i < dc; i++) for (let j = 0; j < dr; j++) ctx.fillRect(
+        fx + fw * (0.2 + 0.6 * i / Math.max(1, dc - 1)), fy + fh * (0.25 + 0.5 * j / Math.max(1, dr - 1)),
+        Math.max(1, b * 0.4), Math.max(1, b * 0.4));
+    }
+  }
+  let activePlaced = false;
+  for (let r = 0; r < gr; r++) {
+    for (let c = 0; c < gc; c++) {
+      if (occ[r][c]) continue;
+      const roll = renderRng();
+      const fits = (w, h) => { if (c + w > gc || r + h > gr) return false;
+        for (let yy = r; yy < r + h; yy++) for (let xx = c; xx < c + w; xx++) if (occ[yy][xx]) return false; return true; };
+      let sw = 1, sh = 1;
+      if (roll < bigBias * 0.4 && fits(3, 2)) { sw = 3; sh = 2; }
+      else if (roll < bigBias * 0.7 && fits(2, 2)) { sw = 2; sh = 2; }
+      else if (roll < bigBias && fits(2, 1)) { sw = 2; sh = 1; }
+      else if (roll < bigBias + 0.12 && fits(1, 2)) { sw = 1; sh = 2; }
+      for (let yy = r; yy < r + sh; yy++) for (let xx = c; xx < c + sw; xx++) occ[yy][xx] = true;
+      const px = c * cell + pad, py = r * cell + pad, pw = sw * cell - 2 * pad, ph = sh * cell - 2 * pad;
+      if (sw === 1 && sh === 1 && renderRng() < arrayRate) {   // micro-array of tiny screens
+        const n = renderRng() < 0.5 ? 2 : 3;
+        const g2 = Math.max(2, pad * 0.4);
+        const scw = (pw - (n - 1) * g2) / n, sch = (ph - (n - 1) * g2) / n;
+        for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) drawScreen(px + i * (scw + g2), py + j * (sch + g2), scw, sch, false);
+      } else {
+        const active = !activePlaced && sw >= 2 && sh >= 2 && renderRng() < 0.6;
+        if (active) activePlaced = true;
+        drawScreen(px, py, pw, ph, active);
+      }
+    }
   }
   ctx.globalAlpha = 1;
 }

@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-11-15T05:04:01Z",
+  "updated": "2026-11-17T17:59:51Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -3337,17 +3337,74 @@
         "filename": "mechanical-reverie-day-158-answers-to-precise-questions-2026-11-11.png"
       },
       "since": "2026-11-12T04:26:26Z"
+    },
+    "transit|console|light": {
+      "fitness": 6.625,
+      "genome": {
+        "gridCols": 16,
+        "gridRows": 11,
+        "cellPadding": 0.1064117204088946,
+        "rotation": 0,
+        "globalRotation": 0,
+        "paletteIndex": 9,
+        "bgDarkness": 0.05,
+        "gearDensity": 0.03529394078702175,
+        "gearComplexity": 15,
+        "chainFrequency": 0.3606275404427276,
+        "pixelDensity": 0.806095091180688,
+        "pixelSize": 5,
+        "flowScale": 0.0021941128035339818,
+        "flowStrength": 3.400360538499476,
+        "particleCount": 1896,
+        "clockSpeed": 0.0026546940268849066,
+        "oscillation": 1.6878648660736502,
+        "wMechanical": 0.9,
+        "wPixel": 0.05,
+        "wFlow": 0.05,
+        "wGeometric": 0.05,
+        "wOrganic": 0.05,
+        "wHatch": 0.05,
+        "hatchAngle": 0.46378894072538124,
+        "hatchSpacing": 17.18657732613549,
+        "pixelCharacter": "blockface",
+        "flowCharacter": "transit",
+        "mechanicalCharacter": "console",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 4,
+        "noiseSeed": 77,
+        "renderSeed": 3412699756,
+        "disorder": 0.05,
+        "disorderMode": "uniform",
+        "disorderAngle": 2.476458615068596,
+        "vignetteStrength": 0,
+        "paletteColors": [
+          "#0a0d12",
+          "#272e38",
+          "#e6b43c",
+          "#dfe6ee",
+          "#6cc8e0",
+          "#0a0d12",
+          "#19222e",
+          "#0e141c"
+        ],
+        "csGrid": 7,
+        "csBig": 0.5,
+        "csArray": 0.22,
+        "csReadout": 0.82
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 167,
+        "day": 160,
+        "date": "2026-11-16",
+        "title": "Futuristic Sheen",
+        "filename": "mechanical-reverie-day-160-futuristic-sheen-2026-11-16.png"
+      },
+      "since": "2026-11-17T17:59:51Z"
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-08-22T15:59:53Z",
-      "cell": "transit|led|dark",
-      "challengerFitness": 5.9442,
-      "incumbentFitness": 6.0757,
-      "result": "held",
-      "source": "Day 108 candidates"
-    },
     {
       "ts": "2026-08-22T15:59:53Z",
       "cell": "transit|led|dark",
@@ -5739,6 +5796,14 @@
       "incumbentFitness": null,
       "result": "placed-empty",
       "source": "seed gen 165"
+    },
+    {
+      "ts": "2026-11-17T17:59:51Z",
+      "cell": "transit|console|light",
+      "challengerFitness": 6.625,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 167"
     }
   ],
   "frontierState": {
@@ -5801,7 +5866,8 @@
     "mech": [
       "armature",
       "radiance",
-      "bandwalk"
+      "bandwalk",
+      "console"
     ]
   },
   "legacyNote": "Coordinates from earlier engine versions that the current engine cannot produce ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived pieces occupy these cells, so they are preserved and displayed, but they are excluded from the frontier and from coverage."
