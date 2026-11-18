@@ -481,7 +481,15 @@ let W = canvas.width, H = canvas.height;
 // distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
 // gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
 // hard-canonical.
-const ENGINE_VERSION = 'v3.32.0';
+const ENGINE_VERSION = 'v3.33.0';
+// v3.33.0 (Day 161 "It Becomes a Dalí"): blockface gains an opt-in multi-stop COLOUR-RAMP mode
+// (g.bfColorMode === 'ramp' + g.bfRamp = ['#..', ...], light→dark). The quantised tone q (0=paper,
+// 1=ink) is mapped through the ramp instead of the two-colour ink↔paper lerp, so the SAME block-bust
+// that read as Harmon's greyscale on Day 159 now resolves in Dalí's surreal colour — the literal
+// demonstration of Dalí's 1974 quote ("if Dalí copies a photograph, it becomes a Dalí"): Harmon's
+// grey blocks, recoloured, become a Dalí. Additive + default-identical (no bfColorMode → the exact
+// prior ink/paper lerp → every existing genome, incl. Day 159 and claude-015, renders bit-for-bit),
+// deterministic (opaque fills) → hard-canonical. NOT a new character — a colour facet of 'blockface'.
 
 // Running-text source for the 'texttone' character (Knowlton's UN Declaration of Human Rights). Real words of
 // the declaration so the mark means what Knowlton meant — the rights ARE the pixels of the person. Looped to
@@ -3546,9 +3554,18 @@ function drawPixelLayer(g, pal, t) {
     const ns = (g.noiseSeed || 1) * 0.001;
     const hex = (h) => { h = h.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; };
     const ic = hex(ink), pc = hex(paper);
+    // opt-in multi-stop COLOUR-RAMP (v3.33.0): map q∈[0,1] through bfRamp (light→dark) instead of the
+    // two-colour ink↔paper lerp. The block-bust resolves in Dalí's surreal polychrome rather than grey.
+    const useRamp = (g.bfColorMode === 'ramp' && Array.isArray(g.bfRamp) && g.bfRamp.length >= 2);
+    const rampC = useRamp ? g.bfRamp.map(hex) : null;
+    const rampAt = (q) => {
+      const n = rampC.length - 1, p = clamp(q, 0, 1) * n, i = Math.min(Math.floor(p), n - 1), f = p - i;
+      const a = rampC[i], b = rampC[i + 1];
+      return [Math.round(a[0] + (b[0] - a[0]) * f), Math.round(a[1] + (b[1] - a[1]) * f), Math.round(a[2] + (b[2] - a[2]) * f)];
+    };
     const bhash = (a, b) => { const v = Math.sin(a * 12.9898 + b * 78.233 + ns * 1000) * 43758.5453; return v - Math.floor(v); };
     ctx.globalAlpha = 1;
-    ctx.fillStyle = paper; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = useRamp ? g.bfRamp[0] : paper; ctx.fillRect(0, 0, W, H);
     for (let r = 0; r < rows; r++) {
       const fy = (r + 0.5) / rows;
       for (let c = 0; c < cols; c++) {
@@ -3564,9 +3581,9 @@ function drawPixelLayer(g, pal, t) {
         tone = clamp((tone - 0.5) * contrast + 0.5, 0, 1);
         tone = clamp(tone + (bhash(c + 1, r + 1) - 0.5) * cellNoise, 0, 1);
         const q = Math.round(tone * (levels - 1)) / (levels - 1);   // quantised darkness: 0 = paper, 1 = ink
-        const R = Math.round(pc[0] + (ic[0] - pc[0]) * q);
-        const G = Math.round(pc[1] + (ic[1] - pc[1]) * q);
-        const B = Math.round(pc[2] + (ic[2] - pc[2]) * q);
+        let R, G, B;
+        if (useRamp) { const rc = rampAt(q); R = rc[0]; G = rc[1]; B = rc[2]; }
+        else { R = Math.round(pc[0] + (ic[0] - pc[0]) * q); G = Math.round(pc[1] + (ic[1] - pc[1]) * q); B = Math.round(pc[2] + (ic[2] - pc[2]) * q); }
         ctx.fillStyle = `rgb(${R},${G},${B})`;
         // integer-aligned, abutting cells (no sub-pixel seams); bfGap>0 opens a deliberate tile grout
         const x0 = Math.round(c * cell), x1 = Math.round((c + 1) * cell);
