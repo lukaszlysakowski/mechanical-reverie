@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-17",
+  "updated": "2026-11-19",
   "concepts": [
     {
       "id": "bell-labs",
@@ -172,6 +172,10 @@
         {
           "gen": 151,
           "why": "Shelley Lake — experimental computer video at MIT's Architecture Machine Group (1980); 'Artificial Intelligence' made with Pat Hearn, the first attempt to make the Votrax synth SING. A new woman pioneer in the lineage."
+        },
+        {
+          "gen": 169,
+          "why": "Natalie Bookchin, net.art pioneer and CalArts teacher advising Art Basel Miami Beach, is the voice of the piece"
         }
       ]
     },
@@ -677,6 +681,10 @@
         {
           "gen": 167,
           "why": "Noll's flat screens for 2001: emitted light is what the work is made of — a wall of glowing phosphor displays on near-black; the \"futuristic sheen\" is the glow itself."
+        },
+        {
+          "gen": 169,
+          "why": "the e-lounge as a wall of glowing screens — the 'console' screen-wall recoloured from Noll's muted phosphor (gen 167) to net.art's electric cyan/magenta/blue glow"
         }
       ]
     },
@@ -704,6 +712,10 @@
         {
           "gen": 123,
           "why": "Global Groove (1973) is the prophecy the room is about: 'an imaginary video landscape that anticipates what might happen when all the countries of the world are connected by cable television' — the networked world, foreseen in signal."
+        },
+        {
+          "gen": 169,
+          "why": "net.art enters the fair economy (Art Basel Miami's e-lounge, online auctions) — the engine's first Web-based-art source; Bookchin's Internet as 'a form constantly changing' is the networked medium itself"
         }
       ]
     },
@@ -1001,6 +1013,10 @@
         {
           "gen": 168,
           "why": "Dali's 'a copy, authored, becomes a Dali' restates the engine's own translate-don't-illustrate method: style as the transform/program that authors the source"
+        },
+        {
+          "gen": 169,
+          "why": "Bookchin's 'a form constantly changing' frozen by the engine to ONE canonical state — the score-not-performance argument restated by net.art's live, never-fixed medium"
         }
       ]
     },
