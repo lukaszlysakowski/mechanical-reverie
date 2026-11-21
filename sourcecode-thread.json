@@ -1,0 +1,127 @@
+{
+  "thread": "Source Code",
+  "premise": "Day 163 'Something Has Broken' stopped being a day's render — it became a seed-idea: JODI's 'sourcecode' character, the net.art gesture where the visible surface is broken and the real work is in the view-source. This thread lets that idea grow its own line of descent. The ROOT is the untouched daily-archive piece (the GoodTimes SCREEN — rows, scanlines, dingbats, breathing room). Branches descend from it, each its own canonical seed, taking the mark where the daily didn't. It is a personal thread: JODI (Joan Heemskerk & Dirk Paesmans) are an inspiration to this engine's author. The root is never rewritten — still 1aff9fa3.",
+  "started": "2026-11-20",
+  "updated": "2026-11-20",
+  "root": {
+    "source": "daily-archive",
+    "day": 163,
+    "title": "Something Has Broken",
+    "date": "2026-11-20",
+    "after": "JODI (Joan Heemskerk & Dirk Paesmans), 'GoodTimes'",
+    "via": "@Noahbolanowski — Hans Dieter Huber, 1999 ARTE 'Metropolis' net.art interview",
+    "pixelCharacter": "sourcecode",
+    "engineVersion": "v3.34.0",
+    "checksum": "1aff9fa36e12e7f276fc82945edefa182ce7fa23509cf9fa7ce683f92d63aa6e",
+    "noiseSeed": 77,
+    "renderSeed": 163001,
+    "rasterFilename": "mechanical-reverie-day-163-something-has-broken-2026-11-20.png",
+    "note": "Canonical seed lives in selected-genomes.json (day 163, gen 170), untouched. This thread descends from it; it does not rewrite it."
+  },
+  "forkRule": {
+    "line": "Fidelity. The root is the GoodTimes SCREEN. A branch is a new screen COMPOSITION with its OWN checksum — the glitch going where the daily didn't (the source flooding the surface; a crash; a dingbat parade; a form hidden in the source). It stops being the root the moment it makes a decision the root never made.",
+    "tell": "When the work stops reproducing Something Has Broken and starts making its own decisions about what the break is."
+  },
+  "branches": {
+    "compositions": {
+      "premise": "New screen COMPOSITIONS that evolve the 'sourcecode' mark — not re-renders of Day 163, but the idea taken somewhere the GoodTimes screen didn't go. Each is its own canonical seed (own checksum).",
+      "works": [
+        {
+          "id": "sourcecode-01",
+          "title": "In the Source Code",
+          "date": "2026-11-20",
+          "filename": "mechanical-reverie-sourcecode-01-in-the-source-code-2026-11-20.png",
+          "engineVersion": "v3.34.0",
+          "checksum": "faa54adc387194c2a5d5b7e34bdf53aa990e8c5ae96fdb3c96d921672c7311ea",
+          "fitness": 6.675,
+          "idea": "The ASCII-storm — JODI's wwwwwwwww.jodi.org wall of symbols. Where the root is a GoodTimes SCREEN (structured rows, scanlines, breathing room), this is the SOURCE ITSELF flooding the whole surface edge to edge: scCols 126, scFill 0.92, scan and tear turned down, a dimmer second green giving the wall tonal ZONES so it breathes. 'On the visible surface simply nothing at all is visible, and ... in the source code things really get going' — here the source has taken over the surface. A NEW composition (own seed 170518), not a recolour of Day 163.",
+          "lineage": "root → compositions.sourcecode-01. Keeps the root's green-phosphor glyph-run mark (what makes it JODI) and pushes DENSITY to the limit — the broken window becomes an all-over wall.",
+          "certificate": {
+            "deterministic": true,
+            "checksum": "faa54adc387194c2a5d5b7e34bdf53aa990e8c5ae96fdb3c96d921672c7311ea",
+            "checksumStability": "7/7 identical — hard-canonical (renderRng + genome, opaque fills)",
+            "engineVersion": "v3.34.0",
+            "renderSeed": 170518,
+            "noiseSeed": 77,
+            "c2": "GREEN — gens 166-170 reproduce bit-for-bit under v3.34.0"
+          },
+          "genome": {
+            "gridCols": 13,
+            "gridRows": 4,
+            "cellPadding": 0.05994977700400257,
+            "rotation": 0,
+            "globalRotation": 0,
+            "paletteIndex": 9,
+            "bgDarkness": 0.9,
+            "gearDensity": 0.17594834324418618,
+            "gearComplexity": 11,
+            "chainFrequency": 0.05463542627058926,
+            "pixelDensity": 0.2631643237992447,
+            "pixelSize": 2,
+            "flowScale": 0.003944660411039446,
+            "flowStrength": 2.497931180005516,
+            "particleCount": 1812,
+            "clockSpeed": 0.005644631615282336,
+            "oscillation": 1.649867088928675,
+            "wMechanical": 0.05,
+            "wPixel": 0.95,
+            "wFlow": 0.05,
+            "wGeometric": 0.05,
+            "wOrganic": 0.05,
+            "wHatch": 0.05,
+            "hatchAngle": 0.5995612165471877,
+            "hatchSpacing": 10.966703681338743,
+            "pixelCharacter": "sourcecode",
+            "flowCharacter": "transit",
+            "mechanicalCharacter": "console",
+            "symmetry": 0,
+            "layerCount": 6,
+            "noiseOctaves": 2,
+            "noiseSeed": 77,
+            "renderSeed": 170518,
+            "disorder": 0.5,
+            "disorderMode": "uniform",
+            "disorderAngle": 4.726977862622159,
+            "paletteColors": [
+              "#27ff5e",
+              "#15b23f",
+              "#0e7a2e",
+              "#5bff86",
+              "#1c8f3a",
+              "#04070a",
+              "#0a2a14",
+              "#38ff6e"
+            ],
+            "vignetteStrength": 0,
+            "scCols": 126,
+            "scTear": 0.14,
+            "scScan": 0.04,
+            "scIcons": 0.05,
+            "scFill": 0.92,
+            "scInk": "#2bff62",
+            "scDim": "#0a5a24",
+            "scBg": "#03060a"
+          }
+        }
+      ]
+    }
+  },
+  "roadmap": [
+    {
+      "branch": "dingbat parade",
+      "idea": "foreground the GoodTimes top-left icon matrix — richer dingbat glyph set (people/house/money/TV/car) as its own repeating field; may add an opt-in scIconSet."
+    },
+    {
+      "branch": "crash / kernel panic",
+      "idea": "maximal tear + big scanline bands + sparse field — the blue-screen / system-halt register; possibly an opt-in error colour (amber/red) breaking the green."
+    },
+    {
+      "branch": "hidden in the source",
+      "idea": "JODI's view-source gesture made literal — a faint shaped bias (opt-in scFigure) so a coherent FORM surfaces from the glitch at a distance; the image lives in the code, not on the surface."
+    },
+    {
+      "branch": "animated scanline drift",
+      "idea": "the only moving branch — scanline bands and tear drifting over t (MP4), the screen rolling/tearing like a mis-synced CRT."
+    }
+  ]
+}

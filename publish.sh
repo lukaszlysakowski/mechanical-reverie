@@ -17,7 +17,7 @@ cp "$SRC/selected-genomes.json" "$DST/selected-genomes.json"
 echo "→ Syncing site files (pages + data)..."
 # These live only in the working dir and used to require manual copying — the source of
 # stale-site drift. Sync them every publish so the deployed site never lags the working copy.
-for f in index.html notes.html timeline.html atlas.html concepts.html threads.html claude.html overstruck.html overstruck-ink.html csuri.html noll.html generative-art-generator.html concepts.json threads.json elites-map.json claude-track.json plotter-track.json overstruck-thread.json; do
+for f in index.html notes.html timeline.html atlas.html concepts.html threads.html claude.html overstruck.html overstruck-ink.html sourcecode.html csuri.html noll.html generative-art-generator.html concepts.json threads.json elites-map.json claude-track.json plotter-track.json overstruck-thread.json sourcecode-thread.json; do
   if [ -f "$SRC/$f" ]; then
     if ! cmp -s "$SRC/$f" "$DST/$f"; then
       cp "$SRC/$f" "$DST/$f"
@@ -123,6 +123,26 @@ if os.path.exists(p):
 else:
     print('  (no overstruck-thread.json)')
 PYEOF4
+
+echo "→ Syncing Source Code thread composition art..."
+python3 - <<'PYEOF5'
+import json, shutil, os
+base = os.path.dirname(os.path.abspath(__file__))
+src = '/Users/lukasz/claude/mechanical-reverie/generative-art-output/art'
+dst = os.path.join(base, 'art')
+p = os.path.join(base, 'sourcecode-thread.json')
+if os.path.exists(p):
+    d = json.load(open(p))
+    files = [w.get('filename') for w in d.get('branches', {}).get('compositions', {}).get('works', []) if w.get('filename')]
+    n = 0
+    for fn in files:
+        s = os.path.join(src, fn)
+        if os.path.exists(s):
+            shutil.copy2(s, os.path.join(dst, fn)); print('  ~ ' + fn); n += 1
+    print('  (no composition art)' if n == 0 else f'  Synced {n} composition file(s)')
+else:
+    print('  (no sourcecode-thread.json)')
+PYEOF5
 
 # Build commit message
 if [ -n "$1" ]; then
