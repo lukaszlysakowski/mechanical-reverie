@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "concepts": [
     {
       "id": "bell-labs",
@@ -716,6 +716,10 @@
         {
           "gen": 169,
           "why": "net.art enters the fair economy (Art Basel Miami's e-lounge, online auctions) — the engine's first Web-based-art source; Bookchin's Internet as 'a form constantly changing' is the networked medium itself"
+        },
+        {
+          "gen": 170,
+          "why": "JODI (Heemskerk/Paesmans), net.art's most radical gesture — the browser broken on purpose, the work hidden in the view-source; the net.art GESTURE to Day 162's display furniture (console), together opening the vein"
         }
       ]
     },
@@ -1017,6 +1021,10 @@
         {
           "gen": 169,
           "why": "Bookchin's 'a form constantly changing' frozen by the engine to ONE canonical state — the score-not-performance argument restated by net.art's live, never-fixed medium"
+        },
+        {
+          "gen": 170,
+          "why": "JODI's view-source doctrine — 'nothing on the visible surface, in the source code things really get going' = the engine's own score-not-performance argument (the work is the code, not the render)"
         }
       ]
     },

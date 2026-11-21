@@ -481,7 +481,14 @@ let W = canvas.width, H = canvas.height;
 // distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
 // gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
 // hard-canonical.
-const ENGINE_VERSION = 'v3.33.0';
+const ENGINE_VERSION = 'v3.34.0';
+// v3.34.0 (Day 163 "Something Has Broken"): new opt-in 'sourcecode' pixelCharacter — JODI (Heemskerk/Paesmans),
+// the net.art duo's "GoodTimes" green source-code-as-surface glitch. A field of monospace glyph-runs + dingbat
+// rows in phosphor green on black, torn by horizontal displacement and scanline interference ("the feeling that
+// something has broken"; the real work lives in the view-source). The engine's FIRST glitch/corruption form and
+// first green-phosphor terminal. NOT in PIXEL_CHARS / not mutation-reachable -> drawPixelLayer gains one else-if;
+// every existing genome renders bit-for-bit (C2-safe). Deterministic (renderRng + genome, no Math.random); all
+// fills opaque -> hard-canonical.
 // v3.33.0 (Day 161 "It Becomes a Dalí"): blockface gains an opt-in multi-stop COLOUR-RAMP mode
 // (g.bfColorMode === 'ramp' + g.bfRamp = ['#..', ...], light→dark). The quantised tone q (0=paper,
 // 1=ink) is mapped through the ramp instead of the two-colour ink↔paper lerp, so the SAME block-bust
@@ -3589,6 +3596,82 @@ function drawPixelLayer(g, pal, t) {
         const x0 = Math.round(c * cell), x1 = Math.round((c + 1) * cell);
         const y0 = Math.round(r * cell), y1 = Math.round((r + 1) * cell);
         ctx.fillRect(x0, y0, (x1 - x0) - gap, (y1 - y0) - gap);
+      }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'sourcecode') {
+    // SOURCECODE — JODI (Joan Heemskerk & Dirk Paesmans), the net.art duo: their "GoodTimes" and kindred
+    // browser works where the rendered surface shows "nothing / something broken" and the real work lives in
+    // the SOURCE CODE ("...on the visible surface simply nothing at all is visible, and ... in the source
+    // code things really get going" — Hans Dieter Huber on JODI, 1999). The engine's FIRST glitch/corruption
+    // form and first green-phosphor terminal: a field of monospace glyph-runs (code lines) + repeated dingbat
+    // rows in phosphor green on black, torn by horizontal displacement and broken by scanline interference —
+    // the feeling that "something has broken." Params: scCols · scTear · scScan · scIcons · scFill · scInk ·
+    // scDim · scBg. Opt-in (NOT in PIXEL_CHARS / not mutation-reachable), additive, C2-safe. Deterministic
+    // (renderRng + genome, no Math.random); all fills OPAQUE → hard-canonical.
+    const cols = clamp(Math.round(g.scCols || 72), 24, 160);
+    const cw = W / cols;
+    const chh = cw * 1.7;                                  // monospace cell height (taller than wide)
+    const rows = Math.max(4, Math.round(H / chh));
+    const bg = g.scBg || '#04070a';
+    const ink = g.scInk || '#27ff5e';
+    const dim = g.scDim || '#0e7a2e';
+    const tear = clamp(g.scTear ?? 0.26, 0, 0.8);
+    const scanRate = clamp(g.scScan ?? 0.13, 0, 0.5);
+    const iconRate = clamp(g.scIcons ?? 0.16, 0, 0.5);
+    const fillD = clamp(g.scFill ?? 0.6, 0.2, 0.95);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+    const glyph = (x, y, k, col) => {
+      ctx.fillStyle = col;
+      const gx = x + cw * 0.14, gw = cw * 0.72, gy = y + chh * 0.2, gh = chh * 0.6;
+      const bar = Math.max(1, gw * 0.3), thin = Math.max(1, gh * 0.24);
+      if (k < 0.16) ctx.fillRect(gx, gy + gh - thin, gw, thin);                                // _ underscore
+      else if (k < 0.32) ctx.fillRect(gx, gy, bar, gh);                                        // l | 1
+      else if (k < 0.48) ctx.fillRect(gx, gy, gw, gh);                                         // # solid block
+      else if (k < 0.62) { ctx.fillRect(gx, gy, gw, thin); ctx.fillRect(gx, gy + gh - thin, gw, thin); } // = equals
+      else if (k < 0.76) { ctx.fillRect(gx, gy, bar, gh); ctx.fillRect(gx + gw - bar, gy, bar, gh); }     // || parallels
+      else if (k < 0.88) ctx.fillRect(gx, gy + (gh - thin) / 2, gw, thin);                     // - dash
+      else { ctx.fillRect(gx, gy, gw, thin); ctx.fillRect(gx, gy, bar, gh); }                  // Γ bracket
+    };
+    for (let r = 0; r < rows; r++) {
+      const y = r * chh;
+      const roll = renderRng();
+      if (roll < scanRate) {                                 // scanline interference band
+        ctx.fillStyle = renderRng() < 0.5 ? ink : dim;
+        const bh = Math.max(1, chh * (0.1 + 0.16 * renderRng()));
+        ctx.fillRect(0, y + chh * 0.42, W, bh);
+        continue;
+      }
+      const torn = renderRng() < tear;
+      const dx = torn ? Math.round((renderRng() - 0.5) * cols * 0.42) * cw : 0;
+      const rowCol = renderRng() < 0.76 ? ink : dim;
+      if (renderRng() < iconRate) {                          // repeated dingbat row (the icon grid)
+        const per = 2 + Math.floor(renderRng() * 2);
+        for (let c = 0; c < cols; c += per) {
+          const x = c * cw + dx;
+          if (x < -cw || x > W) continue;
+          ctx.fillStyle = rowCol;
+          ctx.fillRect(x + cw * 0.18, y + chh * 0.18, cw * 0.64, chh * 0.64);
+          ctx.fillStyle = bg;                                // notch → reads as an icon-glyph, not a solid block
+          ctx.fillRect(x + cw * 0.36, y + chh * 0.18, cw * 0.28, chh * 0.26);
+        }
+      } else {                                               // code line: word-runs of glyphs + spaces
+        let c = 0;
+        while (c < cols) {
+          if (renderRng() > fillD) { c += 1 + Math.floor(renderRng() * 3); continue; }  // space gap
+          const wlen = 1 + Math.floor(renderRng() * 7);
+          for (let k = 0; k < wlen && c < cols; k++, c++) {
+            const x = c * cw + dx;
+            if (x >= -cw && x <= W) glyph(x, y, renderRng(), rowCol);
+          }
+          c += 1 + Math.floor(renderRng() * 2);              // space after the word
+        }
+      }
+      if (torn && renderRng() < 0.38) {                      // ghost sliver of the torn row at the margin
+        ctx.fillStyle = dim;
+        ctx.fillRect(0, y + chh * 0.38, Math.min(W, Math.abs(dx) * 0.5 + cw), Math.max(1, chh * 0.1));
       }
     }
     ctx.globalAlpha = 1;
