@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "concepts": [
     {
       "id": "bell-labs",
@@ -685,6 +685,10 @@
         {
           "gen": 169,
           "why": "the e-lounge as a wall of glowing screens — the 'console' screen-wall recoloured from Noll's muted phosphor (gen 167) to net.art's electric cyan/magenta/blue glow"
+        },
+        {
+          "gen": 171,
+          "why": "Day 164 'Behind the Glass' (Joanie Lemercier, 'Lightfall' 2024) = the engine's FIRST volumetric / atmospheric-light form: light pulled OFF the screen into the air. The missing pole of this room — its others render light ON a screen."
         }
       ]
     },
@@ -1025,6 +1029,10 @@
         {
           "gen": 170,
           "why": "JODI's view-source doctrine — 'nothing on the visible surface, in the source code things really get going' = the engine's own score-not-performance argument (the work is the code, not the render)"
+        },
+        {
+          "gen": 171,
+          "why": "The horizontal TEAR is a curatorial override of the engine's own 'fix': Claude's default rounded the seam away as a bug; the artist kept it as the work. The piece IS the decision, not the default — the criteria-partnership made visible."
         }
       ]
     },

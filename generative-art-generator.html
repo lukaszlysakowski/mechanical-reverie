@@ -481,7 +481,13 @@ let W = canvas.width, H = canvas.height;
 // distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
 // gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
 // hard-canonical.
-const ENGINE_VERSION = 'v3.34.0';
+const ENGINE_VERSION = 'v3.35.0';
+// v3.35.0 (Day 164 "Behind the Glass", Joanie Lemercier / Studio LeMercier "Lightfall" 2024):
+// adds the opt-in 'lightfall' pixelCharacter — the engine's FIRST volumetric / atmospheric-light form:
+// a luminous body (plane OR vortex) glowing out of pure black through suspended turbulent haze, light
+// pulled OFF the screen and into the air (the missing pole of the Light as Medium room). Glow computed
+// in JS (seeded renderRng + noise), every fill OPAQUE → hard-canonical. Not in PIXEL_CHARS / not
+// mutation-reachable; every existing genome renders bit-for-bit (C2-safe).
 // v3.34.0 (Day 163 "Something Has Broken"): new opt-in 'sourcecode' pixelCharacter — JODI (Heemskerk/Paesmans),
 // the net.art duo's "GoodTimes" green source-code-as-surface glitch. A field of monospace glyph-runs + dingbat
 // rows in phosphor green on black, torn by horizontal displacement and scanline interference ("the feeling that
@@ -3672,6 +3678,101 @@ function drawPixelLayer(g, pal, t) {
       if (torn && renderRng() < 0.38) {                      // ghost sliver of the torn row at the margin
         ctx.fillStyle = dim;
         ctx.fillRect(0, y + chh * 0.38, Math.min(W, Math.abs(dx) * 0.5 + cw), Math.max(1, chh * 0.1));
+      }
+    }
+    ctx.globalAlpha = 1;
+
+  } else if (char === 'lightfall') {
+    // LIGHTFALL — Joanie Lemercier / Studio LeMercier, "Lightfall" (2024) and kindred works, where light is
+    // pulled OFF the screen and made VOLUMETRIC: a luminous body caught in suspended atmosphere (mist, water
+    // vapour, haze), glowing out of pure black with soft, grainy, turbulent fog-edges — "expanding light beyond
+    // the confinement of a screen ... pulling the viewer behind the glass" (@Noahbolanowski, 2026-11-22). The
+    // engine's FIRST volumetric / atmospheric-light form — light in the AIR, the missing pole of the Light as
+    // Medium room (its others render light ON a screen). Two geometries: a tilted luminous PLANE (a curtain of
+    // light falling through haze, cool head → hot foot — the titular work) or a concentric-ring VORTEX receding
+    // to a bright core (the "behind the glass" tunnel). Params: lfForm · lfBg · lfCool · lfHot · lfTilt · lfWidth
+    // · lfLen · lfRing · lfSpiral · lfTurb · lfScale · lfCore · lfStreak · lfCell. Opt-in (NOT in PIXEL_CHARS /
+    // not mutation-reachable), additive, C2-safe. Deterministic: the glow is computed in JS (seeded renderRng +
+    // noise) and every fill is OPAQUE — no alpha compositing → hard-canonical.
+    const hx = (h) => { h = (h || '#000').replace('#',''); if (h.length===3) h = h.split('').map(c=>c+c).join('');
+      return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; };
+    const form = g.lfForm || 'plane';
+    const bg   = hx(g.lfBg   || '#02040a');
+    const cool = hx(g.lfCool || '#cfe6ff');
+    const hot  = hx(g.lfHot  || '#ff2f3a');
+    const tilt  = (g.lfTilt  ?? -0.5);
+    const halfW = Math.max(0.03, (g.lfWidth ?? 0.11)) * W;     // plane: perp half-width · vortex: core radius
+    const halfL = Math.max(0.15, (g.lfLen   ?? 0.52)) * H;     // plane: along-fall half-length
+    const ringN = (g.lfRing   ?? 12);                          // vortex: number of concentric rings
+    const spir  = (g.lfSpiral ?? 0);                           // vortex: spiral twist (0 = pure concentric)
+    const turb  = clamp(g.lfTurb  ?? 0.6, 0, 1);
+    const warp  = clamp(g.lfWarp  ?? 0.6, 0, 1.6);             // domain-warp: the geometry billows like fog
+    const nsc   = (g.lfScale ?? 0.0065);
+    const core  = clamp(g.lfCore ?? 1.0, 0.4, 1.8);
+    const streak= clamp(g.lfStreak ?? 0.5, 0, 1);
+    const cell  = Math.max(2, Math.round(g.lfCell || 3));
+    const cx = W / 2, cy = H / 2;
+    const ca = Math.cos(tilt), sa = Math.sin(tilt);
+    const maxR = Math.hypot(W, H) * 0.5;
+    const ringK = ringN * 2 * Math.PI / maxR;                  // concentric ring wavenumber
+    const warpAmt = warp * 48;                                 // px of SCALAR wobble (radius / lateral offset)
+    // seed the atmosphere: offsets drawn from renderRng (renderSeed) so each seed gives a distinct fog
+    const ox = renderRng() * 1000 - 500, oy = renderRng() * 1000 - 500, oz = renderRng() * 1000 - 500;
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = `rgb(${bg[0]},${bg[1]},${bg[2]})`; ctx.fillRect(0, 0, W, H);
+    const fbm = (x, y) => {                                     // 3-octave noise, seeded offset, → [0,1]
+      let a = 0, amp = 0.5, f = 1;
+      for (let o = 0; o < 3; o++) { a += amp * noise.noise2D((x + ox) * nsc * f, (y + oy) * nsc * f); amp *= 0.5; f *= 2.1; }
+      return clamp((a + 1) / 2, 0, 1);
+    };
+    for (let py = 0; py < H; py += cell) {
+      for (let px = 0; px < W; px += cell) {
+        const dx = px - cx, dy = py - cy;
+        // SCALAR turbulence wobble (a signed field) — perturbs the radius (vortex) or the lateral offset (plane)
+        // so the luminous body billows like suspended haze. Scalar 1-D displacement cannot fold into the 2-D
+        // caustic seams a full position-warp produces. Two modest octaves, amplitude kept gentle.
+        const wsig = noise.noise2D((px + ox) * nsc * 0.85, (py + oy) * nsc * 0.85) * 0.7
+                   + noise.noise2D((px + ox + 140) * nsc * 1.9, (py + oy - 90) * nsc * 1.9) * 0.3;
+        let b, tt;
+        if (form === 'vortex') {
+          const rr0 = Math.hypot(dx, dy);
+          // taper the radial wobble to ZERO at the core: the radial gradient vanishes at the centre, so any
+          // warp there folds the rings into a crease. Full wobble only past ~150px → clean core, wavy rim.
+          let rr = rr0 + wsig * warpAmt * clamp((rr0 - 30) / 120, 0, 1);
+          if (rr < 0) rr = 0;
+          const coreF = Math.exp(-(rr / (halfL * 1.15)) * (rr / (halfL * 1.15)) * 0.6);  // broad luminous core
+          // lfSpiral twist: an INTEGER number of arms is seamless (the atan2 branch cut at ±π then jumps a whole
+          // 2π, invisible); a FRACTIONAL value leaves a deliberate half-step phase discontinuity — a horizontal
+          // TEAR across the light, the projection slipping its frame ("behind the glass" rupture; cf. the Day 163
+          // JODI tear). Both are intentional: 0 = pure concentric, 1/2/3 = clean spiral, 0.5 etc. = torn.
+          const rings = 0.5 + 0.5 * Math.cos(rr * ringK - (spir ? Math.atan2(dy, dx) * spir : 0)); // concentric / spiral / torn
+          b = coreF * (0.42 + 0.58 * rings) * core;
+          tt = clamp(rr / maxR, 0, 1);                           // bright centre → graded rim
+        } else {
+          const along = dx * ca + dy * sa, perp = (-dx * sa + dy * ca) + wsig * warpAmt;  // lateral billow
+          const bodyP = Math.exp(-(perp / halfW) * (perp / halfW));
+          const bodyL = Math.exp(-(along / halfL) * (along / halfL) * 0.8);
+          b = bodyP * bodyL * core;
+          if (streak > 0) {                                      // fine vertical projection striations along the fall
+            const st = 0.5 + 0.5 * noise.noise2D((perp + oz) * 0.12, along * 0.006);
+            b *= 1 - streak * 0.55 * (1 - st);
+          }
+          tt = clamp((along / halfL) * 0.5 + 0.5, 0, 1);         // cool head → hot foot
+        }
+        if (b < 0.004) continue;                                 // pure black outside the body — leave bg
+        const nt = fbm(px, py);                                  // atmospheric grain + erodes the soft edges to wisps
+        b *= (1 - turb) + turb * (0.08 + 1.75 * nt);
+        b = clamp(b, 0, 1);
+        b = b * b * (3 - 2 * b);                                 // glow curve
+        if (b < 0.01) continue;
+        let r = cool[0] + (hot[0] - cool[0]) * tt, gg = cool[1] + (hot[1] - cool[1]) * tt, bl = cool[2] + (hot[2] - cool[2]) * tt;
+        const whiteMix = clamp((b - 0.72) / 0.28, 0, 1) * 0.85;  // hottest cores blow toward white
+        r += (255 - r) * whiteMix; gg += (255 - gg) * whiteMix; bl += (255 - bl) * whiteMix;
+        const R = Math.round(bg[0] + (r  - bg[0]) * b);          // composite light over bg by brightness, OPAQUE
+        const G = Math.round(bg[1] + (gg - bg[1]) * b);
+        const B = Math.round(bg[2] + (bl - bg[2]) * b);
+        ctx.fillStyle = `rgb(${R},${G},${B})`;
+        ctx.fillRect(px, py, cell, cell);
       }
     }
     ctx.globalAlpha = 1;
