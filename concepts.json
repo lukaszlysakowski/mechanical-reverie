@@ -1069,6 +1069,18 @@
           "why": "'Arteônica' — Cordeiro's IBM-360 character-density halftones: a continuous image dissolved into the density of printed marks, tone measured and re-struck on paper."
         }
       ]
+    },
+    {
+      "id": "the-broken-machine",
+      "title": "Glitch / The Broken Machine",
+      "thesis": "The machine working is not the only aesthetic it offers — so is the machine breaking. Where Order & Disorder treats entropy as a dial turned somewhere between signal and noise, and The Network treats transmission as the medium, this room holds a sharper gesture: the deliberate corruption of a working system, the crash claimed as composition. JODI opened an HTML page whose source code \"gives you the feeling that something has broken\" — the glitch not as a failure to be fixed but as the truest view of the machine, visible only when you stop trusting the surface and read the source. The torn scanline, the displaced row, the phosphor terminal spilling corrupted code: the error IS the image. A tradition that runs from view-source net.art through databending and data-moshing to glitch theory — breaking the medium on purpose, because what a machine does when it fails is as authored as what it does when it runs.",
+      "link": null,
+      "members": [
+        {
+          "gen": 170,
+          "why": "JODI (Heemskerk & Paesmans), GoodTimes — the engine's FIRST glitch form: a green-phosphor terminal torn by horizontal row-displacement and scanline interference, monospace code corrupted into a surface. \"Something has broken\" — the founding case, the error made visible and claimed as the image (view-source net.art, 1999)."
+        }
+      ]
     }
   ]
 }
