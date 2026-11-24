@@ -481,7 +481,16 @@ let W = canvas.width, H = canvas.height;
 // distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
 // gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
 // hard-canonical.
-const ENGINE_VERSION = 'v3.35.0';
+const ENGINE_VERSION = 'v3.36.0';
+// v3.36.0 (Day 165 "A Legitimate Art Form", NB's "Graffiti / Post-Graffiti" ART/New York 1984 — graffiti's
+// entry into the gallery, quote-paired with M. Spalter on digital art "coming back around"): adds the opt-in
+// 'aerosol' mechanicalCharacter — the engine's FIRST spray-paint / aerosol mark. A field of asemic WILDSTYLE
+// tags: each a short polyline of sharply interlocking segments (letter-fragments + an arrow cap) sprayed as a
+// SOLID core + an atomized STIPPLE HALO (opaque dots with gaussian radial falloff = the overspray) + gravity
+// DRIPS, with a drop-shadow, over a grained dark wall. The stipple IS the medium (atomized droplets) — why it
+// is its own character, not radiance's flat rays. NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
+// gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); every
+// fill OPAQUE -> hard-canonical. Translate-don't-illustrate: asemic wildstyle, no real words.
 // v3.35.0 (Day 164 "Behind the Glass", Joanie Lemercier / Studio LeMercier "Lightfall" 2024):
 // adds the opt-in 'lightfall' pixelCharacter — the engine's FIRST volumetric / atmospheric-light form:
 // a luminous body (plane OR vortex) glowing out of pure black through suspended turbulent haze, light
@@ -1636,6 +1645,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'radiance') { drawRadiance(g, pal, t);     return; }
   if (ch === 'bandwalk') { drawBandwalk(g, pal, t);     return; }
   if (ch === 'console')  { drawConsole(g, pal, t);      return; }
+  if (ch === 'aerosol')  { drawAerosol(g, pal, t);      return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1858,6 +1868,117 @@ function drawRadiance(g, pal, t) {
     if (dot) {
       ctx.fillStyle = col; ctx.globalAlpha = 1;
       ctx.beginPath(); ctx.arc(cx, cy, Math.max(2, w * 0.9), 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+// AEROSOL: asemic wildstyle spray-tags (v3.36.0, 2026-11-23). Opt-in mechanicalCharacter 'aerosol' — the
+// engine's FIRST spray-paint / aerosol mark. After NB's "Graffiti / Post-Graffiti" (ART/New York, 1984).
+// Each tag is a short polyline of sharply interlocking segments (wildstyle letter-fragments + an arrow cap)
+// rendered as: a dark DROP-SHADOW, an atomized STIPPLE HALO (opaque dots, gaussian radial falloff = overspray),
+// a SOLID spray CORE on top, and gravity DRIPS from random vertices — over a grained dark wall. The stipple IS
+// the medium (atomized droplets), which is why it is its own character, not radiance's flat rays. Opt-in (NOT
+// in MECH_CHARS / not mutation-reachable), additive, C2-safe. Deterministic (renderRng + genome, no Math.random);
+// every fill OPAQUE -> hard-canonical. Translate-don't-illustrate: asemic wildstyle, no real words.
+function drawAerosol(g, pal, t) {
+  const hx = (h) => { h = (h || '#000').replace('#',''); if (h.length===3) h = h.split('').map(c=>c+c).join('');
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; };
+  const wall    = g.aeWall || '#17140f';
+  const colors  = (Array.isArray(g.aeColors) && g.aeColors.length) ? g.aeColors
+                 : ['#ff2d7e','#1fd4ff','#ffe02e','#ff7a1a','#27e36b','#f4f0e6','#b15cff'];
+  const nTags   = clamp(Math.round(g.aeTags ?? 7), 2, 24);
+  const segN    = clamp(Math.round(g.aeSeg ?? 5), 2, 9);
+  const coreW   = (g.aeWeight ?? 0.016) * Math.min(W, H);
+  const spread  = clamp(g.aeSpread ?? 2.1, 1, 4);          // overspray halo radius (x coreW)
+  const density = clamp(g.aeDensity ?? 0.75, 0.2, 1.4);    // stipple density
+  const dripCh  = clamp(g.aeDrip ?? 0.4, 0, 1);
+  const scaleVar= clamp(g.aeScaleVar ?? 0.6, 0, 1);
+  const shadow  = g.aeShadow !== false;
+  const grain   = clamp(g.aeGrain ?? 0.10, 0, 0.6);
+
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = wall; ctx.fillRect(0, 0, W, H);          // wall ground (opaque)
+  if (grain > 0) {                                          // faint concrete grain (deterministic opaque stipple)
+    const wr = hx(wall);
+    const n = Math.floor(W * H * 0.004);
+    for (let i = 0; i < n; i++) {
+      const x = renderRng() * W, y = renderRng() * H;
+      const d = (renderRng() - 0.5) * 2 * grain * 60;
+      ctx.fillStyle = `rgb(${clamp(wr[0]+d,0,255)|0},${clamp(wr[1]+d,0,255)|0},${clamp(wr[2]+d,0,255)|0})`;
+      ctx.fillRect(x|0, y|0, 1, 1);
+    }
+  }
+
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+  // spray a single segment as an atomized opaque stipple with gaussian overspray falloff
+  const stippleSeg = (x0, y0, x1, y1, col, cw, dens) => {
+    const dx = x1-x0, dy = y1-y0, L = Math.hypot(dx,dy); if (L < 0.5) return;
+    const ux = dx/L, uy = dy/L, px = -uy, py = ux;         // along + perpendicular unit vectors
+    const halo = cw * spread;
+    const steps = Math.max(2, Math.floor(L / (cw * 0.4)));
+    const perStep = Math.max(1, Math.round(halo * 1.1 * dens));
+    const [cr, cg, cb] = hx(col);
+    const sig = cw * spread * 0.42;                         // gaussian width of the spray (scales with halo)
+    for (let s = 0; s <= steps; s++) {
+      const bx = x0 + ux * (L * s/steps), by = y0 + uy * (L * s/steps);
+      for (let k = 0; k < perStep; k++) {
+        const r = (renderRng()*2 - 1) * halo;              // perpendicular offset
+        if (renderRng() > Math.exp(-(r/sig)*(r/sig))) continue;   // dense core, sparse edge
+        const along = (renderRng()-0.5) * cw * 0.7;
+        const tx = bx + px*r + ux*along, ty = by + py*r + uy*along;
+        const v = (renderRng()-0.5) * 26;                  // slight tonal grain
+        ctx.fillStyle = `rgb(${clamp(cr+v,0,255)|0},${clamp(cg+v,0,255)|0},${clamp(cb+v,0,255)|0})`;
+        const dsz = renderRng() < 0.86 ? 1 : 2;
+        ctx.fillRect(tx|0, ty|0, dsz, dsz);
+      }
+    }
+  };
+
+  for (let i = 0; i < nTags; i++) {
+    const scl = (1-scaleVar) + scaleVar * (0.5 + 1.1 * renderRng());
+    const cw = Math.max(2, coreW * scl);
+    let x = W * (0.08 + 0.84 * renderRng()), y = H * (0.14 + 0.74 * renderRng());
+    let ang = (renderRng() - 0.5) * 0.7;                   // roughly horizontal baseline
+    const col = colors[Math.floor(renderRng() * colors.length) % colors.length];
+    const segLen = cw * (3 + renderRng() * 3);
+    const verts = [[x, y]];
+    for (let s = 0; s < segN; s++) {                       // wildstyle: sharp alternating turns
+      ang += (renderRng() < 0.5 ? 1 : -1) * (0.6 + renderRng() * 1.2);
+      const L = segLen * (0.6 + renderRng() * 0.9);
+      x += Math.cos(ang) * L; y += Math.sin(ang) * L * 0.6;   // squash vertical (letters sit on a line)
+      verts.push([x, y]);
+    }
+    if (shadow) {                                          // drop-shadow (dark), under everything
+      const off = cw * 0.5;
+      ctx.strokeStyle = '#0a0908'; ctx.lineWidth = cw * 1.15;
+      ctx.beginPath(); ctx.moveTo(verts[0][0]+off, verts[0][1]+off);
+      for (let s = 1; s < verts.length; s++) ctx.lineTo(verts[s][0]+off, verts[s][1]+off);
+      ctx.stroke();
+    }
+    for (let s = 0; s < verts.length-1; s++)              // overspray HALO (stipple) under the core
+      stippleSeg(verts[s][0], verts[s][1], verts[s+1][0], verts[s+1][1], col, cw, density);
+    ctx.strokeStyle = col; ctx.lineWidth = cw * (g.aeCore ?? 0.5);   // SOLID spray core on top
+    ctx.beginPath(); ctx.moveTo(verts[0][0], verts[0][1]);
+    for (let s = 1; s < verts.length; s++) ctx.lineTo(verts[s][0], verts[s][1]);
+    ctx.stroke();
+    {                                                      // wildstyle ARROW cap at the end
+      const a = verts[verts.length-1], b = verts[verts.length-2];
+      const ddx = a[0]-b[0], ddy = a[1]-b[1], L = Math.hypot(ddx,ddy) || 1, ux = ddx/L, uy = ddy/L;
+      const al = cw * 2.2, aw = cw * 1.3;
+      ctx.lineWidth = cw * 0.5;
+      ctx.beginPath();
+      ctx.moveTo(a[0], a[1]); ctx.lineTo(a[0]-ux*al - uy*aw, a[1]-uy*al + ux*aw);
+      ctx.moveTo(a[0], a[1]); ctx.lineTo(a[0]-ux*al + uy*aw, a[1]-uy*al - ux*aw);
+      ctx.stroke();
+    }
+    for (let s = 0; s < verts.length; s++) {              // gravity DRIPS from random vertices
+      if (renderRng() < dripCh) {
+        const dl = cw * (2 + renderRng() * 8);
+        stippleSeg(verts[s][0], verts[s][1], verts[s][0] + (renderRng()-0.5)*cw*0.5, verts[s][1]+dl, col, cw*0.5, density*0.8);
+        ctx.fillStyle = col; ctx.beginPath(); ctx.arc(verts[s][0], verts[s][1]+dl, cw*0.3, 0, Math.PI*2); ctx.fill();
+      }
     }
   }
   ctx.globalAlpha = 1;

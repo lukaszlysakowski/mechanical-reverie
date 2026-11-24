@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-11-23T02:28:24Z",
+  "updated": "2026-11-24T01:18:16Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -3402,17 +3402,90 @@
         "filename": "mechanical-reverie-day-160-futuristic-sheen-2026-11-16.png"
       },
       "since": "2026-11-17T17:59:51Z"
+    },
+    "transit|aerosol|light": {
+      "fitness": 6.625,
+      "genome": {
+        "gridCols": 15,
+        "gridRows": 7,
+        "cellPadding": 0.1511176060326422,
+        "rotation": 0,
+        "globalRotation": 0,
+        "paletteIndex": 9,
+        "bgDarkness": 0.1,
+        "gearDensity": 0.26039186628592403,
+        "gearComplexity": 17,
+        "chainFrequency": 0.09067091614364164,
+        "pixelDensity": 0.1264915284575362,
+        "pixelSize": 3,
+        "flowScale": 0.006468451849558132,
+        "flowStrength": 2.6142502627139015,
+        "particleCount": 1734,
+        "clockSpeed": 0.009695753081193272,
+        "oscillation": 2.019638616336109,
+        "wMechanical": 0.9,
+        "wPixel": 0.05,
+        "wFlow": 0.05,
+        "wGeometric": 0.05,
+        "wOrganic": 0.05,
+        "wHatch": 0.05,
+        "hatchAngle": 1.2609943428920465,
+        "hatchSpacing": 9.477223465703517,
+        "pixelCharacter": "lightfall",
+        "flowCharacter": "transit",
+        "mechanicalCharacter": "aerosol",
+        "symmetry": 4.14,
+        "layerCount": 6,
+        "noiseOctaves": 3,
+        "noiseSeed": 4820,
+        "renderSeed": 631427,
+        "disorder": 0.7490343006431854,
+        "disorderMode": "linear",
+        "disorderAngle": 0.2492722753471699,
+        "paletteColors": [
+          "#ff2d7e",
+          "#1fd4ff",
+          "#ffe02e",
+          "#ff7a1a",
+          "#27e36b",
+          "#17140f",
+          "#b15cff",
+          "#f4f0e6"
+        ],
+        "vignetteStrength": 0,
+        "aeWall": "#1a1612",
+        "aeColors": [
+          "#ff2d7e",
+          "#1fd4ff",
+          "#ffe02e",
+          "#ff7a1a",
+          "#27e36b",
+          "#f4f0e6",
+          "#b15cff"
+        ],
+        "aeTags": 12,
+        "aeSeg": 5,
+        "aeWeight": 0.022,
+        "aeSpread": 3.7,
+        "aeDensity": 0.82,
+        "aeCore": 0.36,
+        "aeDrip": 0.45,
+        "aeScaleVar": 0.6,
+        "aeShadow": true,
+        "aeGrain": 0.14
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 172,
+        "day": 165,
+        "date": "2026-11-23",
+        "title": "A Legitimate Art Form",
+        "filename": "mechanical-reverie-day-165-a-legitimate-art-form-2026-11-23.png"
+      },
+      "since": "2026-11-24T01:18:16Z"
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-08-22T15:59:53Z",
-      "cell": "transit|led|dark",
-      "challengerFitness": 5.838,
-      "incumbentFitness": 6.0757,
-      "result": "held",
-      "source": "Day 108 candidates"
-    },
     {
       "ts": "2026-08-22T15:59:53Z",
       "cell": "transit|led|dark",
@@ -5804,6 +5877,14 @@
       "incumbentFitness": null,
       "result": "placed-empty",
       "source": "seed gen 167"
+    },
+    {
+      "ts": "2026-11-24T01:18:16Z",
+      "cell": "transit|aerosol|light",
+      "challengerFitness": 6.625,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 172"
     }
   ],
   "frontierState": {
@@ -5867,7 +5948,8 @@
       "armature",
       "radiance",
       "bandwalk",
-      "console"
+      "console",
+      "aerosol"
     ]
   },
   "legacyNote": "Coordinates from earlier engine versions that the current engine cannot produce ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived pieces occupy these cells, so they are preserved and displayed, but they are excluded from the frontier and from coverage."

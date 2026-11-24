@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "concepts": [
     {
       "id": "bell-labs",
@@ -377,6 +377,10 @@
         {
           "gen": 154,
           "why": "Day 147 — LACMA's landmark gift of 200+ digital artworks ('a major moment for digital art'). LACMA joins Cybernetic Serendipity, New Tendencies and the MIT Architecture Machine Group as a canon-forming institution; the source for Hammersley's CO-ED entering the archive."
+        },
+        {
+          "gen": 172,
+          "why": "Graffiti / Post-Graffiti (1984) — collectors (the Neumanns) making graffiti 'a legitimate art form'; NB cites the movement, not an artist, and pairs it with digital art 'coming back around' — legitimation of an outsider form, the room's exact argument extended from tech-art to the outsider→canon story it mirrors."
         }
       ]
     },
