@@ -12826,5 +12826,99 @@
     "keyDetails": "Graffiti / Post-Graffiti, ART/New York, 1984 — the Neumann collectors championing graffiti into 'a legitimate art form.' NB original, 10 likes, video (quote-paired w/ M. Spalter on digital art).",
     "description": "In 1984 the documentary 'Graffiti / Post-Graffiti' (ART/New York) recorded a turning point: graffiti, born on subway cars and walls, crossing into the gallery. Collectors Hubert and Dolores Neumann were, in the film's words, 'instrumental in graffiti's acceptance as a legitimate art form' — not only buying the work of writers like Futura 2000, Rammellzee, Lady Pink and Crash but actively promoting it, in the wake of Sidney Janis's 1983 'Post-Graffiti' show and the East Village scene. NB cites not an artist but a MOVEMENT, and quote-pairs it with Michael Spalter on digital art — 'something remarkable is happening in the quiet corners of the screen... an old, familiar story coming back around.' The argument is legitimation: an outsider form admitted to the canon, graffiti-then as digital-art-now. The reduction is the engine's FIRST spray-paint mark — the new 'aerosol' mechanicalCharacter (v3.36.0): asemic WILDSTYLE tags (interlocking strokes + arrow caps) sprayed as an atomized STIPPLE overspray + drips + drop-shadow over a dark wall. The stipple IS the medium (aerosol droplets), which is why it is its own character, not radiance's flat rays. Pure debut (wMechanical 0.90), the airy-overspray register chosen from a seed sweep — graffiti translated, never traced: no real words, the gesture of the can.",
     "condensedReason": "In 1984 the documentary 'Graffiti / Post-Graffiti' (ART/New York) recorded a turning point: graffiti, born on subway cars and walls, crossing into the gallery. Collectors Hubert and Dolores Neumann were, in the film's words, 'instrumental in graffiti's acceptance as a legitimate art form' — not only buying the work of writers like Futura 2000, Rammellzee, Lady Pink and Crash but actively promoting it, in the wake of Sidney Janis's 1983 'Post-Graffiti' show and the East Village scene. NB cites not an artist but a MOVEMENT, and quote-pairs it with Michael Spalter on digital art — 'something remarkable is happening in the quiet corners of the screen... an old, familiar story coming back around.' The argument is legitimation: an outsider form admitted to the canon, graffiti-then as digital-art-now. The reduction is the engine's FIRST spray-paint mark — the new 'aerosol' mechanicalCharacter (v3.36.0): asemic WILDSTYLE tags (interlocking strokes + arrow caps) sprayed as an atomized STIPPLE overspray + drips + drop-shadow over a dark wall. The stipple IS the medium (aerosol droplets), which is why it is its own character, not radiance's flat rays. Pure debut (wMechanical 0.90), the airy-overspray register chosen from a seed sweep — graffiti translated, never traced: no real words, the gesture of the can."
+  },
+  {
+    "day": 166,
+    "date": "2026-11-25",
+    "title": "Like a Labyrinth, Like a Garden",
+    "filename": "mechanical-reverie-day-166-like-a-labyrinth-like-a-garden-2026-11-25.png",
+    "fitness": 6.625,
+    "genome": {
+      "gridCols": 10,
+      "gridRows": 9,
+      "cellPadding": 0.021787926024127494,
+      "rotation": 0,
+      "globalRotation": 0,
+      "paletteIndex": 9,
+      "bgDarkness": 0.09076522574798263,
+      "gearDensity": 0.8943524276198395,
+      "gearComplexity": 21,
+      "chainFrequency": 0.8670370141157913,
+      "pixelDensity": 0.675362673033122,
+      "pixelSize": 3,
+      "flowScale": 0.0051420903858086925,
+      "flowStrength": 0.7730400833774538,
+      "particleCount": 1336,
+      "clockSpeed": 0.0015300617059531576,
+      "oscillation": 2.5783987849317236,
+      "wMechanical": 0.9,
+      "wPixel": 0.05,
+      "wFlow": 0.05,
+      "wGeometric": 0.05,
+      "wOrganic": 0.05,
+      "wHatch": 0.05,
+      "hatchAngle": 1.069689346759894,
+      "hatchSpacing": 7.826304226194464,
+      "pixelCharacter": "nested",
+      "flowCharacter": "biological",
+      "mechanicalCharacter": "fingerprint",
+      "symmetry": 0,
+      "layerCount": 6,
+      "noiseOctaves": 5,
+      "noiseSeed": 5513,
+      "renderSeed": 1771514205,
+      "disorder": 0.7259603873253235,
+      "disorderMode": "uniform",
+      "disorderAngle": 0.9696561825811393,
+      "vignetteStrength": 0,
+      "fpPattern": "whorl",
+      "fpScale": 0.92,
+      "fpSpacing": 0.0122,
+      "fpWeight": 0.0042,
+      "fpWobble": 0.1,
+      "fpColorMode": "depth",
+      "fpGround": "#05080c",
+      "fpColors": [
+        "#0a3b4d",
+        "#1f8fbf",
+        "#5fe0ff",
+        "#d6faff"
+      ],
+      "paletteColors": [
+        "#05080c",
+        "#0a3b4d",
+        "#1f8fbf",
+        "#5fe0ff",
+        "#d6faff",
+        "#05080c",
+        "#1f8fbf",
+        "#0a3b4d"
+      ]
+    },
+    "curatorial": {
+      "score": "A",
+      "notes": "New 'fingerprint' mechanicalCharacter (v3.37.0) — the engine's first biometric ridge field; zero-pole orientation + evenly-spaced streamlines; 7/7 hard-canonical. Cyan-scan register (pick #4). C2-GREEN.",
+      "condensedReason": "Amy Franceschini — founder of the art collective Futurefarmers (1995) and co-founder of the early web-art magazine Atlas — built “Fingerprint Maze” (2005), an interactive installation shown here in a KQED Spark segment: a visitor scans a fingerprint and the software lifts its ridges into a navigable three-dimensional maze. Franceschini's own words give the day its title and its argument — ‘you think you know your fingerprint, but then when you scan it, the camera's actually much better than your eye… it actually sees this beautiful pattern. And then when you are flying above it in the 3D world, it's like a labyrinth, like a garden.’ The machine does not see the finger; it reads it — samples, measures, and re-renders the whorl as marks, the exact claim of the Reading the Image room. So the engine learned to read a fingerprint too: a new ‘fingerprint’ character models ridge orientation with the classic zero-pole field (the whorl CORE where ridges curl, the DELTA triradius where three flows collide) and lays evenly-spaced streamlines across it, so the labyrinth EMERGES from the field and the minutiae — ridge-ends, forks — fall out of the spacing rather than being drawn. Rendered as luminous cyan ridges on near-black: not the ink-pad print but the scan, the camera's ‘beautiful pattern,’ the body's own signature read back as a garden you could fly through."
+    },
+    "tweetSummary": "Amy Franceschini (Futurefarmers), Fingerprint Maze (2005) via KQED Spark — scan a fingerprint, fly through its ridges as a 3D labyrinth/garden. NB original, 9 likes.",
+    "keyArtists": [
+      "Amy Franceschini"
+    ],
+    "themes": [
+      "the body as pattern",
+      "machine vision",
+      "labyrinth / garden",
+      "interactive pioneer"
+    ],
+    "keyDetails": "Amy Franceschini / Futurefarmers, ‘Fingerprint Maze’ (2005) — scan your fingerprint, fly through its ridges as a 3D labyrinth. NB original, 9 likes (KQED Spark clip).",
+    "description": "Amy Franceschini — founder of the art collective Futurefarmers (1995) and co-founder of the early web-art magazine Atlas — built “Fingerprint Maze” (2005), an interactive installation shown here in a KQED Spark segment: a visitor scans a fingerprint and the software lifts its ridges into a navigable three-dimensional maze. Franceschini's own words give the day its title and its argument — ‘you think you know your fingerprint, but then when you scan it, the camera's actually much better than your eye… it actually sees this beautiful pattern. And then when you are flying above it in the 3D world, it's like a labyrinth, like a garden.’ The machine does not see the finger; it reads it — samples, measures, and re-renders the whorl as marks, the exact claim of the Reading the Image room. So the engine learned to read a fingerprint too: a new ‘fingerprint’ character models ridge orientation with the classic zero-pole field (the whorl CORE where ridges curl, the DELTA triradius where three flows collide) and lays evenly-spaced streamlines across it, so the labyrinth EMERGES from the field and the minutiae — ridge-ends, forks — fall out of the spacing rather than being drawn. Rendered as luminous cyan ridges on near-black: not the ink-pad print but the scan, the camera's ‘beautiful pattern,’ the body's own signature read back as a garden you could fly through.",
+    "condensedReason": "Amy Franceschini — founder of the art collective Futurefarmers (1995) and co-founder of the early web-art magazine Atlas — built “Fingerprint Maze” (2005), an interactive installation shown here in a KQED Spark segment: a visitor scans a fingerprint and the software lifts its ridges into a navigable three-dimensional maze. Franceschini's own words give the day its title and its argument — ‘you think you know your fingerprint, but then when you scan it, the camera's actually much better than your eye… it actually sees this beautiful pattern. And then when you are flying above it in the 3D world, it's like a labyrinth, like a garden.’ The machine does not see the finger; it reads it — samples, measures, and re-renders the whorl as marks, the exact claim of the Reading the Image room. So the engine learned to read a fingerprint too: a new ‘fingerprint’ character models ridge orientation with the classic zero-pole field (the whorl CORE where ridges curl, the DELTA triradius where three flows collide) and lays evenly-spaced streamlines across it, so the labyrinth EMERGES from the field and the minutiae — ridge-ends, forks — fall out of the spacing rather than being drawn. Rendered as luminous cyan ridges on near-black: not the ink-pad print but the scan, the camera's ‘beautiful pattern,’ the body's own signature read back as a garden you could fly through.",
+    "certificate": {
+      "deterministic": true,
+      "checksum": "2e1cc67d7938c2998d22a505ae506f18ecf36be1bb0f727d605ce79aaa126d2d",
+      "engineVersion": "v3.37.0",
+      "renderSeed": 1771514205,
+      "noiseSeed": 5513
+    }
   }
 ]

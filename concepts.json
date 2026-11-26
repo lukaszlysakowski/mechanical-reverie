@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-23",
+  "updated": "2026-11-25",
   "concepts": [
     {
       "id": "bell-labs",
@@ -176,6 +176,10 @@
         {
           "gen": 169,
           "why": "Natalie Bookchin, net.art pioneer and CalArts teacher advising Art Basel Miami Beach, is the voice of the piece"
+        },
+        {
+          "gen": 173,
+          "why": "Amy Franceschini — Futurefarmers (1995) and the Atlas web-art magazine; a participatory / interactive-media pioneer, the body's own pattern read as a maze."
         }
       ]
     },
@@ -1071,6 +1075,10 @@
         {
           "gen": 140,
           "why": "'Arteônica' — Cordeiro's IBM-360 character-density halftones: a continuous image dissolved into the density of printed marks, tone measured and re-struck on paper."
+        },
+        {
+          "gen": 173,
+          "why": "The scanner reads the fingerprint rather than seeing it — samples, measures, re-renders the whorl as marks; 'the camera's actually much better than your eye... it sees this beautiful pattern.'"
         }
       ]
     },

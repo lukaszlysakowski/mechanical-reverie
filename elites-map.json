@@ -21,7 +21,7 @@
     ]
   },
   "challengeMargin": 0.05,
-  "updated": "2026-11-24T01:18:16Z",
+  "updated": "2026-11-26T17:15:56Z",
   "cells": {
     "mathematical|gear|light": {
       "fitness": 6.775,
@@ -3483,17 +3483,83 @@
         "filename": "mechanical-reverie-day-165-a-legitimate-art-form-2026-11-23.png"
       },
       "since": "2026-11-24T01:18:16Z"
+    },
+    "biological|fingerprint|light": {
+      "fitness": 6.625,
+      "genome": {
+        "gridCols": 10,
+        "gridRows": 9,
+        "cellPadding": 0.021787926024127494,
+        "rotation": 0,
+        "globalRotation": 0,
+        "paletteIndex": 9,
+        "bgDarkness": 0.09076522574798263,
+        "gearDensity": 0.8943524276198395,
+        "gearComplexity": 21,
+        "chainFrequency": 0.8670370141157913,
+        "pixelDensity": 0.675362673033122,
+        "pixelSize": 3,
+        "flowScale": 0.0051420903858086925,
+        "flowStrength": 0.7730400833774538,
+        "particleCount": 1336,
+        "clockSpeed": 0.0015300617059531576,
+        "oscillation": 2.5783987849317236,
+        "wMechanical": 0.9,
+        "wPixel": 0.05,
+        "wFlow": 0.05,
+        "wGeometric": 0.05,
+        "wOrganic": 0.05,
+        "wHatch": 0.05,
+        "hatchAngle": 1.069689346759894,
+        "hatchSpacing": 7.826304226194464,
+        "pixelCharacter": "nested",
+        "flowCharacter": "biological",
+        "mechanicalCharacter": "fingerprint",
+        "symmetry": 0,
+        "layerCount": 6,
+        "noiseOctaves": 5,
+        "noiseSeed": 5513,
+        "renderSeed": 1771514205,
+        "disorder": 0.7259603873253235,
+        "disorderMode": "uniform",
+        "disorderAngle": 0.9696561825811393,
+        "vignetteStrength": 0,
+        "fpPattern": "whorl",
+        "fpScale": 0.92,
+        "fpSpacing": 0.0122,
+        "fpWeight": 0.0042,
+        "fpWobble": 0.1,
+        "fpColorMode": "depth",
+        "fpGround": "#05080c",
+        "fpColors": [
+          "#0a3b4d",
+          "#1f8fbf",
+          "#5fe0ff",
+          "#d6faff"
+        ],
+        "paletteColors": [
+          "#05080c",
+          "#0a3b4d",
+          "#1f8fbf",
+          "#5fe0ff",
+          "#d6faff",
+          "#05080c",
+          "#1f8fbf",
+          "#0a3b4d"
+        ]
+      },
+      "provenance": {
+        "type": "archive-winner",
+        "gen": 173,
+        "day": 166,
+        "date": "2026-11-25",
+        "title": "Like a Labyrinth, Like a Garden",
+        "filename": "mechanical-reverie-day-166-like-a-labyrinth-like-a-garden-2026-11-25.png"
+      },
+      "since": "2026-11-26T17:15:56Z"
     }
   },
   "challengeLog": [
-    {
-      "ts": "2026-08-22T15:59:53Z",
-      "cell": "transit|led|dark",
-      "challengerFitness": 5.8355,
-      "incumbentFitness": 6.0757,
-      "result": "held",
-      "source": "Day 108 candidates"
-    },
     {
       "ts": "2026-08-22T15:59:53Z",
       "cell": "transit|led|dark",
@@ -5885,6 +5951,14 @@
       "incumbentFitness": null,
       "result": "placed-empty",
       "source": "seed gen 172"
+    },
+    {
+      "ts": "2026-11-26T17:15:56Z",
+      "cell": "biological|fingerprint|light",
+      "challengerFitness": 6.625,
+      "incumbentFitness": null,
+      "result": "placed-empty",
+      "source": "seed gen 173"
     }
   ],
   "frontierState": {
@@ -5949,7 +6023,8 @@
       "radiance",
       "bandwalk",
       "console",
-      "aerosol"
+      "aerosol",
+      "fingerprint"
     ]
   },
   "legacyNote": "Coordinates from earlier engine versions that the current engine cannot produce ('data' flow renders no flow layer; 'armature' mech falls back to gear). Real archived pieces occupy these cells, so they are preserved and displayed, but they are excluded from the frontier and from coverage."

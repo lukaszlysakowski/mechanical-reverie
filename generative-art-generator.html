@@ -481,7 +481,18 @@ let W = canvas.width, H = canvas.height;
 // distinct from his line-art ('vectors'/'gaussquad'). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical
 // gains one if; every archive checksum unchanged. Deterministic (renderRng + genome, no Math.random); opaque ->
 // hard-canonical.
-const ENGINE_VERSION = 'v3.36.0';
+const ENGINE_VERSION = 'v3.37.0';
+// v3.37.0 (Day 166 "Like a Labyrinth, Like a Garden", Amy Franceschini / Futurefarmers "Fingerprint Maze" 2005,
+// via @Noahbolanowski's KQED Spark clip): adds the opt-in 'fingerprint' mechanicalCharacter — the engine's FIRST
+// biometric ridge field. A fingerprint's identity is its SINGULARITIES: the whorl/loop CORE where ridges curl and
+// the DELTA (triradius) where three ridge-flows collide. We model the ridge orientation with the classic zero-pole
+// field theta = globalAng + 0.5*(Sum ang-to-core - Sum ang-to-delta), then trace evenly-spaced streamlines
+// (Jobard-Lefer) as the ridges — so the maze EMERGES from the field, ridge-endings and bifurcations (minutiae) fall
+// out of the even-spacing stops, never traced. Luminous ridges on near-black = the scanned print read as a 3D
+// labyrinth/garden ("the camera sees this beautiful pattern"); depth colour grades the whorl like a topographic
+// garden (Futurefarmers). The body's own signature becomes the pattern — sibling of 'heartdust' (biofeedback /
+// Wiener). NOT in MECH_CHARS / not mutation-reachable -> drawMechanical gains one if; every archive checksum
+// unchanged. Deterministic (field geometry + renderRng jitter only, no Math.random); opaque strokes -> hard-canonical.
 // v3.36.0 (Day 165 "A Legitimate Art Form", NB's "Graffiti / Post-Graffiti" ART/New York 1984 — graffiti's
 // entry into the gallery, quote-paired with M. Spalter on digital art "coming back around"): adds the opt-in
 // 'aerosol' mechanicalCharacter — the engine's FIRST spray-paint / aerosol mark. A field of asemic WILDSTYLE
@@ -1646,6 +1657,7 @@ function drawMechanical(g, pal, t) {
   if (ch === 'bandwalk') { drawBandwalk(g, pal, t);     return; }
   if (ch === 'console')  { drawConsole(g, pal, t);      return; }
   if (ch === 'aerosol')  { drawAerosol(g, pal, t);      return; }
+  if (ch === 'fingerprint') { drawFingerprint(g, pal, t); return; }
   // default: 'gear'
   const count = Math.floor(g.gearDensity * 12) + 2;
   for (let i = 0; i < count; i++) {
@@ -1980,6 +1992,158 @@ function drawAerosol(g, pal, t) {
         ctx.fillStyle = col; ctx.beginPath(); ctx.arc(verts[s][0], verts[s][1]+dl, cw*0.3, 0, Math.PI*2); ctx.fill();
       }
     }
+  }
+  ctx.globalAlpha = 1;
+}
+
+function drawFingerprint(g, pal, t) {
+  // The engine's FIRST biometric ridge field (Day 166 — Amy Franceschini "Fingerprint Maze", 2005).
+  // A fingerprint's identity is its SINGULARITIES: the whorl/loop CORE and the DELTA (triradius). We model
+  // ridge orientation with the zero-pole field theta = 0.5*(Σang-to-core − Σang-to-delta), then lay down
+  // EVENLY-SPACED streamlines (Jobard–Lefer) as the ridges — the maze emerges, minutiae (ridge ends,
+  // bifurcations) fall out of the even-spacing stops. Deterministic; opaque strokes → hard-canonical.
+  const hx = (h) => { h = (h || '#000').replace('#',''); if (h.length===3) h = h.split('').map(c=>c+c).join('');
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; };
+  const ground  = g.fpGround || '#070b08';
+  const ramp    = (Array.isArray(g.fpColors) && g.fpColors.length >= 2) ? g.fpColors
+                : ['#1b5c35','#2f9d54','#62e68c','#c9ffdd'];       // garden-green depth ramp (Futurefarmers)
+  const pattern = g.fpPattern || 'whorl';                          // whorl | loop | arch
+  const scale   = clamp(g.fpScale ?? 0.9, 0.3, 1.05);
+  const dSep    = Math.max(3, (g.fpSpacing ?? 0.0125) * Math.min(W, H));   // ridge separation (px)
+  const weight  = Math.max(0.6, (g.fpWeight ?? 0.0042) * Math.min(W, H));
+  const wob     = clamp(g.fpWobble ?? 0.16, 0, 0.6);               // orientation noise (organic ridge wander)
+  const relief  = g.fpRelief !== false;                            // dark underlay for engraved depth
+  const colorMode = g.fpColorMode || 'depth';                      // depth | flat
+  const grain   = clamp(g.fpGrain ?? 0.06, 0, 0.5);
+  const cx = W * (0.5 + (g.fpCx ?? 0)), cy = H * (0.5 + (g.fpCy ?? 0));
+  const R  = Math.min(W, H) * 0.5 * scale;                         // print radius
+  const globalAng = (g.fpAngle ?? 0);
+  const fw = (g.fpWobbleScale ?? 1.0) / Math.min(W, H) * 100;      // wobble spatial frequency
+  const ns = (g.noiseSeed || 0) * 0.001;
+
+  // --- singularities ---
+  const csp = R * (g.fpCoreSpread ?? 0.17);
+  const dsp = R * (g.fpDeltaSpread ?? 0.46);
+  let cores = [], deltas = [];
+  if (pattern === 'whorl') {
+    cores  = [[cx, cy - csp], [cx, cy + csp]];
+    deltas = [[cx - dsp, cy + dsp * 0.7], [cx + dsp, cy + dsp * 0.7]];
+  } else if (pattern === 'loop') {
+    cores  = [[cx, cy - csp * 0.6]];
+    deltas = [[cx + dsp * 0.7, cy + dsp * 0.85]];
+  } // arch → no singularities
+
+  // --- ridge orientation field (zero-pole model); +PI/2 so ridges run ALONG the flow, not toward it ---
+  const theta = (x, y) => {
+    let th;
+    if (pattern === 'arch') {
+      th = globalAng + (g.fpArchBend ?? 0.85) * (-(x - cx) / R) * Math.exp(-Math.pow((y - cy) / (R * 0.75), 2));
+    } else {
+      let s = 0;
+      for (const c of cores)  s += Math.atan2(y - c[1], x - c[0]);
+      for (const d of deltas) s -= Math.atan2(y - d[1], x - d[0]);
+      th = globalAng + 0.5 * s + Math.PI / 2;
+    }
+    if (wob > 0) th += wob * noise.noise2D(x * fw + ns, y * fw - ns);
+    return th;
+  };
+
+  // orientation fields carry a 180° ambiguity — align each step to the previous travel direction
+  const fieldVec = (x, y, pvx, pvy) => {
+    const a = theta(x, y);
+    let vx = Math.cos(a), vy = Math.sin(a);
+    if (pvx * vx + pvy * vy < 0) { vx = -vx; vy = -vy; }
+    return [vx, vy];
+  };
+
+  const inPrint = (x, y) => { const dx = x - cx, dy = y - cy; return dx * dx + dy * dy <= R * R; };
+
+  // --- separation grid (accepted ridge samples) ---
+  const nx = Math.ceil(W / dSep) + 2, ny = Math.ceil(H / dSep) + 2;
+  const cells = new Array(nx * ny);
+  const key = (x, y) => (Math.floor(y / dSep) + 1) * nx + (Math.floor(x / dSep) + 1);
+  const addPt = (x, y) => { const k = key(x, y); (cells[k] || (cells[k] = [])).push([x, y]); };
+  const tooCloseGlobal = (x, y, dMin) => {
+    const gx = Math.floor(x / dSep) + 1, gy = Math.floor(y / dSep) + 1, d2 = dMin * dMin;
+    for (let j = gy - 1; j <= gy + 1; j++) for (let i = gx - 1; i <= gx + 1; i++) {
+      if (i < 0 || j < 0 || i >= nx || j >= ny) continue;
+      const arr = cells[j * nx + i]; if (!arr) continue;
+      for (const p of arr) { const ddx = x - p[0], ddy = y - p[1]; if (ddx * ddx + ddy * ddy < d2) return true; }
+    }
+    return false;
+  };
+  const selfTooClose = (pts, x, y, dMin) => {
+    const d2 = dMin * dMin;
+    for (let i = 0; i < pts.length - 4; i++) { const ddx = x - pts[i][0], ddy = y - pts[i][1]; if (ddx * ddx + ddy * ddy < d2) return true; }
+    return false;
+  };
+
+  const h = Math.max(0.8, dSep * 0.35), maxSteps = 1500, minLen = dSep * 3;
+  const half = (sx, sy, sdx, sdy) => {
+    const out = []; let x = sx, y = sy, pvx = sdx, pvy = sdy;
+    for (let s = 0; s < maxSteps; s++) {
+      if (!inPrint(x, y) || tooCloseGlobal(x, y, dSep) || selfTooClose(out, x, y, dSep * 0.5)) break;
+      out.push([x, y]);
+      let [vx, vy] = fieldVec(x, y, pvx, pvy);                      // RK2 integration
+      let [vx2, vy2] = fieldVec(x + vx * h * 0.5, y + vy * h * 0.5, vx, vy);
+      x += vx2 * h; y += vy2 * h; pvx = vx2; pvy = vy2;
+    }
+    return out;
+  };
+
+  // seed queue: core rings kick off the whorl, a coarse grid fills the rest
+  const seeds = [];
+  for (const c of cores) { seeds.push([c[0] + dSep, c[1]]); seeds.push([c[0] - dSep, c[1]]); }
+  seeds.push([cx, cy]);
+  for (let gy = cy - R; gy <= cy + R; gy += dSep * 2.0)
+    for (let gx = cx - R; gx <= cx + R; gx += dSep * 2.0) seeds.push([gx, gy]);
+
+  const lines = [];
+  let qi = 0, guard = 0, maxLines = 3000;
+  while (qi < seeds.length && lines.length < maxLines && guard < 200000) {
+    guard++;
+    const [sx, sy] = seeds[qi++];
+    if (!inPrint(sx, sy) || tooCloseGlobal(sx, sy, dSep)) continue;
+    const a0 = theta(sx, sy);
+    const fwd = half(sx, sy, Math.cos(a0), Math.sin(a0));
+    const bwd = half(sx, sy, -Math.cos(a0), -Math.sin(a0)); bwd.reverse();
+    const line = bwd.concat(fwd.slice(1));
+    if (line.length * h < minLen) continue;
+    for (const p of line) addPt(p[0], p[1]);                        // commit to separation grid
+    lines.push(line);
+    for (let i = 2; i < line.length - 2; i += 3) {                  // spawn perpendicular seeds at ±dSep
+      const dx = line[i + 1][0] - line[i - 1][0], dy = line[i + 1][1] - line[i - 1][1];
+      const L = Math.hypot(dx, dy) || 1, px = -dy / L, py = dx / L;
+      seeds.push([line[i][0] + px * dSep, line[i][1] + py * dSep]);
+      seeds.push([line[i][0] - px * dSep, line[i][1] - py * dSep]);
+    }
+  }
+
+  // --- paint ---
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = ground; ctx.fillRect(0, 0, W, H);
+  if (grain > 0) {
+    const gr = hx(ground), n = Math.floor(W * H * 0.004);
+    for (let i = 0; i < n; i++) {
+      const x = renderRng() * W, y = renderRng() * H, d = (renderRng() - 0.5) * 2 * grain * 50;
+      ctx.fillStyle = `rgb(${clamp(gr[0] + d, 0, 255) | 0},${clamp(gr[1] + d, 0, 255) | 0},${clamp(gr[2] + d, 0, 255) | 0})`;
+      ctx.fillRect(x | 0, y | 0, 1, 1);
+    }
+  }
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const strokePath = (line) => { ctx.beginPath(); ctx.moveTo(line[0][0], line[0][1]); for (let i = 1; i < line.length; i++) ctx.lineTo(line[i][0], line[i][1]); ctx.stroke(); };
+  if (relief) {                                                     // engraved dark underlay (depth between ridges)
+    ctx.strokeStyle = '#000'; ctx.lineWidth = weight * 2.1;
+    for (const line of lines) strokePath(line);
+  }
+  for (const line of lines) {                                       // luminous ridge, coloured by whorl depth
+    let ci = 0;
+    if (colorMode === 'depth') {
+      let mr = 0; for (const p of line) mr += Math.hypot(p[0] - cx, p[1] - cy); mr /= line.length;
+      ci = clamp(Math.floor((1 - mr / R) * ramp.length), 0, ramp.length - 1);
+    } else ci = (lines.indexOf(line)) % ramp.length;
+    ctx.strokeStyle = ramp[ci]; ctx.lineWidth = weight;
+    strokePath(line);
   }
   ctx.globalAlpha = 1;
 }
